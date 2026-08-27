@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ADRE GK Quiz – Assam Exam Preparation</title>
+<title>ADRE Prep – Assam Exam Preparation</title>
 
-<meta name="description" content="Practice ADRE GK questions with free online quizzes for Assam Direct Recruitment Exam preparation.">
+<meta name="description" content="Practice ADRE questions with free daily quizzes and topic-wise preparation for Assam Direct Recruitment Exam.">
 
 <style>
 * {
@@ -38,7 +38,7 @@ header p {
 }
 
 .container {
-    max-width: 650px;
+    max-width: 700px;
     margin: 30px auto;
     padding: 20px;
 }
@@ -159,7 +159,7 @@ header p {
 <body>
 
 <header>
-    <h1>ADRE GK Quiz</h1>
+    <h1>ADRE Prep</h1>
     <p>Assam Direct Recruitment Exam Preparation</p>
 </header>
 
@@ -196,6 +196,30 @@ header p {
 
             <button class="topic-btn" onclick="startQuiz('science')">
                 🔬 General Science
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('economy')">
+                💰 Economy
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('reasoning')">
+                🧠 Reasoning
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('maths')">
+                🔢 Mathematics
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('english')">
+                📖 English
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('culture')">
+                🎭 Assam Culture
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('current')">
+                📰 Current Affairs
             </button>
 
         </div>
@@ -245,129 +269,159 @@ header p {
 const questions = {
 
     assam: [
-
         {
             question: "What is the capital of Assam?",
             options: ["Guwahati", "Dispur", "Jorhat", "Dibrugarh"],
             answer: 1
         },
-
         {
             question: "Which river is often called the lifeline of Assam?",
             options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
             answer: 2
         },
-
         {
             question: "Which is the largest river island in Assam?",
             options: ["Majuli", "Umananda", "Dibru", "Chandubi"],
             answer: 0
         },
-
         {
             question: "Kaziranga National Park is famous for which animal?",
             options: ["Asiatic Lion", "One-horned Rhinoceros", "Tiger", "Elephant"],
             answer: 1
         },
-
         {
             question: "What is the state animal of Assam?",
             options: ["Tiger", "Elephant", "One-horned Rhinoceros", "Wild Buffalo"],
             answer: 2
         }
-
     ],
 
     india: [
-
         {
             question: "What is the capital of India?",
             options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
             answer: 1
         },
-
         {
             question: "What is the national animal of India?",
             options: ["Lion", "Elephant", "Tiger", "Leopard"],
             answer: 2
         },
-
         {
             question: "Which is the largest state of India by area?",
             options: ["Maharashtra", "Rajasthan", "Madhya Pradesh", "Uttar Pradesh"],
             answer: 1
         }
-
     ],
 
     history: [
-
         {
             question: "Who was the first emperor of the Maurya Empire?",
             options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Harsha"],
             answer: 1
         },
-
         {
             question: "Who founded the Mughal Empire in India?",
             options: ["Akbar", "Babur", "Humayun", "Shah Jahan"],
             answer: 1
         },
-
         {
             question: "In which year did India become independent?",
             options: ["1945", "1946", "1947", "1950"],
             answer: 2
         }
-
     ],
 
     geography: [
-
         {
             question: "Which is the longest river in India?",
             options: ["Ganga", "Yamuna", "Godavari", "Narmada"],
             answer: 0
         },
-
         {
             question: "Which is the highest mountain peak in India?",
             options: ["Mount Everest", "Kangchenjunga", "Nanda Devi", "Annapurna"],
             answer: 1
         }
-
     ],
 
     polity: [
-
         {
             question: "Who is the constitutional head of India?",
             options: ["Prime Minister", "President", "Chief Justice", "Home Minister"],
             answer: 1
         },
-
         {
             question: "How many houses are there in the Parliament of India?",
             options: ["One", "Two", "Three", "Four"],
             answer: 1
         }
-
     ],
 
     science: [
-
         {
             question: "What is the chemical formula of water?",
             options: ["CO2", "O2", "H2O", "NaCl"],
             answer: 2
         },
-
         {
             question: "Which planet is known as the Red Planet?",
             options: ["Venus", "Mars", "Jupiter", "Mercury"],
             answer: 1
         }
+    ],
 
+    economy: [
+        {
+            question: "What does GDP stand for?",
+            options: [
+                "Gross Domestic Product",
+                "General Domestic Price",
+                "Gross Development Plan",
+                "Government Domestic Product"
+            ],
+            answer: 0
+        }
+    ],
+
+    reasoning: [
+        {
+            question: "If 2, 4, 6, 8, what comes next?",
+            options: ["9", "10", "11", "12"],
+            answer: 1
+        }
+    ],
+
+    maths: [
+        {
+            question: "What is 15 + 27?",
+            options: ["40", "41", "42", "43"],
+            answer: 2
+        }
+    ],
+
+    english: [
+        {
+            question: "Choose the synonym of 'Happy'.",
+            options: ["Sad", "Joyful", "Angry", "Weak"],
+            answer: 1
+        }
+    ],
+
+    culture: [
+        {
+            question: "Which festival is widely celebrated in Assam?",
+            options: ["Bihu", "Onam", "Pongal", "Lohri"],
+            answer: 0
+        }
+    ],
+
+    current: [
+        {
+            question: "Current Affairs questions will be added regularly.",
+            options: ["Continue", "Continue", "Continue", "Continue"],
+            answer: 0
+        }
     ]
 
 };
