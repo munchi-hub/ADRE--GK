@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADRE GK Quiz – Assam Exam Preparation</title>
+
+<meta name="description" content="Practice ADRE GK questions with free online quizzes for Assam Direct Recruitment Exam preparation.">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+}
+
+header {
+    background: #182848;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 8px 0 0;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+#question {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.option {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #f1f4ff;
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+#feedback {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 25px;
+}
+
+#nextBtn,
+#startBtn,
+#restartBtn {
+    margin-top: 20px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #182848;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#score {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.result {
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 30px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ADRE GK Quiz</h1>
+    <p>Assam Direct Recruitment Exam Preparation</p>
+</header>
+
+<div class="container">
+
+    <div id="startScreen" class="card result">
+        <h2>📚 ADRE GK Practice</h2>
+        <p>Test your General Knowledge and prepare for the ADRE exam.</p>
+        <button id="startBtn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div id="quizScreen" class="card hidden">
+
+        <div id="score">Score: 0</div>
+
+        <div id="question"></div>
+
+        <div id="options"></div>
+
+        <div id="feedback"></div>
+
+        <button id="nextBtn" class="hidden" onclick="nextQuestion()">
+            Next Question →
+        </button>
+
+    </div>
+
+    <div id="resultScreen" class="card result hidden">
+
+        <h2>🎉 Quiz Complete!</h2>
+
+        <p id="finalScore"></p>
+
+        <button id="restartBtn" onclick="startQuiz()">
+            Try Again
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const questions = [
+
+    {
+        question: "What is the capital of Assam?",
+        options: ["Guwahati", "Dispur", "Jorhat", "Dibrugarh"],
+        answer: 1
+    },
+
+    {
+        question: "Which river is often called the lifeline of Assam?",
+        options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
+        answer: 2
+    },
+
+    {
+        question: "Which is the largest river island in Assam?",
+        options: ["Majuli", "Umananda", "Dibru", "Chandubi"],
+        answer: 0
+    },
+
+    {
+        question: "Kaziranga National Park is famous for which animal?",
+        options: ["Asiatic Lion", "One-horned Rhinoceros", "Tiger", "Elephant"],
+        answer: 1
+    },
+
+    {
+        question: "What is the state animal of Assam?",
+        options: ["Tiger", "Elephant", "One-horned Rhinoceros", "Wild Buffalo"],
+        answer: 2
+    }
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function startQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("resultScreen").classList.add("hidden");
+    document.getElementById("quizScreen").classList.remove("hidden");
+
+    showQuestion();
+}
+
+function showQuestion() {
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").textContent =
+        (currentQuestion + 1) + ". " + q.question;
+
+    document.getElementById("score").textContent =
+        "Score: " + score;
+
+    document.getElementById("feedback").textContent = "";
+
+    document.getElementById("nextBtn").classList.add("hidden");
+
+    const optionsDiv = document.getElementById("options");
+
+    optionsDiv.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.textContent = option;
+
+        button.className = "option";
+
+        button.onclick = function() {
+            checkAnswer(index, button);
+        };
+
+        optionsDiv.appendChild(button);
+
+    });
+
+}
+
+function checkAnswer(selected, clickedButton) {
+
+    const q = questions[currentQuestion];
+
+    const buttons = document.querySelectorAll(".option");
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    if (selected === q.answer) {
+
+        score++;
+
+        document.getElementById("feedback").textContent =
+            "🎉 WOW! Correct answer!";
+
+    } else {
+
+        document.getElementById("feedback").textContent =
+            "😅 UGH! Wrong answer!";
+
+    }
+
+    document.getElementById("score").textContent =
+        "Score: " + score;
+
+    document.getElementById("nextBtn").classList.remove("hidden");
+
+}
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+
+        document.getElementById("quizScreen").classList.add("hidden");
+
+        document.getElementById("resultScreen").classList.remove("hidden");
+
+        document.getElementById("finalScore").textContent =
+            "You scored " + score + " out of " + questions.length + ".";
+
+    } else {
+
+        showQuestion();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
