@@ -50,6 +50,35 @@ header p {
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
+.result {
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 30px;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.topic-btn {
+    padding: 18px 10px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.topic-btn:hover {
+    background: #f1f4ff;
+}
+
 #question {
     font-size: 21px;
     font-weight: bold;
@@ -84,8 +113,8 @@ header p {
 }
 
 #nextBtn,
-#startBtn,
-#restartBtn {
+#restartBtn,
+#homeBtn {
     margin-top: 20px;
     padding: 14px 25px;
     border: none;
@@ -106,14 +135,6 @@ header p {
     display: none;
 }
 
-.result {
-    text-align: center;
-}
-
-.result h2 {
-    font-size: 30px;
-}
-
 @media (max-width: 600px) {
     .container {
         margin: 15px auto;
@@ -126,6 +147,10 @@ header p {
 
     header h1 {
         font-size: 24px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -140,12 +165,44 @@ header p {
 
 <div class="container">
 
-    <div id="startScreen" class="card result">
-        <h2>📚 ADRE GK Practice</h2>
-        <p>Test your General Knowledge and prepare for the ADRE exam.</p>
-        <button id="startBtn" onclick="startQuiz()">Start Quiz</button>
+    <!-- TOPIC SCREEN -->
+    <div id="topicScreen" class="card result">
+
+        <h2>📚 Choose a Topic</h2>
+
+        <p>Select a subject to start practicing.</p>
+
+        <div class="topic-grid">
+
+            <button class="topic-btn" onclick="startQuiz('assam')">
+                🇦🇸 Assam GK
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('india')">
+                🇮🇳 Indian GK
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('history')">
+                🏛️ History
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('geography')">
+                🌍 Geography
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('polity')">
+                ⚖️ Indian Polity
+            </button>
+
+            <button class="topic-btn" onclick="startQuiz('science')">
+                🔬 General Science
+            </button>
+
+        </div>
+
     </div>
 
+    <!-- QUIZ SCREEN -->
     <div id="quizScreen" class="card hidden">
 
         <div id="score">Score: 0</div>
@@ -162,14 +219,21 @@ header p {
 
     </div>
 
+    <!-- RESULT SCREEN -->
     <div id="resultScreen" class="card result hidden">
 
         <h2>🎉 Quiz Complete!</h2>
 
         <p id="finalScore"></p>
 
-        <button id="restartBtn" onclick="startQuiz()">
-            Try Again
+        <button id="restartBtn" onclick="showTopics()">
+            Choose Another Topic
+        </button>
+
+        <br>
+
+        <button id="homeBtn" onclick="showTopics()">
+            🏠 Back to Topics
         </button>
 
     </div>
@@ -178,49 +242,147 @@ header p {
 
 <script>
 
-const questions = [
+const questions = {
 
-    {
-        question: "What is the capital of Assam?",
-        options: ["Guwahati", "Dispur", "Jorhat", "Dibrugarh"],
-        answer: 1
-    },
+    assam: [
 
-    {
-        question: "Which river is often called the lifeline of Assam?",
-        options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
-        answer: 2
-    },
+        {
+            question: "What is the capital of Assam?",
+            options: ["Guwahati", "Dispur", "Jorhat", "Dibrugarh"],
+            answer: 1
+        },
 
-    {
-        question: "Which is the largest river island in Assam?",
-        options: ["Majuli", "Umananda", "Dibru", "Chandubi"],
-        answer: 0
-    },
+        {
+            question: "Which river is often called the lifeline of Assam?",
+            options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
+            answer: 2
+        },
 
-    {
-        question: "Kaziranga National Park is famous for which animal?",
-        options: ["Asiatic Lion", "One-horned Rhinoceros", "Tiger", "Elephant"],
-        answer: 1
-    },
+        {
+            question: "Which is the largest river island in Assam?",
+            options: ["Majuli", "Umananda", "Dibru", "Chandubi"],
+            answer: 0
+        },
 
-    {
-        question: "What is the state animal of Assam?",
-        options: ["Tiger", "Elephant", "One-horned Rhinoceros", "Wild Buffalo"],
-        answer: 2
-    }
+        {
+            question: "Kaziranga National Park is famous for which animal?",
+            options: ["Asiatic Lion", "One-horned Rhinoceros", "Tiger", "Elephant"],
+            answer: 1
+        },
 
-];
+        {
+            question: "What is the state animal of Assam?",
+            options: ["Tiger", "Elephant", "One-horned Rhinoceros", "Wild Buffalo"],
+            answer: 2
+        }
 
+    ],
+
+    india: [
+
+        {
+            question: "What is the capital of India?",
+            options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
+            answer: 1
+        },
+
+        {
+            question: "What is the national animal of India?",
+            options: ["Lion", "Elephant", "Tiger", "Leopard"],
+            answer: 2
+        },
+
+        {
+            question: "Which is the largest state of India by area?",
+            options: ["Maharashtra", "Rajasthan", "Madhya Pradesh", "Uttar Pradesh"],
+            answer: 1
+        }
+
+    ],
+
+    history: [
+
+        {
+            question: "Who was the first emperor of the Maurya Empire?",
+            options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Harsha"],
+            answer: 1
+        },
+
+        {
+            question: "Who founded the Mughal Empire in India?",
+            options: ["Akbar", "Babur", "Humayun", "Shah Jahan"],
+            answer: 1
+        },
+
+        {
+            question: "In which year did India become independent?",
+            options: ["1945", "1946", "1947", "1950"],
+            answer: 2
+        }
+
+    ],
+
+    geography: [
+
+        {
+            question: "Which is the longest river in India?",
+            options: ["Ganga", "Yamuna", "Godavari", "Narmada"],
+            answer: 0
+        },
+
+        {
+            question: "Which is the highest mountain peak in India?",
+            options: ["Mount Everest", "Kangchenjunga", "Nanda Devi", "Annapurna"],
+            answer: 1
+        }
+
+    ],
+
+    polity: [
+
+        {
+            question: "Who is the constitutional head of India?",
+            options: ["Prime Minister", "President", "Chief Justice", "Home Minister"],
+            answer: 1
+        },
+
+        {
+            question: "How many houses are there in the Parliament of India?",
+            options: ["One", "Two", "Three", "Four"],
+            answer: 1
+        }
+
+    ],
+
+    science: [
+
+        {
+            question: "What is the chemical formula of water?",
+            options: ["CO2", "O2", "H2O", "NaCl"],
+            answer: 2
+        },
+
+        {
+            question: "Which planet is known as the Red Planet?",
+            options: ["Venus", "Mars", "Jupiter", "Mercury"],
+            answer: 1
+        }
+
+    ]
+
+};
+
+let currentTopic = "";
 let currentQuestion = 0;
 let score = 0;
 
-function startQuiz() {
+function startQuiz(topic) {
 
+    currentTopic = topic;
     currentQuestion = 0;
     score = 0;
 
-    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("topicScreen").classList.add("hidden");
     document.getElementById("resultScreen").classList.add("hidden");
     document.getElementById("quizScreen").classList.remove("hidden");
 
@@ -229,7 +391,7 @@ function startQuiz() {
 
 function showQuestion() {
 
-    const q = questions[currentQuestion];
+    const q = questions[currentTopic][currentQuestion];
 
     document.getElementById("question").textContent =
         (currentQuestion + 1) + ". " + q.question;
@@ -254,7 +416,7 @@ function showQuestion() {
         button.className = "option";
 
         button.onclick = function() {
-            checkAnswer(index, button);
+            checkAnswer(index);
         };
 
         optionsDiv.appendChild(button);
@@ -263,9 +425,9 @@ function showQuestion() {
 
 }
 
-function checkAnswer(selected, clickedButton) {
+function checkAnswer(selected) {
 
-    const q = questions[currentQuestion];
+    const q = questions[currentTopic][currentQuestion];
 
     const buttons = document.querySelectorAll(".option");
 
@@ -298,20 +460,29 @@ function nextQuestion() {
 
     currentQuestion++;
 
-    if (currentQuestion >= questions.length) {
+    if (currentQuestion >= questions[currentTopic].length) {
 
         document.getElementById("quizScreen").classList.add("hidden");
 
         document.getElementById("resultScreen").classList.remove("hidden");
 
         document.getElementById("finalScore").textContent =
-            "You scored " + score + " out of " + questions.length + ".";
+            "You scored " + score + " out of " +
+            questions[currentTopic].length + ".";
 
     } else {
 
         showQuestion();
 
     }
+
+}
+
+function showTopics() {
+
+    document.getElementById("quizScreen").classList.add("hidden");
+    document.getElementById("resultScreen").classList.add("hidden");
+    document.getElementById("topicScreen").classList.remove("hidden");
 
 }
 
