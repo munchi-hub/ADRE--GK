@@ -6,9 +6,10 @@
 
 <title>ADRE Prep – Assam Exam Preparation</title>
 
-<meta name="description" content="Practice ADRE questions with free daily quizzes and topic-wise preparation for Assam Direct Recruitment Exam.">
+<meta name="description" content="ADRE preparation with daily quizzes, topic-wise GK, XP, streaks, mock tests and premium study resources.">
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -23,13 +24,13 @@ body {
 header {
     background: #182848;
     color: white;
-    padding: 25px 15px;
+    padding: 28px 15px;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 30px;
 }
 
 header p {
@@ -38,16 +39,61 @@ header p {
 }
 
 .container {
-    max-width: 700px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 15px;
 }
 
 .card {
     background: white;
-    border-radius: 16px;
-    padding: 25px;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.stat {
+    background: #f1f4ff;
+    padding: 15px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.stat span {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.challenge {
+    text-align: center;
+    background: #fff8e6;
+}
+
+.challenge h2 {
+    margin-top: 0;
+}
+
+.primary-btn {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #182848;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
 }
 
 .result {
@@ -55,7 +101,7 @@ header p {
 }
 
 .result h2 {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .topic-grid {
@@ -68,15 +114,31 @@ header p {
 .topic-btn {
     padding: 18px 10px;
     border: 2px solid #ddd;
-    border-radius: 12px;
+    border-radius: 14px;
     background: white;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     cursor: pointer;
 }
 
 .topic-btn:hover {
     background: #f1f4ff;
+}
+
+.premium {
+    text-align: center;
+    background: #f5efff;
+}
+
+.premium h2 {
+    margin-top: 0;
+}
+
+.premium-list {
+    text-align: left;
+    max-width: 400px;
+    margin: 15px auto;
+    line-height: 2;
 }
 
 #question {
@@ -136,41 +198,91 @@ header p {
 }
 
 @media (max-width: 600px) {
+
     .container {
         margin: 15px auto;
-        padding: 12px;
+        padding: 10px;
     }
 
     .card {
-        padding: 20px;
+        padding: 18px;
     }
 
     header h1 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .topic-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .topic-btn {
+        padding: 16px 6px;
+        font-size: 14px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>ADRE Prep</h1>
-    <p>Assam Direct Recruitment Exam Preparation</p>
+
+    <p>Learn • Practice • Improve • Repeat 🔥</p>
+
 </header>
 
 <div class="container">
 
-    <!-- TOPIC SCREEN -->
+    <!-- STATS -->
+
+    <div class="card">
+
+        <div class="stats">
+
+            <div class="stat">
+                <span>⭐</span>
+                <div id="xp">0 XP</div>
+            </div>
+
+            <div class="stat">
+                <span>🔥</span>
+                <div id="streak">0 Day Streak</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DAILY CHALLENGE -->
+
+    <div class="card challenge">
+
+        <h2>🔥 Daily Challenge</h2>
+
+        <p>
+            Answer <strong>25 questions</strong> every day,
+            earn XP and keep your streak alive!
+        </p>
+
+        <button class="primary-btn" onclick="startDailyChallenge()">
+            Start Today's Challenge
+        </button>
+
+    </div>
+
+
+    <!-- TOPICS -->
+
     <div id="topicScreen" class="card result">
 
         <h2>📚 Choose a Topic</h2>
 
-        <p>Select a subject to start practicing.</p>
+        <p>Select a subject to practice.</p>
 
         <div class="topic-grid">
 
@@ -226,10 +338,47 @@ header p {
 
     </div>
 
-    <!-- QUIZ SCREEN -->
+
+    <!-- PREMIUM -->
+
+    <div class="card premium">
+
+        <h2>👑 Premium Preparation</h2>
+
+        <p>
+            Take your preparation to the next level.
+        </p>
+
+        <div class="premium-list">
+
+            📄 Premium Study PDFs<br>
+
+            📑 Previous Year Papers<br>
+
+            ♾️ Large Question Bank<br>
+
+            🎯 Advanced Mock Tests<br>
+
+            📊 Detailed Performance Analysis<br>
+
+            🏆 Exclusive Practice Sets
+
+        </div>
+
+        <button class="primary-btn" onclick="premiumMessage()">
+            👑 Explore Premium
+        </button>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
     <div id="quizScreen" class="card hidden">
 
-        <div id="score">Score: 0</div>
+        <div id="score">
+            Score: 0
+        </div>
 
         <div id="question"></div>
 
@@ -237,141 +386,184 @@ header p {
 
         <div id="feedback"></div>
 
-        <button id="nextBtn" class="hidden" onclick="nextQuestion()">
+        <button id="nextBtn"
+                class="hidden"
+                onclick="nextQuestion()">
+
             Next Question →
+
         </button>
 
     </div>
 
-    <!-- RESULT SCREEN -->
+
+    <!-- RESULT -->
+
     <div id="resultScreen" class="card result hidden">
 
         <h2>🎉 Quiz Complete!</h2>
 
         <p id="finalScore"></p>
 
-        <button id="restartBtn" onclick="showTopics()">
+        <button id="restartBtn"
+                onclick="showTopics()">
+
             Choose Another Topic
+
         </button>
 
         <br>
 
-        <button id="homeBtn" onclick="showTopics()">
+        <button id="homeBtn"
+                onclick="showTopics()">
+
             🏠 Back to Topics
+
         </button>
 
     </div>
 
 </div>
 
+
 <script>
 
 const questions = {
 
     assam: [
+
         {
             question: "What is the capital of Assam?",
             options: ["Guwahati", "Dispur", "Jorhat", "Dibrugarh"],
             answer: 1
         },
+
         {
             question: "Which river is often called the lifeline of Assam?",
             options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"],
             answer: 2
         },
+
         {
             question: "Which is the largest river island in Assam?",
             options: ["Majuli", "Umananda", "Dibru", "Chandubi"],
             answer: 0
         },
+
         {
             question: "Kaziranga National Park is famous for which animal?",
             options: ["Asiatic Lion", "One-horned Rhinoceros", "Tiger", "Elephant"],
             answer: 1
         },
+
         {
             question: "What is the state animal of Assam?",
             options: ["Tiger", "Elephant", "One-horned Rhinoceros", "Wild Buffalo"],
             answer: 2
         }
+
     ],
 
+
     india: [
+
         {
             question: "What is the capital of India?",
             options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
             answer: 1
         },
+
         {
             question: "What is the national animal of India?",
             options: ["Lion", "Elephant", "Tiger", "Leopard"],
             answer: 2
         },
+
         {
             question: "Which is the largest state of India by area?",
             options: ["Maharashtra", "Rajasthan", "Madhya Pradesh", "Uttar Pradesh"],
             answer: 1
         }
+
     ],
 
+
     history: [
+
         {
             question: "Who was the first emperor of the Maurya Empire?",
             options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Harsha"],
             answer: 1
         },
+
         {
             question: "Who founded the Mughal Empire in India?",
             options: ["Akbar", "Babur", "Humayun", "Shah Jahan"],
             answer: 1
         },
+
         {
             question: "In which year did India become independent?",
             options: ["1945", "1946", "1947", "1950"],
             answer: 2
         }
+
     ],
 
+
     geography: [
+
         {
             question: "Which is the longest river in India?",
             options: ["Ganga", "Yamuna", "Godavari", "Narmada"],
             answer: 0
         },
+
         {
             question: "Which is the highest mountain peak in India?",
             options: ["Mount Everest", "Kangchenjunga", "Nanda Devi", "Annapurna"],
             answer: 1
         }
+
     ],
 
+
     polity: [
+
         {
             question: "Who is the constitutional head of India?",
             options: ["Prime Minister", "President", "Chief Justice", "Home Minister"],
             answer: 1
         },
+
         {
             question: "How many houses are there in the Parliament of India?",
             options: ["One", "Two", "Three", "Four"],
             answer: 1
         }
+
     ],
 
+
     science: [
+
         {
             question: "What is the chemical formula of water?",
             options: ["CO2", "O2", "H2O", "NaCl"],
             answer: 2
         },
+
         {
             question: "Which planet is known as the Red Planet?",
             options: ["Venus", "Mars", "Jupiter", "Mercury"],
             answer: 1
         }
+
     ],
 
+
     economy: [
+
         {
             question: "What does GDP stand for?",
             options: [
@@ -382,70 +574,139 @@ const questions = {
             ],
             answer: 0
         }
+
     ],
 
+
     reasoning: [
+
         {
             question: "If 2, 4, 6, 8, what comes next?",
             options: ["9", "10", "11", "12"],
             answer: 1
         }
+
     ],
 
+
     maths: [
+
         {
             question: "What is 15 + 27?",
             options: ["40", "41", "42", "43"],
             answer: 2
         }
+
     ],
 
+
     english: [
+
         {
             question: "Choose the synonym of 'Happy'.",
             options: ["Sad", "Joyful", "Angry", "Weak"],
             answer: 1
         }
+
     ],
 
+
     culture: [
+
         {
             question: "Which festival is widely celebrated in Assam?",
             options: ["Bihu", "Onam", "Pongal", "Lohri"],
             answer: 0
         }
+
     ],
 
+
     current: [
+
         {
-            question: "Current Affairs questions will be added regularly.",
-            options: ["Continue", "Continue", "Continue", "Continue"],
-            answer: 0
+            question: "Which type of information will appear in Current Affairs?",
+            options: [
+                "Recent national events",
+                "Recent international events",
+                "Recent Assam events",
+                "All of the above"
+            ],
+            answer: 3
         }
+
     ]
 
 };
+
 
 let currentTopic = "";
 let currentQuestion = 0;
 let score = 0;
 
+let xp = Number(localStorage.getItem("adrep_xp")) || 0;
+
+let streak = Number(localStorage.getItem("adrep_streak")) || 0;
+
+
+function updateStats() {
+
+    document.getElementById("xp").textContent =
+        xp + " XP";
+
+    document.getElementById("streak").textContent =
+        streak + " Day Streak";
+
+}
+
+
+function addXP(amount) {
+
+    xp += amount;
+
+    localStorage.setItem("adrep_xp", xp);
+
+    updateStats();
+
+}
+
+
 function startQuiz(topic) {
 
     currentTopic = topic;
+
     currentQuestion = 0;
+
     score = 0;
 
-    document.getElementById("topicScreen").classList.add("hidden");
-    document.getElementById("resultScreen").classList.add("hidden");
-    document.getElementById("quizScreen").classList.remove("hidden");
+    document.getElementById("topicScreen")
+        .classList.add("hidden");
+
+    document.getElementById("quizScreen")
+        .classList.remove("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.add("hidden");
 
     showQuestion();
+
 }
+
+
+function startDailyChallenge() {
+
+    alert(
+        "🔥 Daily Challenge\n\n" +
+        "The 25-question daily system is coming next!"
+    );
+
+}
+
 
 function showQuestion() {
 
-    const q = questions[currentTopic][currentQuestion];
+    const q =
+        questions[currentTopic][currentQuestion];
 
     document.getElementById("question").textContent =
         (currentQuestion + 1) + ". " + q.question;
@@ -455,22 +716,27 @@ function showQuestion() {
 
     document.getElementById("feedback").textContent = "";
 
-    document.getElementById("nextBtn").classList.add("hidden");
+    document.getElementById("nextBtn")
+        .classList.add("hidden");
 
-    const optionsDiv = document.getElementById("options");
+    const optionsDiv =
+        document.getElementById("options");
 
     optionsDiv.innerHTML = "";
 
     q.options.forEach((option, index) => {
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
         button.textContent = option;
 
         button.className = "option";
 
         button.onclick = function() {
+
             checkAnswer(index);
+
         };
 
         optionsDiv.appendChild(button);
@@ -479,50 +745,72 @@ function showQuestion() {
 
 }
 
+
 function checkAnswer(selected) {
 
-    const q = questions[currentTopic][currentQuestion];
+    const q =
+        questions[currentTopic][currentQuestion];
 
-    const buttons = document.querySelectorAll(".option");
+    const buttons =
+        document.querySelectorAll(".option");
 
     buttons.forEach(button => {
+
         button.disabled = true;
+
     });
+
 
     if (selected === q.answer) {
 
         score++;
 
-        document.getElementById("feedback").textContent =
-            "🎉 WOW! Correct answer!";
+        addXP(10);
+
+        document.getElementById("feedback")
+            .textContent =
+            "🎉 WOW! Correct! +10 XP";
 
     } else {
 
-        document.getElementById("feedback").textContent =
+        document.getElementById("feedback")
+            .textContent =
             "😅 UGH! Wrong answer!";
 
     }
 
+
     document.getElementById("score").textContent =
         "Score: " + score;
 
-    document.getElementById("nextBtn").classList.remove("hidden");
+    document.getElementById("nextBtn")
+        .classList.remove("hidden");
 
 }
+
 
 function nextQuestion() {
 
     currentQuestion++;
 
-    if (currentQuestion >= questions[currentTopic].length) {
+    if (
+        currentQuestion >=
+        questions[currentTopic].length
+    ) {
 
-        document.getElementById("quizScreen").classList.add("hidden");
+        document.getElementById("quizScreen")
+            .classList.add("hidden");
 
-        document.getElementById("resultScreen").classList.remove("hidden");
+        document.getElementById("resultScreen")
+            .classList.remove("hidden");
 
-        document.getElementById("finalScore").textContent =
-            "You scored " + score + " out of " +
-            questions[currentTopic].length + ".";
+        document.getElementById("finalScore")
+            .textContent =
+            "You scored " +
+            score +
+            " out of " +
+            questions[currentTopic].length +
+            ".";
 
     } else {
 
@@ -532,13 +820,33 @@ function nextQuestion() {
 
 }
 
+
 function showTopics() {
 
-    document.getElementById("quizScreen").classList.add("hidden");
-    document.getElementById("resultScreen").classList.add("hidden");
-    document.getElementById("topicScreen").classList.remove("hidden");
+    document.getElementById("quizScreen")
+        .classList.add("hidden");
+
+    document.getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document.getElementById("topicScreen")
+        .classList.remove("hidden");
 
 }
+
+
+function premiumMessage() {
+
+    alert(
+        "👑 Premium is coming soon!\n\n" +
+        "Premium will include PDFs, previous-year papers, " +
+        "advanced mock tests and a much larger question bank."
+    );
+
+}
+
+
+updateStats();
 
 </script>
 
