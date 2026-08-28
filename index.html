@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +9,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -227,8 +225,16 @@ button {
     transition: width 0.3s ease;
 }
 
-@media(max-width:600px) {
+.streak-complete {
+    margin-top: 15px;
+    padding: 14px;
+    background: #fff8e6;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+}
 
+@media(max-width:600px) {
     .topic-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -236,26 +242,18 @@ button {
     .card {
         padding: 18px;
     }
-
 }
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <h1>📚 ADRE Prep</h1>
-
 <p>Learn • Practice • Improve • Repeat 🔥</p>
-
 </header>
 
-
 <div class="container">
-
 
 <!-- STATS -->
 
@@ -264,25 +262,18 @@ button {
 <div class="stats">
 
 <div class="stat">
-
 <span class="stat-big">⭐</span>
-
 <span id="xp">0 XP</span>
-
 </div>
 
 <div class="stat">
-
 <span class="stat-big">🔥</span>
-
 <span id="streak">0 Day Streak</span>
-
 </div>
 
 </div>
 
 </div>
-
 
 
 <!-- DAILY CHALLENGE -->
@@ -302,13 +293,10 @@ There is <strong>no daily limit.</strong>
 </p>
 
 <button class="primary" onclick="startDailyChallenge()">
-
 🔥 Start Today's 25
-
 </button>
 
 </div>
-
 
 
 <!-- DAILY LEARNING -->
@@ -323,13 +311,10 @@ every day.
 </p>
 
 <button class="primary" onclick="showLearning()">
-
 🧠 Start Learning
-
 </button>
 
 </div>
-
 
 
 <!-- TOPICS -->
@@ -342,119 +327,68 @@ every day.
 
 <div class="topic-grid">
 
-
 <button class="topic" onclick="practice('Assam GK')">
-
 🇦🇸 Assam GK
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Indian GK')">
-
 🇮🇳 Indian GK
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('History')">
-
 🏛️ History
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Geography')">
-
 🌍 Geography
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Indian Polity')">
-
 ⚖️ Indian Polity
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('General Science')">
-
 🔬 General Science
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Economy')">
-
 💰 Economy
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Reasoning')">
-
 🧠 Reasoning
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Mathematics')">
-
 🔢 Mathematics
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('English')">
-
 📖 English
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Assam Culture')">
-
 🎭 Assam Culture
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
-
 
 <button class="topic" onclick="practice('Current Affairs')">
-
 📰 Current Affairs
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
-
 </div>
-
 </div>
-
 
 
 <!-- PREMIUM -->
@@ -468,29 +402,19 @@ For serious aspirants who want deeper preparation.
 </p>
 
 <ul>
-
 <li>📄 Premium PDFs</li>
-
 <li>📑 Previous Year Papers</li>
-
 <li>🎯 Advanced Mock Tests</li>
-
 <li>♾️ Larger Question Bank</li>
-
 <li>📊 Detailed Performance Analysis</li>
-
 <li>🏆 Exclusive Practice Sets</li>
-
 </ul>
 
 <button class="primary" onclick="premiumInfo()">
-
 👑 Explore Premium
-
 </button>
 
 </div>
-
 
 
 <!-- LEARNING SCREEN -->
@@ -506,13 +430,10 @@ For serious aspirants who want deeper preparation.
 <p id="learningText"></p>
 
 <button class="primary" onclick="nextLearning()">
-
 Next Learning →
-
 </button>
 
 </div>
-
 
 
 <!-- QUIZ SCREEN -->
@@ -524,9 +445,7 @@ Next Learning →
 <div id="score"></div>
 
 <div class="progress-bar-container">
-
 <div id="progressBar" class="progress-bar"></div>
-
 </div>
 
 <div id="question"></div>
@@ -546,13 +465,10 @@ Next Question →
 
 </div>
 
-
 </div>
 
 
-
 <script>
-
 
 /* =====================================================
    SUPABASE
@@ -571,7 +487,6 @@ window.supabase.createClient(
 );
 
 
-
 /* =====================================================
    USER PROGRESS
 ===================================================== */
@@ -588,6 +503,8 @@ Number(localStorage.getItem("adrep_questions_today")) || 0;
 let savedDate =
 localStorage.getItem("adrep_date") || "";
 
+let streakCompletedDate =
+localStorage.getItem("adrep_streak_completed_date") || "";
 
 
 /* =====================================================
@@ -605,7 +522,6 @@ let answeredQuestionIds = new Set();
 let correctAnswers = 0;
 
 let totalAnswered = 0;
-
 
 
 /* =====================================================
@@ -630,11 +546,9 @@ function checkDailyReset() {
             "adrep_date",
             today
         );
-
     }
 
 }
-
 
 
 /* =====================================================
@@ -650,7 +564,6 @@ function updateStats() {
         streak + " Day Streak";
 
 }
-
 
 
 /* =====================================================
@@ -670,6 +583,42 @@ function addXP(amount) {
 
 }
 
+
+/* =====================================================
+   COMPLETE DAILY STREAK
+===================================================== */
+
+function checkStreakCompletion() {
+
+    const today =
+        new Date().toDateString();
+
+    if (
+        questionsToday >= 25 &&
+        streakCompletedDate !== today
+    ) {
+
+        streak++;
+
+        streakCompletedDate = today;
+
+        localStorage.setItem(
+            "adrep_streak",
+            streak
+        );
+
+        localStorage.setItem(
+            "adrep_streak_completed_date",
+            today
+        );
+
+        updateStats();
+
+        return true;
+    }
+
+    return false;
+}
 
 
 /* =====================================================
@@ -694,17 +643,20 @@ function updateScore(totalQuestions) {
 
     if (totalQuestions > 0) {
 
-        progressBar.style.width =
-            (
+        const percentage =
+            Math.min(
                 totalAnswered /
                 totalQuestions *
+                100,
                 100
-            ) + "%";
+            );
+
+        progressBar.style.width =
+            percentage + "%";
 
     }
 
 }
-
 
 
 /* =====================================================
@@ -780,7 +732,6 @@ async function practice(topic) {
     });
 
 
-
     try {
 
         const result =
@@ -807,7 +758,6 @@ async function practice(topic) {
                 "</div>";
 
             return;
-
         }
 
 
@@ -826,7 +776,6 @@ async function practice(topic) {
                 " topic.";
 
             return;
-
         }
 
 
@@ -847,6 +796,7 @@ async function practice(topic) {
             progressBar.style.width =
                 "100%";
 
+
             question.innerHTML =
                 "<div class='round-complete'>" +
 
@@ -864,17 +814,8 @@ async function practice(topic) {
 
                 "</div>" +
 
-                "You answered all " +
-
-                data.length +
-
-                " questions in " +
-
-                topic +
-
-                "." +
-
                 "</div>";
+
 
             score.textContent =
                 "🎯 Final Score: " +
@@ -882,10 +823,16 @@ async function practice(topic) {
                 " / " +
                 totalAnswered;
 
+
             options.innerHTML = "";
 
             feedback.innerHTML =
-                "Great work! 🎉";
+                "You answered all " +
+                data.length +
+                " questions in " +
+                topic +
+                ". 🎉";
+
 
             nextBtn.classList.add("hidden");
 
@@ -893,11 +840,14 @@ async function practice(topic) {
             const restartButton =
                 document.createElement("button");
 
+
             restartButton.className =
                 "primary";
 
+
             restartButton.textContent =
                 "🔄 Start New Round";
+
 
             restartButton.onclick =
                 function() {
@@ -926,7 +876,6 @@ async function practice(topic) {
             );
 
             return;
-
         }
 
 
@@ -960,7 +909,6 @@ async function practice(topic) {
 }
 
 
-
 /* =====================================================
    SHOW QUESTION
 ===================================================== */
@@ -976,7 +924,6 @@ function showCurrentQuestion() {
         practice(currentTopic);
 
         return;
-
     }
 
 
@@ -991,6 +938,7 @@ function showCurrentQuestion() {
 
     const nextBtn =
         document.getElementById("nextBtn");
+
 
     const totalQuestions =
         answeredQuestionIds.size +
@@ -1053,7 +1001,6 @@ function showCurrentQuestion() {
 }
 
 
-
 /* =====================================================
    CHECK ANSWER
 ===================================================== */
@@ -1066,6 +1013,7 @@ function checkAnswer(
     totalQuestions
 ) {
 
+
     if (
         answeredQuestionIds.has(
             String(questionId)
@@ -1073,7 +1021,6 @@ function checkAnswer(
     ) {
 
         return;
-
     }
 
 
@@ -1113,7 +1060,6 @@ function checkAnswer(
     );
 
 
-
     const isCorrect =
         selectedAnswer.trim().toLowerCase() ===
         correctAnswer.trim().toLowerCase();
@@ -1127,7 +1073,6 @@ function checkAnswer(
 
 
         feedback.innerHTML =
-
             "🎉 WOW! Correct! +10 XP" +
 
             "<div class='explanation'>" +
@@ -1146,7 +1091,6 @@ function checkAnswer(
     else {
 
         feedback.innerHTML =
-
             "😅 Oops! Not quite." +
 
             "<br><br>" +
@@ -1176,15 +1120,29 @@ function checkAnswer(
     updateScore(totalQuestions);
 
 
-    if (questionsToday >= 25) {
+    const streakCompleted =
+        checkStreakCompletion();
+
+
+    if (streakCompleted) {
 
         feedback.innerHTML +=
 
-            "<br><strong>" +
+            "<div class='streak-complete'>" +
 
-            "🔥 Daily goal completed!" +
+            "🔥 Daily goal completed! " +
 
-            "</strong>";
+            "Your streak is now " +
+
+            streak +
+
+            " day" +
+
+            (streak === 1 ? "" : "s") +
+
+            "!" +
+
+            "</div>";
 
     }
 
@@ -1192,7 +1150,6 @@ function checkAnswer(
     nextBtn.classList.remove("hidden");
 
 }
-
 
 
 /* =====================================================
@@ -1212,14 +1169,12 @@ function nextQuestion() {
         showCurrentQuestion();
 
         return;
-
     }
 
 
     practice(currentTopic);
 
 }
-
 
 
 /* =====================================================
@@ -1231,7 +1186,6 @@ function startDailyChallenge() {
     practice("Assam GK");
 
 }
-
 
 
 /* =====================================================
@@ -1259,7 +1213,6 @@ const learningTopics = [
 let learningIndex = 0;
 
 
-
 function showLearning() {
 
     document
@@ -1271,7 +1224,6 @@ function showLearning() {
     displayLearning();
 
 }
-
 
 
 function displayLearning() {
@@ -1298,7 +1250,6 @@ function displayLearning() {
 }
 
 
-
 function nextLearning() {
 
     learningIndex++;
@@ -1323,7 +1274,6 @@ function nextLearning() {
 }
 
 
-
 /* =====================================================
    PREMIUM
 ===================================================== */
@@ -1344,7 +1294,6 @@ function premiumInfo() {
 }
 
 
-
 /* =====================================================
    START
 ===================================================== */
@@ -1356,5 +1305,4 @@ updateStats();
 </script>
 
 </body>
-
 </html>
