@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ADRE Prep | Learn • Practice • Improve</title>
 
-<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -92,7 +93,7 @@ button {
 }
 
 .primary:hover {
-    opacity: .9;
+    opacity: 0.9;
 }
 
 .learning {
@@ -168,7 +169,6 @@ button {
 
 .option:disabled {
     cursor: default;
-    opacity: 1;
 }
 
 #feedback {
@@ -185,6 +185,15 @@ button {
     font-weight: normal;
 }
 
+.error-box {
+    background: #fff0f0;
+    color: #a00000;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: normal;
+}
+
 @media(max-width:600px) {
 
     .topic-grid {
@@ -198,9 +207,12 @@ button {
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -260,7 +272,9 @@ There is <strong>no daily limit.</strong>
 </p>
 
 <button class="primary" onclick="startDailyChallenge()">
+
 🔥 Start Today's 25
+
 </button>
 
 </div>
@@ -271,15 +285,19 @@ There is <strong>no daily limit.</strong>
 
 <div class="card learning">
 
-<h2 class="section-title">📖 Daily Learning</h2>
+<h2 class="section-title">
+📖 Daily Learning
+</h2>
 
 <p>
-Learn something new from <strong>all 12 topics</strong>
-every day.
+Learn something new from
+<strong>all 12 topics</strong> every day.
 </p>
 
 <button class="primary" onclick="showLearning()">
+
 🧠 Start Learning
+
 </button>
 
 </div>
@@ -290,82 +308,147 @@ every day.
 
 <div class="card">
 
-<h2 class="section-title">🎮 Practice Topics</h2>
+<h2 class="section-title">
+🎮 Practice Topics
+</h2>
 
-<p>Choose any topic and practice freely.</p>
+<p>
+Choose any topic and practice freely.
+</p>
+
 
 <div class="topic-grid">
 
 
 <button class="topic" onclick="practice('Assam GK')">
+
 🇦🇸 Assam GK
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Indian GK')">
+
 🇮🇳 Indian GK
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('History')">
+
 🏛️ History
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Geography')">
+
 🌍 Geography
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Indian Polity')">
+
 ⚖️ Indian Polity
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('General Science')">
+
 🔬 General Science
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Economy')">
+
 💰 Economy
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Reasoning')">
+
 🧠 Reasoning
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Mathematics')">
+
 🔢 Mathematics
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('English')">
+
 📖 English
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Assam Culture')">
+
 🎭 Assam Culture
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
 <button class="topic" onclick="practice('Current Affairs')">
+
 📰 Current Affairs
-<div class="topic-progress">Practice freely</div>
+
+<div class="topic-progress">
+Practice freely
+</div>
+
 </button>
 
 
@@ -388,23 +471,31 @@ For serious aspirants who want deeper preparation.
 <ul>
 
 <li>📄 Premium PDFs</li>
+
 <li>📑 Previous Year Papers</li>
+
 <li>🎯 Advanced Mock Tests</li>
+
 <li>♾️ Larger Question Bank</li>
+
 <li>📊 Detailed Performance Analysis</li>
+
 <li>🏆 Exclusive Practice Sets</li>
 
 </ul>
 
+
 <button class="primary" onclick="premiumInfo()">
+
 👑 Explore Premium
+
 </button>
 
 </div>
 
 
 
-<!-- LEARNING SCREEN -->
+<!-- LEARNING -->
 
 <div id="learningScreen" class="card hidden">
 
@@ -416,15 +507,18 @@ For serious aspirants who want deeper preparation.
 
 <p id="learningText"></p>
 
+
 <button class="primary" onclick="nextLearning()">
+
 Next Learning →
+
 </button>
 
 </div>
 
 
 
-<!-- QUIZ SCREEN -->
+<!-- QUIZ -->
 
 <div id="quizScreen" class="card hidden">
 
@@ -435,6 +529,7 @@ Next Learning →
 <div id="options"></div>
 
 <div id="feedback"></div>
+
 
 <button
 id="nextBtn"
@@ -454,6 +549,7 @@ Next Question →
 
 <script>
 
+
 /* =====================================================
    SUPABASE CONNECTION
 ===================================================== */
@@ -461,8 +557,10 @@ Next Question →
 const SUPABASE_URL =
 "https://sadtwnopdcdmqbheeuzi.supabase.co";
 
+
 const SUPABASE_KEY =
-"sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQNu8Xe";
+"sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQBu8Xe";
+
 
 const supabaseClient =
 window.supabase.createClient(
@@ -479,14 +577,18 @@ window.supabase.createClient(
 let xp =
 Number(localStorage.getItem("adrep_xp")) || 0;
 
+
 let streak =
 Number(localStorage.getItem("adrep_streak")) || 0;
+
 
 let questionsToday =
 Number(localStorage.getItem("adrep_questions_today")) || 0;
 
+
 let savedDate =
 localStorage.getItem("adrep_date") || "";
+
 
 let currentQuestions = [];
 
@@ -505,13 +607,14 @@ function checkDailyReset() {
     const today =
         new Date().toDateString();
 
+
     if (savedDate !== today) {
 
         questionsToday = 0;
 
         localStorage.setItem(
             "adrep_questions_today",
-            0
+            "0"
         );
 
         localStorage.setItem(
@@ -534,6 +637,7 @@ function updateStats() {
     document.getElementById("xp").textContent =
         xp + " XP";
 
+
     document.getElementById("streak").textContent =
         streak + " Day Streak";
 
@@ -549,10 +653,12 @@ function addXP(amount) {
 
     xp += amount;
 
+
     localStorage.setItem(
         "adrep_xp",
         xp
     );
+
 
     updateStats();
 
@@ -561,27 +667,33 @@ function addXP(amount) {
 
 
 /* =====================================================
-   PRACTICE TOPIC
+   PRACTICE
 ===================================================== */
 
 async function practice(topic) {
 
     currentTopic = topic;
 
+
     const quizScreen =
         document.getElementById("quizScreen");
+
 
     const quizTitle =
         document.getElementById("quizTitle");
 
+
     const question =
         document.getElementById("question");
+
 
     const options =
         document.getElementById("options");
 
+
     const feedback =
         document.getElementById("feedback");
+
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -589,11 +701,14 @@ async function practice(topic) {
 
     quizScreen.classList.remove("hidden");
 
+
     quizTitle.textContent =
         "🎮 " + topic;
 
+
     question.textContent =
         "Loading questions...";
+
 
     options.innerHTML = "";
 
@@ -602,55 +717,94 @@ async function practice(topic) {
     nextBtn.classList.add("hidden");
 
 
-    const { data, error } =
-        await supabaseClient
-        .from("questions")
-        .select("*")
-        .eq("topic", topic);
+    quizScreen.scrollIntoView({
+        behavior: "smooth"
+    });
 
 
-    if (error) {
 
-        question.textContent =
-            "Something went wrong 😕";
+    try {
 
-        feedback.textContent =
-            error.message;
+        const result =
+            await supabaseClient
+            .from("questions")
+            .select("*")
+            .eq("topic", topic);
 
-        return;
+
+        const data = result.data;
+
+        const error = result.error;
+
+
+        if (error) {
+
+            question.textContent =
+                "Unable to load questions 😕";
+
+
+            feedback.innerHTML =
+                "<div class='error-box'>" +
+                "Supabase error:<br><br>" +
+                error.message +
+                "</div>";
+
+
+            return;
+
+        }
+
+
+        if (!data || data.length === 0) {
+
+            question.textContent =
+                "No questions yet 📚";
+
+
+            feedback.innerHTML =
+                "There are currently no questions in the " +
+                topic +
+                " topic.";
+
+
+            return;
+
+        }
+
+
+        currentQuestions =
+            data.sort(
+                () => Math.random() - 0.5
+            );
+
+
+        currentQuestionIndex = 0;
+
+
+        showCurrentQuestion();
 
     }
 
 
-    if (!data || data.length === 0) {
+    catch (error) {
 
         question.textContent =
-            "No questions found yet 📚";
+            "Connection problem 😕";
 
-        feedback.textContent =
-            "We haven't added questions for " +
-            topic + " yet.";
 
-        return;
+        feedback.innerHTML =
+            "<div class='error-box'>" +
+            error.message +
+            "</div>";
 
     }
-
-
-    currentQuestions =
-        data.sort(
-            () => Math.random() - 0.5
-        );
-
-    currentQuestionIndex = 0;
-
-    showCurrentQuestion();
 
 }
 
 
 
 /* =====================================================
-   SHOW QUESTION
+   SHOW CURRENT QUESTION
 ===================================================== */
 
 function showCurrentQuestion() {
@@ -662,11 +816,14 @@ function showCurrentQuestion() {
     const question =
         document.getElementById("question");
 
+
     const options =
         document.getElementById("options");
 
+
     const feedback =
         document.getElementById("feedback");
+
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -674,6 +831,7 @@ function showCurrentQuestion() {
 
     question.textContent =
         q.question;
+
 
     options.innerHTML = "";
 
@@ -698,11 +856,14 @@ function showCurrentQuestion() {
             const button =
                 document.createElement("button");
 
+
             button.className =
                 "option";
 
+
             button.textContent =
                 optionText;
+
 
             button.onclick =
                 function() {
@@ -714,6 +875,7 @@ function showCurrentQuestion() {
                     );
 
                 };
+
 
             options.appendChild(button);
 
@@ -734,11 +896,14 @@ function checkAnswer(
     explanation
 ) {
 
+
     const buttons =
         document.querySelectorAll(".option");
 
+
     const feedback =
         document.getElementById("feedback");
+
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -755,10 +920,12 @@ function checkAnswer(
 
     questionsToday++;
 
+
     localStorage.setItem(
         "adrep_questions_today",
         questionsToday
     );
+
 
 
     if (
@@ -766,37 +933,69 @@ function checkAnswer(
         correctAnswer.trim().toLowerCase()
     ) {
 
+
         addXP(10);
 
+
         feedback.innerHTML =
+
             "🎉 WOW! Correct! +10 XP" +
+
             "<div class='explanation'>" +
+
             "💡 " +
-            (explanation || "Great job!") +
+
+            (
+                explanation ||
+                "Great job!"
+            ) +
+
             "</div>";
 
     }
+
 
     else {
 
+
         feedback.innerHTML =
+
             "😅 Oops! Not quite." +
+
             "<br><br>" +
-            "✅ Correct answer: <strong>" +
+
+            "✅ Correct answer: " +
+
+            "<strong>" +
+
             correctAnswer +
+
             "</strong>" +
+
             "<div class='explanation'>" +
+
             "💡 " +
-            (explanation || "") +
+
+            (
+                explanation ||
+                "Keep practicing!"
+            ) +
+
             "</div>";
 
     }
+
 
 
     if (questionsToday >= 25) {
 
         feedback.innerHTML +=
-            "<br><strong>🔥 Daily goal completed!</strong>";
+
+            "<br><strong>" +
+
+            "🔥 Daily goal completed!" +
+
+            "</strong>";
 
     }
 
@@ -821,12 +1020,13 @@ function nextQuestion() {
         currentQuestions.length
     ) {
 
-        currentQuestionIndex = 0;
-
         currentQuestions =
             currentQuestions.sort(
                 () => Math.random() - 0.5
             );
+
+
+        currentQuestionIndex = 0;
 
     }
 
@@ -874,17 +1074,21 @@ const learningTopics = [
 let learningIndex = 0;
 
 
+
 function showLearning() {
 
-    document.getElementById(
-        "learningScreen"
-    ).classList.remove("hidden");
+    document
+        .getElementById("learningScreen")
+        .classList.remove("hidden");
+
 
     learningIndex = 0;
+
 
     displayLearning();
 
 }
+
 
 
 function displayLearning() {
@@ -909,6 +1113,7 @@ function displayLearning() {
 }
 
 
+
 function nextLearning() {
 
     learningIndex++;
@@ -920,6 +1125,7 @@ function nextLearning() {
     ) {
 
         learningIndex = 0;
+
 
         alert(
             "🎉 You explored all 12 topics!"
@@ -964,5 +1170,7 @@ updateStats();
 
 </script>
 
+
 </body>
+
 </html>
