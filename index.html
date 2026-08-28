@@ -145,20 +145,13 @@ button {
 #quizTitle {
     font-size: 20px;
     font-weight: bold;
-}
-
-#progress {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #666;
+    margin-bottom: 10px;
 }
 
 #score {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 #question {
@@ -213,9 +206,9 @@ button {
 }
 
 .final-score {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 .progress-bar-container {
@@ -223,7 +216,7 @@ button {
     height: 8px;
     background: #e5e5e5;
     border-radius: 20px;
-    margin-top: 8px;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
@@ -528,8 +521,6 @@ Next Learning →
 
 <div id="quizTitle"></div>
 
-<div id="progress"></div>
-
 <div id="score"></div>
 
 <div class="progress-bar-container">
@@ -537,8 +528,6 @@ Next Learning →
 <div id="progressBar" class="progress-bar"></div>
 
 </div>
-
-<br>
 
 <div id="question"></div>
 
@@ -684,33 +673,35 @@ function addXP(amount) {
 
 
 /* =====================================================
-   UPDATE SCORE DISPLAY
+   UPDATE SCORE
 ===================================================== */
 
-function updateScoreDisplay(totalQuestions) {
+function updateScore(totalQuestions) {
 
-    document.getElementById("progress").textContent =
-        "Question " +
-        Math.min(totalAnswered + 1, totalQuestions) +
-        " / " +
-        totalQuestions;
+    const score =
+        document.getElementById("score");
 
-    document.getElementById("score").textContent =
+    score.textContent =
         "🎯 Score: " +
         correctAnswers +
         " / " +
         totalAnswered;
 
+
     const progressBar =
         document.getElementById("progressBar");
 
-    const percentage =
-        totalAnswered === 0
-            ? 0
-            : (totalAnswered / totalQuestions) * 100;
 
-    progressBar.style.width =
-        percentage + "%";
+    if (totalQuestions > 0) {
+
+        progressBar.style.width =
+            (
+                totalAnswered /
+                totalQuestions *
+                100
+            ) + "%";
+
+    }
 
 }
 
@@ -741,14 +732,8 @@ async function practice(topic) {
     const quizTitle =
         document.getElementById("quizTitle");
 
-    const progress =
-        document.getElementById("progress");
-
     const score =
         document.getElementById("score");
-
-    const progressBar =
-        document.getElementById("progressBar");
 
     const question =
         document.getElementById("question");
@@ -762,17 +747,20 @@ async function practice(topic) {
     const nextBtn =
         document.getElementById("nextBtn");
 
+    const progressBar =
+        document.getElementById("progressBar");
+
 
     quizScreen.classList.remove("hidden");
 
     quizTitle.textContent =
         "🎮 " + topic;
 
-    progress.textContent =
-        "Loading questions...";
-
     score.textContent =
-        "";
+        "🎯 Score: " +
+        correctAnswers +
+        " / " +
+        totalAnswered;
 
     progressBar.style.width =
         "0%";
@@ -812,9 +800,6 @@ async function practice(topic) {
             question.textContent =
                 "Unable to load questions 😕";
 
-            progress.textContent =
-                "";
-
             feedback.innerHTML =
                 "<div class='error-box'>" +
                 "Supabase error:<br><br>" +
@@ -830,9 +815,6 @@ async function practice(topic) {
 
             question.textContent =
                 "No questions yet 📚";
-
-            progress.textContent =
-                "";
 
             score.textContent =
                 "";
@@ -862,8 +844,37 @@ async function practice(topic) {
 
         if (unanswered.length === 0) {
 
-            progress.textContent =
-                "Round complete!";
+            progressBar.style.width =
+                "100%";
+
+            question.innerHTML =
+                "<div class='round-complete'>" +
+
+                "🎉 Round Complete!" +
+
+                "<div class='final-score'>" +
+
+                "🏆 Final Score: " +
+
+                correctAnswers +
+
+                " / " +
+
+                totalAnswered +
+
+                "</div>" +
+
+                "You answered all " +
+
+                data.length +
+
+                " questions in " +
+
+                topic +
+
+                "." +
+
+                "</div>";
 
             score.textContent =
                 "🎯 Final Score: " +
@@ -871,29 +882,10 @@ async function practice(topic) {
                 " / " +
                 totalAnswered;
 
-            progressBar.style.width =
-                "100%";
-
-            question.innerHTML =
-                "<div class='round-complete'>" +
-                "🎉 Round Complete!" +
-                "<div class='final-score'>" +
-                "🏆 " +
-                correctAnswers +
-                " / " +
-                totalAnswered +
-                "</div>" +
-                "You answered all " +
-                data.length +
-                " questions in " +
-                topic +
-                "." +
-                "</div>";
-
             options.innerHTML = "";
 
             feedback.innerHTML =
-                "Great work! Start a new round whenever you want.";
+                "Great work! 🎉";
 
             nextBtn.classList.add("hidden");
 
@@ -917,7 +909,7 @@ async function practice(topic) {
                     totalAnswered = 0;
 
                     currentQuestions =
-                        data.sort(
+                        data.slice().sort(
                             () =>
                                 Math.random() - 0.5
                         );
@@ -957,9 +949,6 @@ async function practice(topic) {
 
         question.textContent =
             "Connection problem 😕";
-
-        progress.textContent =
-            "";
 
         feedback.innerHTML =
             "<div class='error-box'>" +
@@ -1003,43 +992,9 @@ function showCurrentQuestion() {
     const nextBtn =
         document.getElementById("nextBtn");
 
-    const progress =
-        document.getElementById("progress");
-
-    const score =
-        document.getElementById("score");
-
-    const progressBar =
-        document.getElementById("progressBar");
-
-
     const totalQuestions =
         answeredQuestionIds.size +
         currentQuestions.length;
-
-
-    progress.textContent =
-        "Question " +
-        (totalAnswered + 1) +
-        " / " +
-        totalQuestions;
-
-
-    score.textContent =
-        "🎯 Score: " +
-        correctAnswers +
-        " / " +
-        totalAnswered;
-
-
-    const percentage =
-        totalAnswered === 0
-            ? 0
-            : (totalAnswered / totalQuestions) * 100;
-
-
-    progressBar.style.width =
-        percentage + "%";
 
 
     question.textContent =
@@ -1050,6 +1005,9 @@ function showCurrentQuestion() {
     feedback.innerHTML = "";
 
     nextBtn.classList.add("hidden");
+
+
+    updateScore(totalQuestions);
 
 
     const answerOptions = [
@@ -1108,6 +1066,17 @@ function checkAnswer(
     totalQuestions
 ) {
 
+    if (
+        answeredQuestionIds.has(
+            String(questionId)
+        )
+    ) {
+
+        return;
+
+    }
+
+
     answeredQuestionIds.add(
         String(questionId)
     );
@@ -1124,15 +1093,6 @@ function checkAnswer(
 
     const nextBtn =
         document.getElementById("nextBtn");
-
-    const progress =
-        document.getElementById("progress");
-
-    const score =
-        document.getElementById("score");
-
-    const progressBar =
-        document.getElementById("progressBar");
 
 
     buttons.forEach(
@@ -1213,26 +1173,7 @@ function checkAnswer(
     }
 
 
-    progress.textContent =
-        "Question " +
-        totalAnswered +
-        " / " +
-        totalQuestions;
-
-
-    score.textContent =
-        "🎯 Score: " +
-        correctAnswers +
-        " / " +
-        totalAnswered;
-
-
-    progressBar.style.width =
-        (
-            totalAnswered /
-            totalQuestions *
-            100
-        ) + "%";
+    updateScore(totalQuestions);
 
 
     if (questionsToday >= 25) {
