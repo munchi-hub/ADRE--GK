@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ADRE Prep | Learn • Practice • Improve</title>
+<title>ADRE Prep</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -37,7 +37,7 @@ header p {
 }
 
 .container {
-    max-width: 750px;
+    max-width: 800px;
     margin: auto;
     padding: 15px;
 }
@@ -50,35 +50,10 @@ header p {
     box-shadow: 0 5px 18px rgba(0,0,0,0.08);
 }
 
-.stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-.stat {
-    background: #f1f4ff;
-    padding: 18px;
-    border-radius: 14px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.stat-big {
-    font-size: 25px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.challenge {
-    text-align: center;
-    background: #fff8e6;
-}
-
 button {
     border: none;
     border-radius: 11px;
-    padding: 14px 20px;
+    padding: 13px 18px;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
@@ -89,159 +64,49 @@ button {
     color: white;
 }
 
-.primary:hover {
-    opacity: .9;
-}
-
-.learning {
-    background: #eefaf2;
-}
-
-.section-title {
-    margin-top: 0;
-}
-
-.topic-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
 .topic {
+    width: 100%;
+    margin: 7px 0;
     background: white;
     border: 2px solid #ddd;
-    padding: 16px 8px;
+    text-align: left;
 }
 
 .topic:hover {
     background: #f1f4ff;
 }
 
-.topic-progress {
-    font-size: 12px;
-    font-weight: normal;
-    margin-top: 5px;
-    color: #666;
+.study-question {
+    padding: 18px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.premium {
-    background: #f5efff;
-    text-align: center;
+.study-question:last-child {
+    border-bottom: none;
 }
 
-.premium ul {
-    text-align: left;
-    line-height: 1.9;
-    max-width: 450px;
-    margin: 15px auto;
+.answer {
+    margin-top: 12px;
+    padding: 12px;
+    background: #eefaf2;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .hidden {
     display: none;
 }
 
-#quizTitle {
-    font-size: 20px;
-    font-weight: bold;
+.back {
+    background: #eee;
     margin-bottom: 10px;
 }
 
-#score {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 18px;
-}
-
-#question {
-    font-size: 21px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.option {
-    width: 100%;
-    margin: 7px 0;
-    text-align: left;
-    background: white;
-    border: 2px solid #ddd;
-}
-
-.option:hover {
-    background: #f1f4ff;
-}
-
-.option:disabled {
-    cursor: default;
-    opacity: .85;
-}
-
-#feedback {
-    margin-top: 18px;
-    font-weight: bold;
-    line-height: 1.5;
-}
-
-.explanation {
-    margin-top: 10px;
-    padding: 12px;
-    background: #f4f6fb;
-    border-radius: 10px;
-    font-weight: normal;
-}
-
-.error-box {
-    background: #fff0f0;
+.error {
     color: #a00000;
-    padding: 14px;
+    background: #fff0f0;
+    padding: 12px;
     border-radius: 10px;
-    margin-top: 15px;
-    font-weight: normal;
-}
-
-.round-complete {
-    text-align: center;
-    padding: 10px;
-}
-
-.final-score {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 18px 0;
-}
-
-.progress-bar-container {
-    width: 100%;
-    height: 8px;
-    background: #e5e5e5;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: #182848;
-    transition: width 0.3s ease;
-}
-
-.streak-complete {
-    margin-top: 15px;
-    padding: 14px;
-    background: #fff8e6;
-    border-radius: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-@media(max-width:600px) {
-    .topic-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .card {
-        padding: 18px;
-    }
 }
 </style>
 </head>
@@ -249,230 +114,66 @@ button {
 <body>
 
 <header>
-<h1>📚 ADRE Prep</h1>
-<p>Learn • Practice • Improve • Repeat 🔥</p>
+    <h1>📚 ADRE Prep</h1>
+    <p>Learn • Practice • Improve</p>
 </header>
 
 <div class="container">
 
-<!-- STATS -->
+    <div id="library" class="card">
+        <h2>📖 Study Library</h2>
+        <p>Choose a subject to start studying.</p>
 
-<div class="card">
+        <button class="topic" onclick="openTopic('History')">
+            🏛️ History
+        </button>
 
-<div class="stats">
+        <button class="topic" onclick="openTopic('Geography')">
+            🌍 Geography
+        </button>
 
-<div class="stat">
-<span class="stat-big">⭐</span>
-<span id="xp">0 XP</span>
-</div>
+        <button class="topic" onclick="openTopic('Politics')">
+            ⚖️ Politics
+        </button>
 
-<div class="stat">
-<span class="stat-big">🔥</span>
-<span id="streak">0 Day Streak</span>
-</div>
+        <button class="topic" onclick="openTopic('Economics')">
+            💰 Economics
+        </button>
 
-</div>
+        <button class="topic" onclick="openTopic('Culture')">
+            🎭 Culture
+        </button>
 
-</div>
+        <button class="topic" onclick="openTopic('Current Affairs')">
+            📰 Current Affairs
+        </button>
 
+        <button class="topic" onclick="openTopic('Others')">
+            📚 Others
+        </button>
+    </div>
 
-<!-- DAILY CHALLENGE -->
+    <div id="sets" class="card hidden">
+        <button class="back" onclick="goBackToLibrary()">← Back</button>
 
-<div class="card challenge">
+        <h2 id="setsTitle"></h2>
 
-<h2>🎯 Daily Challenge</h2>
+        <p>Select a study set.</p>
 
-<p>
-Answer at least <strong>25 questions</strong>
-today to keep your streak alive.
-</p>
+        <div id="setList"></div>
+    </div>
 
-<p>
-You can continue practicing after 25.
-There is <strong>no daily limit.</strong>
-</p>
+    <div id="study" class="card hidden">
+        <button class="back" onclick="goBackToSets()">← Back</button>
 
-<button class="primary" onclick="startDailyChallenge()">
-🔥 Start Today's 25
-</button>
+        <h2 id="studyTitle"></h2>
 
-</div>
-
-
-<!-- DAILY LEARNING -->
-
-<div class="card learning">
-
-<h2 class="section-title">📖 Daily Learning</h2>
-
-<p>
-Learn something new from <strong>all 12 topics</strong>
-every day.
-</p>
-
-<button class="primary" onclick="showLearning()">
-🧠 Start Learning
-</button>
+        <div id="questions"></div>
+    </div>
 
 </div>
-
-
-<!-- TOPICS -->
-
-<div class="card">
-
-<h2 class="section-title">🎮 Practice Topics</h2>
-
-<p>Choose any topic and practice freely.</p>
-
-<div class="topic-grid">
-
-<button class="topic" onclick="practice('Assam GK')">
-🇦🇸 Assam GK
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Indian GK')">
-🇮🇳 Indian GK
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('History')">
-🏛️ History
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Geography')">
-🌍 Geography
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Indian Polity')">
-⚖️ Indian Polity
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('General Science')">
-🔬 General Science
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Economy')">
-💰 Economy
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Reasoning')">
-🧠 Reasoning
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Mathematics')">
-🔢 Mathematics
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('English')">
-📖 English
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Assam Culture')">
-🎭 Assam Culture
-<div class="topic-progress">Practice freely</div>
-</button>
-
-<button class="topic" onclick="practice('Current Affairs')">
-📰 Current Affairs
-<div class="topic-progress">Practice freely</div>
-</button>
-
-</div>
-</div>
-
-
-<!-- PREMIUM -->
-
-<div class="card premium">
-
-<h2>👑 Premium Preparation</h2>
-
-<p>
-For serious aspirants who want deeper preparation.
-</p>
-
-<ul>
-<li>📄 Premium PDFs</li>
-<li>📑 Previous Year Papers</li>
-<li>🎯 Advanced Mock Tests</li>
-<li>♾️ Larger Question Bank</li>
-<li>📊 Detailed Performance Analysis</li>
-<li>🏆 Exclusive Practice Sets</li>
-</ul>
-
-<button class="primary" onclick="premiumInfo()">
-👑 Explore Premium
-</button>
-
-</div>
-
-
-<!-- LEARNING SCREEN -->
-
-<div id="learningScreen" class="card hidden">
-
-<h2>📖 Today's Learning</h2>
-
-<p id="learningTopic"></p>
-
-<h3 id="learningTitle"></h3>
-
-<p id="learningText"></p>
-
-<button class="primary" onclick="nextLearning()">
-Next Learning →
-</button>
-
-</div>
-
-
-<!-- QUIZ SCREEN -->
-
-<div id="quizScreen" class="card hidden">
-
-<div id="quizTitle"></div>
-
-<div id="score"></div>
-
-<div class="progress-bar-container">
-<div id="progressBar" class="progress-bar"></div>
-</div>
-
-<div id="question"></div>
-
-<div id="options"></div>
-
-<div id="feedback"></div>
-
-<button
-id="nextBtn"
-class="primary hidden"
-onclick="nextQuestion()">
-
-Next Question →
-
-</button>
-
-</div>
-
-</div>
-
 
 <script>
-
-/* =====================================================
-   SUPABASE
-===================================================== */
 
 const SUPABASE_URL =
 "https://sadtwnopdcdmqbheeuzi.supabase.co";
@@ -486,821 +187,191 @@ window.supabase.createClient(
     SUPABASE_KEY
 );
 
+let selectedTopic = "";
 
-/* =====================================================
-   USER PROGRESS
-===================================================== */
+async function openTopic(topic) {
 
-let xp =
-Number(localStorage.getItem("adrep_xp")) || 0;
+    selectedTopic = topic;
 
-let streak =
-Number(localStorage.getItem("adrep_streak")) || 0;
+    document.getElementById("library")
+        .classList.add("hidden");
 
-let questionsToday =
-Number(localStorage.getItem("adrep_questions_today")) || 0;
+    document.getElementById("sets")
+        .classList.remove("hidden");
 
-let savedDate =
-localStorage.getItem("adrep_date") || "";
+    document.getElementById("setsTitle")
+        .textContent = topic;
 
-let streakCompletedDate =
-localStorage.getItem("adrep_streak_completed_date") || "";
+    const setList =
+        document.getElementById("setList");
 
+    setList.innerHTML =
+        "Loading study sets...";
 
-/* =====================================================
-   QUIZ VARIABLES
-===================================================== */
+    const { data, error } =
+        await supabaseClient
+        .from("questions")
+        .select("study_set")
+        .eq("topic", topic)
+        .not("study_set", "is", null);
 
-let currentTopic = "";
+    if (error) {
 
-let currentQuestions = [];
-
-let currentQuestionIndex = 0;
-
-let answeredQuestionIds = new Set();
-
-let correctAnswers = 0;
-
-let totalAnswered = 0;
-
-
-/* =====================================================
-   DAILY RESET
-===================================================== */
-
-function checkDailyReset() {
-
-    const today =
-        new Date().toDateString();
-
-    if (savedDate !== today) {
-
-        questionsToday = 0;
-
-        localStorage.setItem(
-            "adrep_questions_today",
-            "0"
-        );
-
-        localStorage.setItem(
-            "adrep_date",
-            today
-        );
-    }
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-function updateStats() {
-
-    document.getElementById("xp").textContent =
-        xp + " XP";
-
-    document.getElementById("streak").textContent =
-        streak + " Day Streak";
-
-}
-
-
-/* =====================================================
-   ADD XP
-===================================================== */
-
-function addXP(amount) {
-
-    xp += amount;
-
-    localStorage.setItem(
-        "adrep_xp",
-        xp
-    );
-
-    updateStats();
-
-}
-
-
-/* =====================================================
-   COMPLETE DAILY STREAK
-===================================================== */
-
-function checkStreakCompletion() {
-
-    const today =
-        new Date().toDateString();
-
-    if (
-        questionsToday >= 25 &&
-        streakCompletedDate !== today
-    ) {
-
-        streak++;
-
-        streakCompletedDate = today;
-
-        localStorage.setItem(
-            "adrep_streak",
-            streak
-        );
-
-        localStorage.setItem(
-            "adrep_streak_completed_date",
-            today
-        );
-
-        updateStats();
-
-        return true;
-    }
-
-    return false;
-}
-
-
-/* =====================================================
-   UPDATE SCORE
-===================================================== */
-
-function updateScore(totalQuestions) {
-
-    const score =
-        document.getElementById("score");
-
-    score.textContent =
-        "🎯 Score: " +
-        correctAnswers +
-        " / " +
-        totalAnswered;
-
-
-    const progressBar =
-        document.getElementById("progressBar");
-
-
-    if (totalQuestions > 0) {
-
-        const percentage =
-            Math.min(
-                totalAnswered /
-                totalQuestions *
-                100,
-                100
-            );
-
-        progressBar.style.width =
-            percentage + "%";
-
-    }
-
-}
-
-
-/* =====================================================
-   PRACTICE TOPIC
-===================================================== */
-
-async function practice(topic) {
-
-    if (currentTopic !== topic) {
-
-        currentTopic = topic;
-
-        answeredQuestionIds.clear();
-
-        correctAnswers = 0;
-
-        totalAnswered = 0;
-
-    }
-
-
-    const quizScreen =
-        document.getElementById("quizScreen");
-
-    const quizTitle =
-        document.getElementById("quizTitle");
-
-    const score =
-        document.getElementById("score");
-
-    const question =
-        document.getElementById("question");
-
-    const options =
-        document.getElementById("options");
-
-    const feedback =
-        document.getElementById("feedback");
-
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-    const progressBar =
-        document.getElementById("progressBar");
-
-
-    quizScreen.classList.remove("hidden");
-
-    quizTitle.textContent =
-        "🎮 " + topic;
-
-    score.textContent =
-        "🎯 Score: " +
-        correctAnswers +
-        " / " +
-        totalAnswered;
-
-    progressBar.style.width =
-        "0%";
-
-    question.textContent =
-        "Loading questions...";
-
-    options.innerHTML = "";
-
-    feedback.innerHTML = "";
-
-    nextBtn.classList.add("hidden");
-
-
-    quizScreen.scrollIntoView({
-        behavior: "smooth"
-    });
-
-
-    try {
-
-        const result =
-            await supabaseClient
-            .from("questions")
-            .select("*")
-            .eq("topic", topic);
-
-
-        const data = result.data;
-
-        const error = result.error;
-
-
-        if (error) {
-
-            question.textContent =
-                "Unable to load questions 😕";
-
-            feedback.innerHTML =
-                "<div class='error-box'>" +
-                "Supabase error:<br><br>" +
-                error.message +
-                "</div>";
-
-            return;
-        }
-
-
-        if (!data || data.length === 0) {
-
-            question.textContent =
-                "No questions yet 📚";
-
-            score.textContent =
-                "";
-
-            feedback.innerHTML =
-                "There are currently no questions " +
-                "in the " +
-                topic +
-                " topic.";
-
-            return;
-        }
-
-
-        const unanswered =
-            data.filter(
-                function(q) {
-
-                    return !answeredQuestionIds.has(
-                        String(q.id)
-                    );
-
-                }
-            );
-
-
-        if (unanswered.length === 0) {
-
-            progressBar.style.width =
-                "100%";
-
-
-            question.innerHTML =
-                "<div class='round-complete'>" +
-
-                "🎉 Round Complete!" +
-
-                "<div class='final-score'>" +
-
-                "🏆 Final Score: " +
-
-                correctAnswers +
-
-                " / " +
-
-                totalAnswered +
-
-                "</div>" +
-
-                "</div>";
-
-
-            score.textContent =
-                "🎯 Final Score: " +
-                correctAnswers +
-                " / " +
-                totalAnswered;
-
-
-            options.innerHTML = "";
-
-            feedback.innerHTML =
-                "You answered all " +
-                data.length +
-                " questions in " +
-                topic +
-                ". 🎉";
-
-
-            nextBtn.classList.add("hidden");
-
-
-            const restartButton =
-                document.createElement("button");
-
-
-            restartButton.className =
-                "primary";
-
-
-            restartButton.textContent =
-                "🔄 Start New Round";
-
-
-            restartButton.onclick =
-                function() {
-
-                    answeredQuestionIds.clear();
-
-                    correctAnswers = 0;
-
-                    totalAnswered = 0;
-
-                    currentQuestions =
-                        data.slice().sort(
-                            () =>
-                                Math.random() - 0.5
-                        );
-
-                    currentQuestionIndex = 0;
-
-                    showCurrentQuestion();
-
-                };
-
-
-            options.appendChild(
-                restartButton
-            );
-
-            return;
-        }
-
-
-        currentQuestions =
-            unanswered.sort(
-                () =>
-                    Math.random() - 0.5
-            );
-
-
-        currentQuestionIndex = 0;
-
-
-        showCurrentQuestion();
-
-    }
-
-
-    catch (error) {
-
-        question.textContent =
-            "Connection problem 😕";
-
-        feedback.innerHTML =
-            "<div class='error-box'>" +
+        setList.innerHTML =
+            "<div class='error'>" +
             error.message +
             "</div>";
 
-    }
-
-}
-
-
-/* =====================================================
-   SHOW QUESTION
-===================================================== */
-
-function showCurrentQuestion() {
-
-    const q =
-        currentQuestions[currentQuestionIndex];
-
-
-    if (!q) {
-
-        practice(currentTopic);
-
         return;
     }
 
-
-    const question =
-        document.getElementById("question");
-
-    const options =
-        document.getElementById("options");
-
-    const feedback =
-        document.getElementById("feedback");
-
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-
-    const totalQuestions =
-        answeredQuestionIds.size +
-        currentQuestions.length;
-
-
-    question.textContent =
-        q.question;
-
-    options.innerHTML = "";
-
-    feedback.innerHTML = "";
-
-    nextBtn.classList.add("hidden");
-
-
-    updateScore(totalQuestions);
-
-
-    const answerOptions = [
-
-        q.option_a,
-        q.option_b,
-        q.option_c,
-        q.option_d
-
+    const sets = [
+        ...new Set(
+            data.map(q => q.study_set)
+        )
     ];
 
+    if (sets.length === 0) {
 
-    answerOptions.forEach(
-        function(optionText) {
-
-            const button =
-                document.createElement("button");
-
-            button.className =
-                "option";
-
-            button.textContent =
-                optionText;
-
-            button.onclick =
-                function() {
-
-                    checkAnswer(
-                        optionText,
-                        q.answer,
-                        q.explanation,
-                        q.id,
-                        totalQuestions
-                    );
-
-                };
-
-            options.appendChild(button);
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CHECK ANSWER
-===================================================== */
-
-function checkAnswer(
-    selectedAnswer,
-    correctAnswer,
-    explanation,
-    questionId,
-    totalQuestions
-) {
-
-
-    if (
-        answeredQuestionIds.has(
-            String(questionId)
-        )
-    ) {
+        setList.innerHTML =
+            "No study sets have been added yet.";
 
         return;
     }
 
+    setList.innerHTML = "";
 
-    answeredQuestionIds.add(
-        String(questionId)
-    );
+    sets.forEach(setName => {
 
+        const button =
+            document.createElement("button");
 
-    totalAnswered++;
+        button.className = "topic";
 
+        button.textContent =
+            "📖 " + setName;
 
-    const buttons =
-        document.querySelectorAll(".option");
+        button.onclick =
+            () => openStudySet(setName);
 
-    const feedback =
-        document.getElementById("feedback");
+        setList.appendChild(button);
 
-    const nextBtn =
-        document.getElementById("nextBtn");
-
-
-    buttons.forEach(
-        function(button) {
-
-            button.disabled = true;
-
-        }
-    );
-
-
-    questionsToday++;
-
-
-    localStorage.setItem(
-        "adrep_questions_today",
-        questionsToday
-    );
-
-
-    const isCorrect =
-        selectedAnswer.trim().toLowerCase() ===
-        correctAnswer.trim().toLowerCase();
-
-
-    if (isCorrect) {
-
-        correctAnswers++;
-
-        addXP(10);
-
-
-        feedback.innerHTML =
-            "🎉 WOW! Correct! +10 XP" +
-
-            "<div class='explanation'>" +
-
-            "💡 " +
-
-            (
-                explanation ||
-                "Great job! Keep going."
-            ) +
-
-            "</div>";
-
-    }
-
-    else {
-
-        feedback.innerHTML =
-            "😅 Oops! Not quite." +
-
-            "<br><br>" +
-
-            "✅ Correct answer: " +
-
-            "<strong>" +
-
-            correctAnswer +
-
-            "</strong>" +
-
-            "<div class='explanation'>" +
-
-            "💡 " +
-
-            (
-                explanation ||
-                "Keep practicing!"
-            ) +
-
-            "</div>";
-
-    }
-
-
-    updateScore(totalQuestions);
-
-
-    const streakCompleted =
-        checkStreakCompletion();
-
-
-    if (streakCompleted) {
-
-        feedback.innerHTML +=
-
-            "<div class='streak-complete'>" +
-
-            "🔥 Daily goal completed! " +
-
-            "Your streak is now " +
-
-            streak +
-
-            " day" +
-
-            (streak === 1 ? "" : "s") +
-
-            "!" +
-
-            "</div>";
-
-    }
-
-
-    nextBtn.classList.remove("hidden");
-
+    });
 }
 
 
-/* =====================================================
-   NEXT QUESTION
-===================================================== */
+async function openStudySet(setName) {
 
-function nextQuestion() {
+    document.getElementById("sets")
+        .classList.add("hidden");
 
-    currentQuestionIndex++;
-
-
-    if (
-        currentQuestionIndex <
-        currentQuestions.length
-    ) {
-
-        showCurrentQuestion();
-
-        return;
-    }
-
-
-    practice(currentTopic);
-
-}
-
-
-/* =====================================================
-   DAILY CHALLENGE
-===================================================== */
-
-function startDailyChallenge() {
-
-    practice("Assam GK");
-
-}
-
-
-/* =====================================================
-   DAILY LEARNING
-===================================================== */
-
-const learningTopics = [
-
-    "🇦🇸 Assam GK",
-    "🇮🇳 Indian GK",
-    "🏛️ History",
-    "🌍 Geography",
-    "⚖️ Indian Polity",
-    "🔬 General Science",
-    "💰 Economy",
-    "🧠 Reasoning",
-    "🔢 Mathematics",
-    "📖 English",
-    "🎭 Assam Culture",
-    "📰 Current Affairs"
-
-];
-
-
-let learningIndex = 0;
-
-
-function showLearning() {
-
-    document
-        .getElementById("learningScreen")
+    document.getElementById("study")
         .classList.remove("hidden");
 
-    learningIndex = 0;
+    document.getElementById("studyTitle")
+        .textContent = setName;
 
-    displayLearning();
+    const questionContainer =
+        document.getElementById("questions");
 
-}
+    questionContainer.innerHTML =
+        "Loading questions...";
 
+    const { data, error } =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .eq("topic", selectedTopic)
+        .eq("study_set", setName)
+        .order("id", { ascending: true });
 
-function displayLearning() {
+    if (error) {
 
-    document.getElementById(
-        "learningTopic"
-    ).textContent =
-        learningTopics[learningIndex];
+        questionContainer.innerHTML =
+            "<div class='error'>" +
+            error.message +
+            "</div>";
 
-
-    document.getElementById(
-        "learningTitle"
-    ).textContent =
-        "Today's learning is coming soon 📚";
-
-
-    document.getElementById(
-        "learningText"
-    ).textContent =
-        "We will add learning cards for this topic. " +
-        "You will be able to learn first and then " +
-        "test yourself.";
-
-}
-
-
-function nextLearning() {
-
-    learningIndex++;
-
-
-    if (
-        learningIndex >=
-        learningTopics.length
-    ) {
-
-        learningIndex = 0;
-
-        alert(
-            "🎉 You explored all 12 topics!"
-        );
-
+        return;
     }
 
+    if (!data || data.length === 0) {
 
-    displayLearning();
+        questionContainer.innerHTML =
+            "No questions found.";
+
+        return;
+    }
+
+    questionContainer.innerHTML = "";
+
+    data.forEach((q, index) => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "study-question";
+
+        div.innerHTML = `
+
+            <strong>
+                ${index + 1}. ${escapeHTML(q.question)}
+            </strong>
+
+            <p>
+                A) ${escapeHTML(q.option_a)}<br>
+                B) ${escapeHTML(q.option_b)}<br>
+                C) ${escapeHTML(q.option_c)}<br>
+                D) ${escapeHTML(q.option_d)}
+            </p>
+
+            <div class="answer">
+                Answer: ${escapeHTML(q.answer)}
+            </div>
+        `;
+
+        questionContainer.appendChild(div);
+
+    });
+}
+
+
+function goBackToLibrary() {
+
+    document.getElementById("sets")
+        .classList.add("hidden");
+
+    document.getElementById("library")
+        .classList.remove("hidden");
 
 }
 
 
-/* =====================================================
-   PREMIUM
-===================================================== */
+function goBackToSets() {
 
-function premiumInfo() {
+    document.getElementById("study")
+        .classList.add("hidden");
 
-    alert(
-
-        "👑 Premium Preparation\n\n" +
-
-        "Premium will include PDFs, previous-year papers, " +
-        "advanced mock tests and a much larger question bank.\n\n" +
-
-        "Payment and secure premium access will be added later."
-
-    );
+    document.getElementById("sets")
+        .classList.remove("hidden");
 
 }
 
 
-/* =====================================================
-   START
-===================================================== */
+function escapeHTML(value) {
 
-checkDailyReset();
+    if (value === null || value === undefined) {
+        return "";
+    }
 
-updateStats();
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 </script>
 
