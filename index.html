@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ADRE Prep</title>
+<title>ADRE Prep | Assam Exam Preparation</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -17,46 +18,78 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f4f6fb;
-    color: #222;
+    color: #20242c;
 }
 
 header {
     background: #182848;
     color: white;
-    padding: 25px 15px;
+    padding: 25px 16px;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 29px;
 }
 
 header p {
     margin: 8px 0 0;
+    opacity: .9;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     padding: 15px;
 }
 
 .card {
     background: white;
+    border-radius: 18px;
     padding: 22px;
     margin: 15px 0;
-    border-radius: 18px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 18px rgba(0,0,0,.07);
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h2 {
+    margin-top: 0;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat {
+    background: #f1f4ff;
+    border-radius: 14px;
+    padding: 15px 8px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 5px;
 }
 
 button {
     border: none;
     border-radius: 11px;
-    padding: 13px 18px;
+    padding: 13px 17px;
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
 }
 
 .primary {
@@ -64,20 +97,105 @@ button {
     color: white;
 }
 
-.topic {
+.secondary {
+    background: #eef1f7;
+    color: #182848;
+}
+
+.full {
     width: 100%;
-    margin: 7px 0;
+}
+
+.challenge {
+    background: #fff8e6;
+}
+
+.timer-card {
+    text-align: center;
+}
+
+.timer {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.reaction {
+    min-height: 25px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.section-title {
+    margin-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+}
+
+.topic-button {
     background: white;
     border: 2px solid #ddd;
     text-align: left;
+    min-height: 72px;
 }
 
-.topic:hover {
-    background: #f1f4ff;
+.topic-button:hover {
+    background: #f4f6ff;
+}
+
+.topic-icon {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.topic-description {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666;
+}
+
+.subsection {
+    background: #f7f8fc;
+    border-radius: 14px;
+    padding: 14px;
+    margin: 10px 0;
+}
+
+.subsection button {
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.coming {
+    background: #f3f0ff;
+}
+
+.coming-item {
+    padding: 13px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.coming-item:last-child {
+    border-bottom: none;
+}
+
+.library-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .study-question {
-    padding: 18px 0;
+    padding: 20px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -85,95 +203,726 @@ button {
     border-bottom: none;
 }
 
-.answer {
-    margin-top: 12px;
-    padding: 12px;
-    background: #eefaf2;
-    border-radius: 10px;
+.study-question-number {
+    color: #182848;
     font-weight: bold;
 }
 
+.study-options {
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
+.answer-box {
+    background: #eefaf2;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.quiz-question {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 15px 0 20px;
+}
+
+.option {
+    width: 100%;
+    margin: 7px 0;
+    background: white;
+    border: 2px solid #ddd;
+    text-align: left;
+}
+
+.option:hover {
+    background: #f3f5fb;
+}
+
+.option.correct {
+    background: #e9f8ee;
+    border-color: #42a866;
+}
+
+.option.wrong {
+    background: #fff0f0;
+    border-color: #d95757;
+}
+
+.feedback {
+    margin-top: 18px;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.feedback.correct {
+    background: #e9f8ee;
+}
+
+.feedback.wrong {
+    background: #fff0f0;
+}
+
+.correct-answer {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.quiz-score {
+    background: #f1f4ff;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.missed-list {
+    margin-top: 15px;
+}
+
+.missed-item {
+    padding: 12px;
+    background: #fff8e6;
+    border-radius: 10px;
+    margin: 7px 0;
+}
+
+.account-box {
+    background: #eefaf2;
+}
+
+.premium {
+    background: #f5efff;
+}
+
+.premium li {
+    margin: 9px 0;
+}
+
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.error-box {
+    background: #fff0f0;
+    color: #9b0000;
+    padding: 14px;
+    border-radius: 10px;
 }
 
 .back {
-    background: #eee;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.error {
-    color: #a00000;
-    background: #fff0f0;
-    padding: 12px;
-    border-radius: 10px;
+.small {
+    font-size: 13px;
+    color: #666;
 }
+
+.center {
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+@media(max-width:600px) {
+
+    .stats {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .quiz-question {
+        font-size: 19px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>📚 ADRE Prep</h1>
+
     <p>Learn • Practice • Improve</p>
+
 </header>
+
 
 <div class="container">
 
-    <div id="library" class="card">
-        <h2>📖 Study Library</h2>
-        <p>Choose a subject to start studying.</p>
 
-        <button class="topic" onclick="openTopic('History')">
-            🏛️ History
-        </button>
+<!-- =========================
+     HOME
+========================= -->
 
-        <button class="topic" onclick="openTopic('Geography')">
-            🌍 Geography
-        </button>
+<div id="homeScreen">
 
-        <button class="topic" onclick="openTopic('Politics')">
-            ⚖️ Politics
-        </button>
 
-        <button class="topic" onclick="openTopic('Economics')">
-            💰 Economics
-        </button>
+    <div class="card hero">
 
-        <button class="topic" onclick="openTopic('Culture')">
-            🎭 Culture
-        </button>
+        <h2>Prepare smarter for ADRE</h2>
 
-        <button class="topic" onclick="openTopic('Current Affairs')">
-            📰 Current Affairs
-        </button>
+        <p>
+            Study important General Knowledge,
+            practice what you've learned and build
+            a consistent study habit.
+        </p>
 
-        <button class="topic" onclick="openTopic('Others')">
-            📚 Others
-        </button>
     </div>
 
-    <div id="sets" class="card hidden">
-        <button class="back" onclick="goBackToLibrary()">← Back</button>
 
-        <h2 id="setsTitle"></h2>
+    <!-- STATS -->
 
-        <p>Select a study set.</p>
+    <div class="card">
 
-        <div id="setList"></div>
+        <div class="stats">
+
+            <div class="stat">
+                <strong>⭐</strong>
+                <span id="xp">0 XP</span>
+            </div>
+
+            <div class="stat">
+                <strong>🔥</strong>
+                <span id="streak">0 Day Streak</span>
+            </div>
+
+            <div class="stat">
+                <strong>⏱️</strong>
+                <span id="todayTime">0 min</span>
+            </div>
+
+        </div>
+
     </div>
 
-    <div id="study" class="card hidden">
-        <button class="back" onclick="goBackToSets()">← Back</button>
 
-        <h2 id="studyTitle"></h2>
+    <!-- DAILY CHALLENGE -->
 
-        <div id="questions"></div>
+    <div class="card challenge">
+
+        <h2>🔥 Daily Challenge</h2>
+
+        <p>
+            Complete <strong>25 mixed GK questions</strong>
+            or spend at least <strong>10 minutes</strong>
+            actively studying today to protect your streak.
+        </p>
+
+        <p class="small">
+            Questions are selected from all 7 GK areas.
+        </p>
+
+        <button
+            class="primary full"
+            onclick="startDailyChallenge()">
+
+            Start Today's Challenge
+
+        </button>
+
     </div>
+
+
+    <!-- TIMER -->
+
+    <div class="card timer-card">
+
+        <h2>⏱️ Study Timer</h2>
+
+        <div id="timer" class="timer">
+            00:00
+        </div>
+
+        <div id="timerMessage" class="reaction"></div>
+
+        <button
+            id="timerButton"
+            class="primary"
+            onclick="toggleTimer()">
+
+            ▶ Start Study Timer
+
+        </button>
+
+    </div>
+
+
+    <!-- DAILY LEARNING -->
+
+    <div class="card">
+
+        <h2 class="section-title">
+            📖 Study Library
+        </h2>
+
+        <p>
+            Study organized GK question sets before
+            testing yourself in Practice.
+        </p>
+
+        <div class="grid">
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('History')">
+
+                🏛️ History
+
+                <span class="topic-description">
+                    Indian History • Assam History
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Geography')">
+
+                🌍 Geography
+
+                <span class="topic-description">
+                    World • India • Assam
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Politics')">
+
+                ⚖️ Politics
+
+                <span class="topic-description">
+                    Indian polity and government
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Economics')">
+
+                💰 Economics
+
+                <span class="topic-description">
+                    Important economic concepts
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Culture')">
+
+                🎭 Culture
+
+                <span class="topic-description">
+                    Assam Culture • Indian Culture
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Current Affairs')">
+
+                📰 Current Affairs
+
+                <span class="topic-description">
+                    Recent important events
+                </span>
+
+            </button>
+
+
+            <button
+                class="topic-button"
+                onclick="openLibraryTopic('Others')">
+
+                📚 Others
+
+                <span class="topic-description">
+                    Schemes • Awards • Events • More
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRACTICE -->
+
+    <div class="card">
+
+        <h2 class="section-title">
+            🎮 Practice
+        </h2>
+
+        <p>
+            Test yourself on a GK topic.
+            Questions come from the Study Library.
+        </p>
+
+        <div class="grid">
+
+            <button
+                class="topic-button"
+                onclick="startPractice('History')">
+
+                🏛️ History
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Geography')">
+
+                🌍 Geography
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Politics')">
+
+                ⚖️ Politics
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Economics')">
+
+                💰 Economics
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Culture')">
+
+                🎭 Culture
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Current Affairs')">
+
+                📰 Current Affairs
+
+            </button>
+
+            <button
+                class="topic-button"
+                onclick="startPractice('Others')">
+
+                📚 Others
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MISSED QUESTIONS -->
+
+    <div class="card">
+
+        <h2>🔁 Practice What You Missed</h2>
+
+        <p>
+            Come back to questions you previously
+            answered incorrectly.
+        </p>
+
+        <button
+            class="secondary"
+            onclick="practiceMissedQuestions()">
+
+            Practice Missed Questions
+
+        </button>
+
+    </div>
+
+
+    <!-- ACCOUNT -->
+
+    <div class="card account-box">
+
+        <h2>💾 Save Your Progress</h2>
+
+        <p>
+            You can practice without an account.
+            Sign in when you want your streak,
+            progress and study history saved.
+        </p>
+
+        <button
+            class="primary"
+            onclick="showAccountMessage()">
+
+            Sign In / Create Account
+
+        </button>
+
+        <p class="small">
+            Account system will be connected securely
+            in the next stage.
+        </p>
+
+    </div>
+
+
+    <!-- PREMIUM -->
+
+    <div class="card premium">
+
+        <h2>👑 Premium Preparation</h2>
+
+        <p>
+            For serious aspirants who want deeper
+            preparation.
+        </p>
+
+        <ul>
+
+            <li>📄 Premium PDFs</li>
+
+            <li>📚 Premium study material</li>
+
+            <li>📝 Previous-year questions</li>
+
+            <li>🎯 Daily mock tests</li>
+
+            <li>⬇️ Downloadable study material</li>
+
+            <li>➕ Additional premium study sets</li>
+
+        </ul>
+
+        <button
+            class="primary full"
+            onclick="showPremiumMessage()">
+
+            Explore Premium
+
+        </button>
+
+    </div>
+
+
+    <!-- COMING SOON -->
+
+    <div class="card coming">
+
+        <h2>🚀 Coming Soon</h2>
+
+        <p>
+            More sections will be added after the
+            GK foundation is complete.
+        </p>
+
+        <div class="coming-item">
+            📘 Social Studies
+        </div>
+
+        <div class="coming-item">
+            🧠 Logical Reasoning & Mental Ability
+        </div>
+
+        <div class="coming-item">
+            📖 General English
+        </div>
+
+        <div class="coming-item">
+            🔢 General Mathematics
+        </div>
+
+        <div class="coming-item">
+            📝 Comprehension & English Language
+        </div>
+
+    </div>
+
 
 </div>
 
+
+
+<!-- =========================
+     LIBRARY SET SCREEN
+========================= -->
+
+<div id="librarySetScreen" class="card hidden">
+
+    <button
+        class="secondary back"
+        onclick="goHome()">
+
+        ← Back
+
+    </button>
+
+    <div class="library-header">
+
+        <h2 id="libraryTopicTitle"></h2>
+
+        <p>
+            Choose a study section.
+        </p>
+
+    </div>
+
+    <div id="librarySets"></div>
+
+</div>
+
+
+
+<!-- =========================
+     STUDY SCREEN
+========================= -->
+
+<div id="studyScreen" class="card hidden">
+
+    <button
+        class="secondary back"
+        onclick="goBackToSets()">
+
+        ← Back
+
+    </button>
+
+    <div class="library-header">
+
+        <h2 id="studyTitle"></h2>
+
+        <p class="small">
+            Study the questions and answers at your own pace.
+        </p>
+
+    </div>
+
+    <div id="studyQuestions"></div>
+
+</div>
+
+
+
+<!-- =========================
+     QUIZ SCREEN
+========================= -->
+
+<div id="quizScreen" class="card hidden">
+
+    <button
+        class="secondary back"
+        onclick="goHome()">
+
+        ← Exit
+
+    </button>
+
+    <h2 id="quizTitle"></h2>
+
+    <div id="quizScore" class="quiz-score">
+        Score: 0 / 0
+    </div>
+
+    <div
+        id="quizQuestion"
+        class="quiz-question">
+    </div>
+
+    <div id="quizOptions"></div>
+
+    <div
+        id="quizFeedback"
+        class="feedback hidden">
+    </div>
+
+    <button
+        id="nextQuestionButton"
+        class="primary full hidden"
+        onclick="nextQuizQuestion()">
+
+        Next Question →
+
+    </button>
+
+</div>
+
+
+
+<!-- =========================
+     QUIZ COMPLETE
+========================= -->
+
+<div id="completeScreen" class="card hidden center">
+
+    <h2 id="completeTitle">
+        🎉 Session Complete!
+    </h2>
+
+    <div id="finalScore"></div>
+
+    <div id="completeReaction"></div>
+
+    <div
+        id="missedQuestions"
+        class="missed-list">
+    </div>
+
+    <br>
+
+    <button
+        class="primary"
+        onclick="goHome()">
+
+        Back to Home
+
+    </button>
+
+</div>
+
+
+
+</div>
+
+
+
 <script>
+
+/* =====================================================
+   SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
 "https://sadtwnopdcdmqbheeuzi.supabase.co";
@@ -187,191 +936,1419 @@ window.supabase.createClient(
     SUPABASE_KEY
 );
 
-let selectedTopic = "";
 
-async function openTopic(topic) {
 
-    selectedTopic = topic;
+/* =====================================================
+   GK STRUCTURE
+===================================================== */
 
-    document.getElementById("library")
-        .classList.add("hidden");
+const GK_TOPICS = [
 
-    document.getElementById("sets")
+    "History",
+    "Geography",
+    "Politics",
+    "Economics",
+    "Culture",
+    "Current Affairs",
+    "Others"
+
+];
+
+
+
+const LIBRARY_STRUCTURE = {
+
+    "History": [
+        "Indian History",
+        "Assam History"
+    ],
+
+    "Geography": [
+        "World Geography",
+        "Indian Geography",
+        "Assam Geography"
+    ],
+
+    "Politics": [
+        "Indian Polity"
+    ],
+
+    "Economics": [
+        "Economics"
+    ],
+
+    "Culture": [
+        "Assam Culture",
+        "Indian Culture"
+    ],
+
+    "Current Affairs": [
+        "Current Affairs"
+    ],
+
+    "Others": [
+        "Others"
+    ]
+
+};
+
+
+
+/* =====================================================
+   USER PROGRESS
+===================================================== */
+
+let xp =
+Number(localStorage.getItem("adre_xp")) || 0;
+
+let streak =
+Number(localStorage.getItem("adre_streak")) || 0;
+
+let lastStreakDate =
+localStorage.getItem("adre_last_streak_date") || "";
+
+let todayQuestions =
+Number(localStorage.getItem("adre_today_questions")) || 0;
+
+let todayStudySeconds =
+Number(localStorage.getItem("adre_today_seconds")) || 0;
+
+let savedProgressDate =
+localStorage.getItem("adre_progress_date") || "";
+
+
+
+/* =====================================================
+   QUIZ VARIABLES
+===================================================== */
+
+let quizQuestions = [];
+
+let quizIndex = 0;
+
+let quizCorrect = 0;
+
+let quizWrong = 0;
+
+let quizMode = "";
+
+let quizTopic = "";
+
+let missedQuestionIds = [];
+
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+let timerRunning = false;
+
+let timerInterval = null;
+
+let timerSeconds = 0;
+
+
+
+/* =====================================================
+   DAILY RESET
+===================================================== */
+
+function checkDailyReset() {
+
+    const today =
+        new Date().toDateString();
+
+    if (savedProgressDate !== today) {
+
+        todayQuestions = 0;
+
+        todayStudySeconds = 0;
+
+        localStorage.setItem(
+            "adre_today_questions",
+            "0"
+        );
+
+        localStorage.setItem(
+            "adre_today_seconds",
+            "0"
+        );
+
+        localStorage.setItem(
+            "adre_progress_date",
+            today
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats() {
+
+    document.getElementById("xp").textContent =
+        xp + " XP";
+
+    document.getElementById("streak").textContent =
+        streak + " Day Streak";
+
+    const minutes =
+        Math.floor(todayStudySeconds / 60);
+
+    document.getElementById("todayTime").textContent =
+        minutes + " min";
+
+}
+
+
+
+/* =====================================================
+   XP
+===================================================== */
+
+function addXP(amount) {
+
+    xp += amount;
+
+    localStorage.setItem(
+        "adre_xp",
+        xp
+    );
+
+    updateStats();
+
+}
+
+
+
+/* =====================================================
+   STREAK
+===================================================== */
+
+function saveStreakForToday() {
+
+    const today =
+        new Date().toDateString();
+
+    if (lastStreakDate === today) {
+        return;
+    }
+
+    streak++;
+
+    lastStreakDate = today;
+
+    localStorage.setItem(
+        "adre_streak",
+        streak
+    );
+
+    localStorage.setItem(
+        "adre_last_streak_date",
+        today
+    );
+
+    updateStats();
+
+}
+
+
+
+/* =====================================================
+   CHECK STREAK CONDITIONS
+===================================================== */
+
+function checkStreakProgress() {
+
+    /*
+       Streak is earned by either:
+
+       1. 25 answered questions
+       OR
+       2. 10 minutes of active study time
+    */
+
+    if (
+        todayQuestions >= 25 ||
+        todayStudySeconds >= 600
+    ) {
+
+        saveStreakForToday();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function toggleTimer() {
+
+    if (timerRunning) {
+
+        stopTimer();
+
+    }
+
+    else {
+
+        startTimer();
+
+    }
+
+}
+
+
+
+function startTimer() {
+
+    if (timerRunning) {
+        return;
+    }
+
+    timerRunning = true;
+
+    document.getElementById(
+        "timerButton"
+    ).textContent =
+        "⏸ Pause Study Timer";
+
+    timerInterval =
+        setInterval(
+            function() {
+
+                timerSeconds++;
+
+                todayStudySeconds++;
+
+                localStorage.setItem(
+                    "adre_today_seconds",
+                    todayStudySeconds
+                );
+
+                updateTimerDisplay();
+
+                updateStats();
+
+                showTimeReaction();
+
+                checkStreakProgress();
+
+            },
+            1000
+        );
+
+}
+
+
+
+function stopTimer() {
+
+    timerRunning = false;
+
+    clearInterval(timerInterval);
+
+    timerInterval = null;
+
+    document.getElementById(
+        "timerButton"
+    ).textContent =
+        "▶ Start Study Timer";
+
+}
+
+
+
+function updateTimerDisplay() {
+
+    const minutes =
+        Math.floor(timerSeconds / 60);
+
+    const seconds =
+        timerSeconds % 60;
+
+    document.getElementById(
+        "timer"
+    ).textContent =
+
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0");
+
+}
+
+
+
+function showTimeReaction() {
+
+    const message =
+        document.getElementById(
+            "timerMessage"
+        );
+
+    if (timerSeconds === 600) {
+
+        message.textContent =
+            "🥹 I'm proud of you. 10 minutes without doom-scrolling!";
+
+    }
+
+    else if (timerSeconds === 1800) {
+
+        message.textContent =
+            "🔥 30 minutes?! You're actually locked in.";
+
+    }
+
+    else if (timerSeconds === 3600) {
+
+        message.textContent =
+            "🏆 ONE HOUR! Your future self is going to thank you.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
+
+function hideAllScreens() {
+
+    document.getElementById(
+        "homeScreen"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "librarySetScreen"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "studyScreen"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "quizScreen"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "completeScreen"
+    ).classList.add("hidden");
+
+}
+
+
+
+function goHome() {
+
+    hideAllScreens();
+
+    document.getElementById(
+        "homeScreen"
+    ).classList.remove("hidden");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+function showScreen(id) {
+
+    hideAllScreens();
+
+    document.getElementById(id)
         .classList.remove("hidden");
 
-    document.getElementById("setsTitle")
-        .textContent = topic;
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-    const setList =
-        document.getElementById("setList");
+}
 
-    setList.innerHTML =
-        "Loading study sets...";
 
-    const { data, error } =
-        await supabaseClient
-        .from("questions")
-        .select("study_set")
-        .eq("topic", topic)
-        .not("study_set", "is", null);
 
-    if (error) {
+/* =====================================================
+   STUDY LIBRARY
+===================================================== */
 
-        setList.innerHTML =
-            "<div class='error'>" +
-            error.message +
-            "</div>";
+async function openLibraryTopic(topic) {
 
-        return;
-    }
+    showScreen("librarySetScreen");
 
-    const sets = [
-        ...new Set(
-            data.map(q => q.study_set)
-        )
-    ];
+    document.getElementById(
+        "libraryTopicTitle"
+    ).textContent =
+        "📖 " + topic;
 
-    if (sets.length === 0) {
+    const container =
+        document.getElementById(
+            "librarySets"
+        );
 
-        setList.innerHTML =
-            "No study sets have been added yet.";
+    container.innerHTML =
+        "<div class='loading'>Loading study sections...</div>";
 
-        return;
-    }
+    const sets =
+        LIBRARY_STRUCTURE[topic] || [];
 
-    setList.innerHTML = "";
+    container.innerHTML = "";
 
-    sets.forEach(setName => {
+    for (const setName of sets) {
 
         const button =
             document.createElement("button");
 
-        button.className = "topic";
+        button.className =
+            "topic-button full";
 
         button.textContent =
-            "📖 " + setName;
+            "📚 " + setName;
 
         button.onclick =
-            () => openStudySet(setName);
+            function() {
 
-        setList.appendChild(button);
+                openStudySet(
+                    topic,
+                    setName
+                );
 
-    });
+            };
+
+        container.appendChild(button);
+
+    }
+
 }
 
 
-async function openStudySet(setName) {
 
-    document.getElementById("sets")
-        .classList.add("hidden");
+/* =====================================================
+   STUDY SET
+===================================================== */
 
-    document.getElementById("study")
-        .classList.remove("hidden");
+async function openStudySet(
+    topic,
+    studySet
+) {
 
-    document.getElementById("studyTitle")
-        .textContent = setName;
+    showScreen("studyScreen");
 
-    const questionContainer =
-        document.getElementById("questions");
+    document.getElementById(
+        "studyTitle"
+    ).textContent =
+        "📖 " + studySet;
 
-    questionContainer.innerHTML =
+    const container =
+        document.getElementById(
+            "studyQuestions"
+        );
+
+    container.innerHTML =
+        "<div class='loading'>Loading study material...</div>";
+
+    /*
+       IMPORTANT:
+
+       Questions are stored only once.
+
+       The same questions can later be
+       used by Practice and Daily Challenge.
+    */
+
+    const { data, error } =
+        await supabaseClient
+        .from("questions")
+        .select(
+            "id, question, option_a, option_b, option_c, option_d, answer, study_set, is_premium"
+        )
+        .eq("topic", topic)
+        .eq("study_set", studySet)
+        .eq("is_premium", false)
+        .order(
+            "id",
+            { ascending: true }
+        );
+
+    if (error) {
+
+        container.innerHTML =
+            "<div class='error-box'>" +
+            "Unable to load study material.<br><br>" +
+            escapeHTML(error.message) +
+            "</div>";
+
+        return;
+
+    }
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML =
+            "<div class='center'>" +
+            "<p>No study questions have been added to this section yet.</p>" +
+            "<p class='small'>" +
+            "Questions will appear here once they are added through the question system." +
+            "</p>" +
+            "</div>";
+
+        return;
+
+    }
+
+    container.innerHTML = "";
+
+    data.forEach(
+        function(q, index) {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "study-question";
+
+            item.innerHTML =
+
+                "<div class='study-question-number'>" +
+                "Question " +
+                (index + 1) +
+                "</div>" +
+
+                "<h3>" +
+                escapeHTML(q.question) +
+                "</h3>" +
+
+                "<div class='study-options'>" +
+
+                "A) " +
+                escapeHTML(q.option_a) +
+                "<br>" +
+
+                "B) " +
+                escapeHTML(q.option_b) +
+                "<br>" +
+
+                "C) " +
+                escapeHTML(q.option_c) +
+                "<br>" +
+
+                "D) " +
+                escapeHTML(q.option_d) +
+
+                "</div>" +
+
+                "<div class='answer-box'>" +
+
+                "Answer: " +
+                escapeHTML(q.answer) +
+
+                "</div>";
+
+            container.appendChild(item);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   PRACTICE
+===================================================== */
+
+async function startPractice(topic) {
+
+    quizMode = "practice";
+
+    quizTopic = topic;
+
+    quizQuestions = [];
+
+    quizIndex = 0;
+
+    quizCorrect = 0;
+
+    quizWrong = 0;
+
+    missedQuestionIds = [];
+
+    showScreen("quizScreen");
+
+    document.getElementById(
+        "quizTitle"
+    ).textContent =
+        "🎮 " + topic + " Practice";
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent =
         "Loading questions...";
+
+    document.getElementById(
+        "quizOptions"
+    ).innerHTML = "";
+
+    document.getElementById(
+        "quizFeedback"
+    ).classList.add("hidden");
 
     const { data, error } =
         await supabaseClient
         .from("questions")
         .select("*")
-        .eq("topic", selectedTopic)
-        .eq("study_set", setName)
-        .order("id", { ascending: true });
+        .eq("topic", topic)
+        .eq("is_premium", false);
 
     if (error) {
 
-        questionContainer.innerHTML =
-            "<div class='error'>" +
-            error.message +
-            "</div>";
+        showQuizError(error.message);
 
         return;
+
     }
 
     if (!data || data.length === 0) {
 
-        questionContainer.innerHTML =
-            "No questions found.";
+        showQuizError(
+            "No free questions are available for this topic yet."
+        );
 
         return;
+
     }
 
-    questionContainer.innerHTML = "";
+    quizQuestions =
+        shuffle(
+            data
+        );
 
-    data.forEach((q, index) => {
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            "study-question";
-
-        div.innerHTML = `
-
-            <strong>
-                ${index + 1}. ${escapeHTML(q.question)}
-            </strong>
-
-            <p>
-                A) ${escapeHTML(q.option_a)}<br>
-                B) ${escapeHTML(q.option_b)}<br>
-                C) ${escapeHTML(q.option_c)}<br>
-                D) ${escapeHTML(q.option_d)}
-            </p>
-
-            <div class="answer">
-                Answer: ${escapeHTML(q.answer)}
-            </div>
-        `;
-
-        questionContainer.appendChild(div);
-
-    });
-}
-
-
-function goBackToLibrary() {
-
-    document.getElementById("sets")
-        .classList.add("hidden");
-
-    document.getElementById("library")
-        .classList.remove("hidden");
+    showQuizQuestion();
 
 }
 
 
-function goBackToSets() {
 
-    document.getElementById("study")
-        .classList.add("hidden");
+/* =====================================================
+   DAILY CHALLENGE
+===================================================== */
 
-    document.getElementById("sets")
-        .classList.remove("hidden");
+async function startDailyChallenge() {
+
+    quizMode = "daily";
+
+    quizTopic = "Daily Challenge";
+
+    quizIndex = 0;
+
+    quizCorrect = 0;
+
+    quizWrong = 0;
+
+    missedQuestionIds = [];
+
+    showScreen("quizScreen");
+
+    document.getElementById(
+        "quizTitle"
+    ).textContent =
+        "🔥 Today's 25-question Challenge";
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent =
+        "Loading today's mixed GK questions...";
+
+    document.getElementById(
+        "quizOptions"
+    ).innerHTML = "";
+
+    const { data, error } =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .eq("is_premium", false);
+
+    if (error) {
+
+        showQuizError(error.message);
+
+        return;
+
+    }
+
+    if (!data || data.length === 0) {
+
+        showQuizError(
+            "No free GK questions are available yet."
+        );
+
+        return;
+
+    }
+
+    /*
+       Mix questions from the whole GK bank.
+       The challenge uses up to 25 questions.
+    */
+
+    quizQuestions =
+        shuffle(data)
+        .slice(0, 25);
+
+    showQuizQuestion();
 
 }
+
+
+
+/* =====================================================
+   SHOW QUIZ QUESTION
+===================================================== */
+
+function showQuizQuestion() {
+
+    const q =
+        quizQuestions[quizIndex];
+
+    if (!q) {
+
+        finishQuiz();
+
+        return;
+
+    }
+
+    document.getElementById(
+        "quizScore"
+    ).textContent =
+
+        "Score: " +
+        quizCorrect +
+        " / " +
+        quizIndex;
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent =
+        q.question;
+
+    const options =
+        document.getElementById(
+            "quizOptions"
+        );
+
+    options.innerHTML = "";
+
+    const answers = [
+
+        q.option_a,
+        q.option_b,
+        q.option_c,
+        q.option_d
+
+    ];
+
+    shuffle(answers)
+        .forEach(
+            function(answer) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+                button.className =
+                    "option";
+
+                button.textContent =
+                    answer;
+
+                button.onclick =
+                    function() {
+
+                        checkQuizAnswer(
+                            button,
+                            answer,
+                            q
+                        );
+
+                    };
+
+                options.appendChild(
+                    button
+                );
+
+            }
+        );
+
+    document.getElementById(
+        "quizFeedback"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "nextQuestionButton"
+    ).classList.add("hidden");
+
+}
+
+
+
+/* =====================================================
+   CHECK ANSWER
+===================================================== */
+
+function checkQuizAnswer(
+    selectedButton,
+    selectedAnswer,
+    question
+) {
+
+    const buttons =
+        document.querySelectorAll(
+            "#quizOptions .option"
+        );
+
+    buttons.forEach(
+        function(button) {
+
+            button.disabled = true;
+
+        }
+    );
+
+    todayQuestions++;
+
+    localStorage.setItem(
+        "adre_today_questions",
+        todayQuestions
+    );
+
+    checkStreakProgress();
+
+    const correct =
+        normalize(
+            selectedAnswer
+        ) ===
+        normalize(
+            question.answer
+        );
+
+    const feedback =
+        document.getElementById(
+            "quizFeedback"
+        );
+
+    if (correct) {
+
+        quizCorrect++;
+
+        addXP(10);
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+        feedback.className =
+            "feedback correct";
+
+        feedback.innerHTML =
+            randomCorrectReaction() +
+
+            "<div class='correct-answer'>" +
+
+            "Correct answer: " +
+            escapeHTML(question.answer) +
+
+            "</div>";
+
+    }
+
+    else {
+
+        quizWrong++;
+
+        missedQuestionIds.push(
+            String(question.id)
+        );
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+        buttons.forEach(
+            function(button) {
+
+                if (
+                    normalize(
+                        button.textContent
+                    ) ===
+                    normalize(
+                        question.answer
+                    )
+                ) {
+
+                    button.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
+        );
+
+        feedback.className =
+            "feedback wrong";
+
+        feedback.innerHTML =
+            randomWrongReaction() +
+
+            "<div class='correct-answer'>" +
+
+            "Correct answer: " +
+            escapeHTML(question.answer) +
+
+            "</div>";
+
+    }
+
+    document.getElementById(
+        "quizScore"
+    ).textContent =
+
+        "Score: " +
+        quizCorrect +
+        " / " +
+        (quizIndex + 1);
+
+    feedback.classList.remove(
+        "hidden"
+    );
+
+    document.getElementById(
+        "nextQuestionButton"
+    ).classList.remove(
+        "hidden"
+    );
+
+}
+
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+function nextQuizQuestion() {
+
+    quizIndex++;
+
+    showQuizQuestion();
+
+}
+
+
+
+/* =====================================================
+   COMPLETE QUIZ
+===================================================== */
+
+function finishQuiz() {
+
+    showScreen(
+        "completeScreen"
+    );
+
+    const total =
+        quizQuestions.length;
+
+    document.getElementById(
+        "completeTitle"
+    ).textContent =
+        quizMode === "daily"
+            ? "🔥 Daily Challenge Complete!"
+            : "🎉 Practice Complete!";
+
+    document.getElementById(
+        "finalScore"
+    ).innerHTML =
+
+        "<h2>" +
+        quizCorrect +
+        " / " +
+        total +
+        "</h2>" +
+
+        "<p>" +
+        "Correct answers" +
+        "</p>";
+
+    let reaction = "";
+
+    const percentage =
+        total > 0
+            ? (quizCorrect / total) * 100
+            : 0;
+
+    if (percentage >= 90) {
+
+        reaction =
+            "🔥 Absolutely smashed it!";
+
+    }
+
+    else if (percentage >= 70) {
+
+        reaction =
+            "👏 Nice work! Keep pushing.";
+
+    }
+
+    else if (percentage >= 50) {
+
+        reaction =
+            "💪 You're getting there. Practice makes progress.";
+
+    }
+
+    else {
+
+        reaction =
+            "🌱 Don't worry. Now you know what to work on.";
+
+    }
+
+    document.getElementById(
+        "completeReaction"
+    ).textContent =
+        reaction;
+
+    const missed =
+        document.getElementById(
+            "missedQuestions"
+        );
+
+    if (
+        missedQuestionIds.length > 0
+    ) {
+
+        missed.innerHTML =
+            "<h3>🔁 Questions to revisit</h3>" +
+            "<p class='small'>" +
+            "These questions were saved for your future weak-topic practice." +
+            "</p>";
+
+        quizQuestions.forEach(
+            function(q) {
+
+                if (
+                    missedQuestionIds.includes(
+                        String(q.id)
+                    )
+                ) {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+                    div.className =
+                        "missed-item";
+
+                    div.textContent =
+                        q.question;
+
+                    missed.appendChild(
+                        div
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+    else {
+
+        missed.innerHTML =
+            "<p>🎉 No missed questions this round!</p>";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MISSED QUESTIONS
+===================================================== */
+
+async function practiceMissedQuestions() {
+
+    const saved =
+        JSON.parse(
+            localStorage.getItem(
+                "adre_missed_questions"
+            ) || "[]"
+        );
+
+    /*
+       This section is prepared for persistent
+       weak-question tracking.
+
+       The current version also remembers
+       missed questions during the session.
+    */
+
+    if (missedQuestionIds.length === 0) {
+
+        alert(
+            "Your missed-question history will be connected to your account system so it can persist across devices."
+        );
+
+        return;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   REACTIONS
+===================================================== */
+
+function randomCorrectReaction() {
+
+    const reactions = [
+
+        "🎉 WOW! Correct!",
+        "🔥 You absolutely slayed that!",
+        "👏 Look at you!",
+        "✨ Nailed it!",
+        "😎 That's right!",
+        "💥 Boom! Correct!",
+        "🥳 Your brain is cooking!",
+        "🏆 Big brain moment!"
+
+    ];
+
+    return randomItem(
+        reactions
+    );
+
+}
+
+
+
+function randomWrongReaction() {
+
+    const reactions = [
+
+        "😅 Oops! Not quite.",
+        "🙃 Almost! That one escaped you.",
+        "💭 Hmm... not this time!",
+        "😤 So close! Keep going.",
+        "🫠 Your brain needs a tiny reboot.",
+        "👀 Nope, but now you know!",
+        "🌱 Wrong today, stronger tomorrow.",
+        "😂 That question really tried you!"
+
+    ];
+
+    return randomItem(
+        reactions
+    );
+
+}
+
+
+
+/* =====================================================
+   ACCOUNT PLACEHOLDER
+===================================================== */
+
+function showAccountMessage() {
+
+    alert(
+
+        "Account sign-in is coming in the next stage.\n\n" +
+
+        "You will be able to create an account and save your streak, XP, study progress and weak topics across devices."
+
+    );
+
+}
+
+
+
+/* =====================================================
+   PREMIUM PLACEHOLDER
+===================================================== */
+
+function showPremiumMessage() {
+
+    alert(
+
+        "Premium preparation is coming soon.\n\n" +
+
+        "It will include previous-year questions, premium PDFs, daily mock tests and downloadable study material."
+
+    );
+
+}
+
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showQuizError(message) {
+
+    document.getElementById(
+        "quizQuestion"
+    ).innerHTML =
+
+        "<div class='error-box'>" +
+        escapeHTML(message) +
+        "</div>";
+
+    document.getElementById(
+        "quizOptions"
+    ).innerHTML = "";
+
+}
+
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function shuffle(array) {
+
+    const copy =
+        [...array];
+
+    for (
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            copy[i],
+            copy[j]
+        ] =
+        [
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+    return copy;
+
+}
+
+
+
+function randomItem(array) {
+
+    return array[
+        Math.floor(
+            Math.random() *
+            array.length
+        )
+    ];
+
+}
+
+
+
+function normalize(value) {
+
+    return String(
+        value || ""
+    )
+    .trim()
+    .toLowerCase();
+
+}
+
 
 
 function escapeHTML(value) {
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
         return "";
+
     }
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
 }
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+checkDailyReset();
+
+updateStats();
 
 </script>
 
