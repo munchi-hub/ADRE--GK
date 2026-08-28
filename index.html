@@ -149,10 +149,16 @@ button {
 
 #progress {
     margin-top: 8px;
-    margin-bottom: 18px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 15px;
     font-weight: bold;
     color: #666;
+}
+
+#score {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
 #question {
@@ -204,6 +210,12 @@ button {
 .round-complete {
     text-align: center;
     padding: 10px;
+}
+
+.final-score {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
 .progress-bar-container {
@@ -518,6 +530,8 @@ Next Learning →
 
 <div id="progress"></div>
 
+<div id="score"></div>
+
 <div class="progress-bar-container">
 
 <div id="progressBar" class="progress-bar"></div>
@@ -599,6 +613,10 @@ let currentQuestionIndex = 0;
 
 let answeredQuestionIds = new Set();
 
+let correctAnswers = 0;
+
+let totalAnswered = 0;
+
 
 
 /* =====================================================
@@ -666,6 +684,39 @@ function addXP(amount) {
 
 
 /* =====================================================
+   UPDATE SCORE DISPLAY
+===================================================== */
+
+function updateScoreDisplay(totalQuestions) {
+
+    document.getElementById("progress").textContent =
+        "Question " +
+        Math.min(totalAnswered + 1, totalQuestions) +
+        " / " +
+        totalQuestions;
+
+    document.getElementById("score").textContent =
+        "🎯 Score: " +
+        correctAnswers +
+        " / " +
+        totalAnswered;
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+    const percentage =
+        totalAnswered === 0
+            ? 0
+            : (totalAnswered / totalQuestions) * 100;
+
+    progressBar.style.width =
+        percentage + "%";
+
+}
+
+
+
+/* =====================================================
    PRACTICE TOPIC
 ===================================================== */
 
@@ -676,6 +727,10 @@ async function practice(topic) {
         currentTopic = topic;
 
         answeredQuestionIds.clear();
+
+        correctAnswers = 0;
+
+        totalAnswered = 0;
 
     }
 
@@ -688,6 +743,9 @@ async function practice(topic) {
 
     const progress =
         document.getElementById("progress");
+
+    const score =
+        document.getElementById("score");
 
     const progressBar =
         document.getElementById("progressBar");
@@ -711,7 +769,10 @@ async function practice(topic) {
         "🎮 " + topic;
 
     progress.textContent =
-        "Loading progress...";
+        "Loading questions...";
+
+    score.textContent =
+        "";
 
     progressBar.style.width =
         "0%";
@@ -751,7 +812,8 @@ async function practice(topic) {
             question.textContent =
                 "Unable to load questions 😕";
 
-            progress.textContent = "";
+            progress.textContent =
+                "";
 
             feedback.innerHTML =
                 "<div class='error-box'>" +
@@ -769,7 +831,11 @@ async function practice(topic) {
             question.textContent =
                 "No questions yet 📚";
 
-            progress.textContent = "";
+            progress.textContent =
+                "";
+
+            score.textContent =
+                "";
 
             feedback.innerHTML =
                 "There are currently no questions " +
@@ -797,19 +863,29 @@ async function practice(topic) {
         if (unanswered.length === 0) {
 
             progress.textContent =
-                data.length +
+                "Round complete!";
+
+            score.textContent =
+                "🎯 Final Score: " +
+                correctAnswers +
                 " / " +
-                data.length;
+                totalAnswered;
 
             progressBar.style.width =
                 "100%";
 
             question.innerHTML =
                 "<div class='round-complete'>" +
-                "🎉 Round Complete!<br><br>" +
-                "You've answered all " +
+                "🎉 Round Complete!" +
+                "<div class='final-score'>" +
+                "🏆 " +
+                correctAnswers +
+                " / " +
+                totalAnswered +
+                "</div>" +
+                "You answered all " +
                 data.length +
-                " available questions in " +
+                " questions in " +
                 topic +
                 "." +
                 "</div>";
@@ -817,7 +893,7 @@ async function practice(topic) {
             options.innerHTML = "";
 
             feedback.innerHTML =
-                "Amazing! You completed this round.";
+                "Great work! Start a new round whenever you want.";
 
             nextBtn.classList.add("hidden");
 
@@ -835,6 +911,10 @@ async function practice(topic) {
                 function() {
 
                     answeredQuestionIds.clear();
+
+                    correctAnswers = 0;
+
+                    totalAnswered = 0;
 
                     currentQuestions =
                         data.sort(
@@ -878,7 +958,8 @@ async function practice(topic) {
         question.textContent =
             "Connection problem 😕";
 
-        progress.textContent = "";
+        progress.textContent =
+            "";
 
         feedback.innerHTML =
             "<div class='error-box'>" +
@@ -925,6 +1006,9 @@ function showCurrentQuestion() {
     const progress =
         document.getElementById("progress");
 
+    const score =
+        document.getElementById("score");
+
     const progressBar =
         document.getElementById("progressBar");
 
@@ -934,22 +1018,24 @@ function showCurrentQuestion() {
         currentQuestions.length;
 
 
-    const currentNumber =
-        answeredQuestionIds.size + 1;
-
-
     progress.textContent =
         "Question " +
-        currentNumber +
+        (totalAnswered + 1) +
         " / " +
         totalQuestions;
 
 
+    score.textContent =
+        "🎯 Score: " +
+        correctAnswers +
+        " / " +
+        totalAnswered;
+
+
     const percentage =
-        (
-            answeredQuestionIds.size /
-            totalQuestions
-        ) * 100;
+        totalAnswered === 0
+            ? 0
+            : (totalAnswered / totalQuestions) * 100;
 
 
     progressBar.style.width =
@@ -995,7 +1081,8 @@ function showCurrentQuestion() {
                         optionText,
                         q.answer,
                         q.explanation,
-                        q.id
+                        q.id,
+                        totalQuestions
                     );
 
                 };
@@ -1017,12 +1104,16 @@ function checkAnswer(
     selectedAnswer,
     correctAnswer,
     explanation,
-    questionId
+    questionId,
+    totalQuestions
 ) {
 
     answeredQuestionIds.add(
         String(questionId)
     );
+
+
+    totalAnswered++;
 
 
     const buttons =
@@ -1036,6 +1127,9 @@ function checkAnswer(
 
     const progress =
         document.getElementById("progress");
+
+    const score =
+        document.getElementById("score");
 
     const progressBar =
         document.getElementById("progressBar");
@@ -1060,10 +1154,14 @@ function checkAnswer(
 
 
 
-    if (
+    const isCorrect =
         selectedAnswer.trim().toLowerCase() ===
-        correctAnswer.trim().toLowerCase()
-    ) {
+        correctAnswer.trim().toLowerCase();
+
+
+    if (isCorrect) {
+
+        correctAnswers++;
 
         addXP(10);
 
@@ -1115,25 +1213,23 @@ function checkAnswer(
     }
 
 
-    const totalQuestions =
-        answeredQuestionIds.size +
-        currentQuestions.length;
-
-
-    const answeredCount =
-        answeredQuestionIds.size;
-
-
     progress.textContent =
         "Question " +
-        answeredCount +
+        totalAnswered +
         " / " +
         totalQuestions;
 
 
+    score.textContent =
+        "🎯 Score: " +
+        correctAnswers +
+        " / " +
+        totalAnswered;
+
+
     progressBar.style.width =
         (
-            answeredCount /
+            totalAnswered /
             totalQuestions *
             100
         ) + "%";
