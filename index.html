@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -143,6 +142,12 @@ button {
     display: none;
 }
 
+#quizTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 #question {
     font-size: 21px;
     font-weight: bold;
@@ -161,10 +166,23 @@ button {
     background: #f1f4ff;
 }
 
+.option:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
 #feedback {
     margin-top: 18px;
     font-weight: bold;
     line-height: 1.5;
+}
+
+.explanation {
+    margin-top: 10px;
+    padding: 12px;
+    background: #f4f6fb;
+    border-radius: 10px;
+    font-weight: normal;
 }
 
 @media(max-width:600px) {
@@ -180,7 +198,6 @@ button {
 }
 
 </style>
-
 </head>
 
 <body>
@@ -233,23 +250,17 @@ button {
 <h2>🎯 Daily Challenge</h2>
 
 <p>
-
 Answer at least <strong>25 questions</strong>
 today to keep your streak alive.
-
 </p>
 
 <p>
-
 You can continue practicing after 25.
 There is <strong>no daily limit.</strong>
-
 </p>
 
 <button class="primary" onclick="startDailyChallenge()">
-
 🔥 Start Today's 25
-
 </button>
 
 </div>
@@ -263,16 +274,12 @@ There is <strong>no daily limit.</strong>
 <h2 class="section-title">📖 Daily Learning</h2>
 
 <p>
-
 Learn something new from <strong>all 12 topics</strong>
 every day.
-
 </p>
 
 <button class="primary" onclick="showLearning()">
-
 🧠 Start Learning
-
 </button>
 
 </div>
@@ -291,110 +298,74 @@ every day.
 
 
 <button class="topic" onclick="practice('Assam GK')">
-
 🇦🇸 Assam GK
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Indian GK')">
-
 🇮🇳 Indian GK
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('History')">
-
 🏛️ History
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Geography')">
-
 🌍 Geography
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Indian Polity')">
-
 ⚖️ Indian Polity
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('General Science')">
-
 🔬 General Science
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Economy')">
-
 💰 Economy
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Reasoning')">
-
 🧠 Reasoning
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Mathematics')">
-
 🔢 Mathematics
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('English')">
-
 📖 English
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Assam Culture')">
-
 🎭 Assam Culture
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
 <button class="topic" onclick="practice('Current Affairs')">
-
 📰 Current Affairs
-
 <div class="topic-progress">Practice freely</div>
-
 </button>
 
 
@@ -411,31 +382,22 @@ every day.
 <h2>👑 Premium Preparation</h2>
 
 <p>
-
 For serious aspirants who want deeper preparation.
-
 </p>
 
 <ul>
 
 <li>📄 Premium PDFs</li>
-
 <li>📑 Previous Year Papers</li>
-
 <li>🎯 Advanced Mock Tests</li>
-
 <li>♾️ Larger Question Bank</li>
-
 <li>📊 Detailed Performance Analysis</li>
-
 <li>🏆 Exclusive Practice Sets</li>
 
 </ul>
 
 <button class="primary" onclick="premiumInfo()">
-
 👑 Explore Premium
-
 </button>
 
 </div>
@@ -455,9 +417,7 @@ For serious aspirants who want deeper preparation.
 <p id="learningText"></p>
 
 <button class="primary" onclick="nextLearning()">
-
 Next Learning →
-
 </button>
 
 </div>
@@ -494,15 +454,15 @@ Next Question →
 
 <script>
 
-/* =========================
+/* =====================================================
    SUPABASE CONNECTION
-========================= */
+===================================================== */
 
 const SUPABASE_URL =
 "https://sadtwnopdcdmqbheeuzi.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQBu8Xe";
+"sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQNu8Xe";
 
 const supabaseClient =
 window.supabase.createClient(
@@ -511,9 +471,10 @@ window.supabase.createClient(
 );
 
 
-/* =========================
+
+/* =====================================================
    USER PROGRESS
-========================= */
+===================================================== */
 
 let xp =
 Number(localStorage.getItem("adrep_xp")) || 0;
@@ -521,62 +482,391 @@ Number(localStorage.getItem("adrep_xp")) || 0;
 let streak =
 Number(localStorage.getItem("adrep_streak")) || 0;
 
+let questionsToday =
+Number(localStorage.getItem("adrep_questions_today")) || 0;
+
+let savedDate =
+localStorage.getItem("adrep_date") || "";
+
+let currentQuestions = [];
+
+let currentQuestionIndex = 0;
+
+let currentTopic = "";
+
+
+
+/* =====================================================
+   DAILY RESET
+===================================================== */
+
+function checkDailyReset() {
+
+    const today =
+        new Date().toDateString();
+
+    if (savedDate !== today) {
+
+        questionsToday = 0;
+
+        localStorage.setItem(
+            "adrep_questions_today",
+            0
+        );
+
+        localStorage.setItem(
+            "adrep_date",
+            today
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   UPDATE STATS
+===================================================== */
 
 function updateStats() {
 
-document.getElementById("xp").textContent =
-xp + " XP";
+    document.getElementById("xp").textContent =
+        xp + " XP";
 
-document.getElementById("streak").textContent =
-streak + " Day Streak";
+    document.getElementById("streak").textContent =
+        streak + " Day Streak";
 
 }
 
+
+
+/* =====================================================
+   ADD XP
+===================================================== */
 
 function addXP(amount) {
 
-xp += amount;
+    xp += amount;
 
-localStorage.setItem(
-"adrep_xp",
-xp
-);
+    localStorage.setItem(
+        "adrep_xp",
+        xp
+    );
 
-updateStats();
+    updateStats();
 
 }
 
 
 
-/* =========================
+/* =====================================================
+   PRACTICE TOPIC
+===================================================== */
+
+async function practice(topic) {
+
+    currentTopic = topic;
+
+    const quizScreen =
+        document.getElementById("quizScreen");
+
+    const quizTitle =
+        document.getElementById("quizTitle");
+
+    const question =
+        document.getElementById("question");
+
+    const options =
+        document.getElementById("options");
+
+    const feedback =
+        document.getElementById("feedback");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+
+    quizScreen.classList.remove("hidden");
+
+    quizTitle.textContent =
+        "🎮 " + topic;
+
+    question.textContent =
+        "Loading questions...";
+
+    options.innerHTML = "";
+
+    feedback.innerHTML = "";
+
+    nextBtn.classList.add("hidden");
+
+
+    const { data, error } =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .eq("topic", topic);
+
+
+    if (error) {
+
+        question.textContent =
+            "Something went wrong 😕";
+
+        feedback.textContent =
+            error.message;
+
+        return;
+
+    }
+
+
+    if (!data || data.length === 0) {
+
+        question.textContent =
+            "No questions found yet 📚";
+
+        feedback.textContent =
+            "We haven't added questions for " +
+            topic + " yet.";
+
+        return;
+
+    }
+
+
+    currentQuestions =
+        data.sort(
+            () => Math.random() - 0.5
+        );
+
+    currentQuestionIndex = 0;
+
+    showCurrentQuestion();
+
+}
+
+
+
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+
+function showCurrentQuestion() {
+
+    const q =
+        currentQuestions[currentQuestionIndex];
+
+
+    const question =
+        document.getElementById("question");
+
+    const options =
+        document.getElementById("options");
+
+    const feedback =
+        document.getElementById("feedback");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+
+    question.textContent =
+        q.question;
+
+    options.innerHTML = "";
+
+    feedback.innerHTML = "";
+
+    nextBtn.classList.add("hidden");
+
+
+    const answerOptions = [
+
+        q.option_a,
+        q.option_b,
+        q.option_c,
+        q.option_d
+
+    ];
+
+
+    answerOptions.forEach(
+        function(optionText) {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "option";
+
+            button.textContent =
+                optionText;
+
+            button.onclick =
+                function() {
+
+                    checkAnswer(
+                        optionText,
+                        q.answer,
+                        q.explanation
+                    );
+
+                };
+
+            options.appendChild(button);
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CHECK ANSWER
+===================================================== */
+
+function checkAnswer(
+    selectedAnswer,
+    correctAnswer,
+    explanation
+) {
+
+    const buttons =
+        document.querySelectorAll(".option");
+
+    const feedback =
+        document.getElementById("feedback");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+
+    buttons.forEach(
+        function(button) {
+
+            button.disabled = true;
+
+        }
+    );
+
+
+    questionsToday++;
+
+    localStorage.setItem(
+        "adrep_questions_today",
+        questionsToday
+    );
+
+
+    if (
+        selectedAnswer.trim().toLowerCase() ===
+        correctAnswer.trim().toLowerCase()
+    ) {
+
+        addXP(10);
+
+        feedback.innerHTML =
+            "🎉 WOW! Correct! +10 XP" +
+            "<div class='explanation'>" +
+            "💡 " +
+            (explanation || "Great job!") +
+            "</div>";
+
+    }
+
+    else {
+
+        feedback.innerHTML =
+            "😅 Oops! Not quite." +
+            "<br><br>" +
+            "✅ Correct answer: <strong>" +
+            correctAnswer +
+            "</strong>" +
+            "<div class='explanation'>" +
+            "💡 " +
+            (explanation || "") +
+            "</div>";
+
+    }
+
+
+    if (questionsToday >= 25) {
+
+        feedback.innerHTML +=
+            "<br><strong>🔥 Daily goal completed!</strong>";
+
+    }
+
+
+    nextBtn.classList.remove("hidden");
+
+}
+
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+function nextQuestion() {
+
+    currentQuestionIndex++;
+
+
+    if (
+        currentQuestionIndex >=
+        currentQuestions.length
+    ) {
+
+        currentQuestionIndex = 0;
+
+        currentQuestions =
+            currentQuestions.sort(
+                () => Math.random() - 0.5
+            );
+
+    }
+
+
+    showCurrentQuestion();
+
+}
+
+
+
+/* =====================================================
+   DAILY CHALLENGE
+===================================================== */
+
+function startDailyChallenge() {
+
+    practice("Assam GK");
+
+}
+
+
+
+/* =====================================================
    DAILY LEARNING
-========================= */
+===================================================== */
 
 const learningTopics = [
 
-"🇦🇸 Assam GK",
-
-"🇮🇳 Indian GK",
-
-"🏛️ History",
-
-"🌍 Geography",
-
-"⚖️ Indian Polity",
-
-"🔬 General Science",
-
-"💰 Economy",
-
-"🧠 Reasoning",
-
-"🔢 Mathematics",
-
-"📖 English",
-
-"🎭 Assam Culture",
-
-"📰 Current Affairs"
+    "🇦🇸 Assam GK",
+    "🇮🇳 Indian GK",
+    "🏛️ History",
+    "🌍 Geography",
+    "⚖️ Indian Polity",
+    "🔬 General Science",
+    "💰 Economy",
+    "🧠 Reasoning",
+    "🔢 Mathematics",
+    "📖 English",
+    "🎭 Assam Culture",
+    "📰 Current Affairs"
 
 ];
 
@@ -586,127 +876,93 @@ let learningIndex = 0;
 
 function showLearning() {
 
-document.getElementById(
-"learningScreen"
-).classList.remove("hidden");
+    document.getElementById(
+        "learningScreen"
+    ).classList.remove("hidden");
 
-learningIndex = 0;
+    learningIndex = 0;
 
-displayLearning();
+    displayLearning();
 
 }
 
 
 function displayLearning() {
 
-document.getElementById(
-"learningTopic"
-).textContent =
-learningTopics[learningIndex];
+    document.getElementById(
+        "learningTopic"
+    ).textContent =
+        learningTopics[learningIndex];
 
 
-document.getElementById(
-"learningTitle"
-).textContent =
-"Today's learning is coming soon 📚";
+    document.getElementById(
+        "learningTitle"
+    ).textContent =
+        "Today's learning is coming soon 📚";
 
 
-document.getElementById(
-"learningText"
-).textContent =
-"We will add 30 learning cards for this topic every day. You will be able to read, learn and then test yourself.";
+    document.getElementById(
+        "learningText"
+    ).textContent =
+        "We will add learning cards for this topic. You will be able to learn first and then test yourself.";
 
 }
 
 
 function nextLearning() {
 
-learningIndex++;
-
-if (
-learningIndex >=
-learningTopics.length
-) {
-
-learningIndex = 0;
-
-alert(
-"🎉 You explored all 12 topics!"
-);
-
-}
-
-displayLearning();
-
-}
+    learningIndex++;
 
 
+    if (
+        learningIndex >=
+        learningTopics.length
+    ) {
 
-/* =========================
-   DAILY CHALLENGE
-========================= */
+        learningIndex = 0;
 
-function startDailyChallenge() {
+        alert(
+            "🎉 You explored all 12 topics!"
+        );
 
-alert(
+    }
 
-"🔥 Daily Challenge\n\n" +
 
-"Your goal is at least 25 questions today.\n\n" +
-
-"After 25 questions you can keep practicing for free!"
-
-);
+    displayLearning();
 
 }
 
 
 
-/* =========================
-   PRACTICE
-========================= */
-
-function practice(topic) {
-
-alert(
-
-"🎮 " + topic + "\n\n" +
-
-"The question bank for this topic will be added next."
-
-);
-
-}
-
-
-
-/* =========================
+/* =====================================================
    PREMIUM
-========================= */
+===================================================== */
 
 function premiumInfo() {
 
-alert(
+    alert(
 
-"👑 Premium Preparation\n\n" +
+        "👑 Premium Preparation\n\n" +
 
-"Premium will include PDFs, previous-year papers, advanced mock tests and a much larger question bank.\n\n" +
+        "Premium will include PDFs, previous-year papers, advanced mock tests and a much larger question bank.\n\n" +
 
-"Payment and secure premium access will be added later."
+        "Payment and secure premium access will be added later."
 
-);
+    );
 
 }
 
 
-/* =========================
-   STARTUP
-========================= */
+
+/* =====================================================
+   START
+===================================================== */
+
+checkDailyReset();
 
 updateStats();
 
 </script>
 
 </body>
-
 </html>
