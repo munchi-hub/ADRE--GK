@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ADRE Prep | Learn • Practice • Improve</title>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -176,6 +180,7 @@ button {
 }
 
 </style>
+
 </head>
 
 <body>
@@ -471,7 +476,8 @@ Next Learning →
 
 <div id="feedback"></div>
 
-<button id="nextBtn"
+<button
+id="nextBtn"
 class="primary hidden"
 onclick="nextQuestion()">
 
@@ -487,6 +493,22 @@ Next Question →
 
 
 <script>
+
+/* =========================
+   SUPABASE CONNECTION
+========================= */
+
+const SUPABASE_URL =
+"https://sadtwnopdcdmqbheeuzi.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQBu8Xe";
+
+const supabaseClient =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
 
 /* =========================
@@ -676,6 +698,10 @@ alert(
 
 }
 
+
+/* =========================
+   STARTUP
+========================= */
 
 updateStats();
 
