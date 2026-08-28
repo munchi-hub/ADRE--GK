@@ -142,6 +142,19 @@ button {
     display: none;
 }
 
+#quizTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#progress {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+
 #question {
     font-size: 21px;
     font-weight: bold;
@@ -191,6 +204,22 @@ button {
 .round-complete {
     text-align: center;
     padding: 10px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #e5e5e5;
+    border-radius: 20px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #182848;
+    transition: width 0.3s ease;
 }
 
 @media(max-width:600px) {
@@ -487,6 +516,16 @@ Next Learning →
 
 <div id="quizTitle"></div>
 
+<div id="progress"></div>
+
+<div class="progress-bar-container">
+
+<div id="progressBar" class="progress-bar"></div>
+
+</div>
+
+<br>
+
 <div id="question"></div>
 
 <div id="options"></div>
@@ -557,12 +596,6 @@ let currentTopic = "";
 let currentQuestions = [];
 
 let currentQuestionIndex = 0;
-
-
-/*
-   IDs of questions answered during the
-   current topic session.
-*/
 
 let answeredQuestionIds = new Set();
 
@@ -638,11 +671,6 @@ function addXP(amount) {
 
 async function practice(topic) {
 
-    /*
-       If user changes topic, start a fresh
-       session for that topic.
-    */
-
     if (currentTopic !== topic) {
 
         currentTopic = topic;
@@ -657,6 +685,12 @@ async function practice(topic) {
 
     const quizTitle =
         document.getElementById("quizTitle");
+
+    const progress =
+        document.getElementById("progress");
+
+    const progressBar =
+        document.getElementById("progressBar");
 
     const question =
         document.getElementById("question");
@@ -675,6 +709,12 @@ async function practice(topic) {
 
     quizTitle.textContent =
         "🎮 " + topic;
+
+    progress.textContent =
+        "Loading progress...";
+
+    progressBar.style.width =
+        "0%";
 
     question.textContent =
         "Loading questions...";
@@ -711,6 +751,8 @@ async function practice(topic) {
             question.textContent =
                 "Unable to load questions 😕";
 
+            progress.textContent = "";
+
             feedback.innerHTML =
                 "<div class='error-box'>" +
                 "Supabase error:<br><br>" +
@@ -727,6 +769,8 @@ async function practice(topic) {
             question.textContent =
                 "No questions yet 📚";
 
+            progress.textContent = "";
+
             feedback.innerHTML =
                 "There are currently no questions " +
                 "in the " +
@@ -737,11 +781,6 @@ async function practice(topic) {
 
         }
 
-
-        /*
-           Remove questions already answered
-           during this session.
-        */
 
         const unanswered =
             data.filter(
@@ -755,12 +794,15 @@ async function practice(topic) {
             );
 
 
-        /*
-           If every question has been answered,
-           finish the round.
-        */
-
         if (unanswered.length === 0) {
+
+            progress.textContent =
+                data.length +
+                " / " +
+                data.length;
+
+            progressBar.style.width =
+                "100%";
 
             question.innerHTML =
                 "<div class='round-complete'>" +
@@ -775,10 +817,10 @@ async function practice(topic) {
             options.innerHTML = "";
 
             feedback.innerHTML =
-                "Start another round to practice " +
-                "these questions again.";
+                "Amazing! You completed this round.";
 
             nextBtn.classList.add("hidden");
+
 
             const restartButton =
                 document.createElement("button");
@@ -816,10 +858,6 @@ async function practice(topic) {
         }
 
 
-        /*
-           Shuffle unanswered questions.
-        */
-
         currentQuestions =
             unanswered.sort(
                 () =>
@@ -839,6 +877,8 @@ async function practice(topic) {
 
         question.textContent =
             "Connection problem 😕";
+
+        progress.textContent = "";
 
         feedback.innerHTML =
             "<div class='error-box'>" +
@@ -881,6 +921,39 @@ function showCurrentQuestion() {
 
     const nextBtn =
         document.getElementById("nextBtn");
+
+    const progress =
+        document.getElementById("progress");
+
+    const progressBar =
+        document.getElementById("progressBar");
+
+
+    const totalQuestions =
+        answeredQuestionIds.size +
+        currentQuestions.length;
+
+
+    const currentNumber =
+        answeredQuestionIds.size + 1;
+
+
+    progress.textContent =
+        "Question " +
+        currentNumber +
+        " / " +
+        totalQuestions;
+
+
+    const percentage =
+        (
+            answeredQuestionIds.size /
+            totalQuestions
+        ) * 100;
+
+
+    progressBar.style.width =
+        percentage + "%";
 
 
     question.textContent =
@@ -947,11 +1020,6 @@ function checkAnswer(
     questionId
 ) {
 
-
-    /*
-       Remember this question as answered.
-    */
-
     answeredQuestionIds.add(
         String(questionId)
     );
@@ -965,6 +1033,12 @@ function checkAnswer(
 
     const nextBtn =
         document.getElementById("nextBtn");
+
+    const progress =
+        document.getElementById("progress");
+
+    const progressBar =
+        document.getElementById("progressBar");
 
 
     buttons.forEach(
@@ -1041,6 +1115,30 @@ function checkAnswer(
     }
 
 
+    const totalQuestions =
+        answeredQuestionIds.size +
+        currentQuestions.length;
+
+
+    const answeredCount =
+        answeredQuestionIds.size;
+
+
+    progress.textContent =
+        "Question " +
+        answeredCount +
+        " / " +
+        totalQuestions;
+
+
+    progressBar.style.width =
+        (
+            answeredCount /
+            totalQuestions *
+            100
+        ) + "%";
+
+
     if (questionsToday >= 25) {
 
         feedback.innerHTML +=
@@ -1069,11 +1167,6 @@ function nextQuestion() {
     currentQuestionIndex++;
 
 
-    /*
-       If there are still questions in the
-       current batch, show the next one.
-    */
-
     if (
         currentQuestionIndex <
         currentQuestions.length
@@ -1085,12 +1178,6 @@ function nextQuestion() {
 
     }
 
-
-    /*
-       We reached the end of the current batch.
-       Load the topic again. It will automatically
-       remove already answered questions.
-    */
 
     practice(currentTopic);
 
