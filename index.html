@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -93,7 +92,7 @@ button {
 }
 
 .primary:hover {
-    opacity: 0.9;
+    opacity: .9;
 }
 
 .learning {
@@ -143,12 +142,6 @@ button {
     display: none;
 }
 
-#quizTitle {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
 #question {
     font-size: 21px;
     font-weight: bold;
@@ -169,6 +162,7 @@ button {
 
 .option:disabled {
     cursor: default;
+    opacity: .85;
 }
 
 #feedback {
@@ -194,6 +188,11 @@ button {
     font-weight: normal;
 }
 
+.round-complete {
+    text-align: center;
+    padding: 10px;
+}
+
 @media(max-width:600px) {
 
     .topic-grid {
@@ -210,9 +209,7 @@ button {
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -239,7 +236,6 @@ button {
 <span id="xp">0 XP</span>
 
 </div>
-
 
 <div class="stat">
 
@@ -285,13 +281,11 @@ There is <strong>no daily limit.</strong>
 
 <div class="card learning">
 
-<h2 class="section-title">
-📖 Daily Learning
-</h2>
+<h2 class="section-title">📖 Daily Learning</h2>
 
 <p>
-Learn something new from
-<strong>all 12 topics</strong> every day.
+Learn something new from <strong>all 12 topics</strong>
+every day.
 </p>
 
 <button class="primary" onclick="showLearning()">
@@ -308,14 +302,9 @@ Learn something new from
 
 <div class="card">
 
-<h2 class="section-title">
-🎮 Practice Topics
-</h2>
+<h2 class="section-title">🎮 Practice Topics</h2>
 
-<p>
-Choose any topic and practice freely.
-</p>
-
+<p>Choose any topic and practice freely.</p>
 
 <div class="topic-grid">
 
@@ -324,9 +313,7 @@ Choose any topic and practice freely.
 
 🇦🇸 Assam GK
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -335,9 +322,7 @@ Practice freely
 
 🇮🇳 Indian GK
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -346,9 +331,7 @@ Practice freely
 
 🏛️ History
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -357,9 +340,7 @@ Practice freely
 
 🌍 Geography
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -368,9 +349,7 @@ Practice freely
 
 ⚖️ Indian Polity
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -379,9 +358,7 @@ Practice freely
 
 🔬 General Science
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -390,9 +367,7 @@ Practice freely
 
 💰 Economy
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -401,9 +376,7 @@ Practice freely
 
 🧠 Reasoning
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -412,9 +385,7 @@ Practice freely
 
 🔢 Mathematics
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -423,9 +394,7 @@ Practice freely
 
 📖 English
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -434,9 +403,7 @@ Practice freely
 
 🎭 Assam Culture
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -445,9 +412,7 @@ Practice freely
 
 📰 Current Affairs
 
-<div class="topic-progress">
-Practice freely
-</div>
+<div class="topic-progress">Practice freely</div>
 
 </button>
 
@@ -484,7 +449,6 @@ For serious aspirants who want deeper preparation.
 
 </ul>
 
-
 <button class="primary" onclick="premiumInfo()">
 
 👑 Explore Premium
@@ -495,7 +459,7 @@ For serious aspirants who want deeper preparation.
 
 
 
-<!-- LEARNING -->
+<!-- LEARNING SCREEN -->
 
 <div id="learningScreen" class="card hidden">
 
@@ -507,7 +471,6 @@ For serious aspirants who want deeper preparation.
 
 <p id="learningText"></p>
 
-
 <button class="primary" onclick="nextLearning()">
 
 Next Learning →
@@ -518,7 +481,7 @@ Next Learning →
 
 
 
-<!-- QUIZ -->
+<!-- QUIZ SCREEN -->
 
 <div id="quizScreen" class="card hidden">
 
@@ -529,7 +492,6 @@ Next Learning →
 <div id="options"></div>
 
 <div id="feedback"></div>
-
 
 <button
 id="nextBtn"
@@ -551,16 +513,14 @@ Next Question →
 
 
 /* =====================================================
-   SUPABASE CONNECTION
+   SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
 "https://sadtwnopdcdmqbheeuzi.supabase.co";
 
-
 const SUPABASE_KEY =
 "sb_publishable_Zse78UJoYykCAEHYE4sx-w_BaQBu8Xe";
-
 
 const supabaseClient =
 window.supabase.createClient(
@@ -577,24 +537,34 @@ window.supabase.createClient(
 let xp =
 Number(localStorage.getItem("adrep_xp")) || 0;
 
-
 let streak =
 Number(localStorage.getItem("adrep_streak")) || 0;
 
-
 let questionsToday =
 Number(localStorage.getItem("adrep_questions_today")) || 0;
-
 
 let savedDate =
 localStorage.getItem("adrep_date") || "";
 
 
+
+/* =====================================================
+   QUIZ VARIABLES
+===================================================== */
+
+let currentTopic = "";
+
 let currentQuestions = [];
 
 let currentQuestionIndex = 0;
 
-let currentTopic = "";
+
+/*
+   IDs of questions answered during the
+   current topic session.
+*/
+
+let answeredQuestionIds = new Set();
 
 
 
@@ -606,7 +576,6 @@ function checkDailyReset() {
 
     const today =
         new Date().toDateString();
-
 
     if (savedDate !== today) {
 
@@ -629,14 +598,13 @@ function checkDailyReset() {
 
 
 /* =====================================================
-   UPDATE STATS
+   STATS
 ===================================================== */
 
 function updateStats() {
 
     document.getElementById("xp").textContent =
         xp + " XP";
-
 
     document.getElementById("streak").textContent =
         streak + " Day Streak";
@@ -653,12 +621,10 @@ function addXP(amount) {
 
     xp += amount;
 
-
     localStorage.setItem(
         "adrep_xp",
         xp
     );
-
 
     updateStats();
 
@@ -667,33 +633,39 @@ function addXP(amount) {
 
 
 /* =====================================================
-   PRACTICE
+   PRACTICE TOPIC
 ===================================================== */
 
 async function practice(topic) {
 
-    currentTopic = topic;
+    /*
+       If user changes topic, start a fresh
+       session for that topic.
+    */
+
+    if (currentTopic !== topic) {
+
+        currentTopic = topic;
+
+        answeredQuestionIds.clear();
+
+    }
 
 
     const quizScreen =
         document.getElementById("quizScreen");
 
-
     const quizTitle =
         document.getElementById("quizTitle");
-
 
     const question =
         document.getElementById("question");
 
-
     const options =
         document.getElementById("options");
 
-
     const feedback =
         document.getElementById("feedback");
-
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -701,14 +673,11 @@ async function practice(topic) {
 
     quizScreen.classList.remove("hidden");
 
-
     quizTitle.textContent =
         "🎮 " + topic;
 
-
     question.textContent =
         "Loading questions...";
-
 
     options.innerHTML = "";
 
@@ -742,13 +711,11 @@ async function practice(topic) {
             question.textContent =
                 "Unable to load questions 😕";
 
-
             feedback.innerHTML =
                 "<div class='error-box'>" +
                 "Supabase error:<br><br>" +
                 error.message +
                 "</div>";
-
 
             return;
 
@@ -760,21 +727,103 @@ async function practice(topic) {
             question.textContent =
                 "No questions yet 📚";
 
-
             feedback.innerHTML =
-                "There are currently no questions in the " +
+                "There are currently no questions " +
+                "in the " +
                 topic +
                 " topic.";
-
 
             return;
 
         }
 
 
+        /*
+           Remove questions already answered
+           during this session.
+        */
+
+        const unanswered =
+            data.filter(
+                function(q) {
+
+                    return !answeredQuestionIds.has(
+                        String(q.id)
+                    );
+
+                }
+            );
+
+
+        /*
+           If every question has been answered,
+           finish the round.
+        */
+
+        if (unanswered.length === 0) {
+
+            question.innerHTML =
+                "<div class='round-complete'>" +
+                "🎉 Round Complete!<br><br>" +
+                "You've answered all " +
+                data.length +
+                " available questions in " +
+                topic +
+                "." +
+                "</div>";
+
+            options.innerHTML = "";
+
+            feedback.innerHTML =
+                "Start another round to practice " +
+                "these questions again.";
+
+            nextBtn.classList.add("hidden");
+
+            const restartButton =
+                document.createElement("button");
+
+            restartButton.className =
+                "primary";
+
+            restartButton.textContent =
+                "🔄 Start New Round";
+
+            restartButton.onclick =
+                function() {
+
+                    answeredQuestionIds.clear();
+
+                    currentQuestions =
+                        data.sort(
+                            () =>
+                                Math.random() - 0.5
+                        );
+
+                    currentQuestionIndex = 0;
+
+                    showCurrentQuestion();
+
+                };
+
+
+            options.appendChild(
+                restartButton
+            );
+
+            return;
+
+        }
+
+
+        /*
+           Shuffle unanswered questions.
+        */
+
         currentQuestions =
-            data.sort(
-                () => Math.random() - 0.5
+            unanswered.sort(
+                () =>
+                    Math.random() - 0.5
             );
 
 
@@ -791,7 +840,6 @@ async function practice(topic) {
         question.textContent =
             "Connection problem 😕";
 
-
         feedback.innerHTML =
             "<div class='error-box'>" +
             error.message +
@@ -804,7 +852,7 @@ async function practice(topic) {
 
 
 /* =====================================================
-   SHOW CURRENT QUESTION
+   SHOW QUESTION
 ===================================================== */
 
 function showCurrentQuestion() {
@@ -813,17 +861,23 @@ function showCurrentQuestion() {
         currentQuestions[currentQuestionIndex];
 
 
+    if (!q) {
+
+        practice(currentTopic);
+
+        return;
+
+    }
+
+
     const question =
         document.getElementById("question");
-
 
     const options =
         document.getElementById("options");
 
-
     const feedback =
         document.getElementById("feedback");
-
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -831,7 +885,6 @@ function showCurrentQuestion() {
 
     question.textContent =
         q.question;
-
 
     options.innerHTML = "";
 
@@ -856,14 +909,11 @@ function showCurrentQuestion() {
             const button =
                 document.createElement("button");
 
-
             button.className =
                 "option";
 
-
             button.textContent =
                 optionText;
-
 
             button.onclick =
                 function() {
@@ -871,11 +921,11 @@ function showCurrentQuestion() {
                     checkAnswer(
                         optionText,
                         q.answer,
-                        q.explanation
+                        q.explanation,
+                        q.id
                     );
 
                 };
-
 
             options.appendChild(button);
 
@@ -893,17 +943,25 @@ function showCurrentQuestion() {
 function checkAnswer(
     selectedAnswer,
     correctAnswer,
-    explanation
+    explanation,
+    questionId
 ) {
+
+
+    /*
+       Remember this question as answered.
+    */
+
+    answeredQuestionIds.add(
+        String(questionId)
+    );
 
 
     const buttons =
         document.querySelectorAll(".option");
 
-
     const feedback =
         document.getElementById("feedback");
-
 
     const nextBtn =
         document.getElementById("nextBtn");
@@ -933,7 +991,6 @@ function checkAnswer(
         correctAnswer.trim().toLowerCase()
     ) {
 
-
         addXP(10);
 
 
@@ -947,16 +1004,14 @@ function checkAnswer(
 
             (
                 explanation ||
-                "Great job!"
+                "Great job! Keep going."
             ) +
 
             "</div>";
 
     }
 
-
     else {
-
 
         feedback.innerHTML =
 
@@ -984,7 +1039,6 @@ function checkAnswer(
             "</div>";
 
     }
-
 
 
     if (questionsToday >= 25) {
@@ -1015,23 +1069,30 @@ function nextQuestion() {
     currentQuestionIndex++;
 
 
+    /*
+       If there are still questions in the
+       current batch, show the next one.
+    */
+
     if (
-        currentQuestionIndex >=
+        currentQuestionIndex <
         currentQuestions.length
     ) {
 
-        currentQuestions =
-            currentQuestions.sort(
-                () => Math.random() - 0.5
-            );
+        showCurrentQuestion();
 
-
-        currentQuestionIndex = 0;
+        return;
 
     }
 
 
-    showCurrentQuestion();
+    /*
+       We reached the end of the current batch.
+       Load the topic again. It will automatically
+       remove already answered questions.
+    */
+
+    practice(currentTopic);
 
 }
 
@@ -1081,9 +1142,7 @@ function showLearning() {
         .getElementById("learningScreen")
         .classList.remove("hidden");
 
-
     learningIndex = 0;
-
 
     displayLearning();
 
@@ -1108,7 +1167,9 @@ function displayLearning() {
     document.getElementById(
         "learningText"
     ).textContent =
-        "We will add learning cards for this topic. You will be able to learn first and then test yourself.";
+        "We will add learning cards for this topic. " +
+        "You will be able to learn first and then " +
+        "test yourself.";
 
 }
 
@@ -1125,7 +1186,6 @@ function nextLearning() {
     ) {
 
         learningIndex = 0;
-
 
         alert(
             "🎉 You explored all 12 topics!"
@@ -1150,7 +1210,8 @@ function premiumInfo() {
 
         "👑 Premium Preparation\n\n" +
 
-        "Premium will include PDFs, previous-year papers, advanced mock tests and a much larger question bank.\n\n" +
+        "Premium will include PDFs, previous-year papers, " +
+        "advanced mock tests and a much larger question bank.\n\n" +
 
         "Payment and secure premium access will be added later."
 
@@ -1169,7 +1230,6 @@ checkDailyReset();
 updateStats();
 
 </script>
-
 
 </body>
 
