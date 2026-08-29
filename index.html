@@ -12,72 +12,97 @@
 *{box-sizing:border-box}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f4f6fb;
-color:#20242c;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6fb;
+    color:#20242c;
 }
 
 header{
-background:#182848;
-color:white;
-padding:25px 16px;
-text-align:center;
+    background:#182848;
+    color:white;
+    padding:25px 16px;
+    text-align:center;
 }
 
-header h1{margin:0;font-size:29px}
-header p{margin:8px 0 0;opacity:.9}
+header h1{
+    margin:0;
+    font-size:29px;
+}
+
+header p{
+    margin:8px 0 0;
+    opacity:.9;
+}
 
 .container{
-max-width:850px;
-margin:auto;
-padding:15px;
+    max-width:850px;
+    margin:auto;
+    padding:15px;
 }
 
 .card{
-background:white;
-border-radius:18px;
-padding:22px;
-margin:15px 0;
-box-shadow:0 5px 18px rgba(0,0,0,.07);
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin:15px 0;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
 .hero{text-align:center}
 
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
 .stat{
-background:#f1f4ff;
-border-radius:14px;
-padding:15px 8px;
-text-align:center;
+    background:#f1f4ff;
+    border-radius:14px;
+    padding:15px 8px;
+    text-align:center;
 }
 
 .stat strong{
-display:block;
-font-size:22px;
-margin-bottom:5px;
+    display:block;
+    font-size:22px;
+    margin-bottom:5px;
 }
 
 button{
-border:none;
-border-radius:11px;
-padding:13px 17px;
-font-size:15px;
-font-weight:bold;
-cursor:pointer;
+    border:none;
+    border-radius:11px;
+    padding:13px 17px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-button:disabled{cursor:default;opacity:.7}
+button:disabled{
+    cursor:default;
+    opacity:.7;
+}
 
-.primary{background:#182848;color:white}
-.secondary{background:#eef1f7;color:#182848}
-.danger{background:#ffe8e8;color:#a00000}
-.success{background:#e8f8ee;color:#176b35}
+.primary{
+    background:#182848;
+    color:white;
+}
+
+.secondary{
+    background:#eef1f7;
+    color:#182848;
+}
+
+.danger{
+    background:#d95757;
+    color:white;
+}
+
+.success{
+    background:#42a866;
+    color:white;
+}
 
 .full{width:100%}
 
@@ -86,132 +111,134 @@ button:disabled{cursor:default;opacity:.7}
 .timer-card{text-align:center}
 
 .timer{
-font-size:32px;
-font-weight:bold;
-margin:10px 0;
+    font-size:32px;
+    font-weight:bold;
+    margin:10px 0;
 }
 
 .reaction{
-min-height:25px;
-margin-top:10px;
-font-weight:bold;
+    min-height:25px;
+    margin-top:10px;
+    font-weight:bold;
 }
 
 .grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:11px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:11px;
 }
 
 .topic-button{
-background:white;
-border:2px solid #ddd;
-text-align:left;
-min-height:72px;
+    background:white;
+    border:2px solid #ddd;
+    text-align:left;
+    min-height:72px;
 }
 
-.topic-button:hover{background:#f4f6ff}
+.topic-button:hover{
+    background:#f4f6ff;
+}
 
 .topic-description{
-display:block;
-margin-top:5px;
-font-size:12px;
-font-weight:normal;
-color:#666;
+    display:block;
+    margin-top:5px;
+    font-size:12px;
+    font-weight:normal;
+    color:#666;
 }
 
 .coming{background:#f3f0ff}
 
 .coming-item{
-padding:13px 0;
-border-bottom:1px solid #ddd;
+    padding:13px 0;
+    border-bottom:1px solid #ddd;
 }
 
 .coming-item:last-child{border-bottom:none}
 
 .library-header{
-border-bottom:1px solid #ddd;
-padding-bottom:15px;
-margin-bottom:10px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:15px;
+    margin-bottom:10px;
 }
 
 .study-question{
-padding:20px 0;
-border-bottom:1px solid #ddd;
+    padding:20px 0;
+    border-bottom:1px solid #ddd;
 }
 
 .study-question:last-child{border-bottom:none}
 
 .study-question-number{
-color:#182848;
-font-weight:bold;
+    color:#182848;
+    font-weight:bold;
 }
 
 .study-options{
-line-height:1.8;
-margin:12px 0;
+    line-height:1.8;
+    margin:12px 0;
 }
 
 .answer-box{
-background:#eefaf2;
-border-radius:10px;
-padding:12px;
-font-weight:bold;
+    background:#eefaf2;
+    border-radius:10px;
+    padding:12px;
+    font-weight:bold;
 }
 
 .quiz-question{
-font-size:21px;
-font-weight:bold;
-line-height:1.4;
-margin:15px 0 20px;
+    font-size:21px;
+    font-weight:bold;
+    line-height:1.4;
+    margin:15px 0 20px;
 }
 
 .option{
-width:100%;
-margin:7px 0;
-background:white;
-border:2px solid #ddd;
-text-align:left;
+    width:100%;
+    margin:7px 0;
+    background:white;
+    border:2px solid #ddd;
+    text-align:left;
 }
 
 .option.correct{
-background:#e9f8ee;
-border-color:#42a866;
+    background:#e9f8ee;
+    border-color:#42a866;
 }
 
 .option.wrong{
-background:#fff0f0;
-border-color:#d95757;
+    background:#fff0f0;
+    border-color:#d95757;
 }
 
 .feedback{
-margin-top:18px;
-padding:15px;
-border-radius:12px;
-font-weight:bold;
+    margin-top:18px;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
 }
 
 .feedback.correct{background:#e9f8ee}
 .feedback.wrong{background:#fff0f0}
 
 .correct-answer{
-margin-top:8px;
-font-weight:normal;
+    margin-top:8px;
+    font-weight:normal;
 }
 
 .quiz-score{
-background:#f1f4ff;
-border-radius:12px;
-padding:12px;
-text-align:center;
-font-weight:bold;
+    background:#f1f4ff;
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+    font-weight:bold;
 }
 
 .missed-item{
-padding:12px;
-background:#fff8e6;
-border-radius:10px;
-margin:7px 0;
+    padding:12px;
+    background:#fff8e6;
+    border-radius:10px;
+    margin:7px 0;
 }
 
 .account-box{background:#eefaf2}
@@ -222,125 +249,138 @@ margin:7px 0;
 .hidden{display:none!important}
 
 .error-box{
-background:#fff0f0;
-color:#9b0000;
-padding:14px;
-border-radius:10px;
+    background:#fff0f0;
+    color:#9b0000;
+    padding:14px;
+    border-radius:10px;
+}
+
+.success-box{
+    background:#eefaf2;
+    color:#176b35;
+    padding:14px;
+    border-radius:10px;
 }
 
 .back{margin-bottom:12px}
 
 .small{
-font-size:13px;
-color:#666;
+    font-size:13px;
+    color:#666;
 }
 
 .center{text-align:center}
 
 .loading{
-text-align:center;
-padding:25px;
-color:#666;
+    text-align:center;
+    padding:25px;
+    color:#666;
 }
 
 input,select,textarea{
-width:100%;
-padding:12px;
-border:2px solid #ddd;
-border-radius:10px;
-font-size:15px;
-margin:6px 0 12px;
-font-family:inherit;
+    width:100%;
+    padding:12px;
+    margin:6px 0 12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    font-family:inherit;
 }
 
 textarea{
-min-height:100px;
-resize:vertical;
+    min-height:90px;
+    resize:vertical;
 }
 
 label{
-font-weight:bold;
-font-size:14px;
-display:block;
-margin-top:8px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.admin-card{
+    background:#f7f4ff;
+    border:2px solid #ddd4ff;
 }
 
 .admin-question{
-padding:15px;
-border:1px solid #ddd;
-border-radius:12px;
-margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    margin:10px 0;
+    background:white;
 }
 
-.admin-question h3{
-margin-top:0;
+.admin-question h4{
+    margin:0 0 8px;
 }
 
 .admin-actions{
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:10px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:10px;
 }
 
 .badge{
-display:inline-block;
-padding:5px 8px;
-border-radius:8px;
-font-size:12px;
-font-weight:bold;
-background:#eef1f7;
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    background:#eef1f7;
 }
 
 .badge.premium-badge{
-background:#f1e7ff;
-color:#6d32a8;
+    background:#f1e7ff;
+    color:#6c3ca3;
 }
 
-.admin-top{
-background:#182848;
-color:white;
-border-radius:15px;
-padding:18px;
+.badge.free-badge{
+    background:#e9f8ee;
+    color:#267340;
+}
+
+.auth-form{
+    max-width:500px;
+    margin:auto;
+}
+
+.auth-toggle{
+    text-align:center;
+    margin-top:12px;
 }
 
 .admin-stat-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-margin:15px 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
 .admin-stat{
-background:#f1f4ff;
-padding:15px;
-border-radius:12px;
-text-align:center;
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    border:1px solid #ddd;
 }
 
 .admin-stat strong{
-display:block;
-font-size:24px;
-}
-
-.empty{
-padding:20px;
-text-align:center;
-color:#666;
+    display:block;
+    font-size:23px;
 }
 
 .notice{
-background:#fff8e6;
-padding:13px;
-border-radius:10px;
-margin:10px 0;
+    padding:12px;
+    border-radius:10px;
+    background:#fff8e6;
+    margin:10px 0;
 }
 
 @media(max-width:600px){
-.grid{grid-template-columns:1fr 1fr}
-.card{padding:18px}
-.quiz-question{font-size:19px}
-.admin-stat-grid{grid-template-columns:1fr 1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .card{padding:18px}
+    .quiz-question{font-size:19px}
+    .admin-stat-grid{grid-template-columns:1fr 1fr 1fr}
 }
 </style>
 </head>
@@ -348,8 +388,8 @@ margin:10px 0;
 <body>
 
 <header>
-<h1>📚 ADRE Prep</h1>
-<p>Learn • Practice • Improve</p>
+    <h1>📚 ADRE Prep</h1>
+    <p>Learn • Practice • Improve</p>
 </header>
 
 <div class="container">
@@ -358,335 +398,313 @@ margin:10px 0;
 
 <div id="homeScreen">
 
-<div class="card hero">
-<h2>Prepare smarter for ADRE</h2>
-<p>
-Study important General Knowledge,
-practice what you've learned and build
-a consistent study habit.
-</p>
-</div>
+    <div class="card hero">
+        <h2>Prepare smarter for ADRE</h2>
+        <p>
+            Study important General Knowledge,
+            practice what you've learned and build
+            a consistent study habit.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="stats">
+            <div class="stat">
+                <strong>⭐</strong>
+                <span id="xp">0 XP</span>
+            </div>
+
+            <div class="stat">
+                <strong>🔥</strong>
+                <span id="streak">0 Day Streak</span>
+            </div>
+
+            <div class="stat">
+                <strong>⏱️</strong>
+                <span id="todayTime">0 min</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card challenge">
+        <h2>🔥 Daily Challenge</h2>
+
+        <p>
+            Complete <strong>25 mixed GK questions</strong>
+            or spend at least <strong>10 minutes</strong>
+            actively studying today to protect your streak.
+        </p>
+
+        <p class="small">
+            Questions are automatically selected from your
+            available free GK questions.
+        </p>
+
+        <button class="primary full"
+                onclick="startDailyChallenge()">
+            Start Today's Challenge
+        </button>
+
+        <div id="dailyReaction"
+             class="reaction"></div>
+    </div>
+
+    <div class="card timer-card">
+
+        <h2>⏱️ Study Timer</h2>
+
+        <div id="timer" class="timer">
+            00:00
+        </div>
+
+        <div id="timerMessage" class="reaction"></div>
+
+        <button id="timerButton"
+                class="primary"
+                onclick="toggleTimer()">
+            ▶ Start Study Timer
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📖 Study Library</h2>
+
+        <p>
+            Study organized GK question sets before
+            testing yourself in Practice.
+        </p>
+
+        <div class="grid">
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('History')">
+                🏛️ History
+                <span class="topic-description">
+                    Indian History • Assam History
+                </span>
+            </button>
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Geography')">
+                🌍 Geography
+                <span class="topic-description">
+                    World • India • Assam
+                </span>
+            </button>
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Politics')">
+                ⚖️ Politics
+                <span class="topic-description">
+                    Indian polity and government
+                </span>
+            </button>
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Economics')">
+                💰 Economics
+                <span class="topic-description">
+                    Important economic concepts
+                </span>
+            </button>
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Culture')">
+                🎭 Culture
+                <span class="topic-description">
+                    Assam Culture • Indian Culture
+                </span>
+            </button>
+
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Current Affairs')">
+                📰 Current Affairs
+                <span class="topic-description">
+                    Recent important events
+                </span>
+            </button>
 
-<div class="card">
-<div class="stats">
+            <button class="topic-button"
+                    onclick="openLibraryTopic('Others')">
+                📚 Others
+                <span class="topic-description">
+                    Schemes • Awards • Events • More
+                </span>
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <h2>🎮 Practice</h2>
+
+        <p>
+            Test yourself on a GK topic.
+            Questions automatically come from
+            the Study Library.
+        </p>
 
-<div class="stat">
-<strong>⭐</strong>
-<span id="xp">0 XP</span>
-</div>
-
-<div class="stat">
-<strong>🔥</strong>
-<span id="streak">0 Day Streak</span>
-</div>
-
-<div class="stat">
-<strong>⏱️</strong>
-<span id="todayTime">0 min</span>
-</div>
-
-</div>
-</div>
-
-<div class="card challenge">
-
-<h2>🔥 Daily Challenge</h2>
-
-<p>
-Complete <strong>25 mixed GK questions</strong>
-or spend at least <strong>10 minutes</strong>
-actively studying today to protect your streak.
-</p>
-
-<p id="dailyChallengeMessage" class="small"></p>
-
-<button class="primary full" onclick="startDailyChallenge()">
-Start Today's Challenge
-</button>
-
-</div>
-
-<div class="card timer-card">
-
-<h2>⏱️ Study Timer</h2>
-
-<p id="timerDailyMessage"></p>
-
-<div id="timer" class="timer">00:00</div>
-
-<div id="timerMessage" class="reaction"></div>
-
-<button id="timerButton"
-class="primary"
-onclick="toggleTimer()">
-▶ Start Study Timer
-</button>
-
-</div>
-
-<!-- LIBRARY -->
-
-<div class="card">
-
-<h2>📖 Study Library</h2>
-
-<p>
-Study organized GK question sets before
-testing yourself in Practice.
-</p>
-
-<div class="grid">
-
-<button class="topic-button" onclick="openLibraryTopic('History')">
-🏛️ History
-<span class="topic-description">
-Indian History • Assam History
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Geography')">
-🌍 Geography
-<span class="topic-description">
-World • India • Assam
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Politics')">
-⚖️ Politics
-<span class="topic-description">
-Indian polity and government
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Economics')">
-💰 Economics
-<span class="topic-description">
-Important economic concepts
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Culture')">
-🎭 Culture
-<span class="topic-description">
-Assam Culture • Indian Culture
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Current Affairs')">
-📰 Current Affairs
-<span class="topic-description">
-Recent important events
-</span>
-</button>
-
-<button class="topic-button" onclick="openLibraryTopic('Others')">
-📚 Others
-<span class="topic-description">
-Schemes • Awards • Events • More
-</span>
-</button>
-
-</div>
-</div>
-
-<!-- PRACTICE -->
-
-<div class="card">
-
-<h2>🎮 Practice</h2>
-
-<p>
-Test yourself on a GK topic.
-Questions come automatically from the Study Library.
-</p>
-
-<div class="grid">
-
-<button class="topic-button" onclick="startPractice('History')">
-🏛️ History
-</button>
-
-<button class="topic-button" onclick="startPractice('Geography')">
-🌍 Geography
-</button>
-
-<button class="topic-button" onclick="startPractice('Politics')">
-⚖️ Politics
-</button>
-
-<button class="topic-button" onclick="startPractice('Economics')">
-💰 Economics
-</button>
-
-<button class="topic-button" onclick="startPractice('Culture')">
-🎭 Culture
-</button>
-
-<button class="topic-button" onclick="startPractice('Current Affairs')">
-📰 Current Affairs
-</button>
-
-<button class="topic-button" onclick="startPractice('Others')">
-📚 Others
-</button>
-
-</div>
-</div>
-
-<!-- MISSED -->
-
-<div class="card">
-
-<h2>🔁 Practice What You Missed</h2>
-
-<p>
-Don't let the questions you got wrong disappear.
-Come back and turn weak areas into strong ones.
-</p>
-
-<p id="missedDailyMessage" class="small"></p>
-
-<button class="secondary"
-onclick="practiceMissedQuestions()">
-Practice Missed Questions
-</button>
-
-</div>
-
-<!-- ACCOUNT -->
-
-<div class="card account-box">
-
-<h2>💾 Save Your Progress</h2>
-
-<p id="accountDailyMessage"></p>
-
-<button class="primary"
-onclick="openAccount()">
-Sign In / Create Account
-</button>
-
-</div>
-
-<!-- PREMIUM -->
-
-<div class="card premium">
-
-<h2>👑 Premium Preparation</h2>
-
-<p>
-For serious aspirants who want deeper preparation.
-</p>
-
-<ul>
-<li>📄 Premium PDFs</li>
-<li>📚 Premium study material</li>
-<li>📝 Previous-year questions</li>
-<li>🎯 Daily mock tests</li>
-<li>⬇️ Downloadable study material</li>
-<li>➕ Additional premium study sets</li>
-</ul>
-
-<button class="primary full"
-onclick="showPremiumMessage()">
-Explore Premium
-</button>
-
-</div>
-
-<div class="card coming">
-
-<h2>🚀 Coming Soon</h2>
-
-<div class="coming-item">📘 Social Studies</div>
-<div class="coming-item">🧠 Logical Reasoning & Mental Ability</div>
-<div class="coming-item">📖 General English</div>
-<div class="coming-item">🔢 General Mathematics</div>
-<div class="coming-item">📝 Comprehension & English Language</div>
-
-</div>
-
-</div>
-
-
-<!-- LIBRARY SET SCREEN -->
-
-<div id="librarySetScreen" class="card hidden">
-
-<button class="secondary back" onclick="goBack()">← Back</button>
-
-<div class="library-header">
-<h2 id="libraryTopicTitle"></h2>
-<p>Choose a study section.</p>
-</div>
-
-<div id="librarySets"></div>
+        <div class="grid">
+
+            <button class="topic-button"
+                    onclick="startPractice('History')">
+                🏛️ History
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Geography')">
+                🌍 Geography
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Politics')">
+                ⚖️ Politics
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Economics')">
+                💰 Economics
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Culture')">
+                🎭 Culture
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Current Affairs')">
+                📰 Current Affairs
+            </button>
+
+            <button class="topic-button"
+                    onclick="startPractice('Others')">
+                📚 Others
+            </button>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <h2>🔁 Practice What You Missed</h2>
+
+        <p id="missedMessage">
+            Your missed questions can be saved to your
+            account so you can keep working on weak areas.
+        </p>
+
+        <button class="secondary"
+                onclick="practiceMissedQuestions()">
+            Practice Missed Questions
+        </button>
+
+        <div id="missedReaction"
+             class="reaction"></div>
+
+    </div>
+
+    <div class="card account-box">
+
+        <h2>💾 Save Your Progress</h2>
+
+        <p id="signInMessage"></p>
+
+        <div id="accountArea"></div>
+
+    </div>
+
+    <div class="card premium">
+
+        <h2>👑 Premium Preparation</h2>
+
+        <p>
+            For serious aspirants who want deeper
+            preparation.
+        </p>
+
+        <ul>
+            <li>📄 Premium PDFs</li>
+            <li>📚 Premium study material</li>
+            <li>📝 Previous-year questions</li>
+            <li>🎯 Daily mock tests</li>
+            <li>⬇️ Downloadable study material</li>
+            <li>➕ Additional premium study sets</li>
+        </ul>
+
+        <button class="primary full"
+                onclick="showPremiumMessage()">
+            Explore Premium
+        </button>
+
+    </div>
+
+    <div class="card coming">
+
+        <h2>🚀 Coming Soon</h2>
+
+        <p>
+            More sections will be added after the
+            GK foundation is complete.
+        </p>
+
+        <div class="coming-item">📘 Social Studies</div>
+        <div class="coming-item">🧠 Logical Reasoning & Mental Ability</div>
+        <div class="coming-item">📖 General English</div>
+        <div class="coming-item">🔢 General Mathematics</div>
+        <div class="coming-item">📝 Comprehension & English Language</div>
+
+    </div>
 
 </div>
 
 
-<!-- STUDY SCREEN -->
+<!-- AUTH -->
 
-<div id="studyScreen" class="card hidden">
+<div id="authScreen" class="card hidden">
 
-<button class="secondary back" onclick="goBack()">← Back</button>
+    <button class="secondary back"
+            onclick="goHome()">
+        ← Back
+    </button>
 
-<div class="library-header">
-<h2 id="studyTitle"></h2>
-<p class="small">
-Study like a digital book. Questions remain numbered in order.
-</p>
-</div>
+    <div class="auth-form">
 
-<div id="studyQuestions"></div>
+        <h2 id="authTitle">🔐 Sign In</h2>
 
-</div>
+        <p id="authDescription">
+            Sign in to save your progress across sessions.
+        </p>
 
+        <label>Email</label>
+        <input id="authEmail"
+               type="email"
+               placeholder="Your email">
 
-<!-- QUIZ -->
+        <label>Password</label>
+        <input id="authPassword"
+               type="password"
+               placeholder="Your password">
 
-<div id="quizScreen" class="card hidden">
+        <button id="authButton"
+                class="primary full"
+                onclick="submitAuth()">
+            Sign In
+        </button>
 
-<button class="secondary back" onclick="goBack()">← Exit</button>
+        <div id="authError"></div>
 
-<h2 id="quizTitle"></h2>
+        <div class="auth-toggle">
+            <button class="secondary"
+                    onclick="toggleAuthMode()"
+                    id="authToggleButton">
+                Create a new account
+            </button>
+        </div>
 
-<div id="quizScore" class="quiz-score">
-Score: 0 / 0
-</div>
-
-<div id="quizQuestion" class="quiz-question"></div>
-
-<div id="quizOptions"></div>
-
-<div id="quizFeedback" class="feedback hidden"></div>
-
-<button id="nextQuestionButton"
-class="primary full hidden"
-onclick="nextQuizQuestion()">
-Next Question →
-</button>
-
-</div>
-
-
-<!-- COMPLETE -->
-
-<div id="completeScreen" class="card hidden center">
-
-<h2 id="completeTitle">🎉 Session Complete!</h2>
-
-<div id="finalScore"></div>
-
-<div id="completeReaction"></div>
-
-<div id="missedQuestions"></div>
-
-<br>
-
-<button class="primary" onclick="goHome()">
-Back to Home
-</button>
+    </div>
 
 </div>
 
@@ -695,170 +713,263 @@ Back to Home
 
 <div id="accountScreen" class="card hidden">
 
-<button class="secondary back" onclick="goBack()">← Back</button>
+    <button class="secondary back"
+            onclick="goHome()">
+        ← Back
+    </button>
 
-<h2>👤 Your Account</h2>
+    <h2>👤 Your Account</h2>
 
-<div id="accountContent"></div>
+    <div id="accountDetails"></div>
 
-</div>
+    <br>
 
-
-<!-- ADMIN LOGIN -->
-
-<div id="adminLoginScreen" class="card hidden">
-
-<button class="secondary back" onclick="goBack()">← Back</button>
-
-<h2>🔐 Admin Login</h2>
-
-<p class="small">
-This area is for website administration.
-</p>
-
-<label>Email</label>
-<input id="adminEmail" type="email" placeholder="Admin email">
-
-<label>Password</label>
-<input id="adminPassword" type="password" placeholder="Password">
-
-<button class="primary full" onclick="adminLogin()">
-Sign In
-</button>
-
-<div id="adminLoginMessage"></div>
+    <button class="secondary"
+            onclick="signOutUser()">
+        Sign Out
+    </button>
 
 </div>
 
 
-<!-- ADMIN DASHBOARD -->
+<!-- ADMIN -->
 
-<div id="adminScreen" class="hidden">
+<div id="adminScreen" class="card hidden">
 
-<div class="admin-top">
+    <button class="secondary back"
+            onclick="goHome()">
+        ← Back
+    </button>
 
-<h2>🔐 Website Administration</h2>
+    <h2>🔐 Admin Dashboard</h2>
 
-<p id="adminWelcome"></p>
+    <p>
+        Welcome, Admin. Manage your ADRE question bank here.
+    </p>
 
-<button class="secondary"
-onclick="adminLogout()">
-Log Out
-</button>
+    <div id="adminMessage"></div>
+
+    <div class="admin-stat-grid">
+
+        <div class="admin-stat">
+            <strong id="adminTotal">0</strong>
+            <span>Total Questions</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="adminFree">0</strong>
+            <span>Free</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="adminPremium">0</strong>
+            <span>Premium</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="card admin-card">
+
+        <h3>➕ Add Question</h3>
+
+        <label>Topic</label>
+
+        <select id="adminTopic">
+            <option>History</option>
+            <option>Geography</option>
+            <option>Politics</option>
+            <option>Economics</option>
+            <option>Culture</option>
+            <option>Current Affairs</option>
+            <option>Others</option>
+        </select>
+
+        <label>Study Set</label>
+
+        <select id="adminStudySet"></select>
+
+        <label>Question</label>
+        <textarea id="adminQuestion"
+                  placeholder="Enter the question"></textarea>
+
+        <label>Option A</label>
+        <input id="adminA">
+
+        <label>Option B</label>
+        <input id="adminB">
+
+        <label>Option C</label>
+        <input id="adminC">
+
+        <label>Option D</label>
+        <input id="adminD">
+
+        <label>Correct Answer</label>
+        <select id="adminAnswer">
+            <option value="">Choose correct answer</option>
+        </select>
+
+        <label>Explanation</label>
+        <textarea id="adminExplanation"
+                  placeholder="Optional explanation"></textarea>
+
+        <label>Question Type</label>
+
+        <select id="adminPremium">
+            <option value="false">🆓 Free</option>
+            <option value="true">👑 Premium</option>
+        </select>
+
+        <button class="primary full"
+                onclick="addQuestion()">
+            Add Question
+        </button>
+
+        <div id="addQuestionMessage"></div>
+
+    </div>
+
+
+    <div class="card admin-card">
+
+        <h3>🔎 Manage Questions</h3>
+
+        <input id="adminSearch"
+               placeholder="Search questions..."
+               oninput="renderAdminQuestions()">
+
+        <select id="adminFilterTopic"
+                onchange="renderAdminQuestions()">
+
+            <option value="">All Topics</option>
+            <option>History</option>
+            <option>Geography</option>
+            <option>Politics</option>
+            <option>Economics</option>
+            <option>Culture</option>
+            <option>Current Affairs</option>
+            <option>Others</option>
+
+        </select>
+
+        <div id="adminQuestionsList">
+            <div class="loading">
+                Loading questions...
+            </div>
+        </div>
+
+    </div>
+
+    <div class="notice">
+        👥 To view the complete registered-user list,
+        use Supabase → Authentication → Users.
+        Your secret/service-role key is never placed
+        inside this website.
+    </div>
 
 </div>
 
-<div class="admin-stat-grid">
 
-<div class="admin-stat">
-<strong id="adminQuestionCount">0</strong>
-Questions
-</div>
+<!-- LIBRARY SET -->
 
-<div class="admin-stat">
-<strong id="adminFreeCount">0</strong>
-Free
-</div>
+<div id="librarySetScreen" class="card hidden">
 
-<div class="admin-stat">
-<strong id="adminPremiumCount">0</strong>
-Premium
-</div>
+    <button class="secondary back"
+            onclick="goBack()">
+        ← Back
+    </button>
 
-<div class="admin-stat">
-<strong>∞</strong>
-Daily Challenge Pool
-</div>
+    <div class="library-header">
+        <h2 id="libraryTopicTitle"></h2>
+        <p>Choose a study section.</p>
+    </div>
 
-</div>
-
-<div class="card">
-
-<h2>➕ Add Question</h2>
-
-<p class="small">
-Add a question once. The same question automatically becomes
-available to Study Library, Practice and Daily Challenge according
-to its topic and free/premium status.
-</p>
-
-<label>Topic</label>
-
-<select id="questionTopic">
-<option>History</option>
-<option>Geography</option>
-<option>Politics</option>
-<option>Economics</option>
-<option>Culture</option>
-<option>Current Affairs</option>
-<option>Others</option>
-</select>
-
-<label>Study Section</label>
-
-<select id="questionStudySet"></select>
-
-<label>Question</label>
-
-<textarea id="questionText"
-placeholder="Write your question"></textarea>
-
-<label>Option A</label>
-<input id="optionA">
-
-<label>Option B</label>
-<input id="optionB">
-
-<label>Option C</label>
-<input id="optionC">
-
-<label>Option D</label>
-<input id="optionD">
-
-<label>Correct Answer</label>
-
-<select id="correctAnswer">
-<option value="">Choose correct answer</option>
-</select>
-
-<label>Question Type</label>
-
-<select id="questionPremium">
-<option value="false">Free</option>
-<option value="true">Premium</option>
-</select>
-
-<button class="primary full"
-onclick="addQuestion()">
-➕ Save Question
-</button>
-
-<div id="addQuestionMessage"></div>
+    <div id="librarySets"></div>
 
 </div>
 
 
-<div class="card">
+<!-- STUDY -->
 
-<h2>📚 Manage Questions</h2>
+<div id="studyScreen" class="card hidden">
 
-<select id="adminFilterTopic"
-onchange="loadAdminQuestions()">
+    <button class="secondary back"
+            onclick="goBack()">
+        ← Back
+    </button>
 
-<option value="">All Topics</option>
-<option>History</option>
-<option>Geography</option>
-<option>Politics</option>
-<option>Economics</option>
-<option>Culture</option>
-<option>Current Affairs</option>
-<option>Others</option>
+    <div class="library-header">
+        <h2 id="studyTitle"></h2>
 
-</select>
+        <p class="small">
+            Study like a digital book. Questions are
+            automatically numbered continuously.
+        </p>
+    </div>
 
-<div id="adminQuestions"></div>
+    <div id="studyQuestions"></div>
 
 </div>
+
+
+<!-- QUIZ -->
+
+<div id="quizScreen" class="card hidden">
+
+    <button class="secondary back"
+            onclick="goBack()">
+        ← Exit
+    </button>
+
+    <h2 id="quizTitle"></h2>
+
+    <div id="quizScore"
+         class="quiz-score">
+        Score: 0 / 0
+    </div>
+
+    <div id="quizQuestion"
+         class="quiz-question">
+    </div>
+
+    <div id="quizOptions"></div>
+
+    <div id="quizFeedback"
+         class="feedback hidden">
+    </div>
+
+    <button id="nextQuestionButton"
+            class="primary full hidden"
+            onclick="nextQuizQuestion()">
+        Next Question →
+    </button>
+
+</div>
+
+
+<!-- COMPLETE -->
+
+<div id="completeScreen"
+     class="card hidden center">
+
+    <h2 id="completeTitle">
+        🎉 Session Complete!
+    </h2>
+
+    <div id="finalScore"></div>
+
+    <div id="completeReaction"></div>
+
+    <div id="missedQuestions"></div>
+
+    <br>
+
+    <button class="primary"
+            onclick="goHome()">
+        Back to Home
+    </button>
 
 </div>
 
@@ -868,7 +979,7 @@ onchange="loadAdminQuestions()">
 <script>
 
 /* =====================================================
-SUPABASE
+   SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
@@ -879,70 +990,62 @@ const SUPABASE_KEY =
 
 const supabaseClient =
 window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
 
 
 /* =====================================================
-ADMIN
+   ADMIN
 ===================================================== */
 
-/*
-IMPORTANT:
-This email is only used to decide whether the Admin
-Dashboard button/function is available after login.
-
-Real database protection must still come from Supabase RLS.
-*/
-
-const ADMIN_EMAIL =
-"rich.kasaikia31@gmail.com";
+const ADMIN_UID =
+"743b41ca-8706-45fc-a5b3-2073d5c6f472";
 
 
 /* =====================================================
-LIBRARY
+   STRUCTURE
 ===================================================== */
 
 const LIBRARY_STRUCTURE = {
 
-"History":[
-"Indian History",
-"Assam History"
-],
+    "History":[
+        "Indian History",
+        "Assam History"
+    ],
 
-"Geography":[
-"World Geography",
-"Indian Geography",
-"Assam Geography"
-],
+    "Geography":[
+        "World Geography",
+        "Indian Geography",
+        "Assam Geography"
+    ],
 
-"Politics":[
-"Indian Polity"
-],
+    "Politics":[
+        "Indian Polity"
+    ],
 
-"Economics":[
-"Economics"
-],
+    "Economics":[
+        "Economics"
+    ],
 
-"Culture":[
-"Assam Culture",
-"Indian Culture"
-],
+    "Culture":[
+        "Assam Culture",
+        "Indian Culture"
+    ],
 
-"Current Affairs":[
-"Current Affairs"
-],
+    "Current Affairs":[
+        "Current Affairs"
+    ],
 
-"Others":[
-"Others"
-]
+    "Others":[
+        "Others"
+    ]
 
 };
 
 
 /* =====================================================
-USER DATA
+   USER DATA
 ===================================================== */
 
 let xp =
@@ -963,2079 +1066,2520 @@ Number(localStorage.getItem("adre_today_seconds")) || 0;
 let savedProgressDate =
 localStorage.getItem("adre_progress_date") || "";
 
-let missedQuestions =
-JSON.parse(
-localStorage.getItem("adre_missed_questions") || "[]"
-);
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+let quizQuestions = [];
+let quizIndex = 0;
+let quizCorrect = 0;
+let quizWrong = 0;
+let quizMode = "";
+let quizTopic = "";
+let missedQuestionIds = [];
 
 
 /* =====================================================
-QUIZ
+   TIMER
 ===================================================== */
 
-let quizQuestions=[];
-let quizIndex=0;
-let quizCorrect=0;
-let quizWrong=0;
-let quizMode="";
-let quizTopic="";
-let missedQuestionIds=[];
+let timerRunning = false;
+let timerInterval = null;
+let timerSeconds = 0;
 
 
 /* =====================================================
-TIMER
+   AUTH
 ===================================================== */
 
-let timerRunning=false;
-let timerInterval=null;
-let timerSeconds=0;
+let authMode = "signin";
+let currentUser = null;
 
 
 /* =====================================================
-NAVIGATION
+   ADMIN DATA
 ===================================================== */
 
-function hideAllScreens(){
+let adminQuestions = [];
+let editingQuestionId = null;
 
-const screens=[
-"homeScreen",
-"librarySetScreen",
-"studyScreen",
-"quizScreen",
-"completeScreen",
-"accountScreen",
-"adminLoginScreen",
-"adminScreen"
-];
 
-screens.forEach(id=>{
-
-const element=document.getElementById(id);
-
-if(element){
-element.classList.add("hidden");
-}
-
-});
-
-}
-
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 function navigateTo(screenId,pushHistory=true){
 
-hideAllScreens();
+    hideAllScreens();
 
-const screen=document.getElementById(screenId);
+    const screen =
+        document.getElementById(screenId);
 
-if(!screen)return;
+    if(!screen)return;
 
-screen.classList.remove("hidden");
+    screen.classList.remove("hidden");
 
-if(pushHistory){
+    if(pushHistory){
 
-history.pushState(
-{screen:screenId},
-"",
-"#"+screenId
-);
+        history.pushState(
+            {screen:screenId},
+            "",
+            "#" + screenId
+        );
 
-}
+    }
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
 
 function goBack(){
 
-if(history.length>1){
-history.back();
-}else{
-goHome(false);
-}
+    if(history.length>1){
+
+        history.back();
+
+    }else{
+
+        goHome(false);
+
+    }
 
 }
 
 
 function goHome(pushHistory=true){
 
-navigateTo(
-"homeScreen",
-pushHistory
-);
+    navigateTo(
+        "homeScreen",
+        pushHistory
+    );
 
 }
 
 
 window.addEventListener(
-"popstate",
-function(event){
+    "popstate",
+    function(event){
 
-let screenId=
-event.state &&
-event.state.screen;
+        const screenId =
+            event.state &&
+            event.state.screen
+            ? event.state.screen
+            : "homeScreen";
 
-if(!screenId){
-screenId="homeScreen";
-}
+        hideAllScreens();
 
-hideAllScreens();
+        const screen =
+            document.getElementById(
+                screenId
+            );
 
-const screen=
-document.getElementById(screenId);
+        if(screen){
 
-if(screen){
-screen.classList.remove("hidden");
-}
+            screen.classList.remove(
+                "hidden"
+            );
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+        }else{
 
-}
+            document.getElementById(
+                "homeScreen"
+            ).classList.remove(
+                "hidden"
+            );
+
+        }
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
 );
 
 
+if(
+    !location.hash ||
+    location.hash==="#homeScreen"
+){
+
+    history.replaceState(
+        {screen:"homeScreen"},
+        "",
+        "#homeScreen"
+    );
+
+}
+
+
 /* =====================================================
-DAILY MESSAGES
+   SCREEN CONTROL
 ===================================================== */
 
-const dailyChallengeMessages=[
+function hideAllScreens(){
 
-"Today's questions are waiting. Future-you would probably prefer you start now. 👀",
+    [
+        "homeScreen",
+        "authScreen",
+        "accountScreen",
+        "adminScreen",
+        "librarySetScreen",
+        "studyScreen",
+        "quizScreen",
+        "completeScreen"
+    ].forEach(
+        function(id){
 
-"One challenge today. One less excuse tomorrow. 🔥",
+            const element =
+                document.getElementById(id);
 
-"Your streak doesn't know you're busy. It only knows whether you showed up. 😭",
+            if(element){
 
-"Twenty-five questions. That's the mission for today. 🎯",
+                element.classList.add(
+                    "hidden"
+                );
 
-"Don't let today's challenge become tomorrow's regret.",
+            }
 
-"Your competitors are studying somewhere. Just saying. 👀",
-
-"Small daily effort beats one giant panic session before the exam.",
-
-"Today's challenge is another chance to prove you know more than yesterday.",
-
-"Open it. Start one question. Momentum usually handles the rest.",
-
-"Your future exam score is being built from tiny sessions like this."
-];
-
-
-const timerDailyMessages=[
-
-"⏱️ Give yourself 10 focused minutes. Your phone can survive without you.",
-
-"🔥 Start the timer before you start scrolling. That's the deal today.",
-
-"Your next 10 minutes could be more useful than your next 30 minutes of scrolling.",
-
-"📚 You don't need a perfect study session. You just need to begin.",
-
-"🎯 Start the clock. Even a short focused session counts.",
-
-"👀 The timer is literally asking for 10 minutes. Be nice to it.",
-
-"💪 Ten focused minutes today is better than promising yourself two hours tomorrow.",
-
-"🧠 Give your brain a proper workout today.",
-
-"⏳ Start now. Future-you gets the benefit.",
-
-"🔥 One timer. One focused session. No complicated plan."
-];
-
-
-const accountDailyMessages=[
-
-"Your progress is useful. Losing it every time you change devices isn't. Create an account and keep it with you.",
-
-"Don't let your hard work disappear when you switch devices. Save your progress.",
-
-"Your wrong answers can become your strongest topics — especially when your progress is saved.",
-
-"Sign in once and make your study journey easier to continue.",
-
-"Your streak, progress and weak questions are worth keeping.",
-
-"Imagine coming back tomorrow and finding everything exactly where you left it. That's what your account is for.",
-
-"Study today. Keep the progress tomorrow.",
-
-"Your future self shouldn't have to start from zero.",
-
-"Keep your XP, streak and study progress connected to your account.",
-
-"You're already putting in the effort. Give that effort somewhere to stay."
-];
-
-
-const missedDailyMessages=[
-
-"Some questions beat you today. That's exactly why you should keep them around.",
-
-"Wrong answers are not wasted questions. They're your personal revision list.",
-
-"Your weak questions are hiding here. Don't let them stay undefeated. 👀",
-
-"Practice what you missed today and tomorrow's score might look different.",
-
-"One missed question repeated later can become one guaranteed point.",
-
-"Your mistakes are basically a free study plan.",
-
-"Keep the questions you struggle with close. They're telling you what to study.",
-
-"Don't just collect correct answers. Fix the wrong ones too.",
-
-"Your weakest questions deserve another chance — and so do you.",
-
-"The easiest way to improve is to attack the questions you keep missing."
-];
-
-
-function dayMessage(array){
-
-const now=new Date();
-
-const start=
-new Date(
-now.getFullYear(),
-0,
-0
-);
-
-const difference=
-now-start;
-
-const day=
-Math.floor(
-difference/(1000*60*60*24)
-);
-
-return array[
-day%array.length
-];
+        }
+    );
 
 }
 
 
 /* =====================================================
-DAILY RESET
+   DAILY RESET
 ===================================================== */
 
 function checkDailyReset(){
 
-const today=
-new Date().toDateString();
+    const today =
+        new Date().toDateString();
 
-if(savedProgressDate!==today){
+    if(savedProgressDate!==today){
 
-todayQuestions=0;
-todayStudySeconds=0;
+        todayQuestions=0;
+        todayStudySeconds=0;
 
-localStorage.setItem(
-"adre_today_questions",
-"0"
-);
+        localStorage.setItem(
+            "adre_today_questions",
+            "0"
+        );
 
-localStorage.setItem(
-"adre_today_seconds",
-"0"
-);
+        localStorage.setItem(
+            "adre_today_seconds",
+            "0"
+        );
 
-localStorage.setItem(
-"adre_progress_date",
-today
-);
+        localStorage.setItem(
+            "adre_progress_date",
+            today
+        );
 
-}
+    }
 
 }
 
 
 /* =====================================================
-STATS
+   STATS
 ===================================================== */
 
 function updateStats(){
 
-document.getElementById("xp").textContent=
-xp+" XP";
+    document.getElementById(
+        "xp"
+    ).textContent =
+        xp + " XP";
 
-document.getElementById("streak").textContent=
-streak+" Day Streak";
+    document.getElementById(
+        "streak"
+    ).textContent =
+        streak + " Day Streak";
 
-const minutes=
-Math.floor(todayStudySeconds/60);
-
-document.getElementById("todayTime").textContent=
-minutes+" min";
-
-document.getElementById("dailyChallengeMessage").textContent=
-dayMessage(dailyChallengeMessages);
-
-document.getElementById("timerDailyMessage").textContent=
-dayMessage(timerDailyMessages);
-
-document.getElementById("accountDailyMessage").textContent=
-dayMessage(accountDailyMessages);
-
-document.getElementById("missedDailyMessage").textContent=
-dayMessage(missedDailyMessages);
+    document.getElementById(
+        "todayTime"
+    ).textContent =
+        Math.floor(
+            todayStudySeconds/60
+        ) + " min";
 
 }
 
 
 /* =====================================================
-XP
+   XP
 ===================================================== */
 
 function addXP(amount){
 
-xp+=amount;
+    xp+=amount;
 
-localStorage.setItem(
-"adre_xp",
-xp
-);
+    localStorage.setItem(
+        "adre_xp",
+        xp
+    );
 
-updateStats();
+    updateStats();
 
 }
 
 
 /* =====================================================
-STREAK
+   STREAK
 ===================================================== */
 
 function saveStreakForToday(){
 
-const today=
-new Date().toDateString();
+    const today =
+        new Date().toDateString();
 
-if(lastStreakDate===today){
-return;
-}
+    if(lastStreakDate===today)return;
 
-streak++;
+    streak++;
 
-lastStreakDate=today;
+    lastStreakDate=today;
 
-localStorage.setItem(
-"adre_streak",
-streak
-);
+    localStorage.setItem(
+        "adre_streak",
+        streak
+    );
 
-localStorage.setItem(
-"adre_last_streak_date",
-today
-);
+    localStorage.setItem(
+        "adre_last_streak_date",
+        today
+    );
 
-updateStats();
+    updateStats();
 
 }
 
 
 function checkStreakProgress(){
 
-if(
-todayQuestions>=25 ||
-todayStudySeconds>=600
-){
+    if(
+        todayQuestions>=25 ||
+        todayStudySeconds>=600
+    ){
 
-saveStreakForToday();
+        saveStreakForToday();
 
-}
+    }
 
 }
 
 
 /* =====================================================
-TIMER
+   TIMER
 ===================================================== */
 
 function toggleTimer(){
 
-if(timerRunning){
-stopTimer();
-}else{
-startTimer();
-}
+    if(timerRunning){
+
+        stopTimer();
+
+    }else{
+
+        startTimer();
+
+    }
 
 }
 
 
 function startTimer(){
 
-if(timerRunning)return;
+    if(timerRunning)return;
 
-timerRunning=true;
+    timerRunning=true;
 
-document.getElementById(
-"timerButton"
-).textContent=
-"⏸ Pause Study Timer";
+    document.getElementById(
+        "timerButton"
+    ).textContent =
+        "⏸ Pause Study Timer";
 
-timerInterval=
-setInterval(
-function(){
+    timerInterval =
+        setInterval(
+            function(){
 
-timerSeconds++;
-todayStudySeconds++;
+                timerSeconds++;
+                todayStudySeconds++;
 
-localStorage.setItem(
-"adre_today_seconds",
-todayStudySeconds
-);
+                localStorage.setItem(
+                    "adre_today_seconds",
+                    todayStudySeconds
+                );
 
-updateTimerDisplay();
-updateStats();
-showTimeReaction();
-checkStreakProgress();
+                updateTimerDisplay();
+                updateStats();
+                checkStreakProgress();
 
-},
-1000
-);
+                if(
+                    timerSeconds%60===0
+                ){
+
+                    showTimerReaction();
+
+                }
+
+            },
+            1000
+        );
 
 }
 
 
 function stopTimer(){
 
-timerRunning=false;
+    timerRunning=false;
 
-clearInterval(timerInterval);
+    clearInterval(
+        timerInterval
+    );
 
-timerInterval=null;
+    timerInterval=null;
 
-document.getElementById(
-"timerButton"
-).textContent=
-"▶ Start Study Timer";
+    document.getElementById(
+        "timerButton"
+    ).textContent =
+        "▶ Start Study Timer";
 
 }
 
 
 function updateTimerDisplay(){
 
-const minutes=
-Math.floor(timerSeconds/60);
+    const minutes =
+        Math.floor(
+            timerSeconds/60
+        );
 
-const seconds=
-timerSeconds%60;
+    const seconds =
+        timerSeconds%60;
 
-document.getElementById("timer").textContent=
-String(minutes).padStart(2,"0")
-+
-":"
-+
-String(seconds).padStart(2,"0");
-
-}
-
-
-function showTimeReaction(){
-
-const message=
-document.getElementById("timerMessage");
-
-if(timerSeconds===60){
-
-message.textContent=
-"🔥 One minute down. Keep going.";
-
-}
-
-else if(timerSeconds===300){
-
-message.textContent=
-"👏 Five minutes! You're actually studying.";
-
-}
-
-else if(timerSeconds===600){
-
-message.textContent=
-"🥹 Ten minutes! Streak protected. Keep going if you can.";
-
-}
-
-else if(timerSeconds===900){
-
-message.textContent=
-"🔥 Fifteen minutes. That's a real study session.";
-
-}
-
-else if(timerSeconds===1800){
-
-message.textContent=
-"🏆 Thirty minutes! You're properly locked in.";
-
-}
-
-else if(timerSeconds===2700){
-
-message.textContent=
-"💪 Forty-five minutes. Your future self approves.";
-
-}
-
-else if(timerSeconds===3600){
-
-message.textContent=
-"👑 ONE HOUR! Absolute study-machine behaviour.";
-
-}
+    document.getElementById(
+        "timer"
+    ).textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
 
 }
 
 
-/* =====================================================
-LIBRARY
-===================================================== */
+function showTimerReaction(){
 
-async function openLibraryTopic(topic){
+    const lines=[
 
-navigateTo("librarySetScreen");
+        "⏱️ Future-you is going to be very glad you started today.",
 
-document.getElementById(
-"libraryTopicTitle"
-).textContent=
-"📖 "+topic;
+        "🔥 Every minute counts. Keep going.",
 
-const container=
-document.getElementById("librarySets");
+        "📚 Just one more focused minute.",
 
-container.innerHTML=
-"<div class='loading'>Loading study sections...</div>";
+        "🧠 Your brain is getting its reps in.",
 
-const sets=
-LIBRARY_STRUCTURE[topic]||[];
+        "👀 You opened the timer. Might as well make it count.",
 
-container.innerHTML="";
+        "💪 Small sessions become big preparation.",
 
-sets.forEach(
-function(setName){
+        "🎯 Stay here. Your goal isn't going anywhere.",
 
-const button=
-document.createElement("button");
+        "✨ Another minute closer to being exam-ready.",
 
-button.className=
-"topic-button full";
+        "😤 Don't let the question paper work harder than you.",
 
-button.textContent=
-"📚 "+setName;
+        "🏆 Consistency beats one giant study session.",
 
-button.onclick=
-function(){
+        "📖 One focused session today is better than another 'I'll start tomorrow.'",
 
-openStudySet(
-topic,
-setName
-);
+        "🔥 You're already studying. Don't break the momentum.",
 
-};
+        "🫡 Respectfully, your future self is taking notes.",
 
-container.appendChild(button);
+        "☕ This is your sign to stay locked in.",
 
-}
-);
+        "🚀 Keep the streak alive.",
 
-}
+        "🌱 Progress doesn't have to look dramatic to count.",
 
+        "👑 Serious aspirants protect their study time.",
 
-async function openStudySet(topic,studySet){
+        "💭 Imagine knowing this answer on exam day.",
 
-navigateTo("studyScreen");
+        "📚 One more page. One more question. One more step.",
 
-document.getElementById(
-"studyTitle"
-).textContent=
-"📖 "+studySet;
+        "😎 Quietly becoming dangerous at GK."
 
-const container=
-document.getElementById(
-"studyQuestions"
-);
+    ];
 
-container.innerHTML=
-"<div class='loading'>Loading study material...</div>";
-
-const result=
-await supabaseClient
-.from("questions")
-.select(
-"id,question,option_a,option_b,option_c,option_d,answer,study_set,is_premium"
-)
-.eq("topic",topic)
-.eq("study_set",studySet)
-.eq("is_premium",false)
-.order("id",{ascending:true});
-
-const data=result.data;
-const error=result.error;
-
-if(error){
-
-container.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(error.message)+
-"</div>";
-
-return;
-
-}
-
-if(!data||data.length===0){
-
-container.innerHTML=
-"<div class='empty'>"+
-"<p>No study questions have been added yet.</p>"+
-"<p class='small'>Add questions from the Admin Dashboard.</p>"+
-"</div>";
-
-return;
-
-}
-
-container.innerHTML="";
-
-data.forEach(
-function(q,index){
-
-const item=
-document.createElement("div");
-
-item.className=
-"study-question";
-
-item.innerHTML=
-
-"<div class='study-question-number'>"+
-"Question "+(index+1)+
-"</div>"+
-
-"<h3>"+
-escapeHTML(q.question)+
-"</h3>"+
-
-"<div class='study-options'>"+
-"A) "+escapeHTML(q.option_a)+
-"<br>"+
-"B) "+escapeHTML(q.option_b)+
-"<br>"+
-"C) "+escapeHTML(q.option_c)+
-"<br>"+
-"D) "+escapeHTML(q.option_d)+
-"</div>"+
-
-"<div class='answer-box'>"+
-"Answer: "+
-escapeHTML(q.answer)+
-"</div>";
-
-container.appendChild(item);
-
-}
-);
+    document.getElementById(
+        "timerMessage"
+    ).textContent =
+        randomItem(lines);
 
 }
 
 
 /* =====================================================
-PRACTICE
+   DAILY CHALLENGE REACTIONS
 ===================================================== */
 
-async function startPractice(topic){
+function setDailyReaction(){
 
-quizMode="practice";
-quizTopic=topic;
-quizIndex=0;
-quizCorrect=0;
-quizWrong=0;
-missedQuestionIds=[];
+    const lines=[
 
-navigateTo("quizScreen");
+        "🔥 Today's 25 questions are waiting. Don't leave your streak hanging.",
 
-document.getElementById("quizTitle").textContent=
-"🎮 "+topic+" Practice";
+        "👀 Your future score is built from sessions exactly like this one.",
 
-document.getElementById("quizQuestion").textContent=
-"Loading questions...";
+        "🎯 Twenty-five questions. That's today's mission.",
 
-document.getElementById("quizOptions").innerHTML="";
+        "😤 Your competition is studying somewhere. Go steal a few points.",
 
-const result=
-await supabaseClient
-.from("questions")
-.select("*")
-.eq("topic",topic)
-.eq("is_premium",false);
+        "📚 No need to choose questions manually. We picked them for you.",
 
-if(result.error){
+        "🔥 A tiny challenge today can save you from a giant panic later.",
 
-showQuizError(result.error.message);
-return;
+        "🏆 Finish today's challenge and give tomorrow-you one less thing to worry about.",
 
-}
+        "🧠 Let's see how much your brain remembers today.",
 
-if(!result.data||result.data.length===0){
+        "😎 The questions are ready. The excuses aren't.",
 
-showQuizError(
-"No free questions are available for this topic yet."
-);
+        "⚡ 25 questions. One session. Let's cook.",
 
-return;
+        "🌱 You don't need a perfect day. Just complete today's challenge.",
 
-}
+        "👑 Serious preparation is built one ordinary day at a time."
 
-quizQuestions=
-shuffle(result.data);
+    ];
 
-showQuizQuestion();
+    document.getElementById(
+        "dailyReaction"
+    ).textContent =
+        randomItem(lines);
 
 }
 
 
 /* =====================================================
-DAILY CHALLENGE
+   SIGN-IN DAILY MESSAGES
 ===================================================== */
 
-async function startDailyChallenge(){
+function getDailyMessage(key,lines){
 
-quizMode="daily";
-quizTopic="Daily Challenge";
-quizIndex=0;
-quizCorrect=0;
-quizWrong=0;
-missedQuestionIds=[];
+    const day =
+        Math.floor(
+            Date.now()/86400000
+        );
 
-navigateTo("quizScreen");
-
-document.getElementById("quizTitle").textContent=
-"🔥 Today's Challenge";
-
-document.getElementById("quizQuestion").textContent=
-"Loading today's mixed GK questions...";
-
-document.getElementById("quizOptions").innerHTML="";
-
-const result=
-await supabaseClient
-.from("questions")
-.select("*")
-.eq("is_premium",false);
-
-if(result.error){
-
-showQuizError(result.error.message);
-return;
+    return lines[
+        day%lines.length
+    ];
 
 }
 
-if(!result.data||result.data.length===0){
 
-showQuizError(
-"No free GK questions are available yet."
-);
+function updateAccountArea(){
 
-return;
+    const area =
+        document.getElementById(
+            "accountArea"
+        );
 
-}
+    const message =
+        document.getElementById(
+            "signInMessage"
+        );
 
-quizQuestions=
-shuffle(result.data).slice(
-0,
-Math.min(25,result.data.length)
-);
+    if(!currentUser){
 
-showQuizQuestion();
+        const lines=[
+
+            "Your progress is currently living only on this device. Sign in so you don't have to start from zero on another device.",
+
+            "You've already started building your progress. Don't let it stay trapped on one device.",
+
+            "A streak feels a lot more valuable when you know it won't disappear when you change devices.",
+
+            "Keep your XP, streak and weak-question progress connected to your account.",
+
+            "You don't have to sign in to practice, but signing in means your progress can follow you.",
+
+            "Imagine getting a new phone and losing all those hard-earned study records. Save them now.",
+
+            "Your future study sessions deserve to remember your previous ones.",
+
+            "Don't make every device a fresh start. Create your account and keep your progress together.",
+
+            "Your weak topics are useful information. An account helps you keep working on them.",
+
+            "You've put time into studying. Give that progress somewhere to stay."
+
+        ];
+
+        message.textContent =
+            getDailyMessage(
+                "signin",
+                lines
+            );
+
+        area.innerHTML=
+
+            "<button class='primary full' onclick='openAuth()'>"+
+            "Sign In / Create Account"+
+            "</button>";
+
+    }else{
+
+        const lines=[
+
+            "You're signed in. Your progress has a home now.",
+
+            "Good. Your study journey isn't tied to one device anymore.",
+
+            "Your account is ready. Now keep building that streak.",
+
+            "Your weak questions are waiting for another round.",
+
+            "You're back. Let's make today's session count.",
+
+            "Progress saved. Now go earn some more XP."
+
+        ];
+
+        message.textContent =
+            getDailyMessage(
+                "signed",
+                lines
+            );
+
+        area.innerHTML=
+
+            "<button class='primary full' onclick='openAccount()'>"+
+            "👤 Your Account"+
+            "</button>";
+
+    }
 
 }
 
 
 /* =====================================================
-SHOW QUESTION
+   AUTH
 ===================================================== */
 
-function showQuizQuestion(){
+function openAuth(){
 
-const q=
-quizQuestions[quizIndex];
+    authMode="signin";
 
-if(!q){
+    updateAuthUI();
 
-finishQuiz();
-return;
-
-}
-
-document.getElementById("quizScore").textContent=
-"Score: "+
-quizCorrect+
-" / "+
-quizIndex;
-
-document.getElementById("quizQuestion").textContent=
-q.question;
-
-const options=
-document.getElementById("quizOptions");
-
-options.innerHTML="";
-
-const answers=[
-q.option_a,
-q.option_b,
-q.option_c,
-q.option_d
-];
-
-shuffle(answers).forEach(
-function(answer){
-
-const button=
-document.createElement("button");
-
-button.className="option";
-
-button.textContent=answer;
-
-button.onclick=
-function(){
-
-checkQuizAnswer(
-button,
-answer,
-q
-);
-
-};
-
-options.appendChild(button);
-
-}
-);
-
-document.getElementById(
-"quizFeedback"
-).classList.add("hidden");
-
-document.getElementById(
-"nextQuestionButton"
-).classList.add("hidden");
+    navigateTo("authScreen");
 
 }
 
 
-/* =====================================================
-ANSWER
-===================================================== */
+function toggleAuthMode(){
 
-function checkQuizAnswer(
-selectedButton,
-selectedAnswer,
-question
-){
+    authMode =
+        authMode==="signin"
+        ? "signup"
+        : "signin";
 
-const buttons=
-document.querySelectorAll(
-"#quizOptions .option"
-);
-
-buttons.forEach(
-button=>{
-button.disabled=true;
-}
-);
-
-todayQuestions++;
-
-localStorage.setItem(
-"adre_today_questions",
-todayQuestions
-);
-
-const correct=
-normalize(selectedAnswer)===
-normalize(question.answer);
-
-const feedback=
-document.getElementById("quizFeedback");
-
-if(correct){
-
-quizCorrect++;
-
-addXP(10);
-
-selectedButton.classList.add("correct");
-
-feedback.className=
-"feedback correct";
-
-feedback.innerHTML=
-randomCorrectReaction()+
-"<div class='correct-answer'>"+
-"Correct answer: "+
-escapeHTML(question.answer)+
-"</div>";
-
-}else{
-
-quizWrong++;
-
-missedQuestionIds.push(
-String(question.id)
-);
-
-rememberMissedQuestion(question);
-
-selectedButton.classList.add("wrong");
-
-buttons.forEach(
-button=>{
-
-if(
-normalize(button.textContent)===
-normalize(question.answer)
-){
-
-button.classList.add("correct");
-
-}
-
-}
-);
-
-feedback.className=
-"feedback wrong";
-
-feedback.innerHTML=
-randomWrongReaction()+
-"<div class='correct-answer'>"+
-"Correct answer: "+
-escapeHTML(question.answer)+
-"</div>";
-
-}
-
-checkStreakProgress();
-
-document.getElementById("quizScore").textContent=
-"Score: "+
-quizCorrect+
-" / "+
-(quizIndex+1);
-
-feedback.classList.remove("hidden");
-
-document.getElementById(
-"nextQuestionButton"
-).classList.remove("hidden");
+    updateAuthUI();
 
 }
 
 
-/* =====================================================
-NEXT
-===================================================== */
+function updateAuthUI(){
 
-function nextQuizQuestion(){
+    const title =
+        document.getElementById(
+            "authTitle"
+        );
 
-quizIndex++;
+    const description =
+        document.getElementById(
+            "authDescription"
+        );
 
-showQuizQuestion();
+    const button =
+        document.getElementById(
+            "authButton"
+        );
 
-}
+    const toggle =
+        document.getElementById(
+            "authToggleButton"
+        );
 
+    document.getElementById(
+        "authError"
+    ).innerHTML="";
 
-/* =====================================================
-COMPLETE
-===================================================== */
+    if(authMode==="signin"){
 
-function finishQuiz(){
+        title.textContent="🔐 Sign In";
 
-navigateTo("completeScreen");
+        description.textContent =
+            "Sign in to keep your progress connected to your account.";
 
-const total=
-quizQuestions.length;
+        button.textContent="Sign In";
 
-document.getElementById(
-"completeTitle"
-).textContent=
-quizMode==="daily"
-?
-"🔥 Daily Challenge Complete!"
-:
-"🎉 Practice Complete!";
+        toggle.textContent=
+            "Create a new account";
 
-document.getElementById(
-"finalScore"
-).innerHTML=
-"<h2>"+
-quizCorrect+
-" / "+
-total+
-"</h2>"+
-"<p>Correct answers</p>";
+    }else{
 
-const percentage=
-total>0
-?
-(quizCorrect/total)*100
-:
-0;
+        title.textContent="✨ Create Account";
 
-let reaction;
+        description.textContent =
+            "Create an account so your study progress can stay connected.";
 
-if(percentage>=90){
+        button.textContent=
+            "Create Account";
 
-reaction="🔥 Absolutely smashed it!";
+        toggle.textContent=
+            "I already have an account";
 
-}else if(percentage>=70){
-
-reaction="👏 Nice work! Keep pushing.";
-
-}else if(percentage>=50){
-
-reaction="💪 You're getting there. Practice makes progress.";
-
-}else{
-
-reaction="🌱 Don't worry. Now you know what to work on.";
-
-}
-
-document.getElementById(
-"completeReaction"
-).textContent=reaction;
-
-const missed=
-document.getElementById("missedQuestions");
-
-if(missedQuestionIds.length>0){
-
-missed.innerHTML=
-"<h3>🔁 Questions to revisit</h3>"+
-"<p class='small'>These questions were missed in this session.</p>";
-
-quizQuestions.forEach(
-function(q){
-
-if(
-missedQuestionIds.includes(String(q.id))
-){
-
-const div=
-document.createElement("div");
-
-div.className="missed-item";
-
-div.textContent=q.question;
-
-missed.appendChild(div);
-
-}
-
-}
-);
-
-}else{
-
-missed.innerHTML=
-"<p>🎉 No missed questions this round!</p>";
-
-}
+    }
 
 }
 
 
-/* =====================================================
-MISSED QUESTIONS
-===================================================== */
+async function submitAuth(){
 
-function rememberMissedQuestion(question){
+    const email =
+        document.getElementById(
+            "authEmail"
+        ).value.trim();
 
-const id=String(question.id);
+    const password =
+        document.getElementById(
+            "authPassword"
+        ).value;
 
-if(!missedQuestions.includes(id)){
+    const errorBox =
+        document.getElementById(
+            "authError"
+        );
 
-missedQuestions.push(id);
+    if(!email||!password){
 
-localStorage.setItem(
-"adre_missed_questions",
-JSON.stringify(missedQuestions)
-);
+        errorBox.innerHTML=
+            "<div class='error-box'>Please enter your email and password.</div>";
 
-}
+        return;
 
-}
+    }
 
+    const button =
+        document.getElementById(
+            "authButton"
+        );
 
-async function practiceMissedQuestions(){
+    button.disabled=true;
+    button.textContent="Please wait...";
 
-if(missedQuestions.length===0){
+    let result;
 
-alert(
-"You haven't missed any saved questions yet. Complete a practice session and we'll keep track of the questions you get wrong."
-);
+    if(authMode==="signin"){
 
-return;
+        result =
+            await supabaseClient.auth.signInWithPassword({
+                email:email,
+                password:password
+            });
 
-}
+    }else{
 
-const result=
-await supabaseClient
-.from("questions")
-.select("*")
-.in("id",missedQuestions)
-.eq("is_premium",false);
+        result =
+            await supabaseClient.auth.signUp({
+                email:email,
+                password:password
+            });
 
-if(result.error){
+    }
 
-alert(result.error.message);
-return;
+    button.disabled=false;
 
-}
+    updateAuthUI();
 
-if(!result.data||result.data.length===0){
+    if(result.error){
 
-alert("Your saved missed questions are no longer available.");
-return;
+        errorBox.innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(
+                result.error.message
+            )+
+            "</div>";
 
-}
+        button.textContent=
+            authMode==="signin"
+            ? "Sign In"
+            : "Create Account";
 
-quizMode="missed";
-quizTopic="Missed Questions";
-quizQuestions=shuffle(result.data);
-quizIndex=0;
-quizCorrect=0;
-quizWrong=0;
-missedQuestionIds=[];
+        return;
 
-navigateTo("quizScreen");
+    }
 
-document.getElementById(
-"quizTitle"
-).textContent=
-"🔁 Practice What You Missed";
+    if(authMode==="signup"){
 
-showQuizQuestion();
+        if(result.data.session){
 
-}
+            currentUser =
+                result.data.user;
 
+            afterLogin();
 
-/* =====================================================
-REACTIONS
-===================================================== */
+        }else{
 
-const correctReactions=[
+            errorBox.innerHTML=
+                "<div class='success-box'>"+
+                "Account created. Check your email if Supabase asks you to confirm it, then sign in."+
+                "</div>";
 
-"🎉 WOW! Correct!",
-"🔥 You absolutely slayed that!",
-"👏 Look at you!",
-"✨ Nailed it!",
-"😎 That's right!",
-"💥 Boom! Correct!",
-"🥳 Your brain is cooking!",
-"🏆 Big brain moment!",
-"🚀 Straight into the correct-answer zone!",
-"🧠 Your brain just collected another point.",
-"👑 Okay genius, we see you.",
-"⚡ That was quick!",
-"🎯 Bullseye!",
-"💫 That's another one for the score!",
-"😮‍💨 Clean answer.",
-"🌟 You're on fire today!",
-"📚 All that studying is showing.",
-"🔥 Another one bites the dust!",
-"😎 No hesitation. Love that.",
-"🏅 Point secured!",
-"🫡 Respect. Correct.",
-"💪 That's the energy!",
-"🎊 Your brain understood the assignment.",
-"🚨 Correct-answer department approves.",
-"✨ Absolutely beautiful answer."
-];
+        }
 
+    }else{
 
-const wrongReactions=[
+        currentUser =
+            result.data.user;
 
-"😅 Oops! Not quite.",
-"🙃 Almost! That one escaped you.",
-"💭 Hmm... not this time!",
-"😤 So close! Keep going.",
-"🫠 Your brain needs a tiny reboot.",
-"👀 Nope, but now you know!",
-"🌱 Wrong today, stronger tomorrow.",
-"😂 That question really tried you!",
-"😬 Oof. Add this one to the memory bank.",
-"🧠 Your brain has officially met a new fact.",
-"📚 That's exactly what practice is for.",
-"😅 The question won this round.",
-"💪 Don't let one question bully you.",
-"👀 Remember this one next time.",
-"🌱 Every wrong answer is another thing learned.",
-"🫡 Respectfully... nope.",
-"😂 That one was sneaky.",
-"🔄 Time to make this one stick.",
-"😮‍💨 Not your finest moment, but we're learning.",
-"🎯 Missed it — now you've got a target.",
-"💡 At least you won't forget this one easily.",
-"🙃 Your brain took a tiny wrong turn.",
-"🔥 Come back stronger on the next one.",
-"📖 Another fact added to the collection.",
-"😤 Revenge question unlocked."
-];
+        afterLogin();
 
-
-function randomCorrectReaction(){
-
-return randomItem(correctReactions);
+    }
 
 }
 
 
-function randomWrongReaction(){
+async function afterLogin(){
 
-return randomItem(wrongReactions);
+    updateAccountArea();
 
-}
+    await checkAdmin();
 
-
-/* =====================================================
-ACCOUNT
-===================================================== */
-
-async function openAccount(){
-
-navigateTo("accountScreen");
-
-const container=
-document.getElementById("accountContent");
-
-container.innerHTML=
-"<div class='loading'>Checking account...</div>";
-
-const result=
-await supabaseClient.auth.getUser();
-
-const user=result.data.user;
-
-if(!user){
-
-container.innerHTML=
-
-"<h3>🔐 Sign in to save your journey</h3>"+
-"<p>Your local progress already works without an account.</p>"+
-"<p>Sign in when you want your study journey connected to your account.</p>"+
-"<button class='primary full' onclick='showLoginForm()'>Sign In</button>";
-
-return;
-
-}
-
-container.innerHTML=
-
-"<div class='success' style='padding:15px;border-radius:10px'>"+
-"<strong>You're signed in.</strong><br><br>"+
-escapeHTML(user.email)+
-"</div>"+
-
-"<br>"+
-
-"<p>Keep studying and building your streak.</p>"+
-
-"<button class='danger full' onclick='signOutUser()'>Sign Out</button>";
+    goHome();
 
 }
 
 
-function showLoginForm(){
+async function checkAdmin(){
 
-const container=
-document.getElementById("accountContent");
+    if(!currentUser){
 
-container.innerHTML=
+        removeAdminButton();
 
-"<h3>🔐 Sign In</h3>"+
+        return false;
 
-"<label>Email</label>"+
-"<input id='userEmail' type='email' placeholder='Your email'>"+
+    }
 
-"<label>Password</label>"+
-"<input id='userPassword' type='password' placeholder='Your password'>"+
+    const isAdmin =
+        currentUser.id===ADMIN_UID;
 
-"<button class='primary full' onclick='userLogin()'>Sign In</button>"+
+    if(isAdmin){
 
-"<br><br>"+
+        addAdminButton();
 
-"<button class='secondary full' onclick='createUserAccount()'>Create Account</button>"+
+    }else{
 
-"<div id='accountMessage'></div>";
+        removeAdminButton();
 
-}
+    }
 
-
-async function userLogin(){
-
-const email=
-document.getElementById("userEmail").value.trim();
-
-const password=
-document.getElementById("userPassword").value;
-
-const message=
-document.getElementById("accountMessage");
-
-const result=
-await supabaseClient.auth.signInWithPassword({
-email,
-password
-});
-
-if(result.error){
-
-message.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(result.error.message)+
-"</div>";
-
-return;
-
-}
-
-openAccount();
+    return isAdmin;
 
 }
 
 
-async function createUserAccount(){
+function addAdminButton(){
 
-const email=
-document.getElementById("userEmail").value.trim();
+    if(
+        document.getElementById(
+            "adminButton"
+        )
+    )return;
 
-const password=
-document.getElementById("userPassword").value;
+    const accountArea =
+        document.getElementById(
+            "accountArea"
+        );
 
-const message=
-document.getElementById("accountMessage");
+    const button =
+        document.createElement(
+            "button"
+        );
 
-if(!email||!password){
+    button.id="adminButton";
+    button.className=
+        "primary full";
+    button.style.marginTop="10px";
+    button.textContent=
+        "🔐 Admin Dashboard";
+    button.onclick=
+        openAdmin;
 
-message.innerHTML=
-"<div class='error-box'>Please enter an email and password.</div>";
-
-return;
-
-}
-
-const result=
-await supabaseClient.auth.signUp({
-email,
-password
-});
-
-if(result.error){
-
-message.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(result.error.message)+
-"</div>";
-
-return;
+    accountArea.appendChild(
+        button
+    );
 
 }
 
-message.innerHTML=
-"<div class='success' style='padding:12px;border-radius:10px'>"+
-"Account created. Check your email if confirmation is required."
-+"</div>";
+
+function removeAdminButton(){
+
+    const button =
+        document.getElementById(
+            "adminButton"
+        );
+
+    if(button){
+
+        button.remove();
+
+    }
+
+}
+
+
+function openAccount(){
+
+    if(!currentUser){
+
+        openAuth();
+        return;
+
+    }
+
+    document.getElementById(
+        "accountDetails"
+    ).innerHTML=
+
+        "<div class='success-box'>"+
+        "<strong>You're signed in.</strong><br><br>"+
+        escapeHTML(
+            currentUser.email
+        )+
+        "<br><br>"+
+        "Keep studying and building your streak."+
+        "</div>";
+
+    navigateTo(
+        "accountScreen"
+    );
 
 }
 
 
 async function signOutUser(){
 
-await supabaseClient.auth.signOut();
+    await supabaseClient.auth.signOut();
 
-openAccount();
+    currentUser=null;
 
-}
+    removeAdminButton();
 
+    updateAccountArea();
 
-/* =====================================================
-PREMIUM
-===================================================== */
-
-function showPremiumMessage(){
-
-alert(
-"Premium preparation is being prepared.\n\nPremium PDFs, previous-year questions, mock tests and additional study material will be connected to the monetization system later."
-);
+    goHome();
 
 }
 
 
 /* =====================================================
-ADMIN LOGIN
+   ADMIN
 ===================================================== */
 
-async function openAdminLogin(){
+async function openAdmin(){
 
-navigateTo("adminLoginScreen");
+    if(!currentUser){
 
-}
+        openAuth();
+        return;
 
+    }
 
-async function adminLogin(){
+    if(currentUser.id!==ADMIN_UID){
 
-const email=
-document.getElementById("adminEmail").value.trim();
+        alert(
+            "You do not have permission to open the admin dashboard."
+        );
 
-const password=
-document.getElementById("adminPassword").value;
+        return;
 
-const message=
-document.getElementById("adminLoginMessage");
+    }
 
-if(email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()){
+    navigateTo("adminScreen");
 
-message.innerHTML=
-"<div class='error-box'>Admin access is restricted.</div>";
+    fillStudySetOptions();
 
-return;
-
-}
-
-const result=
-await supabaseClient.auth.signInWithPassword({
-email,
-password
-});
-
-if(result.error){
-
-message.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(result.error.message)+
-"</div>";
-
-return;
-
-}
-
-openAdminDashboard();
+    await loadAdminQuestions();
 
 }
 
 
-async function openAdminDashboard(){
+function fillStudySetOptions(){
 
-const result=
-await supabaseClient.auth.getUser();
+    const topic =
+        document.getElementById(
+            "adminTopic"
+        ).value;
 
-const user=result.data.user;
+    const select =
+        document.getElementById(
+            "adminStudySet"
+        );
 
-if(
-!user||
-user.email.toLowerCase()!==ADMIN_EMAIL.toLowerCase()
-){
+    select.innerHTML="";
 
-alert("Admin access denied.");
-return;
+    (
+        LIBRARY_STRUCTURE[topic]||[]
+    ).forEach(
+        function(set){
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value=set;
+            option.textContent=set;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
 
 }
 
-navigateTo("adminScreen");
 
 document.getElementById(
-"adminWelcome"
-).textContent=
-"Signed in as "+user.email;
-
-loadAdminQuestions();
-
-}
-
-
-async function adminLogout(){
-
-await supabaseClient.auth.signOut();
-
-goHome();
-
-}
-
-
-/* =====================================================
-ADMIN QUESTION FORM
-===================================================== */
-
-function updateAdminStudySets(){
-
-const topic=
-document.getElementById("questionTopic").value;
-
-const select=
-document.getElementById("questionStudySet");
-
-select.innerHTML="";
-
-const sets=
-LIBRARY_STRUCTURE[topic]||[];
-
-sets.forEach(
-function(set){
-
-const option=
-document.createElement("option");
-
-option.value=set;
-option.textContent=set;
-
-select.appendChild(option);
-
-}
+    "adminTopic"
+).addEventListener(
+    "change",
+    fillStudySetOptions
 );
-
-updateAnswerOptions();
-
-}
 
 
 function updateAnswerOptions(){
 
-const answers=[
-document.getElementById("optionA").value,
-document.getElementById("optionB").value,
-document.getElementById("optionC").value,
-document.getElementById("optionD").value
-];
+    const values=[
+        document.getElementById("adminA").value,
+        document.getElementById("adminB").value,
+        document.getElementById("adminC").value,
+        document.getElementById("adminD").value
+    ];
 
-const select=
-document.getElementById("correctAnswer");
+    const select =
+        document.getElementById(
+            "adminAnswer"
+        );
 
-const old=
-select.value;
+    const current =
+        select.value;
 
-select.innerHTML=
-"<option value=''>Choose correct answer</option>";
+    select.innerHTML=
+        "<option value=''>Choose correct answer</option>";
 
-answers.forEach(
-function(answer){
+    values.forEach(
+        function(value){
 
-if(answer.trim()){
+            if(value.trim()){
 
-const option=
-document.createElement("option");
+                const option =
+                    document.createElement(
+                        "option"
+                    );
 
-option.value=answer;
-option.textContent=answer;
+                option.value=value;
+                option.textContent=value;
 
-select.appendChild(option);
+                select.appendChild(
+                    option
+                );
+
+            }
+
+        }
+    );
+
+    if(
+        values.includes(current)
+    ){
+
+        select.value=current;
+
+    }
 
 }
 
-}
+
+["adminA","adminB","adminC","adminD"]
+.forEach(
+    function(id){
+
+        document.getElementById(id)
+        .addEventListener(
+            "input",
+            updateAnswerOptions
+        );
+
+    }
 );
-
-if(
-answers.includes(old)
-){
-
-select.value=old;
-
-}
-
-}
 
 
 async function addQuestion(){
 
-const topic=
-document.getElementById("questionTopic").value;
+    if(
+        !currentUser ||
+        currentUser.id!==ADMIN_UID
+    ){
 
-const studySet=
-document.getElementById("questionStudySet").value;
+        showAdminMessage(
+            "Only the admin can add questions.",
+            true
+        );
 
-const question=
-document.getElementById("questionText").value.trim();
+        return;
 
-const optionA=
-document.getElementById("optionA").value.trim();
+    }
 
-const optionB=
-document.getElementById("optionB").value.trim();
+    const question =
+        document.getElementById(
+            "adminQuestion"
+        ).value.trim();
 
-const optionC=
-document.getElementById("optionC").value.trim();
+    const a =
+        document.getElementById(
+            "adminA"
+        ).value.trim();
 
-const optionD=
-document.getElementById("optionD").value.trim();
+    const b =
+        document.getElementById(
+            "adminB"
+        ).value.trim();
 
-const answer=
-document.getElementById("correctAnswer").value;
+    const c =
+        document.getElementById(
+            "adminC"
+        ).value.trim();
 
-const premium=
-document.getElementById("questionPremium").value==="true";
+    const d =
+        document.getElementById(
+            "adminD"
+        ).value.trim();
 
-const message=
-document.getElementById("addQuestionMessage");
+    const answer =
+        document.getElementById(
+            "adminAnswer"
+        ).value;
 
-if(
-!question||
-!optionA||
-!optionB||
-!optionC||
-!optionD||
-!answer
+    const explanation =
+        document.getElementById(
+            "adminExplanation"
+        ).value.trim();
+
+    const topic =
+        document.getElementById(
+            "adminTopic"
+        ).value;
+
+    const studySet =
+        document.getElementById(
+            "adminStudySet"
+        ).value;
+
+    const isPremium =
+        document.getElementById(
+            "adminPremium"
+        ).value==="true";
+
+    if(
+        !question||
+        !a||
+        !b||
+        !c||
+        !d||
+        !answer||
+        !topic||
+        !studySet
+    ){
+
+        document.getElementById(
+            "addQuestionMessage"
+        ).innerHTML=
+            "<div class='error-box'>Please fill in all required fields.</div>";
+
+        return;
+
+    }
+
+    const {error} =
+        await supabaseClient
+        .from("questions")
+        .insert({
+
+            topic:topic,
+            question:question,
+            option_a:a,
+            option_b:b,
+            option_c:c,
+            option_d:d,
+            answer:answer,
+            explanation:
+                explanation||null,
+            study_set:studySet,
+            is_premium:isPremium
+
+        });
+
+    if(error){
+
+        document.getElementById(
+            "addQuestionMessage"
+        ).innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(error.message)+
+            "</div>";
+
+        return;
+
+    }
+
+    document.getElementById(
+        "addQuestionMessage"
+    ).innerHTML=
+        "<div class='success-box'>✅ Question added successfully.</div>";
+
+    clearAdminForm();
+
+    await loadAdminQuestions();
+
+}
+
+
+function clearAdminForm(){
+
+    [
+        "adminQuestion",
+        "adminA",
+        "adminB",
+        "adminC",
+        "adminD",
+        "adminExplanation"
+    ].forEach(
+        function(id){
+
+            document.getElementById(
+                id
+            ).value="";
+
+        }
+    );
+
+    document.getElementById(
+        "adminAnswer"
+    ).innerHTML=
+        "<option value=''>Choose correct answer</option>";
+
+}
+
+
+function showAdminMessage(
+    message,
+    error=false
 ){
 
-message.innerHTML=
-"<div class='error-box'>Please complete the question and all four options.</div>";
-
-return;
-
-}
-
-const result=
-await supabaseClient
-.from("questions")
-.insert({
-
-topic:topic,
-study_set:studySet,
-question:question,
-option_a:optionA,
-option_b:optionB,
-option_c:optionC,
-option_d:optionD,
-answer:answer,
-is_premium:premium
-
-});
-
-if(result.error){
-
-message.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(result.error.message)+
-"</div>";
-
-return;
+    document.getElementById(
+        "adminMessage"
+    ).innerHTML=
+        "<div class='"+(
+            error
+            ?"error-box"
+            :"success-box"
+        )+"'>"+
+        escapeHTML(message)+
+        "</div>";
 
 }
 
-message.innerHTML=
-"<div class='success' style='padding:12px;border-radius:10px'>"+
-"✅ Question added successfully."
-+"</div>";
-
-document.getElementById("questionText").value="";
-document.getElementById("optionA").value="";
-document.getElementById("optionB").value="";
-document.getElementById("optionC").value="";
-document.getElementById("optionD").value="";
-document.getElementById("correctAnswer").innerHTML=
-"<option value=''>Choose correct answer</option>";
-
-loadAdminQuestions();
-
-}
-
-
-/* =====================================================
-ADMIN QUESTIONS
-===================================================== */
 
 async function loadAdminQuestions(){
 
-const filter=
-document.getElementById("adminFilterTopic").value;
+    const list =
+        document.getElementById(
+            "adminQuestionsList"
+        );
 
-const container=
-document.getElementById("adminQuestions");
+    list.innerHTML=
+        "<div class='loading'>Loading questions...</div>";
 
-container.innerHTML=
-"<div class='loading'>Loading questions...</div>";
+    const {data,error} =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .order(
+            "id",
+            {ascending:true}
+        );
 
-let query=
-supabaseClient
-.from("questions")
-.select("*")
-.order("id",{ascending:true});
+    if(error){
 
-if(filter){
+        list.innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(error.message)+
+            "</div>";
 
-query=
-query.eq("topic",filter);
+        return;
 
-}
+    }
 
-const result=
-await query;
+    adminQuestions=data||[];
 
-if(result.error){
+    const total=
+        adminQuestions.length;
 
-container.innerHTML=
-"<div class='error-box'>"+
-escapeHTML(result.error.message)+
-"</div>";
+    const free=
+        adminQuestions.filter(
+            q=>!q.is_premium
+        ).length;
 
-return;
+    const premium=
+        adminQuestions.filter(
+            q=>q.is_premium
+        ).length;
 
-}
+    document.getElementById(
+        "adminTotal"
+    ).textContent=total;
 
-const data=result.data||[];
+    document.getElementById(
+        "adminFree"
+    ).textContent=free;
 
-const totalResult=
-await supabaseClient
-.from("questions")
-.select("id,is_premium");
+    document.getElementById(
+        "adminPremium"
+    ).textContent=premium;
 
-if(!totalResult.error){
-
-const all=
-totalResult.data||[];
-
-document.getElementById(
-"adminQuestionCount"
-).textContent=
-all.length;
-
-document.getElementById(
-"adminFreeCount"
-).textContent=
-all.filter(q=>!q.is_premium).length;
-
-document.getElementById(
-"adminPremiumCount"
-).textContent=
-all.filter(q=>q.is_premium).length;
-
-}
-
-if(data.length===0){
-
-container.innerHTML=
-"<div class='empty'>No questions found.</div>";
-
-return;
-
-}
-
-container.innerHTML="";
-
-data.forEach(
-function(q){
-
-const div=
-document.createElement("div");
-
-div.className="admin-question";
-
-const badge=
-q.is_premium
-?
-"<span class='badge premium-badge'>👑 Premium</span>"
-:
-"<span class='badge'>Free</span>";
-
-div.innerHTML=
-
-"<h3>"+
-escapeHTML(q.question)+
-"</h3>"+
-
-"<p class='small'>"+
-escapeHTML(q.topic)+
-" → "+
-escapeHTML(q.study_set)+
-"</p>"+
-
-badge+
-
-"<div class='admin-actions'>"+
-
-"<button class='secondary' onclick='editQuestion("+
-q.id+
-")'>"+
-"✏️ Edit"+
-"</button>"+
-
-"<button class='danger' onclick='deleteQuestion("+
-q.id+
-")'>"+
-"🗑️ Delete"+
-"</button>"+
-
-"</div>";
-
-container.appendChild(div);
-
-}
-);
+    renderAdminQuestions();
 
 }
 
 
-/* =====================================================
-EDIT
-===================================================== */
+function renderAdminQuestions(){
 
-async function editQuestion(id){
+    const list =
+        document.getElementById(
+            "adminQuestionsList"
+        );
 
-const result=
-await supabaseClient
-.from("questions")
-.select("*")
-.eq("id",id)
-.single();
+    const search =
+        document.getElementById(
+            "adminSearch"
+        ).value
+        .trim()
+        .toLowerCase();
 
-if(result.error){
+    const topic =
+        document.getElementById(
+            "adminFilterTopic"
+        ).value;
 
-alert(result.error.message);
-return;
+    const filtered =
+        adminQuestions.filter(
+            function(q){
+
+                const matchesSearch =
+                    !search ||
+                    String(q.question||"")
+                    .toLowerCase()
+                    .includes(search);
+
+                const matchesTopic =
+                    !topic ||
+                    q.topic===topic;
+
+                return (
+                    matchesSearch &&
+                    matchesTopic
+                );
+
+            }
+        );
+
+    if(!filtered.length){
+
+        list.innerHTML=
+            "<p class='center'>No matching questions.</p>";
+
+        return;
+
+    }
+
+    list.innerHTML="";
+
+    filtered.forEach(
+        function(q,index){
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "admin-question";
+
+            div.innerHTML=
+
+                "<h4>"+
+                "Question #"+
+                escapeHTML(q.id)+
+                "</h4>"+
+
+                "<p><strong>"+
+                escapeHTML(q.topic)+
+                "</strong> • "+
+                escapeHTML(q.study_set||"")+
+                "</p>"+
+
+                "<p>"+
+                escapeHTML(q.question)+
+                "</p>"+
+
+                "<span class='badge "+
+                (
+                    q.is_premium
+                    ?"premium-badge"
+                    :"free-badge"
+                )+
+                "'>"+
+                (
+                    q.is_premium
+                    ?"👑 Premium"
+                    :"🆓 Free"
+                )+
+                "</span>"+
+
+                "<div class='admin-actions'>"+
+
+                "<button class='danger' onclick='deleteQuestion("+q.id+")'>"+
+                "🗑️ Delete"+
+                "</button>"+
+
+                "<button class='secondary' onclick='togglePremium("+q.id+","+q.is_premium+")'>"+
+                (
+                    q.is_premium
+                    ?"Make Free"
+                    :"Make Premium"
+                )+
+                "</button>"+
+
+                "</div>";
+
+            list.appendChild(div);
+
+        }
+    );
 
 }
 
-const q=result.data;
-
-const question=
-prompt(
-"Edit question:",
-q.question
-);
-
-if(question===null)return;
-
-const answer=
-prompt(
-"Edit correct answer:",
-q.answer
-);
-
-if(answer===null)return;
-
-const update=
-await supabaseClient
-.from("questions")
-.update({
-
-question:question,
-answer:answer
-
-})
-.eq("id",id);
-
-if(update.error){
-
-alert(update.error.message);
-return;
-
-}
-
-alert("Question updated.");
-
-loadAdminQuestions();
-
-}
-
-
-/* =====================================================
-DELETE
-===================================================== */
 
 async function deleteQuestion(id){
 
-const sure=
-confirm(
-"Delete this question permanently?"
-);
+    if(
+        !currentUser ||
+        currentUser.id!==ADMIN_UID
+    ){
 
-if(!sure)return;
+        alert(
+            "Only the admin can delete questions."
+        );
 
-const result=
-await supabaseClient
-.from("questions")
-.delete()
-.eq("id",id);
+        return;
 
-if(result.error){
+    }
 
-alert(
-"Could not delete question:\n"+
-result.error.message
-);
+    const question =
+        adminQuestions.find(
+            q=>String(q.id)===String(id)
+        );
 
-return;
+    if(!question)return;
+
+    const confirmed =
+        confirm(
+            "Delete this question?\n\n"+
+            question.question
+        );
+
+    if(!confirmed)return;
+
+    const {error} =
+        await supabaseClient
+        .from("questions")
+        .delete()
+        .eq("id",id);
+
+    if(error){
+
+        alert(
+            "Could not delete question: "+
+            error.message
+        );
+
+        return;
+
+    }
+
+    await loadAdminQuestions();
 
 }
 
-alert("Question deleted.");
 
-loadAdminQuestions();
+async function togglePremium(
+    id,
+    currentValue
+){
+
+    if(
+        !currentUser ||
+        currentUser.id!==ADMIN_UID
+    ){
+
+        alert(
+            "Only the admin can change question access."
+        );
+
+        return;
+
+    }
+
+    const {error} =
+        await supabaseClient
+        .from("questions")
+        .update({
+            is_premium:!currentValue
+        })
+        .eq("id",id);
+
+    if(error){
+
+        alert(
+            "Could not update question: "+
+            error.message
+        );
+
+        return;
+
+    }
+
+    await loadAdminQuestions();
 
 }
 
 
 /* =====================================================
-HELPERS
+   LIBRARY
+===================================================== */
+
+async function openLibraryTopic(topic){
+
+    navigateTo(
+        "librarySetScreen"
+    );
+
+    document.getElementById(
+        "libraryTopicTitle"
+    ).textContent=
+        "📖 "+topic;
+
+    const container =
+        document.getElementById(
+            "librarySets"
+        );
+
+    container.innerHTML=
+        "<div class='loading'>Loading study sections...</div>";
+
+    const sets =
+        LIBRARY_STRUCTURE[topic]||[];
+
+    container.innerHTML="";
+
+    for(
+        const setName of sets
+    ){
+
+        const {count} =
+            await supabaseClient
+            .from("questions")
+            .select(
+                "id",
+                {
+                    count:"exact",
+                    head:true
+                }
+            )
+            .eq("topic",topic)
+            .eq("study_set",setName)
+            .eq("is_premium",false);
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+        button.className=
+            "topic-button full";
+
+        button.innerHTML=
+            "📚 "+
+            escapeHTML(setName)+
+            "<span class='topic-description'>"+
+            (count||0)+
+            " free study questions"+
+            "</span>";
+
+        button.onclick=
+            function(){
+
+                openStudySet(
+                    topic,
+                    setName
+                );
+
+            };
+
+        container.appendChild(
+            button
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   STUDY SET
+===================================================== */
+
+async function openStudySet(
+    topic,
+    studySet
+){
+
+    navigateTo(
+        "studyScreen"
+    );
+
+    document.getElementById(
+        "studyTitle"
+    ).textContent=
+        "📖 "+studySet;
+
+    const container =
+        document.getElementById(
+            "studyQuestions"
+        );
+
+    container.innerHTML=
+        "<div class='loading'>Loading study material...</div>";
+
+    const {data,error} =
+        await supabaseClient
+        .from("questions")
+        .select(
+            "id,question,option_a,option_b,option_c,option_d,answer,explanation,study_set,is_premium"
+        )
+        .eq("topic",topic)
+        .eq("study_set",studySet)
+        .eq("is_premium",false)
+        .order(
+            "id",
+            {ascending:true}
+        );
+
+    if(error){
+
+        container.innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(error.message)+
+            "</div>";
+
+        return;
+
+    }
+
+    if(!data||!data.length){
+
+        container.innerHTML=
+            "<div class='center'>"+
+            "<p>No free study questions have been added yet.</p>"+
+            "</div>";
+
+        return;
+
+    }
+
+    container.innerHTML="";
+
+    data.forEach(
+        function(q,index){
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className=
+                "study-question";
+
+            item.innerHTML=
+
+                "<div class='study-question-number'>"+
+                "Question "+
+                (index+1)+
+                "</div>"+
+
+                "<h3>"+
+                escapeHTML(q.question)+
+                "</h3>"+
+
+                "<div class='study-options'>"+
+                "A) "+escapeHTML(q.option_a)+"<br>"+
+                "B) "+escapeHTML(q.option_b)+"<br>"+
+                "C) "+escapeHTML(q.option_c)+"<br>"+
+                "D) "+escapeHTML(q.option_d)+
+                "</div>"+
+
+                "<div class='answer-box'>"+
+                "Answer: "+
+                escapeHTML(q.answer)+
+                (
+                    q.explanation
+                    ?
+                    "<br><span class='small'>"+
+                    escapeHTML(q.explanation)+
+                    "</span>"
+                    :""
+                )+
+                "</div>";
+
+            container.appendChild(item);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PRACTICE
+===================================================== */
+
+async function startPractice(topic){
+
+    quizMode="practice";
+    quizTopic=topic;
+    quizQuestions=[];
+    quizIndex=0;
+    quizCorrect=0;
+    quizWrong=0;
+    missedQuestionIds=[];
+
+    navigateTo("quizScreen");
+
+    document.getElementById(
+        "quizTitle"
+    ).textContent=
+        "🎮 "+topic+" Practice";
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent=
+        "Loading questions...";
+
+    const {data,error} =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .eq("topic",topic)
+        .eq("is_premium",false);
+
+    if(error){
+
+        showQuizError(
+            error.message
+        );
+
+        return;
+
+    }
+
+    if(!data||!data.length){
+
+        showQuizError(
+            "No free questions are available for this topic yet."
+        );
+
+        return;
+
+    }
+
+    quizQuestions=
+        shuffle(data);
+
+    showQuizQuestion();
+
+}
+
+
+/* =====================================================
+   DAILY
+===================================================== */
+
+async function startDailyChallenge(){
+
+    setDailyReaction();
+
+    quizMode="daily";
+    quizTopic="Daily Challenge";
+    quizIndex=0;
+    quizCorrect=0;
+    quizWrong=0;
+    missedQuestionIds=[];
+
+    navigateTo("quizScreen");
+
+    document.getElementById(
+        "quizTitle"
+    ).textContent=
+        "🔥 Today's 25-question Challenge";
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent=
+        "Loading today's mixed GK questions...";
+
+    const {data,error} =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .eq("is_premium",false);
+
+    if(error){
+
+        showQuizError(
+            error.message
+        );
+
+        return;
+
+    }
+
+    if(!data||!data.length){
+
+        showQuizError(
+            "No free GK questions are available yet."
+        );
+
+        return;
+
+    }
+
+    quizQuestions=
+        shuffle(data)
+        .slice(
+            0,
+            Math.min(25,data.length)
+        );
+
+    showQuizQuestion();
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+
+function showQuizQuestion(){
+
+    const q =
+        quizQuestions[
+            quizIndex
+        ];
+
+    if(!q){
+
+        finishQuiz();
+        return;
+
+    }
+
+    document.getElementById(
+        "quizScore"
+    ).textContent=
+        "Score: "+
+        quizCorrect+
+        " / "+
+        quizIndex;
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent=
+        q.question;
+
+    const options =
+        document.getElementById(
+            "quizOptions"
+        );
+
+    options.innerHTML="";
+
+    shuffle([
+        q.option_a,
+        q.option_b,
+        q.option_c,
+        q.option_d
+    ]).forEach(
+        function(answer){
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.className="option";
+            button.textContent=answer;
+
+            button.onclick=
+                function(){
+
+                    checkQuizAnswer(
+                        button,
+                        answer,
+                        q
+                    );
+
+                };
+
+            options.appendChild(button);
+
+        }
+    );
+
+    document.getElementById(
+        "quizFeedback"
+    ).classList.add(
+        "hidden"
+    );
+
+    document.getElementById(
+        "nextQuestionButton"
+    ).classList.add(
+        "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   ANSWER
+===================================================== */
+
+function checkQuizAnswer(
+    selectedButton,
+    selectedAnswer,
+    question
+){
+
+    const buttons =
+        document.querySelectorAll(
+            "#quizOptions .option"
+        );
+
+    buttons.forEach(
+        function(button){
+
+            button.disabled=true;
+
+        }
+    );
+
+    todayQuestions++;
+
+    localStorage.setItem(
+        "adre_today_questions",
+        todayQuestions
+    );
+
+    checkStreakProgress();
+
+    const correct =
+        normalize(selectedAnswer)===
+        normalize(question.answer);
+
+    const feedback =
+        document.getElementById(
+            "quizFeedback"
+        );
+
+    if(correct){
+
+        quizCorrect++;
+
+        addXP(10);
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+        feedback.className=
+            "feedback correct";
+
+        feedback.innerHTML=
+            randomCorrectReaction()+
+            "<div class='correct-answer'>"+
+            "Correct answer: "+
+            escapeHTML(question.answer)+
+            "</div>";
+
+    }else{
+
+        quizWrong++;
+
+        missedQuestionIds.push(
+            String(question.id)
+        );
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+        buttons.forEach(
+            function(button){
+
+                if(
+                    normalize(button.textContent)===
+                    normalize(question.answer)
+                ){
+
+                    button.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
+        );
+
+        feedback.className=
+            "feedback wrong";
+
+        feedback.innerHTML=
+            randomWrongReaction()+
+            "<div class='correct-answer'>"+
+            "Correct answer: "+
+            escapeHTML(question.answer)+
+            "</div>";
+
+    }
+
+    document.getElementById(
+        "quizScore"
+    ).textContent=
+        "Score: "+
+        quizCorrect+
+        " / "+
+        (quizIndex+1);
+
+    feedback.classList.remove(
+        "hidden"
+    );
+
+    document.getElementById(
+        "nextQuestionButton"
+    ).classList.remove(
+        "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextQuizQuestion(){
+
+    quizIndex++;
+
+    showQuizQuestion();
+
+}
+
+
+/* =====================================================
+   COMPLETE
+===================================================== */
+
+function finishQuiz(){
+
+    navigateTo(
+        "completeScreen"
+    );
+
+    const total=
+        quizQuestions.length;
+
+    document.getElementById(
+        "completeTitle"
+    ).textContent=
+        quizMode==="daily"
+        ?"🔥 Daily Challenge Complete!"
+        :"🎉 Practice Complete!";
+
+    document.getElementById(
+        "finalScore"
+    ).innerHTML=
+        "<h2>"+
+        quizCorrect+
+        " / "+
+        total+
+        "</h2>"+
+        "<p>Correct answers</p>";
+
+    const percentage=
+        total
+        ?(quizCorrect/total)*100
+        :0;
+
+    let reaction;
+
+    if(percentage>=90){
+
+        reaction=
+            "🔥 Absolutely smashed it!";
+
+    }else if(percentage>=70){
+
+        reaction=
+            "👏 Nice work! Keep pushing.";
+
+    }else if(percentage>=50){
+
+        reaction=
+            "💪 You're getting there. Practice makes progress.";
+
+    }else{
+
+        reaction=
+            "🌱 Don't worry. Now you know what to work on.";
+
+    }
+
+    document.getElementById(
+        "completeReaction"
+    ).textContent=
+        reaction;
+
+    const missed =
+        document.getElementById(
+            "missedQuestions"
+        );
+
+    if(missedQuestionIds.length){
+
+        missed.innerHTML=
+            "<h3>🔁 Questions to revisit</h3>"+
+            "<p class='small'>"+
+            "These questions were missed in this session."+
+            "</p>";
+
+        quizQuestions.forEach(
+            function(q){
+
+                if(
+                    missedQuestionIds.includes(
+                        String(q.id)
+                    )
+                ){
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+                    div.className=
+                        "missed-item";
+
+                    div.textContent=
+                        q.question;
+
+                    missed.appendChild(div);
+
+                }
+
+            }
+        );
+
+    }else{
+
+        missed.innerHTML=
+            "<p>🎉 No missed questions this round!</p>";
+
+    }
+
+}
+
+
+/* =====================================================
+   MISSED QUESTIONS
+===================================================== */
+
+async function practiceMissedQuestions(){
+
+    if(!currentUser){
+
+        const lines=[
+
+            "Your missed questions can't follow you between sessions unless you sign in.",
+
+            "Don't lose track of the questions that beat you. Create an account and keep your weak areas.",
+
+            "Wrong answers are useful. Sign in so you can come back to them.",
+
+            "The questions you miss today can become the questions you never miss again.",
+
+            "Your weak areas deserve a second chance. Sign in to keep them."
+
+        ];
+
+        alert(
+            getDailyMessage(
+                "missed",
+                lines
+            )+
+            "\n\nPlease sign in first."
+        );
+
+        openAuth();
+        return;
+
+    }
+
+    alert(
+        "Your account-based missed-question system is ready to be expanded with persistent weak-question history."
+    );
+
+}
+
+
+/* =====================================================
+   REACTIONS
+===================================================== */
+
+function randomCorrectReaction(){
+
+    return randomItem([
+
+        "🎉 WOW! Correct!",
+
+        "🔥 You absolutely slayed that!",
+
+        "👏 Look at you!",
+
+        "✨ Nailed it!",
+
+        "😎 That's right!",
+
+        "💥 Boom! Correct!",
+
+        "🥳 Your brain is cooking!",
+
+        "🏆 Big brain moment!",
+
+        "🧠 Your memory came prepared!",
+
+        "⚡ Fast and correct!",
+
+        "👑 That's how it's done!",
+
+        "🔥 Another one secured!",
+
+        "😌 Smooth. Very smooth.",
+
+        "📚 The study session is paying off!",
+
+        "🎯 Bullseye!",
+
+        "🚀 You're on a roll!",
+
+        "😎 Okay genius, we see you.",
+
+        "💯 That answer had confidence.",
+
+        "🥹 Look at that progress!",
+
+        "🫡 Respect. Correct answer secured.",
+
+        "✨ Your future exam score just got a tiny upgrade.",
+
+        "🔥 Keep that brain cooking!",
+
+        "🏆 Point secured!",
+
+        "😏 You knew that one.",
+
+        "💪 Another question conquered!"
+
+    ]);
+
+}
+
+
+function randomWrongReaction(){
+
+    return randomItem([
+
+        "😅 Oops! Not quite.",
+
+        "🙃 Almost! That one escaped you.",
+
+        "💭 Hmm... not this time!",
+
+        "😤 So close! Keep going.",
+
+        "🫠 Your brain needs a tiny reboot.",
+
+        "👀 Nope, but now you know!",
+
+        "🌱 Wrong today, stronger tomorrow.",
+
+        "😂 That question really tried you!",
+
+        "🥲 We'll pretend that didn't happen.",
+
+        "😵‍💫 The question won this round.",
+
+        "💀 That one came out of nowhere.",
+
+        "🫣 Okay... let's learn from that one.",
+
+        "😮‍💨 One wrong answer isn't the end.",
+
+        "📚 Congratulations, you found something to revise.",
+
+        "😈 That question was sneaky.",
+
+        "🧠 Your brain has officially been challenged.",
+
+        "🙈 Not your finest moment, but useful.",
+
+        "🔥 Shake it off. Next one.",
+
+        "🥹 It's okay. That's literally why we're practicing.",
+
+        "😎 Wrong answer spotted. Knowledge gained.",
+
+        "🌱 Every mistake gives you something to fix.",
+
+        "💪 Don't let one question ruin the session.",
+
+        "👀 That one deserves a place in your revision list.",
+
+        "😂 The question really said 'not today.'",
+
+        "🫡 Respectfully, revise that one."
+
+    ]);
+
+}
+
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+function showPremiumMessage(){
+
+    alert(
+
+        "👑 Premium preparation is coming.\n\n"+
+        "It can include premium PDFs, previous-year questions, mock tests and downloadable study material."
+
+    );
+
+}
+
+
+/* =====================================================
+   HELPERS
 ===================================================== */
 
 function shuffle(array){
 
-const copy=[...array];
+    const copy=[...array];
 
-for(
-let i=copy.length-1;
-i>0;
-i--
-){
+    for(
+        let i=copy.length-1;
+        i>0;
+        i--
+    ){
 
-const j=
-Math.floor(
-Math.random()*(i+1)
-);
+        const j=
+            Math.floor(
+                Math.random()*(i+1)
+            );
 
-[
-copy[i],
-copy[j]
-]=
-[
-copy[j],
-copy[i]
-];
+        [
+            copy[i],
+            copy[j]
+        ]=[
+            copy[j],
+            copy[i]
+        ];
 
-}
+    }
 
-return copy;
+    return copy;
 
 }
 
 
 function randomItem(array){
 
-return array[
-Math.floor(
-Math.random()*array.length
-)
-];
+    return array[
+        Math.floor(
+            Math.random()*array.length
+        )
+    ];
 
 }
 
 
 function normalize(value){
 
-return String(value||"")
-.trim()
-.toLowerCase();
+    return String(
+        value||""
+    )
+    .trim()
+    .toLowerCase();
 
 }
 
 
 function escapeHTML(value){
 
-if(
-value===null||
-value===undefined
-){
+    if(
+        value===null||
+        value===undefined
+    ){
 
-return "";
+        return "";
 
-}
+    }
 
-return String(value)
-
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
 function showQuizError(message){
 
-document.getElementById(
-"quizQuestion"
-).innerHTML=
-"<div class='error-box'>"+
-escapeHTML(message)+
-"</div>";
+    document.getElementById(
+        "quizQuestion"
+    ).innerHTML=
+        "<div class='error-box'>"+
+        escapeHTML(message)+
+        "</div>";
 
-document.getElementById(
-"quizOptions"
-).innerHTML="";
+    document.getElementById(
+        "quizOptions"
+    ).innerHTML="";
 
 }
 
 
 /* =====================================================
-STARTUP
+   AUTH STATE
 ===================================================== */
 
-document.getElementById(
-"questionTopic"
-).addEventListener(
-"change",
-updateAdminStudySets
+supabaseClient.auth.onAuthStateChange(
+    function(event,session){
+
+        currentUser =
+            session
+            ?session.user
+            :null;
+
+        updateAccountArea();
+
+        if(currentUser){
+
+            checkAdmin();
+
+        }else{
+
+            removeAdminButton();
+
+        }
+
+    }
 );
 
-[
-"optionA",
-"optionB",
-"optionC",
-"optionD"
-].forEach(
-function(id){
 
-document.getElementById(id)
-.addEventListener(
-"input",
-updateAnswerOptions
-);
+/* =====================================================
+   START
+===================================================== */
+
+async function startApp(){
+
+    checkDailyReset();
+    updateStats();
+    setDailyReaction();
+    updateAccountArea();
+    fillStudySetOptions();
+
+    const {
+        data
+    } =
+        await supabaseClient.auth.getSession();
+
+    currentUser =
+        data.session
+        ?data.session.user
+        :null;
+
+    updateAccountArea();
+
+    if(currentUser){
+
+        await checkAdmin();
+
+    }
 
 }
-);
 
-checkDailyReset();
-updateStats();
-updateAdminStudySets();
-
-
-/*
-There is intentionally NO visible Admin button
-on the public homepage.
-
-To open the admin login while testing:
-type this in the browser address bar:
-
-#adminLoginScreen
-
-The admin login itself checks the email before
-allowing the dashboard to open.
-*/
-
-if(location.hash==="#adminLoginScreen"){
-
-navigateTo(
-"adminLoginScreen",
-false
-);
-
-}
+startApp();
 
 </script>
 
