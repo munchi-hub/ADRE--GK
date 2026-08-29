@@ -5,11 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ADRE Prep | Assam Exam Preparation</title>
+<meta name="description" content="ADRE preparation website with GK study material, practice quizzes, daily challenges, XP, streaks and revision.">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{box-sizing:border-box}
+
+/* =====================================================
+   BASE
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
@@ -17,6 +29,90 @@ body{
     background:#f4f6fb;
     color:#20242c;
 }
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    padding:13px 17px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.18s ease;
+}
+
+button:hover{
+    transform:translateY(-1px);
+}
+
+button:disabled{
+    cursor:default;
+    opacity:.65;
+    transform:none;
+}
+
+.primary{
+    background:#182848;
+    color:white;
+}
+
+.secondary{
+    background:#eef1f7;
+    color:#182848;
+}
+
+.success{
+    background:#42a866;
+    color:white;
+}
+
+.danger{
+    background:#d95757;
+    color:white;
+}
+
+.warning{
+    background:#e7a52b;
+    color:white;
+}
+
+.full{
+    width:100%;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.center{
+    text-align:center;
+}
+
+.small{
+    font-size:13px;
+    color:#666;
+}
+
+.muted{
+    color:#777;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
     background:#182848;
@@ -27,7 +123,7 @@ header{
 
 header h1{
     margin:0;
-    font-size:29px;
+    font-size:30px;
 }
 
 header p{
@@ -35,11 +131,10 @@ header p{
     opacity:.9;
 }
 
-.container{
-    max-width:850px;
-    margin:auto;
-    padding:15px;
-}
+
+/* =====================================================
+   CARDS
+===================================================== */
 
 .card{
     background:white;
@@ -49,7 +144,13 @@ header p{
     box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
-.hero{text-align:center}
+.hero{
+    text-align:center;
+}
+
+.hero h2{
+    margin-top:0;
+}
 
 .stats{
     display:grid;
@@ -70,63 +171,27 @@ header p{
     margin-bottom:5px;
 }
 
-button{
-    border:none;
-    border-radius:11px;
-    padding:13px 17px;
-    font-size:15px;
-    font-weight:bold;
-    cursor:pointer;
-}
 
-button:disabled{
-    cursor:default;
-    opacity:.7;
-}
-
-.primary{
-    background:#182848;
-    color:white;
-}
-
-.secondary{
-    background:#eef1f7;
-    color:#182848;
-}
-
-.danger{
-    background:#d95757;
-    color:white;
-}
-
-.success{
-    background:#42a866;
-    color:white;
-}
-
-.full{width:100%}
-
-.challenge{background:#fff8e6}
-
-.timer-card{text-align:center}
-
-.timer{
-    font-size:32px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.reaction{
-    min-height:25px;
-    margin-top:10px;
-    font-weight:bold;
-}
+/* =====================================================
+   GRIDS
+===================================================== */
 
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:11px;
 }
+
+.admin-stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+
+/* =====================================================
+   TOPIC BUTTONS
+===================================================== */
 
 .topic-button{
     background:white;
@@ -147,14 +212,40 @@ button:disabled{
     color:#666;
 }
 
-.coming{background:#f3f0ff}
-
-.coming-item{
-    padding:13px 0;
-    border-bottom:1px solid #ddd;
+.topic-icon{
+    font-size:22px;
+    margin-right:5px;
 }
 
-.coming-item:last-child{border-bottom:none}
+
+/* =====================================================
+   DAILY CHALLENGE
+===================================================== */
+
+.challenge{
+    background:#fff8e6;
+}
+
+.timer-card{
+    text-align:center;
+}
+
+.timer{
+    font-size:34px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.reaction{
+    min-height:25px;
+    margin-top:10px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   LIBRARY
+===================================================== */
 
 .library-header{
     border-bottom:1px solid #ddd;
@@ -167,7 +258,9 @@ button:disabled{
     border-bottom:1px solid #ddd;
 }
 
-.study-question:last-child{border-bottom:none}
+.study-question:last-child{
+    border-bottom:none;
+}
 
 .study-question-number{
     color:#182848;
@@ -186,11 +279,16 @@ button:disabled{
     font-weight:bold;
 }
 
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
 .quiz-question{
     font-size:21px;
     font-weight:bold;
     line-height:1.4;
-    margin:15px 0 20px;
+    margin:18px 0 20px;
 }
 
 .option{
@@ -218,8 +316,13 @@ button:disabled{
     font-weight:bold;
 }
 
-.feedback.correct{background:#e9f8ee}
-.feedback.wrong{background:#fff0f0}
+.feedback.correct{
+    background:#e9f8ee;
+}
+
+.feedback.wrong{
+    background:#fff0f0;
+}
 
 .correct-answer{
     margin-top:8px;
@@ -234,57 +337,106 @@ button:disabled{
     font-weight:bold;
 }
 
+
+/* =====================================================
+   COMPLETE
+===================================================== */
+
+.score-big{
+    font-size:42px;
+    font-weight:bold;
+    color:#182848;
+}
+
 .missed-item{
-    padding:12px;
+    padding:13px;
     background:#fff8e6;
     border-radius:10px;
     margin:7px 0;
 }
 
-.account-box{background:#eefaf2}
-.premium{background:#f5efff}
-
-.premium li{margin:9px 0}
-
-.hidden{display:none!important}
-
-.error-box{
-    background:#fff0f0;
-    color:#9b0000;
-    padding:14px;
-    border-radius:10px;
-}
-
-.success-box{
+.result-good{
     background:#eefaf2;
-    color:#176b35;
-    padding:14px;
-    border-radius:10px;
+    border-radius:12px;
+    padding:15px;
 }
 
-.back{margin-bottom:12px}
-
-.small{
-    font-size:13px;
-    color:#666;
+.result-average{
+    background:#fff8e6;
+    border-radius:12px;
+    padding:15px;
 }
 
-.center{text-align:center}
+.result-low{
+    background:#fff0f0;
+    border-radius:12px;
+    padding:15px;
+}
 
-.loading{
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+.account-box{
+    background:#eefaf2;
+}
+
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+.premium{
+    background:#f5efff;
+}
+
+.premium li{
+    margin:9px 0;
+}
+
+
+/* =====================================================
+   COMING SOON
+===================================================== */
+
+.coming{
+    background:#f3f0ff;
+}
+
+.coming-item{
+    padding:13px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.coming-item:last-child{
+    border-bottom:none;
+}
+
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.auth-form{
+    max-width:500px;
+    margin:auto;
+}
+
+.auth-toggle{
     text-align:center;
-    padding:25px;
-    color:#666;
+    margin-top:12px;
 }
 
-input,select,textarea{
+input,
+select,
+textarea{
     width:100%;
     padding:12px;
     margin:6px 0 12px;
     border:2px solid #ddd;
     border-radius:10px;
     font-size:15px;
-    font-family:inherit;
 }
 
 textarea{
@@ -296,6 +448,11 @@ label{
     font-weight:bold;
     font-size:14px;
 }
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
 
 .admin-card{
     background:#f7f4ff;
@@ -321,6 +478,19 @@ label{
     margin-top:10px;
 }
 
+.admin-stat{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+.admin-stat strong{
+    display:block;
+    font-size:23px;
+}
+
 .badge{
     display:inline-block;
     padding:5px 9px;
@@ -340,33 +510,25 @@ label{
     color:#267340;
 }
 
-.auth-form{
-    max-width:500px;
-    margin:auto;
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+.error-box{
+    background:#fff0f0;
+    color:#9b0000;
+    padding:14px;
+    border-radius:10px;
+    margin-top:10px;
 }
 
-.auth-toggle{
-    text-align:center;
-    margin-top:12px;
-}
-
-.admin-stat-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-}
-
-.admin-stat{
-    background:white;
-    border-radius:12px;
-    padding:15px;
-    text-align:center;
-    border:1px solid #ddd;
-}
-
-.admin-stat strong{
-    display:block;
-    font-size:23px;
+.success-box{
+    background:#eefaf2;
+    color:#176b35;
+    padding:14px;
+    border-radius:10px;
+    margin-top:10px;
 }
 
 .notice{
@@ -376,14 +538,81 @@ label{
     margin:10px 0;
 }
 
-@media(max-width:600px){
-    .grid{grid-template-columns:1fr 1fr}
-    .card{padding:18px}
-    .quiz-question{font-size:19px}
-    .admin-stat-grid{grid-template-columns:1fr 1fr 1fr}
+.loading{
+    text-align:center;
+    padding:25px;
+    color:#666;
 }
+
+.back{
+    margin-bottom:12px;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+.pop{
+    animation:pop .35s ease;
+}
+
+@keyframes pop{
+    0%{
+        transform:scale(.8);
+        opacity:0;
+    }
+    70%{
+        transform:scale(1.05);
+        opacity:1;
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+.shake{
+    animation:shake .35s ease;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    25%{transform:translateX(-5px)}
+    75%{transform:translateX(5px)}
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .quiz-question{
+        font-size:19px;
+    }
+
+    .admin-stat-grid{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    header h1{
+        font-size:27px;
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -392,23 +621,39 @@ label{
     <p>Learn • Practice • Improve</p>
 </header>
 
+
 <div class="container">
 
-<!-- HOME -->
+
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <div id="homeScreen">
 
     <div class="card hero">
+
         <h2>Prepare smarter for ADRE</h2>
+
         <p>
             Study important General Knowledge,
             practice what you've learned and build
             a consistent study habit.
         </p>
+
+        <p class="small">
+            Learn first. Practice second. Improve every day.
+        </p>
+
     </div>
 
+
+    <!-- STATS -->
+
     <div class="card">
+
         <div class="stats">
+
             <div class="stat">
                 <strong>⭐</strong>
                 <span id="xp">0 XP</span>
@@ -423,49 +668,80 @@ label{
                 <strong>⏱️</strong>
                 <span id="todayTime">0 min</span>
             </div>
+
         </div>
+
     </div>
 
+
+    <!-- DAILY CHALLENGE -->
+
     <div class="card challenge">
+
         <h2>🔥 Daily Challenge</h2>
 
         <p>
-            Complete <strong>25 mixed GK questions</strong>
-            or spend at least <strong>10 minutes</strong>
-            actively studying today to protect your streak.
+            Complete
+            <strong>25 mixed GK questions</strong>
+            or spend at least
+            <strong>10 minutes</strong>
+            actively studying today
+            to protect your streak.
         </p>
 
         <p class="small">
-            Questions are automatically selected from your
-            available free GK questions.
+            Questions are automatically selected
+            from available free GK questions.
         </p>
 
-        <button class="primary full"
-                onclick="startDailyChallenge()">
+        <button
+            class="primary full"
+            onclick="startDailyChallenge()">
+
             Start Today's Challenge
+
         </button>
 
-        <div id="dailyReaction"
-             class="reaction"></div>
+        <div
+            id="dailyReaction"
+            class="reaction">
+        </div>
+
     </div>
+
+
+    <!-- TIMER -->
 
     <div class="card timer-card">
 
         <h2>⏱️ Study Timer</h2>
 
-        <div id="timer" class="timer">
+        <div
+            id="timer"
+            class="timer">
+
             00:00
+
         </div>
 
-        <div id="timerMessage" class="reaction"></div>
+        <div
+            id="timerMessage"
+            class="reaction">
+        </div>
 
-        <button id="timerButton"
-                class="primary"
-                onclick="toggleTimer()">
+        <button
+            id="timerButton"
+            class="primary"
+            onclick="toggleTimer()">
+
             ▶ Start Study Timer
+
         </button>
 
     </div>
+
+
+    <!-- STUDY LIBRARY -->
 
     <div class="card">
 
@@ -476,135 +752,56 @@ label{
             testing yourself in Practice.
         </p>
 
-        <div class="grid">
+        <div class="grid" id="libraryTopicGrid"></div>
 
-            <button class="topic-button"
-                    onclick="openLibraryTopic('History')">
-                🏛️ History
-                <span class="topic-description">
-                    Indian History • Assam History
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Geography')">
-                🌍 Geography
-                <span class="topic-description">
-                    World • India • Assam
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Politics')">
-                ⚖️ Politics
-                <span class="topic-description">
-                    Indian polity and government
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Economics')">
-                💰 Economics
-                <span class="topic-description">
-                    Important economic concepts
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Culture')">
-                🎭 Culture
-                <span class="topic-description">
-                    Assam Culture • Indian Culture
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Current Affairs')">
-                📰 Current Affairs
-                <span class="topic-description">
-                    Recent important events
-                </span>
-            </button>
-
-            <button class="topic-button"
-                    onclick="openLibraryTopic('Others')">
-                📚 Others
-                <span class="topic-description">
-                    Schemes • Awards • Events • More
-                </span>
-            </button>
-
-        </div>
     </div>
+
+
+    <!-- PRACTICE -->
 
     <div class="card">
 
         <h2>🎮 Practice</h2>
 
         <p>
-            Test yourself on a GK topic.
-            Questions automatically come from
-            the Study Library.
+            Test yourself on a topic.
+            Questions are automatically selected
+            from the Study Library.
         </p>
 
-        <div class="grid">
+        <div class="grid" id="practiceTopicGrid"></div>
 
-            <button class="topic-button"
-                    onclick="startPractice('History')">
-                🏛️ History
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Geography')">
-                🌍 Geography
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Politics')">
-                ⚖️ Politics
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Economics')">
-                💰 Economics
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Culture')">
-                🎭 Culture
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Current Affairs')">
-                📰 Current Affairs
-            </button>
-
-            <button class="topic-button"
-                    onclick="startPractice('Others')">
-                📚 Others
-            </button>
-
-        </div>
     </div>
+
+
+    <!-- MISSED -->
 
     <div class="card">
 
         <h2>🔁 Practice What You Missed</h2>
 
         <p id="missedMessage">
-            Your missed questions can be saved to your
-            account so you can keep working on weak areas.
+            Questions you get wrong can be saved
+            so you can revisit your weak areas.
         </p>
 
-        <button class="secondary"
-                onclick="practiceMissedQuestions()">
+        <button
+            class="secondary"
+            onclick="practiceMissedQuestions()">
+
             Practice Missed Questions
+
         </button>
 
-        <div id="missedReaction"
-             class="reaction"></div>
+        <div
+            id="missedReaction"
+            class="reaction">
+        </div>
 
     </div>
+
+
+    <!-- ACCOUNT -->
 
     <div class="card account-box">
 
@@ -616,6 +813,9 @@ label{
 
     </div>
 
+
+    <!-- PREMIUM -->
+
     <div class="card premium">
 
         <h2>👑 Premium Preparation</h2>
@@ -626,82 +826,56 @@ label{
         </p>
 
         <ul>
+
             <li>📄 Premium PDFs</li>
             <li>📚 Premium study material</li>
             <li>📝 Previous-year questions</li>
             <li>🎯 Daily mock tests</li>
             <li>⬇️ Downloadable study material</li>
             <li>➕ Additional premium study sets</li>
+
         </ul>
 
-        <button class="primary full"
-                onclick="showPremiumMessage()">
+        <button
+            class="primary full"
+            onclick="showPremiumMessage()">
+
             Explore Premium
+
         </button>
 
     </div>
+
+
+    <!-- COMING SOON -->
 
     <div class="card coming">
 
         <h2>🚀 Coming Soon</h2>
 
         <p>
-            More sections will be added after the
-            GK foundation is complete.
+            More ADRE sections can be added after
+            the GK foundation is complete.
         </p>
 
-        <div class="coming-item">📘 Social Studies</div>
-        <div class="coming-item">🧠 Logical Reasoning & Mental Ability</div>
-        <div class="coming-item">📖 General English</div>
-        <div class="coming-item">🔢 General Mathematics</div>
-        <div class="coming-item">📝 Comprehension & English Language</div>
+        <div class="coming-item">
+            🧠 Logical Reasoning & Mental Ability
+        </div>
 
-    </div>
+        <div class="coming-item">
+            📖 General English
+        </div>
 
-</div>
+        <div class="coming-item">
+            🔢 General Mathematics
+        </div>
 
+        <div class="coming-item">
+            📝 Comprehension & English Language
+        </div>
 
-<!-- AUTH -->
-
-<div id="authScreen" class="card hidden">
-
-    <button class="secondary back"
-            onclick="goHome()">
-        ← Back
-    </button>
-
-    <div class="auth-form">
-
-        <h2 id="authTitle">🔐 Sign In</h2>
-
-        <p id="authDescription">
-            Sign in to save your progress across sessions.
-        </p>
-
-        <label>Email</label>
-        <input id="authEmail"
-               type="email"
-               placeholder="Your email">
-
-        <label>Password</label>
-        <input id="authPassword"
-               type="password"
-               placeholder="Your password">
-
-        <button id="authButton"
-                class="primary full"
-                onclick="submitAuth()">
-            Sign In
-        </button>
-
-        <div id="authError"></div>
-
-        <div class="auth-toggle">
-            <button class="secondary"
-                    onclick="toggleAuthMode()"
-                    id="authToggleButton">
-                Create a new account
-            </button>
+        <div class="coming-item">
+            📚 More ADRE practice material
         </div>
 
     </div>
@@ -709,13 +883,89 @@ label{
 </div>
 
 
-<!-- ACCOUNT -->
+<!-- =====================================================
+     AUTH
+===================================================== -->
 
-<div id="accountScreen" class="card hidden">
+<div
+    id="authScreen"
+    class="card hidden">
 
-    <button class="secondary back"
-            onclick="goHome()">
+    <button
+        class="secondary back"
+        onclick="goHome()">
+
         ← Back
+
+    </button>
+
+    <div class="auth-form">
+
+        <h2 id="authTitle">
+            🔐 Sign In
+        </h2>
+
+        <p id="authDescription">
+            Sign in to save your progress.
+        </p>
+
+        <label>Email</label>
+
+        <input
+            id="authEmail"
+            type="email"
+            placeholder="Your email">
+
+        <label>Password</label>
+
+        <input
+            id="authPassword"
+            type="password"
+            placeholder="Your password">
+
+        <button
+            id="authButton"
+            class="primary full"
+            onclick="submitAuth()">
+
+            Sign In
+
+        </button>
+
+        <div id="authError"></div>
+
+        <div class="auth-toggle">
+
+            <button
+                class="secondary"
+                onclick="toggleAuthMode()"
+                id="authToggleButton">
+
+                Create a new account
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ACCOUNT SCREEN
+===================================================== -->
+
+<div
+    id="accountScreen"
+    class="card hidden">
+
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
+        ← Back
+
     </button>
 
     <h2>👤 Your Account</h2>
@@ -724,51 +974,78 @@ label{
 
     <br>
 
-    <button class="secondary"
-            onclick="signOutUser()">
+    <button
+        class="secondary"
+        onclick="signOutUser()">
+
         Sign Out
+
     </button>
 
 </div>
 
 
-<!-- ADMIN -->
+<!-- =====================================================
+     ADMIN
+===================================================== -->
 
-<div id="adminScreen" class="card hidden">
+<div
+    id="adminScreen"
+    class="card hidden">
 
-    <button class="secondary back"
-            onclick="goHome()">
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
         ← Back
+
     </button>
 
     <h2>🔐 Admin Dashboard</h2>
 
     <p>
-        Welcome, Admin. Manage your ADRE question bank here.
+        Manage your ADRE question bank here.
     </p>
 
     <div id="adminMessage"></div>
 
+
     <div class="admin-stat-grid">
 
         <div class="admin-stat">
-            <strong id="adminTotal">0</strong>
+
+            <strong id="adminTotal">
+                0
+            </strong>
+
             <span>Total Questions</span>
+
         </div>
 
         <div class="admin-stat">
-            <strong id="adminFree">0</strong>
+
+            <strong id="adminFree">
+                0
+            </strong>
+
             <span>Free</span>
+
         </div>
 
         <div class="admin-stat">
-            <strong id="adminPremium">0</strong>
+
+            <strong id="adminPremium">
+                0
+            </strong>
+
             <span>Premium</span>
+
         </div>
 
     </div>
 
-    <br>
+
+    <!-- ADD QUESTION -->
 
     <div class="card admin-card">
 
@@ -776,55 +1053,82 @@ label{
 
         <label>Topic</label>
 
-        <select id="adminTopic">
-            <option>History</option>
-            <option>Geography</option>
-            <option>Politics</option>
-            <option>Economics</option>
-            <option>Culture</option>
-            <option>Current Affairs</option>
-            <option>Others</option>
-        </select>
+        <select id="adminTopic"></select>
+
 
         <label>Study Set</label>
 
         <select id="adminStudySet"></select>
 
+
         <label>Question</label>
-        <textarea id="adminQuestion"
-                  placeholder="Enter the question"></textarea>
+
+        <textarea
+            id="adminQuestion"
+            placeholder="Enter the question">
+        </textarea>
+
 
         <label>Option A</label>
+
         <input id="adminA">
 
+
         <label>Option B</label>
+
         <input id="adminB">
 
+
         <label>Option C</label>
+
         <input id="adminC">
 
+
         <label>Option D</label>
+
         <input id="adminD">
 
+
         <label>Correct Answer</label>
+
         <select id="adminAnswer">
-            <option value="">Choose correct answer</option>
+
+            <option value="">
+                Choose correct answer
+            </option>
+
         </select>
 
+
         <label>Explanation</label>
-        <textarea id="adminExplanation"
-                  placeholder="Optional explanation"></textarea>
+
+        <textarea
+            id="adminExplanation"
+            placeholder="Optional explanation">
+        </textarea>
+
 
         <label>Question Type</label>
 
         <select id="adminPremium">
-            <option value="false">🆓 Free</option>
-            <option value="true">👑 Premium</option>
+
+            <option value="false">
+                🆓 Free
+            </option>
+
+            <option value="true">
+                👑 Premium
+            </option>
+
         </select>
 
-        <button class="primary full"
-                onclick="addQuestion()">
+
+        <button
+            class="primary full"
+            onclick="addQuestion()">
+
             Add Question
+
         </button>
 
         <div id="addQuestionMessage"></div>
@@ -832,58 +1136,79 @@ label{
     </div>
 
 
+    <!-- MANAGE -->
+
     <div class="card admin-card">
 
         <h3>🔎 Manage Questions</h3>
 
-        <input id="adminSearch"
-               placeholder="Search questions..."
-               oninput="renderAdminQuestions()">
+        <input
+            id="adminSearch"
+            placeholder="Search questions..."
+            oninput="renderAdminQuestions()">
 
-        <select id="adminFilterTopic"
-                onchange="renderAdminQuestions()">
 
-            <option value="">All Topics</option>
-            <option>History</option>
-            <option>Geography</option>
-            <option>Politics</option>
-            <option>Economics</option>
-            <option>Culture</option>
-            <option>Current Affairs</option>
-            <option>Others</option>
+        <select
+            id="adminFilterTopic"
+            onchange="renderAdminQuestions()">
+
+            <option value="">
+                All Topics
+            </option>
 
         </select>
 
+
         <div id="adminQuestionsList">
+
             <div class="loading">
                 Loading questions...
             </div>
+
         </div>
 
     </div>
 
+
     <div class="notice">
-        👥 To view the complete registered-user list,
-        use Supabase → Authentication → Users.
+
+        👥 Registered users can be viewed from
+        Supabase → Authentication → Users.
+
+        <br><br>
+
         Your secret/service-role key is never placed
         inside this website.
+
     </div>
 
 </div>
 
 
-<!-- LIBRARY SET -->
+<!-- =====================================================
+     LIBRARY SETS
+===================================================== -->
 
-<div id="librarySetScreen" class="card hidden">
+<div
+    id="librarySetScreen"
+    class="card hidden">
 
-    <button class="secondary back"
-            onclick="goBack()">
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
         ← Back
+
     </button>
 
     <div class="library-header">
+
         <h2 id="libraryTopicTitle"></h2>
-        <p>Choose a study section.</p>
+
+        <p>
+            Choose a study section.
+        </p>
+
     </div>
 
     <div id="librarySets"></div>
@@ -891,22 +1216,31 @@ label{
 </div>
 
 
-<!-- STUDY -->
+<!-- =====================================================
+     STUDY
+===================================================== -->
 
-<div id="studyScreen" class="card hidden">
+<div
+    id="studyScreen"
+    class="card hidden">
 
-    <button class="secondary back"
-            onclick="goBack()">
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
         ← Back
+
     </button>
 
     <div class="library-header">
+
         <h2 id="studyTitle"></h2>
 
         <p class="small">
-            Study like a digital book. Questions are
-            automatically numbered continuously.
+            Study like a digital book.
+            Questions are automatically numbered.
         </p>
+
     </div>
 
     <div id="studyQuestions"></div>
@@ -914,45 +1248,63 @@ label{
 </div>
 
 
-<!-- QUIZ -->
+<!-- =====================================================
+     QUIZ
+===================================================== -->
 
-<div id="quizScreen" class="card hidden">
+<div
+    id="quizScreen"
+    class="card hidden">
 
-    <button class="secondary back"
-            onclick="goBack()">
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
         ← Exit
+
     </button>
 
     <h2 id="quizTitle"></h2>
 
-    <div id="quizScore"
-         class="quiz-score">
+    <div
+        id="quizScore"
+        class="quiz-score">
+
         Score: 0 / 0
+
     </div>
 
-    <div id="quizQuestion"
-         class="quiz-question">
+    <div
+        id="quizQuestion"
+        class="quiz-question">
     </div>
 
     <div id="quizOptions"></div>
 
-    <div id="quizFeedback"
-         class="feedback hidden">
+    <div
+        id="quizFeedback"
+        class="feedback hidden">
     </div>
 
-    <button id="nextQuestionButton"
-            class="primary full hidden"
-            onclick="nextQuizQuestion()">
+    <button
+        id="nextQuestionButton"
+        class="primary full hidden"
+        onclick="nextQuizQuestion()">
+
         Next Question →
+
     </button>
 
 </div>
 
 
-<!-- COMPLETE -->
+<!-- =====================================================
+     COMPLETE
+===================================================== -->
 
-<div id="completeScreen"
-     class="card hidden center">
+<div
+    id="completeScreen"
+    class="card hidden center">
 
     <h2 id="completeTitle">
         🎉 Session Complete!
@@ -966,12 +1318,16 @@ label{
 
     <br>
 
-    <button class="primary"
-            onclick="goHome()">
+    <button
+        class="primary"
+        onclick="goHome()">
+
         Back to Home
+
     </button>
 
 </div>
+
 
 </div>
 
@@ -1004,7 +1360,7 @@ const ADMIN_UID =
 
 
 /* =====================================================
-   STRUCTURE
+   LIBRARY STRUCTURE
 ===================================================== */
 
 const LIBRARY_STRUCTURE = {
@@ -1038,8 +1394,55 @@ const LIBRARY_STRUCTURE = {
     ],
 
     "Others":[
-        "Others"
+        "Schemes",
+        "Awards",
+        "Important Events",
+        "Miscellaneous GK"
     ]
+
+};
+
+
+/* =====================================================
+   TOPICS
+===================================================== */
+
+const TOPICS = {
+
+    "History":{
+        icon:"🏛️",
+        description:"Indian History • Assam History"
+    },
+
+    "Geography":{
+        icon:"🌍",
+        description:"World • India • Assam"
+    },
+
+    "Politics":{
+        icon:"⚖️",
+        description:"Indian polity and government"
+    },
+
+    "Economics":{
+        icon:"💰",
+        description:"Important economic concepts"
+    },
+
+    "Culture":{
+        icon:"🎭",
+        description:"Assam Culture • Indian Culture"
+    },
+
+    "Current Affairs":{
+        icon:"📰",
+        description:"Recent important events"
+    },
+
+    "Others":{
+        icon:"📚",
+        description:"Schemes • Awards • Events • More"
+    }
 
 };
 
@@ -1068,15 +1471,31 @@ localStorage.getItem("adre_progress_date") || "";
 
 
 /* =====================================================
+   MISSED QUESTIONS
+===================================================== */
+
+let missedSavedIds =
+JSON.parse(
+    localStorage.getItem("adre_missed_ids") || "[]"
+);
+
+
+/* =====================================================
    QUIZ
 ===================================================== */
 
 let quizQuestions = [];
+
 let quizIndex = 0;
+
 let quizCorrect = 0;
+
 let quizWrong = 0;
+
 let quizMode = "";
+
 let quizTopic = "";
+
 let missedQuestionIds = [];
 
 
@@ -1085,7 +1504,9 @@ let missedQuestionIds = [];
 ===================================================== */
 
 let timerRunning = false;
+
 let timerInterval = null;
+
 let timerSeconds = 0;
 
 
@@ -1094,6 +1515,7 @@ let timerSeconds = 0;
 ===================================================== */
 
 let authMode = "signin";
+
 let currentUser = null;
 
 
@@ -1102,23 +1524,29 @@ let currentUser = null;
 ===================================================== */
 
 let adminQuestions = [];
-let editingQuestionId = null;
 
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
-function navigateTo(screenId,pushHistory=true){
+function navigateTo(
+    screenId,
+    pushHistory=true
+){
 
     hideAllScreens();
 
     const screen =
-        document.getElementById(screenId);
+        document.getElementById(
+            screenId
+        );
 
     if(!screen)return;
 
-    screen.classList.remove("hidden");
+    screen.classList.remove(
+        "hidden"
+    );
 
     if(pushHistory){
 
@@ -1153,7 +1581,9 @@ function goBack(){
 }
 
 
-function goHome(pushHistory=true){
+function goHome(
+    pushHistory=true
+){
 
     navigateTo(
         "homeScreen",
@@ -1170,8 +1600,8 @@ window.addEventListener(
         const screenId =
             event.state &&
             event.state.screen
-            ? event.state.screen
-            : "homeScreen";
+            ?event.state.screen
+            :"homeScreen";
 
         hideAllScreens();
 
@@ -1226,6 +1656,7 @@ if(
 function hideAllScreens(){
 
     [
+
         "homeScreen",
         "authScreen",
         "accountScreen",
@@ -1234,11 +1665,14 @@ function hideAllScreens(){
         "studyScreen",
         "quizScreen",
         "completeScreen"
+
     ].forEach(
         function(id){
 
             const element =
-                document.getElementById(id);
+                document.getElementById(
+                    id
+                );
 
             if(element){
 
@@ -1266,6 +1700,7 @@ function checkDailyReset(){
     if(savedProgressDate!==today){
 
         todayQuestions=0;
+
         todayStudySeconds=0;
 
         localStorage.setItem(
@@ -1283,6 +1718,8 @@ function checkDailyReset(){
             today
         );
 
+        savedProgressDate=today;
+
     }
 
 }
@@ -1297,19 +1734,19 @@ function updateStats(){
     document.getElementById(
         "xp"
     ).textContent =
-        xp + " XP";
+        xp+" XP";
 
     document.getElementById(
         "streak"
     ).textContent =
-        streak + " Day Streak";
+        streak+" Day Streak";
 
     document.getElementById(
         "todayTime"
     ).textContent =
         Math.floor(
             todayStudySeconds/60
-        ) + " min";
+        )+" min";
 
 }
 
@@ -1341,7 +1778,11 @@ function saveStreakForToday(){
     const today =
         new Date().toDateString();
 
-    if(lastStreakDate===today)return;
+    if(lastStreakDate===today){
+
+        return;
+
+    }
 
     streak++;
 
@@ -1403,14 +1844,15 @@ function startTimer(){
 
     document.getElementById(
         "timerButton"
-    ).textContent =
+    ).textContent=
         "⏸ Pause Study Timer";
 
-    timerInterval =
+    timerInterval=
         setInterval(
             function(){
 
                 timerSeconds++;
+
                 todayStudySeconds++;
 
                 localStorage.setItem(
@@ -1419,7 +1861,9 @@ function startTimer(){
                 );
 
                 updateTimerDisplay();
+
                 updateStats();
+
                 checkStreakProgress();
 
                 if(
@@ -1449,7 +1893,7 @@ function stopTimer(){
 
     document.getElementById(
         "timerButton"
-    ).textContent =
+    ).textContent=
         "▶ Start Study Timer";
 
 }
@@ -1467,10 +1911,17 @@ function updateTimerDisplay(){
 
     document.getElementById(
         "timer"
-    ).textContent =
-        String(minutes).padStart(2,"0")
-        + ":"
-        + String(seconds).padStart(2,"0");
+    ).textContent=
+        String(minutes).padStart(
+            2,
+            "0"
+        )
+        +":"
+        +
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
@@ -1479,7 +1930,7 @@ function showTimerReaction(){
 
     const lines=[
 
-        "⏱️ Future-you is going to be very glad you started today.",
+        "⏱️ Future-you is going to be glad you started today.",
 
         "🔥 Every minute counts. Keep going.",
 
@@ -1523,14 +1974,14 @@ function showTimerReaction(){
 
     document.getElementById(
         "timerMessage"
-    ).textContent =
+    ).textContent=
         randomItem(lines);
 
 }
 
 
 /* =====================================================
-   DAILY CHALLENGE REACTIONS
+   DAILY REACTIONS
 ===================================================== */
 
 function setDailyReaction(){
@@ -1565,19 +2016,22 @@ function setDailyReaction(){
 
     document.getElementById(
         "dailyReaction"
-    ).textContent =
+    ).textContent=
         randomItem(lines);
 
 }
 
 
 /* =====================================================
-   SIGN-IN DAILY MESSAGES
+   DAILY ACCOUNT MESSAGES
 ===================================================== */
 
-function getDailyMessage(key,lines){
+function getDailyMessage(
+    key,
+    lines
+){
 
-    const day =
+    const day=
         Math.floor(
             Date.now()/86400000
         );
@@ -1589,14 +2043,18 @@ function getDailyMessage(key,lines){
 }
 
 
+/* =====================================================
+   ACCOUNT AREA
+===================================================== */
+
 function updateAccountArea(){
 
-    const area =
+    const area=
         document.getElementById(
             "accountArea"
         );
 
-    const message =
+    const message=
         document.getElementById(
             "signInMessage"
         );
@@ -1609,7 +2067,7 @@ function updateAccountArea(){
 
             "You've already started building your progress. Don't let it stay trapped on one device.",
 
-            "A streak feels a lot more valuable when you know it won't disappear when you change devices.",
+            "A streak feels more valuable when you know it won't disappear when you change devices.",
 
             "Keep your XP, streak and weak-question progress connected to your account.",
 
@@ -1627,14 +2085,13 @@ function updateAccountArea(){
 
         ];
 
-        message.textContent =
+        message.textContent=
             getDailyMessage(
                 "signin",
                 lines
             );
 
         area.innerHTML=
-
             "<button class='primary full' onclick='openAuth()'>"+
             "Sign In / Create Account"+
             "</button>";
@@ -1657,14 +2114,13 @@ function updateAccountArea(){
 
         ];
 
-        message.textContent =
+        message.textContent=
             getDailyMessage(
                 "signed",
                 lines
             );
 
         area.innerHTML=
-
             "<button class='primary full' onclick='openAccount()'>"+
             "👤 Your Account"+
             "</button>";
@@ -1684,17 +2140,19 @@ function openAuth(){
 
     updateAuthUI();
 
-    navigateTo("authScreen");
+    navigateTo(
+        "authScreen"
+    );
 
 }
 
 
 function toggleAuthMode(){
 
-    authMode =
+    authMode=
         authMode==="signin"
-        ? "signup"
-        : "signin";
+        ?"signup"
+        :"signin";
 
     updateAuthUI();
 
@@ -1703,22 +2161,22 @@ function toggleAuthMode(){
 
 function updateAuthUI(){
 
-    const title =
+    const title=
         document.getElementById(
             "authTitle"
         );
 
-    const description =
+    const description=
         document.getElementById(
             "authDescription"
         );
 
-    const button =
+    const button=
         document.getElementById(
             "authButton"
         );
 
-    const toggle =
+    const toggle=
         document.getElementById(
             "authToggleButton"
         );
@@ -1729,21 +2187,24 @@ function updateAuthUI(){
 
     if(authMode==="signin"){
 
-        title.textContent="🔐 Sign In";
+        title.textContent=
+            "🔐 Sign In";
 
-        description.textContent =
+        description.textContent=
             "Sign in to keep your progress connected to your account.";
 
-        button.textContent="Sign In";
+        button.textContent=
+            "Sign In";
 
         toggle.textContent=
             "Create a new account";
 
     }else{
 
-        title.textContent="✨ Create Account";
+        title.textContent=
+            "✨ Create Account";
 
-        description.textContent =
+        description.textContent=
             "Create an account so your study progress can stay connected.";
 
         button.textContent=
@@ -1759,17 +2220,17 @@ function updateAuthUI(){
 
 async function submitAuth(){
 
-    const email =
+    const email=
         document.getElementById(
             "authEmail"
         ).value.trim();
 
-    const password =
+    const password=
         document.getElementById(
             "authPassword"
         ).value;
 
-    const errorBox =
+    const errorBox=
         document.getElementById(
             "authError"
         );
@@ -1783,37 +2244,43 @@ async function submitAuth(){
 
     }
 
-    const button =
+    const button=
         document.getElementById(
             "authButton"
         );
 
     button.disabled=true;
-    button.textContent="Please wait...";
+
+    button.textContent=
+        "Please wait...";
 
     let result;
 
     if(authMode==="signin"){
 
-        result =
+        result=
             await supabaseClient.auth.signInWithPassword({
+
                 email:email,
+
                 password:password
+
             });
 
     }else{
 
-        result =
+        result=
             await supabaseClient.auth.signUp({
+
                 email:email,
+
                 password:password
+
             });
 
     }
 
     button.disabled=false;
-
-    updateAuthUI();
 
     if(result.error){
 
@@ -1826,8 +2293,8 @@ async function submitAuth(){
 
         button.textContent=
             authMode==="signin"
-            ? "Sign In"
-            : "Create Account";
+            ?"Sign In"
+            :"Create Account";
 
         return;
 
@@ -1837,7 +2304,7 @@ async function submitAuth(){
 
         if(result.data.session){
 
-            currentUser =
+            currentUser=
                 result.data.user;
 
             afterLogin();
@@ -1853,7 +2320,7 @@ async function submitAuth(){
 
     }else{
 
-        currentUser =
+        currentUser=
             result.data.user;
 
         afterLogin();
@@ -1884,8 +2351,9 @@ async function checkAdmin(){
 
     }
 
-    const isAdmin =
-        currentUser.id===ADMIN_UID;
+    const isAdmin=
+        currentUser.id===
+        ADMIN_UID;
 
     if(isAdmin){
 
@@ -1910,22 +2378,28 @@ function addAdminButton(){
         )
     )return;
 
-    const accountArea =
+    const accountArea=
         document.getElementById(
             "accountArea"
         );
 
-    const button =
+    const button=
         document.createElement(
             "button"
         );
 
-    button.id="adminButton";
+    button.id=
+        "adminButton";
+
     button.className=
         "primary full";
-    button.style.marginTop="10px";
+
+    button.style.marginTop=
+        "10px";
+
     button.textContent=
         "🔐 Admin Dashboard";
+
     button.onclick=
         openAdmin;
 
@@ -1938,7 +2412,7 @@ function addAdminButton(){
 
 function removeAdminButton(){
 
-    const button =
+    const button=
         document.getElementById(
             "adminButton"
         );
@@ -1957,6 +2431,7 @@ function openAccount(){
     if(!currentUser){
 
         openAuth();
+
         return;
 
     }
@@ -1966,12 +2441,28 @@ function openAccount(){
     ).innerHTML=
 
         "<div class='success-box'>"+
+
         "<strong>You're signed in.</strong><br><br>"+
+
         escapeHTML(
             currentUser.email
         )+
+
         "<br><br>"+
+
+        "⭐ XP: "+
+        xp+
+
+        "<br>"+
+
+        "🔥 Streak: "+
+        streak+
+        " days"+
+
+        "<br><br>"+
+
         "Keep studying and building your streak."+
+
         "</div>";
 
     navigateTo(
@@ -1997,6 +2488,153 @@ async function signOutUser(){
 
 
 /* =====================================================
+   TOPIC UI
+===================================================== */
+
+function buildTopicButtons(){
+
+    const libraryGrid=
+        document.getElementById(
+            "libraryTopicGrid"
+        );
+
+    const practiceGrid=
+        document.getElementById(
+            "practiceTopicGrid"
+        );
+
+    libraryGrid.innerHTML="";
+
+    practiceGrid.innerHTML="";
+
+    Object.keys(TOPICS).forEach(
+        function(topic){
+
+            const info=
+                TOPICS[topic];
+
+            const libraryButton=
+                document.createElement(
+                    "button"
+                );
+
+            libraryButton.className=
+                "topic-button";
+
+            libraryButton.innerHTML=
+                info.icon+
+                " "+
+                escapeHTML(topic)+
+                "<span class='topic-description'>"+
+                escapeHTML(
+                    info.description
+                )+
+                "</span>";
+
+            libraryButton.onclick=
+                function(){
+
+                    openLibraryTopic(
+                        topic
+                    );
+
+                };
+
+            libraryGrid.appendChild(
+                libraryButton
+            );
+
+
+            const practiceButton=
+                document.createElement(
+                    "button"
+                );
+
+            practiceButton.className=
+                "topic-button";
+
+            practiceButton.innerHTML=
+                info.icon+
+                " "+
+                escapeHTML(topic);
+
+            practiceButton.onclick=
+                function(){
+
+                    startPractice(
+                        topic
+                    );
+
+                };
+
+            practiceGrid.appendChild(
+                practiceButton
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN TOPICS
+===================================================== */
+
+function buildAdminTopicOptions(){
+
+    const topicSelect=
+        document.getElementById(
+            "adminTopic"
+        );
+
+    const filter=
+        document.getElementById(
+            "adminFilterTopic"
+        );
+
+    topicSelect.innerHTML="";
+
+    filter.innerHTML=
+        "<option value=''>All Topics</option>";
+
+    Object.keys(
+        TOPICS
+    ).forEach(
+        function(topic){
+
+            const option=
+                document.createElement(
+                    "option"
+                );
+
+            option.value=
+                topic;
+
+            option.textContent=
+                topic;
+
+            topicSelect.appendChild(
+                option
+            );
+
+
+            const filterOption=
+                option.cloneNode(
+                    true
+                );
+
+            filter.appendChild(
+                filterOption
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
    ADMIN
 ===================================================== */
 
@@ -2005,11 +2643,15 @@ async function openAdmin(){
     if(!currentUser){
 
         openAuth();
+
         return;
 
     }
 
-    if(currentUser.id!==ADMIN_UID){
+    if(
+        currentUser.id!==
+        ADMIN_UID
+    ){
 
         alert(
             "You do not have permission to open the admin dashboard."
@@ -2019,7 +2661,9 @@ async function openAdmin(){
 
     }
 
-    navigateTo("adminScreen");
+    navigateTo(
+        "adminScreen"
+    );
 
     fillStudySetOptions();
 
@@ -2030,12 +2674,12 @@ async function openAdmin(){
 
 function fillStudySetOptions(){
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminTopic"
         ).value;
 
-    const select =
+    const select=
         document.getElementById(
             "adminStudySet"
         );
@@ -2047,12 +2691,13 @@ function fillStudySetOptions(){
     ).forEach(
         function(set){
 
-            const option =
+            const option=
                 document.createElement(
                     "option"
                 );
 
             option.value=set;
+
             option.textContent=set;
 
             select.appendChild(
@@ -2073,21 +2718,38 @@ document.getElementById(
 );
 
 
+/* =====================================================
+   ANSWER OPTIONS
+===================================================== */
+
 function updateAnswerOptions(){
 
     const values=[
-        document.getElementById("adminA").value,
-        document.getElementById("adminB").value,
-        document.getElementById("adminC").value,
-        document.getElementById("adminD").value
+
+        document.getElementById(
+            "adminA"
+        ).value,
+
+        document.getElementById(
+            "adminB"
+        ).value,
+
+        document.getElementById(
+            "adminC"
+        ).value,
+
+        document.getElementById(
+            "adminD"
+        ).value
+
     ];
 
-    const select =
+    const select=
         document.getElementById(
             "adminAnswer"
         );
 
-    const current =
+    const current=
         select.value;
 
     select.innerHTML=
@@ -2098,13 +2760,16 @@ function updateAnswerOptions(){
 
             if(value.trim()){
 
-                const option =
+                const option=
                     document.createElement(
                         "option"
                     );
 
-                option.value=value;
-                option.textContent=value;
+                option.value=
+                    value;
+
+                option.textContent=
+                    value;
 
                 select.appendChild(
                     option
@@ -2126,8 +2791,12 @@ function updateAnswerOptions(){
 }
 
 
-["adminA","adminB","adminC","adminD"]
-.forEach(
+[
+    "adminA",
+    "adminB",
+    "adminC",
+    "adminD"
+].forEach(
     function(id){
 
         document.getElementById(id)
@@ -2140,11 +2809,16 @@ function updateAnswerOptions(){
 );
 
 
+/* =====================================================
+   ADD QUESTION
+===================================================== */
+
 async function addQuestion(){
 
     if(
         !currentUser ||
-        currentUser.id!==ADMIN_UID
+        currentUser.id!==
+        ADMIN_UID
     ){
 
         showAdminMessage(
@@ -2156,52 +2830,52 @@ async function addQuestion(){
 
     }
 
-    const question =
+    const question=
         document.getElementById(
             "adminQuestion"
         ).value.trim();
 
-    const a =
+    const a=
         document.getElementById(
             "adminA"
         ).value.trim();
 
-    const b =
+    const b=
         document.getElementById(
             "adminB"
         ).value.trim();
 
-    const c =
+    const c=
         document.getElementById(
             "adminC"
         ).value.trim();
 
-    const d =
+    const d=
         document.getElementById(
             "adminD"
         ).value.trim();
 
-    const answer =
+    const answer=
         document.getElementById(
             "adminAnswer"
         ).value;
 
-    const explanation =
+    const explanation=
         document.getElementById(
             "adminExplanation"
         ).value.trim();
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminTopic"
         ).value;
 
-    const studySet =
+    const studySet=
         document.getElementById(
             "adminStudySet"
         ).value;
 
-    const isPremium =
+    const isPremium=
         document.getElementById(
             "adminPremium"
         ).value==="true";
@@ -2220,27 +2894,40 @@ async function addQuestion(){
         document.getElementById(
             "addQuestionMessage"
         ).innerHTML=
-            "<div class='error-box'>Please fill in all required fields.</div>";
+            "<div class='error-box'>"+
+            "Please fill in all required fields."+
+            "</div>";
 
         return;
 
     }
 
-    const {error} =
+    const {
+        error
+    }=
         await supabaseClient
         .from("questions")
         .insert({
 
             topic:topic,
+
             question:question,
+
             option_a:a,
+
             option_b:b,
+
             option_c:c,
+
             option_d:d,
+
             answer:answer,
+
             explanation:
                 explanation||null,
+
             study_set:studySet,
+
             is_premium:isPremium
 
         });
@@ -2251,7 +2938,9 @@ async function addQuestion(){
             "addQuestionMessage"
         ).innerHTML=
             "<div class='error-box'>"+
-            escapeHTML(error.message)+
+            escapeHTML(
+                error.message
+            )+
             "</div>";
 
         return;
@@ -2261,7 +2950,9 @@ async function addQuestion(){
     document.getElementById(
         "addQuestionMessage"
     ).innerHTML=
-        "<div class='success-box'>✅ Question added successfully.</div>";
+        "<div class='success-box'>"+
+        "✅ Question added successfully."+
+        "</div>";
 
     clearAdminForm();
 
@@ -2270,15 +2961,21 @@ async function addQuestion(){
 }
 
 
+/* =====================================================
+   CLEAR ADMIN
+===================================================== */
+
 function clearAdminForm(){
 
     [
+
         "adminQuestion",
         "adminA",
         "adminB",
         "adminC",
         "adminD",
         "adminExplanation"
+
     ].forEach(
         function(id){
 
@@ -2297,6 +2994,10 @@ function clearAdminForm(){
 }
 
 
+/* =====================================================
+   ADMIN MESSAGE
+===================================================== */
+
 function showAdminMessage(
     message,
     error=false
@@ -2305,20 +3006,27 @@ function showAdminMessage(
     document.getElementById(
         "adminMessage"
     ).innerHTML=
-        "<div class='"+(
+        "<div class='"+
+        (
             error
             ?"error-box"
             :"success-box"
         )+"'>"+
-        escapeHTML(message)+
+        escapeHTML(
+            message
+        )+
         "</div>";
 
 }
 
 
+/* =====================================================
+   LOAD ADMIN QUESTIONS
+===================================================== */
+
 async function loadAdminQuestions(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminQuestionsList"
         );
@@ -2326,27 +3034,35 @@ async function loadAdminQuestions(){
     list.innerHTML=
         "<div class='loading'>Loading questions...</div>";
 
-    const {data,error} =
+    const {
+        data,
+        error
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
         .order(
             "id",
-            {ascending:true}
+            {
+                ascending:true
+            }
         );
 
     if(error){
 
         list.innerHTML=
             "<div class='error-box'>"+
-            escapeHTML(error.message)+
+            escapeHTML(
+                error.message
+            )+
             "</div>";
 
         return;
 
     }
 
-    adminQuestions=data||[];
+    adminQuestions=
+        data||[];
 
     const total=
         adminQuestions.length;
@@ -2363,56 +3079,67 @@ async function loadAdminQuestions(){
 
     document.getElementById(
         "adminTotal"
-    ).textContent=total;
+    ).textContent=
+        total;
 
     document.getElementById(
         "adminFree"
-    ).textContent=free;
+    ).textContent=
+        free;
 
     document.getElementById(
         "adminPremium"
-    ).textContent=premium;
+    ).textContent=
+        premium;
 
     renderAdminQuestions();
 
 }
 
 
+/* =====================================================
+   RENDER ADMIN
+===================================================== */
+
 function renderAdminQuestions(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminQuestionsList"
         );
 
-    const search =
+    const search=
         document.getElementById(
             "adminSearch"
         ).value
         .trim()
         .toLowerCase();
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminFilterTopic"
         ).value;
 
-    const filtered =
+    const filtered=
         adminQuestions.filter(
             function(q){
 
-                const matchesSearch =
-                    !search ||
-                    String(q.question||"")
+                const matchesSearch=
+                    !search||
+                    String(
+                        q.question||""
+                    )
                     .toLowerCase()
-                    .includes(search);
+                    .includes(
+                        search
+                    );
 
-                const matchesTopic =
-                    !topic ||
+                const matchesTopic=
+                    !topic||
                     q.topic===topic;
 
-                return (
-                    matchesSearch &&
+                return(
+                    matchesSearch&&
                     matchesTopic
                 );
 
@@ -2431,9 +3158,9 @@ function renderAdminQuestions(){
     list.innerHTML="";
 
     filtered.forEach(
-        function(q,index){
+        function(q){
 
-            const div =
+            const div=
                 document.createElement(
                     "div"
                 );
@@ -2445,17 +3172,25 @@ function renderAdminQuestions(){
 
                 "<h4>"+
                 "Question #"+
-                escapeHTML(q.id)+
+                escapeHTML(
+                    q.id
+                )+
                 "</h4>"+
 
                 "<p><strong>"+
-                escapeHTML(q.topic)+
+                escapeHTML(
+                    q.topic
+                )+
                 "</strong> • "+
-                escapeHTML(q.study_set||"")+
+                escapeHTML(
+                    q.study_set||""
+                )+
                 "</p>"+
 
                 "<p>"+
-                escapeHTML(q.question)+
+                escapeHTML(
+                    q.question
+                )+
                 "</p>"+
 
                 "<span class='badge "+
@@ -2474,11 +3209,17 @@ function renderAdminQuestions(){
 
                 "<div class='admin-actions'>"+
 
-                "<button class='danger' onclick='deleteQuestion("+q.id+")'>"+
+                "<button class='danger' onclick='deleteQuestion("+
+                q.id+
+                ")'>"+
                 "🗑️ Delete"+
                 "</button>"+
 
-                "<button class='secondary' onclick='togglePremium("+q.id+","+q.is_premium+")'>"+
+                "<button class='secondary' onclick='togglePremium("+
+                q.id+
+                ","+
+                q.is_premium+
+                ")'>"+
                 (
                     q.is_premium
                     ?"Make Free"
@@ -2488,7 +3229,9 @@ function renderAdminQuestions(){
 
                 "</div>";
 
-            list.appendChild(div);
+            list.appendChild(
+                div
+            );
 
         }
     );
@@ -2496,11 +3239,16 @@ function renderAdminQuestions(){
 }
 
 
+/* =====================================================
+   DELETE
+===================================================== */
+
 async function deleteQuestion(id){
 
     if(
-        !currentUser ||
-        currentUser.id!==ADMIN_UID
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
     ){
 
         alert(
@@ -2511,14 +3259,16 @@ async function deleteQuestion(id){
 
     }
 
-    const question =
+    const question=
         adminQuestions.find(
-            q=>String(q.id)===String(id)
+            q=>
+            String(q.id)===
+            String(id)
         );
 
     if(!question)return;
 
-    const confirmed =
+    const confirmed=
         confirm(
             "Delete this question?\n\n"+
             question.question
@@ -2526,11 +3276,16 @@ async function deleteQuestion(id){
 
     if(!confirmed)return;
 
-    const {error} =
+    const {
+        error
+    }=
         await supabaseClient
         .from("questions")
         .delete()
-        .eq("id",id);
+        .eq(
+            "id",
+            id
+        );
 
     if(error){
 
@@ -2548,14 +3303,19 @@ async function deleteQuestion(id){
 }
 
 
+/* =====================================================
+   PREMIUM TOGGLE
+===================================================== */
+
 async function togglePremium(
     id,
     currentValue
 ){
 
     if(
-        !currentUser ||
-        currentUser.id!==ADMIN_UID
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
     ){
 
         alert(
@@ -2566,13 +3326,21 @@ async function togglePremium(
 
     }
 
-    const {error} =
+    const {
+        error
+    }=
         await supabaseClient
         .from("questions")
         .update({
-            is_premium:!currentValue
+
+            is_premium:
+                !currentValue
+
         })
-        .eq("id",id);
+        .eq(
+            "id",
+            id
+        );
 
     if(error){
 
@@ -2594,7 +3362,9 @@ async function togglePremium(
    LIBRARY
 ===================================================== */
 
-async function openLibraryTopic(topic){
+async function openLibraryTopic(
+    topic
+){
 
     navigateTo(
         "librarySetScreen"
@@ -2603,9 +3373,15 @@ async function openLibraryTopic(topic){
     document.getElementById(
         "libraryTopicTitle"
     ).textContent=
-        "📖 "+topic;
+        (
+            TOPICS[topic]
+            ?TOPICS[topic].icon
+            :"📖"
+        )+
+        " "+
+        topic;
 
-    const container =
+    const container=
         document.getElementById(
             "librarySets"
         );
@@ -2613,8 +3389,10 @@ async function openLibraryTopic(topic){
     container.innerHTML=
         "<div class='loading'>Loading study sections...</div>";
 
-    const sets =
-        LIBRARY_STRUCTURE[topic]||[];
+    const sets=
+        LIBRARY_STRUCTURE[
+            topic
+        ]||[];
 
     container.innerHTML="";
 
@@ -2622,7 +3400,9 @@ async function openLibraryTopic(topic){
         const setName of sets
     ){
 
-        const {count} =
+        const {
+            count
+        }=
             await supabaseClient
             .from("questions")
             .select(
@@ -2632,11 +3412,20 @@ async function openLibraryTopic(topic){
                     head:true
                 }
             )
-            .eq("topic",topic)
-            .eq("study_set",setName)
-            .eq("is_premium",false);
+            .eq(
+                "topic",
+                topic
+            )
+            .eq(
+                "study_set",
+                setName
+            )
+            .eq(
+                "is_premium",
+                false
+            );
 
-        const button =
+        const button=
             document.createElement(
                 "button"
             );
@@ -2646,7 +3435,9 @@ async function openLibraryTopic(topic){
 
         button.innerHTML=
             "📚 "+
-            escapeHTML(setName)+
+            escapeHTML(
+                setName
+            )+
             "<span class='topic-description'>"+
             (count||0)+
             " free study questions"+
@@ -2687,9 +3478,10 @@ async function openStudySet(
     document.getElementById(
         "studyTitle"
     ).textContent=
-        "📖 "+studySet;
+        "📖 "+
+        studySet;
 
-    const container =
+    const container=
         document.getElementById(
             "studyQuestions"
         );
@@ -2697,36 +3489,61 @@ async function openStudySet(
     container.innerHTML=
         "<div class='loading'>Loading study material...</div>";
 
-    const {data,error} =
+    const {
+        data,
+        error
+    }=
         await supabaseClient
         .from("questions")
         .select(
             "id,question,option_a,option_b,option_c,option_d,answer,explanation,study_set,is_premium"
         )
-        .eq("topic",topic)
-        .eq("study_set",studySet)
-        .eq("is_premium",false)
+        .eq(
+            "topic",
+            topic
+        )
+        .eq(
+            "study_set",
+            studySet
+        )
+        .eq(
+            "is_premium",
+            false
+        )
         .order(
             "id",
-            {ascending:true}
+            {
+                ascending:true
+            }
         );
 
     if(error){
 
         container.innerHTML=
             "<div class='error-box'>"+
-            escapeHTML(error.message)+
+            escapeHTML(
+                error.message
+            )+
             "</div>";
 
         return;
 
     }
 
-    if(!data||!data.length){
+    if(
+        !data||
+        !data.length
+    ){
 
         container.innerHTML=
             "<div class='center'>"+
+
             "<p>No free study questions have been added yet.</p>"+
+
+            "<p class='small'>"+
+            "The admin can add questions from the Admin Dashboard."+
+            "</p>"+
+
             "</div>";
 
         return;
@@ -2738,7 +3555,7 @@ async function openStudySet(
     data.forEach(
         function(q,index){
 
-            const item =
+            const item=
                 document.createElement(
                     "div"
                 );
@@ -2754,30 +3571,61 @@ async function openStudySet(
                 "</div>"+
 
                 "<h3>"+
-                escapeHTML(q.question)+
+                escapeHTML(
+                    q.question
+                )+
                 "</h3>"+
 
                 "<div class='study-options'>"+
-                "A) "+escapeHTML(q.option_a)+"<br>"+
-                "B) "+escapeHTML(q.option_b)+"<br>"+
-                "C) "+escapeHTML(q.option_c)+"<br>"+
-                "D) "+escapeHTML(q.option_d)+
+
+                "A) "+
+                escapeHTML(
+                    q.option_a
+                )+
+                "<br>"+
+
+                "B) "+
+                escapeHTML(
+                    q.option_b
+                )+
+                "<br>"+
+
+                "C) "+
+                escapeHTML(
+                    q.option_c
+                )+
+                "<br>"+
+
+                "D) "+
+                escapeHTML(
+                    q.option_d
+                )+
+
                 "</div>"+
 
                 "<div class='answer-box'>"+
+
                 "Answer: "+
-                escapeHTML(q.answer)+
+                escapeHTML(
+                    q.answer
+                )+
+
                 (
                     q.explanation
                     ?
                     "<br><span class='small'>"+
-                    escapeHTML(q.explanation)+
+                    escapeHTML(
+                        q.explanation
+                    )+
                     "</span>"
                     :""
                 )+
+
                 "</div>";
 
-            container.appendChild(item);
+            container.appendChild(
+                item
+            );
 
         }
     );
@@ -2789,34 +3637,57 @@ async function openStudySet(
    PRACTICE
 ===================================================== */
 
-async function startPractice(topic){
+async function startPractice(
+    topic
+){
 
-    quizMode="practice";
-    quizTopic=topic;
+    quizMode=
+        "practice";
+
+    quizTopic=
+        topic;
+
     quizQuestions=[];
+
     quizIndex=0;
+
     quizCorrect=0;
+
     quizWrong=0;
+
     missedQuestionIds=[];
 
-    navigateTo("quizScreen");
+    navigateTo(
+        "quizScreen"
+    );
 
     document.getElementById(
         "quizTitle"
     ).textContent=
-        "🎮 "+topic+" Practice";
+        "🎮 "+
+        topic+
+        " Practice";
 
     document.getElementById(
         "quizQuestion"
     ).textContent=
         "Loading questions...";
 
-    const {data,error} =
+    const {
+        data,
+        error
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
-        .eq("topic",topic)
-        .eq("is_premium",false);
+        .eq(
+            "topic",
+            topic
+        )
+        .eq(
+            "is_premium",
+            false
+        );
 
     if(error){
 
@@ -2828,7 +3699,10 @@ async function startPractice(topic){
 
     }
 
-    if(!data||!data.length){
+    if(
+        !data||
+        !data.length
+    ){
 
         showQuizError(
             "No free questions are available for this topic yet."
@@ -2839,7 +3713,9 @@ async function startPractice(topic){
     }
 
     quizQuestions=
-        shuffle(data);
+        shuffle(
+            data
+        );
 
     showQuizQuestion();
 
@@ -2847,21 +3723,30 @@ async function startPractice(topic){
 
 
 /* =====================================================
-   DAILY
+   DAILY CHALLENGE
 ===================================================== */
 
 async function startDailyChallenge(){
 
     setDailyReaction();
 
-    quizMode="daily";
-    quizTopic="Daily Challenge";
+    quizMode=
+        "daily";
+
+    quizTopic=
+        "Daily Challenge";
+
     quizIndex=0;
+
     quizCorrect=0;
+
     quizWrong=0;
+
     missedQuestionIds=[];
 
-    navigateTo("quizScreen");
+    navigateTo(
+        "quizScreen"
+    );
 
     document.getElementById(
         "quizTitle"
@@ -2873,11 +3758,17 @@ async function startDailyChallenge(){
     ).textContent=
         "Loading today's mixed GK questions...";
 
-    const {data,error} =
+    const {
+        data,
+        error
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
-        .eq("is_premium",false);
+        .eq(
+            "is_premium",
+            false
+        );
 
     if(error){
 
@@ -2889,7 +3780,10 @@ async function startDailyChallenge(){
 
     }
 
-    if(!data||!data.length){
+    if(
+        !data||
+        !data.length
+    ){
 
         showQuizError(
             "No free GK questions are available yet."
@@ -2900,10 +3794,15 @@ async function startDailyChallenge(){
     }
 
     quizQuestions=
-        shuffle(data)
+        shuffle(
+            data
+        )
         .slice(
             0,
-            Math.min(25,data.length)
+            Math.min(
+                25,
+                data.length
+            )
         );
 
     showQuizQuestion();
@@ -2912,12 +3811,123 @@ async function startDailyChallenge(){
 
 
 /* =====================================================
-   SHOW QUESTION
+   MISSED QUESTION MODE
+===================================================== */
+
+async function startMissedQuiz(){
+
+    const ids=
+        missedSavedIds;
+
+    if(
+        !ids.length
+    ){
+
+        alert(
+            "You don't have any saved missed questions yet."
+        );
+
+        return;
+
+    }
+
+    const {
+        data,
+        error
+    }=
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .in(
+            "id",
+            ids
+        )
+        .eq(
+            "is_premium",
+            false
+        );
+
+    if(error){
+
+        alert(
+            error.message
+        );
+
+        return;
+
+    }
+
+    if(
+        !data||
+        !data.length
+    ){
+
+        alert(
+            "Your saved missed questions are no longer available."
+        );
+
+        return;
+
+    }
+
+    quizMode=
+        "missed";
+
+    quizTopic=
+        "Missed Questions";
+
+    quizQuestions=
+        shuffle(data);
+
+    quizIndex=0;
+
+    quizCorrect=0;
+
+    quizWrong=0;
+
+    missedQuestionIds=[];
+
+    navigateTo(
+        "quizScreen"
+    );
+
+    document.getElementById(
+        "quizTitle"
+    ).textContent=
+        "🔁 Practice What You Missed";
+
+    showQuizQuestion();
+
+}
+
+
+function practiceMissedQuestions(){
+
+    if(
+        !missedSavedIds.length
+    ){
+
+        document.getElementById(
+            "missedReaction"
+        ).textContent=
+            "🎉 No saved missed questions yet. Keep practicing!";
+
+        return;
+
+    }
+
+    startMissedQuiz();
+
+}
+
+
+/* =====================================================
+   SHOW QUIZ QUESTION
 ===================================================== */
 
 function showQuizQuestion(){
 
-    const q =
+    const q=
         quizQuestions[
             quizIndex
         ];
@@ -2925,6 +3935,7 @@ function showQuizQuestion(){
     if(!q){
 
         finishQuiz();
+
         return;
 
     }
@@ -2942,7 +3953,7 @@ function showQuizQuestion(){
     ).textContent=
         q.question;
 
-    const options =
+    const options=
         document.getElementById(
             "quizOptions"
         );
@@ -2950,20 +3961,25 @@ function showQuizQuestion(){
     options.innerHTML="";
 
     shuffle([
+
         q.option_a,
         q.option_b,
         q.option_c,
         q.option_d
+
     ]).forEach(
         function(answer){
 
-            const button =
+            const button=
                 document.createElement(
                     "button"
                 );
 
-            button.className="option";
-            button.textContent=answer;
+            button.className=
+                "option";
+
+            button.textContent=
+                answer;
 
             button.onclick=
                 function(){
@@ -2976,7 +3992,9 @@ function showQuizQuestion(){
 
                 };
 
-            options.appendChild(button);
+            options.appendChild(
+                button
+            );
 
         }
     );
@@ -3006,7 +4024,7 @@ function checkQuizAnswer(
     question
 ){
 
-    const buttons =
+    const buttons=
         document.querySelectorAll(
             "#quizOptions .option"
         );
@@ -3028,11 +4046,15 @@ function checkQuizAnswer(
 
     checkStreakProgress();
 
-    const correct =
-        normalize(selectedAnswer)===
-        normalize(question.answer);
+    const correct=
+        normalize(
+            selectedAnswer
+        )===
+        normalize(
+            question.answer
+        );
 
-    const feedback =
+    const feedback=
         document.getElementById(
             "quizFeedback"
         );
@@ -3047,6 +4069,10 @@ function checkQuizAnswer(
             "correct"
         );
 
+        selectedButton.classList.add(
+            "pop"
+        );
+
         feedback.className=
             "feedback correct";
 
@@ -3054,7 +4080,9 @@ function checkQuizAnswer(
             randomCorrectReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
-            escapeHTML(question.answer)+
+            escapeHTML(
+                question.answer
+            )+
             "</div>";
 
     }else{
@@ -3062,19 +4090,33 @@ function checkQuizAnswer(
         quizWrong++;
 
         missedQuestionIds.push(
-            String(question.id)
+            String(
+                question.id
+            )
+        );
+
+        saveMissedQuestion(
+            question.id
         );
 
         selectedButton.classList.add(
             "wrong"
         );
 
+        selectedButton.classList.add(
+            "shake"
+        );
+
         buttons.forEach(
             function(button){
 
                 if(
-                    normalize(button.textContent)===
-                    normalize(question.answer)
+                    normalize(
+                        button.textContent
+                    )===
+                    normalize(
+                        question.answer
+                    )
                 ){
 
                     button.classList.add(
@@ -3093,7 +4135,9 @@ function checkQuizAnswer(
             randomWrongReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
-            escapeHTML(question.answer)+
+            escapeHTML(
+                question.answer
+            )+
             "</div>";
 
     }
@@ -3133,7 +4177,7 @@ function nextQuizQuestion(){
 
 
 /* =====================================================
-   COMPLETE
+   FINISH
 ===================================================== */
 
 function finishQuiz(){
@@ -3150,44 +4194,78 @@ function finishQuiz(){
     ).textContent=
         quizMode==="daily"
         ?"🔥 Daily Challenge Complete!"
+        :quizMode==="missed"
+        ?"🔁 Revision Complete!"
         :"🎉 Practice Complete!";
-
-    document.getElementById(
-        "finalScore"
-    ).innerHTML=
-        "<h2>"+
-        quizCorrect+
-        " / "+
-        total+
-        "</h2>"+
-        "<p>Correct answers</p>";
 
     const percentage=
         total
         ?(quizCorrect/total)*100
         :0;
 
+    document.getElementById(
+        "finalScore"
+    ).innerHTML=
+
+        "<div class='score-big'>"+
+        quizCorrect+
+        " / "+
+        total+
+        "</div>"+
+
+        "<p>Correct answers</p>"+
+
+        "<p><strong>"+
+        percentage.toFixed(0)+
+        "% accuracy</strong></p>";
+
     let reaction;
 
-    if(percentage>=90){
+    if(
+        percentage>=90
+    ){
 
         reaction=
             "🔥 Absolutely smashed it!";
 
-    }else if(percentage>=70){
+        document.getElementById(
+            "completeReaction"
+        ).className=
+            "result-good";
+
+    }else if(
+        percentage>=70
+    ){
 
         reaction=
             "👏 Nice work! Keep pushing.";
 
-    }else if(percentage>=50){
+        document.getElementById(
+            "completeReaction"
+        ).className=
+            "result-good";
+
+    }else if(
+        percentage>=50
+    ){
 
         reaction=
             "💪 You're getting there. Practice makes progress.";
+
+        document.getElementById(
+            "completeReaction"
+        ).className=
+            "result-average";
 
     }else{
 
         reaction=
             "🌱 Don't worry. Now you know what to work on.";
+
+        document.getElementById(
+            "completeReaction"
+        ).className=
+            "result-low";
 
     }
 
@@ -3196,17 +4274,21 @@ function finishQuiz(){
     ).textContent=
         reaction;
 
-    const missed =
+
+    const missed=
         document.getElementById(
             "missedQuestions"
         );
 
-    if(missedQuestionIds.length){
+    if(
+        missedQuestionIds.length
+    ){
 
         missed.innerHTML=
             "<h3>🔁 Questions to revisit</h3>"+
+
             "<p class='small'>"+
-            "These questions were missed in this session."+
+            "These questions were missed in this session and saved for revision."+
             "</p>";
 
         quizQuestions.forEach(
@@ -3214,11 +4296,13 @@ function finishQuiz(){
 
                 if(
                     missedQuestionIds.includes(
-                        String(q.id)
+                        String(
+                            q.id
+                        )
                     )
                 ){
 
-                    const div =
+                    const div=
                         document.createElement(
                             "div"
                         );
@@ -3229,7 +4313,9 @@ function finishQuiz(){
                     div.textContent=
                         q.question;
 
-                    missed.appendChild(div);
+                    missed.appendChild(
+                        div
+                    );
 
                 }
 
@@ -3247,49 +4333,40 @@ function finishQuiz(){
 
 
 /* =====================================================
-   MISSED QUESTIONS
+   SAVE MISSED QUESTIONS
 ===================================================== */
 
-async function practiceMissedQuestions(){
+function saveMissedQuestion(
+    id
+){
 
-    if(!currentUser){
+    const value=
+        String(id);
 
-        const lines=[
+    if(
+        !missedSavedIds.includes(
+            value
+        )
+    ){
 
-            "Your missed questions can't follow you between sessions unless you sign in.",
-
-            "Don't lose track of the questions that beat you. Create an account and keep your weak areas.",
-
-            "Wrong answers are useful. Sign in so you can come back to them.",
-
-            "The questions you miss today can become the questions you never miss again.",
-
-            "Your weak areas deserve a second chance. Sign in to keep them."
-
-        ];
-
-        alert(
-            getDailyMessage(
-                "missed",
-                lines
-            )+
-            "\n\nPlease sign in first."
+        missedSavedIds.push(
+            value
         );
 
-        openAuth();
-        return;
+        localStorage.setItem(
+            "adre_missed_ids",
+            JSON.stringify(
+                missedSavedIds
+            )
+        );
 
     }
-
-    alert(
-        "Your account-based missed-question system is ready to be expanded with persistent weak-question history."
-    );
 
 }
 
 
 /* =====================================================
-   REACTIONS
+   CORRECT REACTIONS
 ===================================================== */
 
 function randomCorrectReaction(){
@@ -3350,6 +4427,10 @@ function randomCorrectReaction(){
 
 }
 
+
+/* =====================================================
+   WRONG REACTIONS
+===================================================== */
 
 function randomWrongReaction(){
 
@@ -3419,7 +4500,15 @@ function showPremiumMessage(){
     alert(
 
         "👑 Premium preparation is coming.\n\n"+
-        "It can include premium PDFs, previous-year questions, mock tests and downloadable study material."
+
+        "Premium can include:\n"+
+        "• Premium PDFs\n"+
+        "• Previous-year questions\n"+
+        "• Mock tests\n"+
+        "• Downloadable study material\n"+
+        "• Additional study sets\n\n"+
+
+        "The premium system can be connected later."
 
     );
 
@@ -3432,17 +4521,21 @@ function showPremiumMessage(){
 
 function shuffle(array){
 
-    const copy=[...array];
+    const copy=[
+        ...array
+    ];
 
     for(
-        let i=copy.length-1;
+        let i=
+            copy.length-1;
         i>0;
         i--
     ){
 
         const j=
             Math.floor(
-                Math.random()*(i+1)
+                Math.random()*
+                (i+1)
             );
 
         [
@@ -3460,18 +4553,23 @@ function shuffle(array){
 }
 
 
-function randomItem(array){
+function randomItem(
+    array
+){
 
     return array[
         Math.floor(
-            Math.random()*array.length
+            Math.random()*
+            array.length
         )
     ];
 
 }
 
 
-function normalize(value){
+function normalize(
+    value
+){
 
     return String(
         value||""
@@ -3482,7 +4580,9 @@ function normalize(value){
 }
 
 
-function escapeHTML(value){
+function escapeHTML(
+    value
+){
 
     if(
         value===null||
@@ -3494,22 +4594,47 @@ function escapeHTML(value){
     }
 
     return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-function showQuizError(message){
+function showQuizError(
+    message
+){
 
     document.getElementById(
         "quizQuestion"
     ).innerHTML=
+
         "<div class='error-box'>"+
-        escapeHTML(message)+
+        escapeHTML(
+            message
+        )+
         "</div>";
 
     document.getElementById(
@@ -3524,9 +4649,12 @@ function showQuizError(message){
 ===================================================== */
 
 supabaseClient.auth.onAuthStateChange(
-    function(event,session){
+    function(
+        event,
+        session
+    ){
 
-        currentUser =
+        currentUser=
             session
             ?session.user
             :null;
@@ -3548,23 +4676,33 @@ supabaseClient.auth.onAuthStateChange(
 
 
 /* =====================================================
-   START
+   START APP
 ===================================================== */
 
 async function startApp(){
 
     checkDailyReset();
+
     updateStats();
+
+    buildTopicButtons();
+
+    buildAdminTopicOptions();
+
     setDailyReaction();
+
     updateAccountArea();
+
     fillStudySetOptions();
 
     const {
         data
-    } =
-        await supabaseClient.auth.getSession();
+    }=
+        await supabaseClient
+        .auth
+        .getSession();
 
-    currentUser =
+    currentUser=
         data.session
         ?data.session.user
         :null;
@@ -3578,6 +4716,11 @@ async function startApp(){
     }
 
 }
+
+
+/* =====================================================
+   START
+===================================================== */
 
 startApp();
 
