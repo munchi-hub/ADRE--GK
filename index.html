@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -97,6 +97,11 @@ button:disabled {
     color: #182848;
 }
 
+.danger {
+    background: #fff0f0;
+    color: #a00000;
+}
+
 .full {
     width: 100%;
 }
@@ -113,6 +118,15 @@ button:disabled {
     font-size: 32px;
     font-weight: bold;
     margin: 10px 0;
+}
+
+.timer-message {
+    background: #f5efff;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 12px 0;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
 .reaction {
@@ -166,7 +180,7 @@ button:disabled {
 }
 
 .study-question {
-    padding: 20px 0;
+    padding: 18px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -177,6 +191,7 @@ button:disabled {
 .study-question-number {
     color: #182848;
     font-weight: bold;
+    margin-bottom: 7px;
 }
 
 .study-options {
@@ -255,6 +270,15 @@ button:disabled {
     background: #eefaf2;
 }
 
+.account-message {
+    background: #fff8e6;
+    padding: 13px;
+    border-radius: 12px;
+    margin-top: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
 .premium {
     background: #f5efff;
 }
@@ -270,6 +294,13 @@ button:disabled {
 .error-box {
     background: #fff0f0;
     color: #9b0000;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.success-box {
+    background: #e9f8ee;
+    color: #176b35;
     padding: 14px;
     border-radius: 10px;
 }
@@ -293,6 +324,69 @@ button:disabled {
     color: #666;
 }
 
+.admin-form label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.admin-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.admin-question {
+    background: #f7f8fc;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+.admin-question strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.login-box {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.notice {
+    padding: 12px;
+    background: #f1f4ff;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.badge {
+    display: inline-block;
+    background: #eef1f7;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 3px;
+}
+
 @media(max-width:600px) {
     .grid {
         grid-template-columns: 1fr 1fr;
@@ -304,6 +398,14 @@ button:disabled {
 
     .quiz-question {
         font-size: 19px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat {
+        padding: 13px 5px;
     }
 }
 </style>
@@ -317,6 +419,10 @@ button:disabled {
 </header>
 
 <div class="container">
+
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <div id="homeScreen">
 
@@ -350,6 +456,8 @@ button:disabled {
         </div>
     </div>
 
+    <!-- DAILY CHALLENGE -->
+
     <div class="card challenge">
         <h2>🔥 Daily Challenge</h2>
 
@@ -360,7 +468,7 @@ button:disabled {
         </p>
 
         <p class="small">
-            Questions are selected from all 7 GK areas.
+            Questions are selected from all GK areas.
         </p>
 
         <button class="primary full"
@@ -369,15 +477,25 @@ button:disabled {
         </button>
     </div>
 
+    <!-- TIMER -->
+
     <div class="card timer-card">
 
         <h2>⏱️ Study Timer</h2>
 
-        <div id="timer" class="timer">
+        <div id="timerMessage"
+             class="timer-message">
+            Loading today's motivation...
+        </div>
+
+        <div id="timer"
+             class="timer">
             00:00
         </div>
 
-        <div id="timerMessage" class="reaction"></div>
+        <div id="timerReaction"
+             class="reaction">
+        </div>
 
         <button id="timerButton"
                 class="primary"
@@ -387,13 +505,15 @@ button:disabled {
 
     </div>
 
+    <!-- STUDY LIBRARY -->
+
     <div class="card">
 
         <h2>📖 Study Library</h2>
 
         <p>
-            Study organized GK question sets before
-            testing yourself in Practice.
+            Study organized GK question sets like a
+            digital book before testing yourself.
         </p>
 
         <div class="grid">
@@ -455,7 +575,10 @@ button:disabled {
             </button>
 
         </div>
+
     </div>
+
+    <!-- PRACTICE -->
 
     <div class="card">
 
@@ -504,7 +627,10 @@ button:disabled {
             </button>
 
         </div>
+
     </div>
+
+    <!-- MISSED -->
 
     <div class="card">
 
@@ -522,6 +648,8 @@ button:disabled {
 
     </div>
 
+    <!-- ACCOUNT -->
+
     <div class="card account-box">
 
         <h2>💾 Save Your Progress</h2>
@@ -529,20 +657,21 @@ button:disabled {
         <p>
             You can practice without an account.
             Sign in when you want your streak,
-            progress and study history saved.
+            XP and study progress saved.
         </p>
 
-        <button class="primary"
-                onclick="showAccountMessage()">
+        <div id="dailyAccountMessage"
+             class="account-message">
+        </div>
+
+        <button class="primary full"
+                onclick="openAccount()">
             Sign In / Create Account
         </button>
 
-        <p class="small">
-            Account system will be connected securely
-            in the next stage.
-        </p>
-
     </div>
+
+    <!-- PREMIUM -->
 
     <div class="card premium">
 
@@ -568,6 +697,8 @@ button:disabled {
         </button>
 
     </div>
+
+    <!-- COMING SOON -->
 
     <div class="card coming">
 
@@ -603,6 +734,82 @@ button:disabled {
 </div>
 
 
+<!-- =====================================================
+     ACCOUNT SCREEN
+===================================================== -->
+
+<div id="accountScreen" class="card hidden login-box">
+
+    <button class="secondary back"
+            onclick="goBack()">
+        ← Back
+    </button>
+
+    <h2>💾 Your Account</h2>
+
+    <p class="small">
+        Create an account or sign in to save your progress.
+    </p>
+
+    <div id="accountStatus"></div>
+
+    <div id="authForm">
+
+        <div class="admin-form">
+
+            <label>Email</label>
+
+            <input id="authEmail"
+                   type="email"
+                   placeholder="Enter your email">
+
+            <label>Password</label>
+
+            <input id="authPassword"
+                   type="password"
+                   placeholder="Enter your password">
+
+        </div>
+
+        <br>
+
+        <button class="primary full"
+                onclick="signInUser()">
+            Sign In
+        </button>
+
+        <br><br>
+
+        <button class="secondary full"
+                onclick="createAccount()">
+            Create Account
+        </button>
+
+    </div>
+
+    <div id="loggedInBox"
+         class="hidden">
+
+        <div class="success-box">
+            You are signed in. Your account is connected.
+        </div>
+
+        <br>
+
+        <button class="danger full"
+                onclick="signOutUser()">
+            Sign Out
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LIBRARY SET SCREEN
+===================================================== -->
+
 <div id="librarySetScreen" class="card hidden">
 
     <button class="secondary back"
@@ -611,14 +818,23 @@ button:disabled {
     </button>
 
     <div class="library-header">
+
         <h2 id="libraryTopicTitle"></h2>
-        <p>Choose a study section.</p>
+
+        <p>
+            Choose a study section.
+        </p>
+
     </div>
 
     <div id="librarySets"></div>
 
 </div>
 
+
+<!-- =====================================================
+     STUDY SCREEN
+===================================================== -->
 
 <div id="studyScreen" class="card hidden">
 
@@ -628,16 +844,24 @@ button:disabled {
     </button>
 
     <div class="library-header">
+
         <h2 id="studyTitle"></h2>
+
         <p class="small">
-            Study the questions and answers at your own pace.
+            Study like a digital book. Questions are numbered
+            so you can easily continue from where you stopped.
         </p>
+
     </div>
 
     <div id="studyQuestions"></div>
 
 </div>
 
+
+<!-- =====================================================
+     QUIZ SCREEN
+===================================================== -->
 
 <div id="quizScreen" class="card hidden">
 
@@ -648,7 +872,8 @@ button:disabled {
 
     <h2 id="quizTitle"></h2>
 
-    <div id="quizScore" class="quiz-score">
+    <div id="quizScore"
+         class="quiz-score">
         Score: 0 / 0
     </div>
 
@@ -671,7 +896,12 @@ button:disabled {
 </div>
 
 
-<div id="completeScreen" class="card hidden center">
+<!-- =====================================================
+     COMPLETE SCREEN
+===================================================== -->
+
+<div id="completeScreen"
+     class="card hidden center">
 
     <h2 id="completeTitle">
         🎉 Session Complete!
@@ -691,6 +921,203 @@ button:disabled {
     </button>
 
 </div>
+
+
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
+
+<div id="adminLoginScreen"
+     class="card hidden login-box">
+
+    <button class="secondary back"
+            onclick="goBack()">
+        ← Back
+    </button>
+
+    <h2>🔐 Admin Login</h2>
+
+    <p class="small">
+        This area is only for the website administrator.
+    </p>
+
+    <div class="admin-form">
+
+        <label>Email</label>
+
+        <input id="adminEmail"
+               type="email"
+               placeholder="Admin email">
+
+        <label>Password</label>
+
+        <input id="adminPassword"
+               type="password"
+               placeholder="Admin password">
+
+    </div>
+
+    <br>
+
+    <button class="primary full"
+            onclick="adminLogin()">
+        Login to Dashboard
+    </button>
+
+    <div id="adminLoginMessage"></div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN DASHBOARD
+===================================================== -->
+
+<div id="adminDashboardScreen"
+     class="card hidden">
+
+    <button class="secondary back"
+            onclick="adminLogout()">
+        ← Admin Logout
+    </button>
+
+    <h2>🛠️ Admin Dashboard</h2>
+
+    <p>
+        Add and manage questions for the Study Library
+        and Practice sections.
+    </p>
+
+    <div class="notice">
+        <strong>💰 Monetization ready:</strong>
+        Questions can be marked Free or Premium.
+        Premium PDFs and paid study material can be connected later.
+    </div>
+
+    <hr>
+
+    <h3>➕ Add New Question</h3>
+
+    <div class="admin-form">
+
+        <label>Topic</label>
+
+        <select id="adminTopic"
+                onchange="updateAdminStudySets()">
+
+            <option value="History">History</option>
+            <option value="Geography">Geography</option>
+            <option value="Politics">Politics</option>
+            <option value="Economics">Economics</option>
+            <option value="Culture">Culture</option>
+            <option value="Current Affairs">Current Affairs</option>
+            <option value="Others">Others</option>
+
+        </select>
+
+        <label>Study Set</label>
+
+        <select id="adminStudySet">
+        </select>
+
+        <label>Question</label>
+
+        <textarea id="adminQuestion"
+                  placeholder="Write the question here"></textarea>
+
+        <label>Option A</label>
+
+        <input id="adminOptionA"
+               placeholder="Option A">
+
+        <label>Option B</label>
+
+        <input id="adminOptionB"
+               placeholder="Option B">
+
+        <label>Option C</label>
+
+        <input id="adminOptionC"
+               placeholder="Option C">
+
+        <label>Option D</label>
+
+        <input id="adminOptionD"
+               placeholder="Option D">
+
+        <label>Correct Answer</label>
+
+        <select id="adminAnswer">
+
+            <option value="">Choose correct answer</option>
+
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+
+        </select>
+
+        <label>Question Type</label>
+
+        <select id="adminPremium">
+
+            <option value="false">
+                Free Question
+            </option>
+
+            <option value="true">
+                Premium Question
+            </option>
+
+        </select>
+
+    </div>
+
+    <br>
+
+    <button class="primary full"
+            onclick="addQuestion()">
+        ➕ Add Question
+    </button>
+
+    <div id="adminAddMessage"></div>
+
+    <hr>
+
+    <h3>📚 Existing Questions</h3>
+
+    <button class="secondary full"
+            onclick="loadAdminQuestions()">
+        🔄 Refresh Questions
+    </button>
+
+    <div id="adminQuestionsList">
+        <div class="loading">
+            Press refresh to load questions.
+        </div>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN ACCESS BUTTON
+===================================================== -->
+
+<div class="card center">
+
+    <p class="small">
+        Website administration
+    </p>
+
+    <button class="secondary"
+            onclick="openAdminLogin()">
+        🔐 Admin
+    </button>
+
+</div>
+
 
 </div>
 
@@ -715,7 +1142,7 @@ window.supabase.createClient(
 
 
 /* =====================================================
-   STRUCTURE
+   LIBRARY STRUCTURE
 ===================================================== */
 
 const LIBRARY_STRUCTURE = {
@@ -814,28 +1241,29 @@ let timerSeconds = 0;
 
 let currentScreen = "homeScreen";
 
-let navigationReady = false;
 
-
-/*
-   Every website section gets its own browser-history
-   state. This makes the Android Back button work.
-*/
-
-function navigateTo(screenId, pushHistory = true) {
+function navigateTo(
+    screenId,
+    pushHistory = true
+) {
 
     hideAllScreens();
 
     const screen =
-        document.getElementById(screenId);
+        document.getElementById(
+            screenId
+        );
 
     if (!screen) {
         return;
     }
 
-    screen.classList.remove("hidden");
+    screen.classList.remove(
+        "hidden"
+    );
 
-    currentScreen = screenId;
+    currentScreen =
+        screenId;
 
     if (pushHistory) {
 
@@ -872,7 +1300,9 @@ function goBack() {
 }
 
 
-function goHome(pushHistory = true) {
+function goHome(
+    pushHistory = true
+) {
 
     navigateTo(
         "homeScreen",
@@ -937,12 +1367,7 @@ window.addEventListener(
 );
 
 
-/* Start browser history with Home. */
-
-if (
-    !location.hash ||
-    location.hash === "#homeScreen"
-) {
+if (!location.hash) {
 
     history.replaceState(
         { screen: "homeScreen" },
@@ -958,11 +1383,16 @@ else {
         location.hash.substring(1);
 
     const allowedScreens = [
+
         "homeScreen",
+        "accountScreen",
         "librarySetScreen",
         "studyScreen",
         "quizScreen",
-        "completeScreen"
+        "completeScreen",
+        "adminLoginScreen",
+        "adminDashboardScreen"
+
     ];
 
     if (
@@ -1030,6 +1460,147 @@ function checkDailyReset() {
 
 
 /* =====================================================
+   DAILY MESSAGES
+===================================================== */
+
+const accountMessages = [
+
+    "👀 You can leave your progress unsaved... but imagine coming back tomorrow and having to start from zero.",
+
+    "🔥 Your streak is building. Don't let today's progress disappear just because you skipped signing in.",
+
+    "📚 You're already putting in the work. Saving it means you don't have to lose it.",
+
+    "😶 Imagine studying all this and then losing your progress. One account keeps it safe.",
+
+    "🏆 Future you might be very happy that you saved today's progress.",
+
+    "⚠️ Your XP and study progress are easier to keep when you're signed in.",
+
+    "👋 You don't have to sign in yet... but your progress can't follow you everywhere without an account.",
+
+    "🔥 One more study session could add to your streak. Don't let the progress vanish.",
+
+    "💭 You might not notice the value of your progress until you lose it.",
+
+    "🎯 Keep your progress attached to you, not just this device.",
+
+    "📈 Every question you answer is progress. Give that progress somewhere to stay.",
+
+    "😬 Starting over after losing progress is not exactly the fun part.",
+
+    "✨ Your future study sessions will be easier when your progress is already waiting for you.",
+
+    "🔐 Save your journey before it becomes a long one.",
+
+    "🥹 You've already started. It would be a shame to lose the trail."
+
+];
+
+
+const timerMessages = [
+
+    "⏱️ Just 10 minutes today can protect your streak. You have 10 minutes, right?",
+
+    "👀 Your competitors are probably studying right now. Open the timer and steal back 10 minutes.",
+
+    "🔥 Start the timer. You don't need motivation for the whole day—just 10 minutes.",
+
+    "📚 One focused session today is better than promising yourself you'll study tomorrow.",
+
+    "😈 Your future rank won't know you were tired. Give it 10 focused minutes anyway.",
+
+    "🎯 Open the timer before you start scrolling. Ten minutes first, everything else later.",
+
+    "💪 You don't need to study for hours. Start with the first 10 minutes.",
+
+    "⏳ Every minute you study is one minute closer to knowing the answer when it matters.",
+
+    "👀 Don't just open the website and leave. Start the timer and actually study something.",
+
+    "🔥 Your streak needs action, not good intentions.",
+
+    "🧠 Give your brain a short focused session. Even 10 minutes counts.",
+
+    "📖 Pick a section, start the timer and see how much you can finish.",
+
+    "😤 Future-you has an exam to pass. Current-you has a timer to start.",
+
+    "🏆 Small sessions become big preparation when you actually keep doing them.",
+
+    "🚀 Ten focused minutes. That's the challenge. Start now."
+
+];
+
+
+function getDayNumber() {
+
+    const now =
+        new Date();
+
+    const start =
+        new Date(
+            now.getFullYear(),
+            0,
+            0
+        );
+
+    const diff =
+        now - start;
+
+    return Math.floor(
+        diff /
+        86400000
+    );
+
+}
+
+
+function setDailyMessages() {
+
+    const day =
+        getDayNumber();
+
+    const accountMessage =
+        accountMessages[
+            day %
+            accountMessages.length
+        ];
+
+    const timerMessage =
+        timerMessages[
+            day %
+            timerMessages.length
+        ];
+
+    const accountElement =
+        document.getElementById(
+            "dailyAccountMessage"
+        );
+
+    const timerElement =
+        document.getElementById(
+            "timerMessage"
+        );
+
+    if (accountElement) {
+
+        accountElement.textContent =
+            accountMessage;
+
+    }
+
+    if (timerElement) {
+
+        timerElement.textContent =
+            timerMessage;
+
+    }
+
+}
+
+
+/* =====================================================
    STATS
 ===================================================== */
 
@@ -1088,7 +1659,9 @@ function saveStreakForToday() {
     if (
         lastStreakDate === today
     ) {
+
         return;
+
     }
 
     streak++;
@@ -1149,7 +1722,9 @@ function toggleTimer() {
 function startTimer() {
 
     if (timerRunning) {
+
         return;
+
     }
 
     timerRunning = true;
@@ -1234,15 +1809,33 @@ function showTimeReaction() {
 
     const message =
         document.getElementById(
-            "timerMessage"
+            "timerReaction"
         );
 
     if (
+        timerSeconds === 60
+    ) {
+
+        message.textContent =
+            "🔥 One minute down. Keep going.";
+
+    }
+
+    else if (
+        timerSeconds === 300
+    ) {
+
+        message.textContent =
+            "👏 Five minutes! You're actually doing it.";
+
+    }
+
+    else if (
         timerSeconds === 600
     ) {
 
         message.textContent =
-            "🥹 I'm proud of you. 10 minutes without doom-scrolling!";
+            "🥹 10 minutes! Your streak is protected.";
 
     }
 
@@ -1251,7 +1844,7 @@ function showTimeReaction() {
     ) {
 
         message.textContent =
-            "🔥 30 minutes?! You're actually locked in.";
+            "🔥 30 minutes?! You're locked in.";
 
     }
 
@@ -1260,7 +1853,7 @@ function showTimeReaction() {
     ) {
 
         message.textContent =
-            "🏆 ONE HOUR! Your future self is going to thank you.";
+            "🏆 ONE HOUR! That's serious preparation.";
 
     }
 
@@ -1276,10 +1869,13 @@ function hideAllScreens() {
     const screens = [
 
         "homeScreen",
+        "accountScreen",
         "librarySetScreen",
         "studyScreen",
         "quizScreen",
-        "completeScreen"
+        "completeScreen",
+        "adminLoginScreen",
+        "adminDashboardScreen"
 
     ];
 
@@ -1287,7 +1883,9 @@ function hideAllScreens() {
         function(id) {
 
             const element =
-                document.getElementById(id);
+                document.getElementById(
+                    id
+                );
 
             if (element) {
 
@@ -1331,36 +1929,90 @@ async function openLibraryTopic(topic) {
 
     container.innerHTML = "";
 
-    sets.forEach(
-        function(setName) {
+    for (
+        const setName of sets
+    ) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "topic-button full";
-
-            button.textContent =
-                "📚 " + setName;
-
-            button.onclick =
-                function() {
-
-                    openStudySet(
-                        topic,
-                        setName
-                    );
-
-                };
-
-            container.appendChild(
-                button
+        const button =
+            document.createElement(
+                "button"
             );
 
-        }
-    );
+        button.className =
+            "topic-button full";
+
+        button.innerHTML =
+            "📚 " +
+            escapeHTML(setName) +
+            "<span class='topic-description'>Loading questions...</span>";
+
+        button.onclick =
+            function() {
+
+                openStudySet(
+                    topic,
+                    setName
+                );
+
+            };
+
+        container.appendChild(
+            button
+        );
+
+        loadSetCount(
+            topic,
+            setName,
+            button
+        );
+
+    }
+
+}
+
+
+async function loadSetCount(
+    topic,
+    studySet,
+    button
+) {
+
+    const { count } =
+        await supabaseClient
+        .from("questions")
+        .select(
+            "*",
+            {
+                count: "exact",
+                head: true
+            }
+        )
+        .eq(
+            "topic",
+            topic
+        )
+        .eq(
+            "study_set",
+            studySet
+        )
+        .eq(
+            "is_premium",
+            false
+        );
+
+    const description =
+        button.querySelector(
+            ".topic-description"
+        );
+
+    if (description) {
+
+        description.textContent =
+            count === null
+                ? "Study questions"
+                : count + " questions available";
+
+    }
 
 }
 
@@ -1389,7 +2041,7 @@ async function openStudySet(
         );
 
     container.innerHTML =
-        "<div class='loading'>Loading study material...</div>";
+        "<div class='loading'>Opening your study book...</div>";
 
     const { data, error } =
         await supabaseClient
@@ -1397,12 +2049,23 @@ async function openStudySet(
         .select(
             "id, question, option_a, option_b, option_c, option_d, answer, study_set, is_premium"
         )
-        .eq("topic", topic)
-        .eq("study_set", studySet)
-        .eq("is_premium", false)
+        .eq(
+            "topic",
+            topic
+        )
+        .eq(
+            "study_set",
+            studySet
+        )
+        .eq(
+            "is_premium",
+            false
+        )
         .order(
             "id",
-            { ascending: true }
+            {
+                ascending: true
+            }
         );
 
     if (error) {
@@ -1426,11 +2089,9 @@ async function openStudySet(
         container.innerHTML =
             "<div class='center'>" +
 
-            "<p>No study questions have been added to this section yet.</p>" +
+            "<h3>📖 This section is waiting for questions.</h3>" +
 
-            "<p class='small'>" +
-            "Questions will appear here once they are added to Supabase." +
-            "</p>" +
+            "<p>No study questions have been added here yet.</p>" +
 
             "</div>";
 
@@ -1438,7 +2099,12 @@ async function openStudySet(
 
     }
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "<div class='notice'>" +
+        "📚 " +
+        data.length +
+        " free questions in this section." +
+        "</div>";
 
     data.forEach(
         function(q, index) {
@@ -1514,7 +2180,9 @@ async function openStudySet(
    PRACTICE
 ===================================================== */
 
-async function startPractice(topic) {
+async function startPractice(
+    topic
+) {
 
     quizMode =
         "practice";
@@ -1560,8 +2228,14 @@ async function startPractice(topic) {
         await supabaseClient
         .from("questions")
         .select("*")
-        .eq("topic", topic)
-        .eq("is_premium", false);
+        .eq(
+            "topic",
+            topic
+        )
+        .eq(
+            "is_premium",
+            false
+        );
 
     if (error) {
 
@@ -1636,7 +2310,10 @@ async function startDailyChallenge() {
         await supabaseClient
         .from("questions")
         .select("*")
-        .eq("is_premium", false);
+        .eq(
+            "is_premium",
+            false
+        );
 
     if (error) {
 
@@ -1663,7 +2340,10 @@ async function startDailyChallenge() {
 
     quizQuestions =
         shuffle(data)
-        .slice(0, 25);
+        .slice(
+            0,
+            25
+        );
 
     showQuizQuestion();
 
@@ -1806,7 +2486,9 @@ function checkQuizAnswer(
             selectedAnswer
         ) ===
         normalize(
-            question.answer
+            getCorrectAnswerText(
+                question
+            )
         );
 
     const feedback =
@@ -1835,7 +2517,9 @@ function checkQuizAnswer(
 
             "Correct answer: " +
             escapeHTML(
-                question.answer
+                getCorrectAnswerText(
+                    question
+                )
             ) +
 
             "</div>";
@@ -1864,7 +2548,9 @@ function checkQuizAnswer(
                         button.textContent
                     ) ===
                     normalize(
-                        question.answer
+                        getCorrectAnswerText(
+                            question
+                        )
                     )
                 ) {
 
@@ -1888,7 +2574,9 @@ function checkQuizAnswer(
 
             "Correct answer: " +
             escapeHTML(
-                question.answer
+                getCorrectAnswerText(
+                    question
+                )
             ) +
 
             "</div>";
@@ -1913,6 +2601,60 @@ function checkQuizAnswer(
     ).classList.remove(
         "hidden"
     );
+
+}
+
+
+/* =====================================================
+   CORRECT ANSWER SUPPORT
+===================================================== */
+
+function getCorrectAnswerText(
+    question
+) {
+
+    const answer =
+        String(
+            question.answer || ""
+        )
+        .trim();
+
+    const upper =
+        answer.toUpperCase();
+
+    if (
+        upper === "A"
+    ) {
+
+        return question.option_a;
+
+    }
+
+    if (
+        upper === "B"
+    ) {
+
+        return question.option_b;
+
+    }
+
+    if (
+        upper === "C"
+    ) {
+
+        return question.option_c;
+
+    }
+
+    if (
+        upper === "D"
+    ) {
+
+        return question.option_d;
+
+    }
+
+    return question.answer;
 
 }
 
@@ -2075,7 +2817,7 @@ function finishQuiz() {
 function practiceMissedQuestions() {
 
     alert(
-        "Persistent weak-topic practice will be connected to your account system so your missed questions can be saved across sessions and devices."
+        "Your missed-question history will be connected to your account so weak questions can follow you across devices."
     );
 
 }
@@ -2144,31 +2886,774 @@ function randomWrongReaction() {
 
 
 /* =====================================================
-   ACCOUNT / PREMIUM PLACEHOLDERS
+   ACCOUNT
 ===================================================== */
 
-function showAccountMessage() {
+function openAccount() {
+
+    navigateTo(
+        "accountScreen"
+    );
+
+    checkCurrentUser();
+
+}
+
+
+async function checkCurrentUser() {
+
+    const {
+        data
+    } =
+        await supabaseClient
+        .auth
+        .getUser();
+
+    const user =
+        data &&
+        data.user;
+
+    const status =
+        document.getElementById(
+            "accountStatus"
+        );
+
+    if (user) {
+
+        document.getElementById(
+            "authForm"
+        ).classList.add(
+            "hidden"
+        );
+
+        document.getElementById(
+            "loggedInBox"
+        ).classList.remove(
+            "hidden"
+        );
+
+        status.innerHTML =
+            "<div class='success-box'>" +
+            "Signed in as " +
+            escapeHTML(
+                user.email
+            ) +
+            "</div>";
+
+    }
+
+    else {
+
+        document.getElementById(
+            "authForm"
+        ).classList.remove(
+            "hidden"
+        );
+
+        document.getElementById(
+            "loggedInBox"
+        ).classList.add(
+            "hidden"
+        );
+
+        status.innerHTML = "";
+
+    }
+
+}
+
+
+async function createAccount() {
+
+    const email =
+        document.getElementById(
+            "authEmail"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "authPassword"
+        ).value;
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        showAccountStatus(
+            "Please enter an email and password."
+        );
+
+        return;
+
+    }
+
+    if (
+        password.length < 6
+    ) {
+
+        showAccountStatus(
+            "Password should contain at least 6 characters."
+        );
+
+        return;
+
+    }
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .auth
+        .signUp({
+            email: email,
+            password: password
+        });
+
+    if (error) {
+
+        showAccountStatus(
+            error.message
+        );
+
+        return;
+
+    }
+
+    if (
+        data &&
+        data.user &&
+        !data.session
+    ) {
+
+        showAccountStatus(
+            "Account created. Check your email if Supabase asks you to confirm it."
+        );
+
+    }
+
+    else {
+
+        showAccountStatus(
+            "Account created successfully."
+        );
+
+        checkCurrentUser();
+
+    }
+
+}
+
+
+async function signInUser() {
+
+    const email =
+        document.getElementById(
+            "authEmail"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "authPassword"
+        ).value;
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        showAccountStatus(
+            "Please enter your email and password."
+        );
+
+        return;
+
+    }
+
+    const {
+        error
+    } =
+        await supabaseClient
+        .auth
+        .signInWithPassword({
+            email: email,
+            password: password
+        });
+
+    if (error) {
+
+        showAccountStatus(
+            error.message
+        );
+
+        return;
+
+    }
+
+    showAccountStatus(
+        "🎉 Welcome back! Your account is connected."
+    );
+
+    checkCurrentUser();
+
+}
+
+
+async function signOutUser() {
+
+    await supabaseClient
+        .auth
+        .signOut();
+
+    checkCurrentUser();
+
+}
+
+
+function showAccountStatus(
+    message
+) {
+
+    document.getElementById(
+        "accountStatus"
+    ).innerHTML =
+        "<div class='notice'>" +
+        escapeHTML(
+            message
+        ) +
+        "</div>";
+
+}
+
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+function showPremiumMessage() {
 
     alert(
 
-        "Account sign-in will be connected securely in the next stage.\n\n" +
+        "👑 Premium is planned for the next stage.\n\n" +
 
-        "Your account will save your streak, XP, study progress and weak topics."
+        "It can include premium PDFs, previous-year questions, mock tests and downloadable study material.\n\n" +
+
+        "We will connect a proper payment system before charging anyone."
 
     );
 
 }
 
 
-function showPremiumMessage() {
+/* =====================================================
+   ADMIN LOGIN
+===================================================== */
 
-    alert(
+function openAdminLogin() {
 
-        "Premium preparation will be connected in the next stage.\n\n" +
-
-        "It will include previous-year questions, premium PDFs, daily mock tests and downloadable study material."
-
+    navigateTo(
+        "adminLoginScreen"
     );
+
+}
+
+
+async function adminLogin() {
+
+    const email =
+        document.getElementById(
+            "adminEmail"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "adminPassword"
+        ).value;
+
+    const message =
+        document.getElementById(
+            "adminLoginMessage"
+        );
+
+    message.innerHTML =
+        "";
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        message.innerHTML =
+            "<div class='error-box'>" +
+            "Enter your admin email and password." +
+            "</div>";
+
+        return;
+
+    }
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .auth
+        .signInWithPassword({
+
+            email: email,
+
+            password: password
+
+        });
+
+    if (error) {
+
+        message.innerHTML =
+            "<div class='error-box'>" +
+            escapeHTML(
+                error.message
+            ) +
+            "</div>";
+
+        return;
+
+    }
+
+    /*
+       IMPORTANT:
+       The actual database security/RLS rules
+       must also protect the questions table.
+       The dashboard is not the security layer by itself.
+    */
+
+    navigateTo(
+        "adminDashboardScreen"
+    );
+
+    updateAdminStudySets();
+
+    loadAdminQuestions();
+
+}
+
+
+/* =====================================================
+   ADMIN LOGOUT
+===================================================== */
+
+async function adminLogout() {
+
+    await supabaseClient
+        .auth
+        .signOut();
+
+    goHome();
+
+}
+
+
+/* =====================================================
+   ADMIN STUDY SETS
+===================================================== */
+
+function updateAdminStudySets() {
+
+    const topic =
+        document.getElementById(
+            "adminTopic"
+        ).value;
+
+    const select =
+        document.getElementById(
+            "adminStudySet"
+        );
+
+    const sets =
+        LIBRARY_STRUCTURE[
+            topic
+        ] || [];
+
+    select.innerHTML = "";
+
+    sets.forEach(
+        function(setName) {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                setName;
+
+            option.textContent =
+                setName;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN ADD QUESTION
+===================================================== */
+
+async function addQuestion() {
+
+    const topic =
+        document.getElementById(
+            "adminTopic"
+        ).value;
+
+    const studySet =
+        document.getElementById(
+            "adminStudySet"
+        ).value;
+
+    const question =
+        document.getElementById(
+            "adminQuestion"
+        ).value.trim();
+
+    const optionA =
+        document.getElementById(
+            "adminOptionA"
+        ).value.trim();
+
+    const optionB =
+        document.getElementById(
+            "adminOptionB"
+        ).value.trim();
+
+    const optionC =
+        document.getElementById(
+            "adminOptionC"
+        ).value.trim();
+
+    const optionD =
+        document.getElementById(
+            "adminOptionD"
+        ).value.trim();
+
+    const answerLetter =
+        document.getElementById(
+            "adminAnswer"
+        ).value;
+
+    const isPremium =
+        document.getElementById(
+            "adminPremium"
+        ).value === "true";
+
+    const message =
+        document.getElementById(
+            "adminAddMessage"
+        );
+
+    if (
+        !topic ||
+        !studySet ||
+        !question ||
+        !optionA ||
+        !optionB ||
+        !optionC ||
+        !optionD ||
+        !answerLetter
+    ) {
+
+        message.innerHTML =
+            "<div class='error-box'>" +
+            "Please fill every field before adding the question." +
+            "</div>";
+
+        return;
+
+    }
+
+    let answerText;
+
+    if (
+        answerLetter === "A"
+    ) {
+
+        answerText =
+            optionA;
+
+    }
+
+    else if (
+        answerLetter === "B"
+    ) {
+
+        answerText =
+            optionB;
+
+    }
+
+    else if (
+        answerLetter === "C"
+    ) {
+
+        answerText =
+            optionC;
+
+    }
+
+    else {
+
+        answerText =
+            optionD;
+
+    }
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .from("questions")
+        .insert({
+
+            topic: topic,
+
+            study_set: studySet,
+
+            question: question,
+
+            option_a: optionA,
+
+            option_b: optionB,
+
+            option_c: optionC,
+
+            option_d: optionD,
+
+            answer: answerText,
+
+            is_premium: isPremium
+
+        })
+        .select();
+
+    if (error) {
+
+        message.innerHTML =
+            "<div class='error-box'>" +
+            escapeHTML(
+                error.message
+            ) +
+            "</div>";
+
+        return;
+
+    }
+
+    message.innerHTML =
+        "<div class='success-box'>" +
+        "✅ Question added successfully!" +
+        "</div>";
+
+    document.getElementById(
+        "adminQuestion"
+    ).value = "";
+
+    document.getElementById(
+        "adminOptionA"
+    ).value = "";
+
+    document.getElementById(
+        "adminOptionB"
+    ).value = "";
+
+    document.getElementById(
+        "adminOptionC"
+    ).value = "";
+
+    document.getElementById(
+        "adminOptionD"
+    ).value = "";
+
+    document.getElementById(
+        "adminAnswer"
+    ).value = "";
+
+    loadAdminQuestions();
+
+}
+
+
+/* =====================================================
+   ADMIN QUESTIONS
+===================================================== */
+
+async function loadAdminQuestions() {
+
+    const container =
+        document.getElementById(
+            "adminQuestionsList"
+        );
+
+    container.innerHTML =
+        "<div class='loading'>Loading questions...</div>";
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+        .from("questions")
+        .select("*")
+        .order(
+            "id",
+            {
+                ascending: true
+            }
+        );
+
+    if (error) {
+
+        container.innerHTML =
+            "<div class='error-box'>" +
+            escapeHTML(
+                error.message
+            ) +
+            "</div>";
+
+        return;
+
+    }
+
+    if (
+        !data ||
+        data.length === 0
+    ) {
+
+        container.innerHTML =
+            "<div class='center'>" +
+            "No questions found." +
+            "</div>";
+
+        return;
+
+    }
+
+    container.innerHTML = "";
+
+    data.forEach(
+        function(q) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.className =
+                "admin-question";
+
+            const premiumBadge =
+                q.is_premium
+                    ? "<span class='badge'>👑 Premium</span>"
+                    : "<span class='badge'>🆓 Free</span>";
+
+            div.innerHTML =
+
+                "<strong>" +
+                "Question #" +
+                escapeHTML(
+                    q.id
+                ) +
+                "</strong>" +
+
+                "<div>" +
+                premiumBadge +
+                "</div>" +
+
+                "<p>" +
+                escapeHTML(
+                    q.question
+                ) +
+                "</p>" +
+
+                "<div class='small'>" +
+                escapeHTML(
+                    q.topic
+                ) +
+                " • " +
+                escapeHTML(
+                    q.study_set
+                ) +
+                "</div>" +
+
+                "<div class='admin-actions'>" +
+
+                "<button class='danger' onclick='deleteQuestion(" +
+                Number(q.id) +
+                ")'>" +
+
+                "🗑️ Delete" +
+
+                "</button>" +
+
+                "</div>";
+
+            container.appendChild(
+                div
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN DELETE QUESTION
+===================================================== */
+
+async function deleteQuestion(
+    id
+) {
+
+    const confirmed =
+        confirm(
+            "Delete this question permanently?"
+        );
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+    const {
+        error
+    } =
+        await supabaseClient
+        .from("questions")
+        .delete()
+        .eq(
+            "id",
+            id
+        );
+
+    if (error) {
+
+        alert(
+            "Could not delete question: " +
+            error.message
+        );
+
+        return;
+
+    }
+
+    loadAdminQuestions();
 
 }
 
@@ -2177,13 +3662,18 @@ function showPremiumMessage() {
    HELPERS
 ===================================================== */
 
-function shuffle(array) {
+function shuffle(
+    array
+) {
 
     const copy =
-        [...array];
+        [
+            ...array
+        ];
 
     for (
-        let i = copy.length - 1;
+        let i =
+            copy.length - 1;
         i > 0;
         i--
     ) {
@@ -2210,7 +3700,9 @@ function shuffle(array) {
 }
 
 
-function randomItem(array) {
+function randomItem(
+    array
+) {
 
     return array[
         Math.floor(
@@ -2222,7 +3714,9 @@ function randomItem(array) {
 }
 
 
-function normalize(value) {
+function normalize(
+    value
+) {
 
     return String(
         value || ""
@@ -2233,7 +3727,9 @@ function normalize(value) {
 }
 
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
 
     if (
         value === null ||
@@ -2244,37 +3740,41 @@ function escapeHTML(value) {
 
     }
 
-    return String(value)
+    return String(
+        value
+    )
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
-function showQuizError(message) {
+function showQuizError(
+    message
+) {
 
     document.getElementById(
         "quizQuestion"
@@ -2302,6 +3802,10 @@ function showQuizError(message) {
 checkDailyReset();
 
 updateStats();
+
+setDailyMessages();
+
+updateAdminStudySets();
 
 </script>
 
