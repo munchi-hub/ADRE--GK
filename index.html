@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ADRE Prep | Assam Exam Preparation</title>
-<meta name="description" content="ADRE preparation website with GK study material, practice quizzes, daily challenges, XP, streaks and revision.">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="ADRE GK Quiz – Assam Direct Recruitment Exam preparation">
+
+<title>ADRE GK Quiz – Assam Exam Preparation</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
 /* =====================================================
-   BASE
+   RESET
 ===================================================== */
 
 *{
@@ -25,69 +29,87 @@ html{
 
 body{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f6fb;
-    color:#20242c;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    background:#f5f7fb;
+    color:#172033;
 }
 
 button,
 input,
-select,
-textarea{
+textarea,
+select{
     font:inherit;
 }
 
 button{
-    border:none;
-    border-radius:12px;
-    padding:13px 17px;
-    font-size:15px;
-    font-weight:bold;
     cursor:pointer;
-    transition:.18s ease;
-}
-
-button:hover{
-    transform:translateY(-1px);
-}
-
-button:disabled{
-    cursor:default;
-    opacity:.65;
-    transform:none;
-}
-
-.primary{
-    background:#182848;
-    color:white;
-}
-
-.secondary{
-    background:#eef1f7;
-    color:#182848;
-}
-
-.success{
-    background:#42a866;
-    color:white;
-}
-
-.danger{
-    background:#d95757;
-    color:white;
-}
-
-.warning{
-    background:#e7a52b;
-    color:white;
-}
-
-.full{
-    width:100%;
 }
 
 .hidden{
     display:none!important;
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.app{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:16px;
+}
+
+header{
+    background:#ffffff;
+    border-bottom:1px solid #e7eaf0;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo span{
+    display:block;
+    font-size:11px;
+    color:#687386;
+    font-weight:500;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:
+        0 4px 20px rgba(30,40,70,.06);
 }
 
 .center{
@@ -96,533 +118,708 @@ button:disabled{
 
 .small{
     font-size:13px;
-    color:#666;
+    color:#687386;
+    line-height:1.5;
 }
 
-.muted{
-    color:#777;
-}
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:15px;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-    background:#182848;
-    color:white;
-    padding:25px 16px;
-    text-align:center;
-}
-
-header h1{
-    margin:0;
-    font-size:30px;
-}
-
-header p{
-    margin:8px 0 0;
-    opacity:.9;
-}
-
-
-/* =====================================================
-   CARDS
-===================================================== */
-
-.card{
-    background:white;
-    border-radius:18px;
-    padding:22px;
-    margin:15px 0;
-    box-shadow:0 5px 18px rgba(0,0,0,.07);
-}
-
-.hero{
-    text-align:center;
-}
-
-.hero h2{
+h1,
+h2,
+h3,
+h4{
     margin-top:0;
 }
 
+h1{
+    font-size:32px;
+}
+
+h2{
+    font-size:24px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.primary,
+.secondary,
+.danger{
+    border:0;
+    border-radius:12px;
+    padding:12px 16px;
+    font-weight:700;
+    transition:.18s;
+}
+
+.primary{
+    background:#172033;
+    color:#fff;
+}
+
+.primary:hover{
+    transform:translateY(-1px);
+    opacity:.92;
+}
+
+.secondary{
+    background:#eef1f6;
+    color:#172033;
+}
+
+.secondary:hover{
+    background:#e2e6ee;
+}
+
+.danger{
+    background:#ffe7e7;
+    color:#b42318;
+}
+
+.full{
+    width:100%;
+}
+
+.back{
+    margin-bottom:15px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    text-align:center;
+    padding:30px 12px;
+}
+
+.hero h1{
+    margin-bottom:10px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 20px;
+    color:#687386;
+    line-height:1.6;
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+/* =====================================================
+   STATS
+===================================================== */
+
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:12px;
+    margin-bottom:18px;
 }
 
 .stat{
-    background:#f1f4ff;
-    border-radius:14px;
-    padding:15px 8px;
+    background:#fff;
+    border-radius:16px;
+    padding:16px;
     text-align:center;
+    box-shadow:
+        0 4px 18px rgba(30,40,70,.05);
 }
 
 .stat strong{
     display:block;
-    font-size:22px;
-    margin-bottom:5px;
+    font-size:20px;
 }
 
+.stat span{
+    color:#687386;
+    font-size:12px;
+}
 
 /* =====================================================
-   GRIDS
+   DAILY
 ===================================================== */
 
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:11px;
+.daily-card{
+    border:2px solid #172033;
 }
 
-.admin-stat-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+.daily-card h2{
+    margin-bottom:6px;
+}
+
+.daily-reaction{
+    margin:10px 0 16px;
+    line-height:1.5;
+}
+
+/* =====================================================
+   TOPICS
+===================================================== */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     gap:10px;
 }
 
-
-/* =====================================================
-   TOPIC BUTTONS
-===================================================== */
+.topic-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;
+}
 
 .topic-button{
-    background:white;
-    border:2px solid #ddd;
+    width:100%;
     text-align:left;
-    min-height:72px;
+    border:1px solid #e2e6ee;
+    background:#fff;
+    border-radius:14px;
+    padding:16px;
+    font-weight:800;
+    color:#172033;
+    transition:.18s;
 }
 
 .topic-button:hover{
-    background:#f4f6ff;
+    transform:translateY(-2px);
+    box-shadow:
+        0 6px 18px rgba(30,40,70,.08);
 }
 
 .topic-description{
     display:block;
-    margin-top:5px;
+    margin-top:6px;
     font-size:12px;
-    font-weight:normal;
-    color:#666;
+    color:#687386;
+    font-weight:500;
 }
-
-.topic-icon{
-    font-size:22px;
-    margin-right:5px;
-}
-
-
-/* =====================================================
-   DAILY CHALLENGE
-===================================================== */
-
-.challenge{
-    background:#fff8e6;
-}
-
-.timer-card{
-    text-align:center;
-}
-
-.timer{
-    font-size:34px;
-    font-weight:bold;
-    margin:10px 0;
-}
-
-.reaction{
-    min-height:25px;
-    margin-top:10px;
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   LIBRARY
-===================================================== */
-
-.library-header{
-    border-bottom:1px solid #ddd;
-    padding-bottom:15px;
-    margin-bottom:10px;
-}
-
-.study-question{
-    padding:20px 0;
-    border-bottom:1px solid #ddd;
-}
-
-.study-question:last-child{
-    border-bottom:none;
-}
-
-.study-question-number{
-    color:#182848;
-    font-weight:bold;
-}
-
-.study-options{
-    line-height:1.8;
-    margin:12px 0;
-}
-
-.answer-box{
-    background:#eefaf2;
-    border-radius:10px;
-    padding:12px;
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   QUIZ
-===================================================== */
-
-.quiz-question{
-    font-size:21px;
-    font-weight:bold;
-    line-height:1.4;
-    margin:18px 0 20px;
-}
-
-.option{
-    width:100%;
-    margin:7px 0;
-    background:white;
-    border:2px solid #ddd;
-    text-align:left;
-}
-
-.option.correct{
-    background:#e9f8ee;
-    border-color:#42a866;
-}
-
-.option.wrong{
-    background:#fff0f0;
-    border-color:#d95757;
-}
-
-.feedback{
-    margin-top:18px;
-    padding:15px;
-    border-radius:12px;
-    font-weight:bold;
-}
-
-.feedback.correct{
-    background:#e9f8ee;
-}
-
-.feedback.wrong{
-    background:#fff0f0;
-}
-
-.correct-answer{
-    margin-top:8px;
-    font-weight:normal;
-}
-
-.quiz-score{
-    background:#f1f4ff;
-    border-radius:12px;
-    padding:12px;
-    text-align:center;
-    font-weight:bold;
-}
-
-
-/* =====================================================
-   COMPLETE
-===================================================== */
-
-.score-big{
-    font-size:42px;
-    font-weight:bold;
-    color:#182848;
-}
-
-.missed-item{
-    padding:13px;
-    background:#fff8e6;
-    border-radius:10px;
-    margin:7px 0;
-}
-
-.result-good{
-    background:#eefaf2;
-    border-radius:12px;
-    padding:15px;
-}
-
-.result-average{
-    background:#fff8e6;
-    border-radius:12px;
-    padding:15px;
-}
-
-.result-low{
-    background:#fff0f0;
-    border-radius:12px;
-    padding:15px;
-}
-
-
-/* =====================================================
-   ACCOUNT
-===================================================== */
-
-.account-box{
-    background:#eefaf2;
-}
-
-
-/* =====================================================
-   PREMIUM
-===================================================== */
-
-.premium{
-    background:#f5efff;
-}
-
-.premium li{
-    margin:9px 0;
-}
-
-
-/* =====================================================
-   COMING SOON
-===================================================== */
-
-.coming{
-    background:#f3f0ff;
-}
-
-.coming-item{
-    padding:13px 0;
-    border-bottom:1px solid #ddd;
-}
-
-.coming-item:last-child{
-    border-bottom:none;
-}
-
 
 /* =====================================================
    FORMS
 ===================================================== */
 
-.auth-form{
-    max-width:500px;
-    margin:auto;
+.form-group{
+    margin-bottom:14px;
 }
 
-.auth-toggle{
-    text-align:center;
-    margin-top:12px;
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    font-size:13px;
+    font-weight:700;
 }
 
-input,
-select,
-textarea{
+.form-group input,
+.form-group textarea,
+.form-group select,
+.search-input{
     width:100%;
     padding:12px;
-    margin:6px 0 12px;
-    border:2px solid #ddd;
+    border:1px solid #dce1ea;
     border-radius:10px;
-    font-size:15px;
+    outline:none;
+    background:#fff;
 }
 
-textarea{
+.form-group textarea{
     min-height:90px;
     resize:vertical;
 }
 
-label{
-    font-weight:bold;
-    font-size:14px;
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.search-input:focus{
+    border-color:#172033;
 }
-
 
 /* =====================================================
-   ADMIN
+   AUTH
 ===================================================== */
 
-.admin-card{
-    background:#f7f4ff;
-    border:2px solid #ddd4ff;
+.auth-card{
+    max-width:480px;
+    margin:30px auto;
 }
 
-.admin-question{
-    border:1px solid #ddd;
-    border-radius:12px;
-    padding:14px;
-    margin:10px 0;
-    background:white;
-}
-
-.admin-question h4{
-    margin:0 0 8px;
-}
-
-.admin-actions{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:10px;
-}
-
-.admin-stat{
-    background:white;
-    border-radius:12px;
-    padding:15px;
+.auth-switch{
     text-align:center;
-    border:1px solid #ddd;
+    margin-top:15px;
 }
-
-.admin-stat strong{
-    display:block;
-    font-size:23px;
-}
-
-.badge{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:bold;
-    background:#eef1f7;
-}
-
-.badge.premium-badge{
-    background:#f1e7ff;
-    color:#6c3ca3;
-}
-
-.badge.free-badge{
-    background:#e9f8ee;
-    color:#267340;
-}
-
 
 /* =====================================================
-   MESSAGES
+   LOADING / MESSAGES
 ===================================================== */
-
-.error-box{
-    background:#fff0f0;
-    color:#9b0000;
-    padding:14px;
-    border-radius:10px;
-    margin-top:10px;
-}
-
-.success-box{
-    background:#eefaf2;
-    color:#176b35;
-    padding:14px;
-    border-radius:10px;
-    margin-top:10px;
-}
-
-.notice{
-    padding:12px;
-    border-radius:10px;
-    background:#fff8e6;
-    margin:10px 0;
-}
 
 .loading{
     text-align:center;
-    padding:25px;
-    color:#666;
+    padding:30px;
+    color:#687386;
 }
 
-.back{
-    margin-bottom:12px;
+.error-box,
+.success-box,
+.info-box{
+    border-radius:10px;
+    padding:12px;
+    margin:10px 0;
+    line-height:1.5;
 }
 
+.error-box{
+    background:#fff0f0;
+    color:#a61b1b;
+}
+
+.success-box{
+    background:#edf9f1;
+    color:#176b36;
+}
+
+.info-box{
+    background:#eef4ff;
+    color:#244f99;
+}
 
 /* =====================================================
-   ANIMATION
+   STUDY
 ===================================================== */
 
-.pop{
-    animation:pop .35s ease;
+.study-question{
+    border:1px solid #e4e7ed;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:14px;
 }
 
-@keyframes pop{
-    0%{
-        transform:scale(.8);
-        opacity:0;
-    }
-    70%{
-        transform:scale(1.05);
-        opacity:1;
-    }
-    100%{
-        transform:scale(1);
-    }
+.study-question-number{
+    font-size:12px;
+    font-weight:800;
+    color:#687386;
+    margin-bottom:8px;
+}
+
+.study-options{
+    background:#f7f8fa;
+    padding:14px;
+    border-radius:10px;
+    line-height:1.9;
+}
+
+.answer-box{
+    margin-top:12px;
+    padding:12px;
+    background:#edf9f1;
+    border-radius:10px;
+    color:#176b36;
+}
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz-score{
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+.quiz-question{
+    font-size:22px;
+    font-weight:800;
+    line-height:1.45;
+    margin:20px 0;
+}
+
+.option{
+    width:100%;
+    text-align:left;
+    border:1px solid #dfe3ea;
+    background:#fff;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.option:hover{
+    background:#f5f7fa;
+}
+
+.option:disabled{
+    cursor:default;
+}
+
+.option.correct{
+    background:#dcf8e6;
+    border-color:#2e9b55;
+    color:#176b36;
+}
+
+.option.wrong{
+    background:#ffe0e0;
+    border-color:#d33b3b;
+    color:#a61b1b;
+}
+
+.feedback{
+    padding:15px;
+    border-radius:12px;
+    margin:15px 0;
+    line-height:1.5;
+    font-weight:700;
+}
+
+.feedback.correct{
+    background:#edf9f1;
+    color:#176b36;
+}
+
+.feedback.wrong{
+    background:#fff0f0;
+    color:#a61b1b;
+}
+
+.correct-answer{
+    margin-top:8px;
+    font-weight:500;
+}
+
+.pop{
+    animation:pop .3s ease;
 }
 
 .shake{
     animation:shake .35s ease;
 }
 
-@keyframes shake{
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-5px)}
-    75%{transform:translateX(5px)}
+@keyframes pop{
+    50%{
+        transform:scale(1.04);
+    }
 }
 
+@keyframes shake{
+    25%{transform:translateX(-5px)}
+    50%{transform:translateX(5px)}
+    75%{transform:translateX(-3px)}
+}
+
+/* =====================================================
+   COMPLETE
+===================================================== */
+
+.score-big{
+    font-size:48px;
+    font-weight:900;
+}
+
+.result-good{
+    padding:15px;
+    border-radius:12px;
+    background:#edf9f1;
+    margin:15px 0;
+    font-weight:800;
+}
+
+.result-average{
+    padding:15px;
+    border-radius:12px;
+    background:#fff8df;
+    margin:15px 0;
+    font-weight:800;
+}
+
+.result-low{
+    padding:15px;
+    border-radius:12px;
+    background:#fff0f0;
+    margin:15px 0;
+    font-weight:800;
+}
+
+.missed-item{
+    padding:12px;
+    border:1px solid #e2e6ee;
+    border-radius:10px;
+    margin-top:8px;
+}
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+.timer-box{
+    text-align:center;
+}
+
+.timer{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.timer-message{
+    min-height:25px;
+    margin:10px 0;
+}
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+.admin-stats{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.admin-stat{
+    padding:14px;
+    background:#f6f7fa;
+    border-radius:12px;
+    text-align:center;
+}
+
+.admin-stat strong{
+    display:block;
+    font-size:22px;
+}
+
+.admin-stat span{
+    font-size:12px;
+    color:#687386;
+}
+
+.admin-question{
+    border:1px solid #e1e5ec;
+    border-radius:13px;
+    padding:15px;
+    margin-top:10px;
+}
+
+.admin-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.free-badge{
+    background:#e8f7ed;
+    color:#176b36;
+}
+
+.premium-badge{
+    background:#fff2c7;
+    color:#765900;
+}
+
+/* =====================================================
+   USERS
+===================================================== */
+
+.user-card{
+    border:1px solid #e1e5ec;
+    border-radius:14px;
+    padding:15px;
+    margin-top:10px;
+}
+
+.user-email{
+    font-weight:800;
+    word-break:break-word;
+}
+
+.user-meta{
+    color:#687386;
+    font-size:12px;
+    line-height:1.7;
+    margin-top:8px;
+}
+
+.user-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+.premium-card{
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #fff
+        );
+    border:1px solid #ead69a;
+}
+
+.premium-feature{
+    padding:9px 0;
+    border-bottom:1px solid #eee7d2;
+}
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+.account-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+}
+
+.account-stat{
+    background:#f6f7fa;
+    border-radius:12px;
+    padding:14px;
+}
+
+.account-stat strong{
+    display:block;
+    font-size:20px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    text-align:center;
+    color:#7a8392;
+    font-size:12px;
+    padding:25px 10px;
+}
 
 /* =====================================================
    MOBILE
 ===================================================== */
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-    .grid{
-        grid-template-columns:1fr 1fr;
+    .app{
+        padding:10px;
     }
 
     .card{
-        padding:18px;
+        padding:17px;
+        border-radius:15px;
+    }
+
+    h1{
+        font-size:27px;
+    }
+
+    h2{
+        font-size:21px;
+    }
+
+    .stats,
+    .admin-stats{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .stat{
+        padding:12px 5px;
+    }
+
+    .stat strong{
+        font-size:17px;
+    }
+
+    .stat span{
+        font-size:10px;
     }
 
     .quiz-question{
         font-size:19px;
     }
 
-    .admin-stat-grid{
-        grid-template-columns:1fr 1fr 1fr;
+    .score-big{
+        font-size:40px;
     }
 
-    header h1{
-        font-size:27px;
-    }
+}
 
+/* =====================================================
+   FOOTER NAV
+===================================================== */
+
+.bottom-nav{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:10px 0;
+}
+
+.bottom-nav button{
+    white-space:nowrap;
 }
 
 </style>
 </head>
 
-
 <body>
 
 <header>
-    <h1>📚 ADRE Prep</h1>
-    <p>Learn • Practice • Improve</p>
+
+<div class="header-inner">
+
+    <div class="logo">
+        📚 ADRE GK
+        <span>Assam Exam Preparation</span>
+    </div>
+
+    <div class="header-actions">
+
+        <button
+            class="secondary"
+            onclick="goHome()">
+
+            🏠
+
+        </button>
+
+        <button
+            class="secondary"
+            onclick="openAccount()">
+
+            👤
+
+        </button>
+
+    </div>
+
+</div>
+
 </header>
 
 
-<div class="container">
+<div class="app">
 
 
 <!-- =====================================================
@@ -631,90 +828,115 @@ label{
 
 <div id="homeScreen">
 
-    <div class="card hero">
+    <section class="hero">
 
-        <h2>Prepare smarter for ADRE</h2>
+        <h1>
+            🎯 Prepare Smarter for ADRE
+        </h1>
 
         <p>
-            Study important General Knowledge,
-            practice what you've learned and build
-            a consistent study habit.
+            Study Assam GK, Indian history, geography,
+            polity, economics, culture and more through
+            a simple game-like preparation system.
         </p>
 
-        <p class="small">
-            Learn first. Practice second. Improve every day.
-        </p>
+        <div class="hero-actions">
 
-    </div>
+            <button
+                class="primary"
+                onclick="startDailyChallenge()">
+
+                🔥 Today's Challenge
+
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openAuth()">
+
+                👤 Sign In / Create Account
+
+            </button>
+
+        </div>
+
+    </section>
 
 
     <!-- STATS -->
 
-    <div class="card">
+    <div class="stats">
 
-        <div class="stats">
+        <div class="stat">
 
-            <div class="stat">
-                <strong>⭐</strong>
-                <span id="xp">0 XP</span>
-            </div>
+            <strong id="xp">
+                0 XP
+            </strong>
 
-            <div class="stat">
-                <strong>🔥</strong>
-                <span id="streak">0 Day Streak</span>
-            </div>
+            <span>
+                Experience
+            </span>
 
-            <div class="stat">
-                <strong>⏱️</strong>
-                <span id="todayTime">0 min</span>
-            </div>
+        </div>
+
+        <div class="stat">
+
+            <strong id="streak">
+                0 Day Streak
+            </strong>
+
+            <span>
+                Consistency
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong id="todayTime">
+                0 min
+            </strong>
+
+            <span>
+                Today's Study
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- DAILY CHALLENGE -->
+    <!-- DAILY -->
 
-    <div class="card challenge">
+    <div class="card daily-card">
 
-        <h2>🔥 Daily Challenge</h2>
+        <h2>
+            🔥 Daily Challenge
+        </h2>
 
-        <p>
-            Complete
-            <strong>25 mixed GK questions</strong>
-            or spend at least
-            <strong>10 minutes</strong>
-            actively studying today
-            to protect your streak.
-        </p>
-
-        <p class="small">
-            Questions are automatically selected
-            from available free GK questions.
+        <p
+            id="dailyReaction"
+            class="daily-reaction">
         </p>
 
         <button
             class="primary full"
             onclick="startDailyChallenge()">
 
-            Start Today's Challenge
+            Start Today's 25 Questions →
 
         </button>
-
-        <div
-            id="dailyReaction"
-            class="reaction">
-        </div>
 
     </div>
 
 
     <!-- TIMER -->
 
-    <div class="card timer-card">
+    <div class="card timer-box">
 
-        <h2>⏱️ Study Timer</h2>
+        <h2>
+            ⏱️ Study Timer
+        </h2>
 
         <div
             id="timer"
@@ -724,10 +946,13 @@ label{
 
         </div>
 
-        <div
+        <p
             id="timerMessage"
-            class="reaction">
-        </div>
+            class="timer-message small">
+
+            Start a focused session.
+
+        </p>
 
         <button
             id="timerButton"
@@ -741,73 +966,18 @@ label{
     </div>
 
 
-    <!-- STUDY LIBRARY -->
-
-    <div class="card">
-
-        <h2>📖 Study Library</h2>
-
-        <p>
-            Study organized GK question sets before
-            testing yourself in Practice.
-        </p>
-
-        <div class="grid" id="libraryTopicGrid"></div>
-
-    </div>
-
-
-    <!-- PRACTICE -->
-
-    <div class="card">
-
-        <h2>🎮 Practice</h2>
-
-        <p>
-            Test yourself on a topic.
-            Questions are automatically selected
-            from the Study Library.
-        </p>
-
-        <div class="grid" id="practiceTopicGrid"></div>
-
-    </div>
-
-
-    <!-- MISSED -->
-
-    <div class="card">
-
-        <h2>🔁 Practice What You Missed</h2>
-
-        <p id="missedMessage">
-            Questions you get wrong can be saved
-            so you can revisit your weak areas.
-        </p>
-
-        <button
-            class="secondary"
-            onclick="practiceMissedQuestions()">
-
-            Practice Missed Questions
-
-        </button>
-
-        <div
-            id="missedReaction"
-            class="reaction">
-        </div>
-
-    </div>
-
-
     <!-- ACCOUNT -->
 
-    <div class="card account-box">
+    <div class="card">
 
-        <h2>💾 Save Your Progress</h2>
+        <h2>
+            👤 Your Progress
+        </h2>
 
-        <p id="signInMessage"></p>
+        <p
+            id="signInMessage"
+            class="small">
+        </p>
 
         <div id="accountArea"></div>
 
@@ -816,67 +986,119 @@ label{
 
     <!-- PREMIUM -->
 
-    <div class="card premium">
+    <div class="card premium-card">
 
-        <h2>👑 Premium Preparation</h2>
+        <h2>
+            👑 Premium Preparation
+        </h2>
 
-        <p>
-            For serious aspirants who want deeper
-            preparation.
-        </p>
+        <div class="premium-feature">
+            📄 Premium PDFs
+        </div>
 
-        <ul>
+        <div class="premium-feature">
+            📝 Previous-year questions
+        </div>
 
-            <li>📄 Premium PDFs</li>
-            <li>📚 Premium study material</li>
-            <li>📝 Previous-year questions</li>
-            <li>🎯 Daily mock tests</li>
-            <li>⬇️ Downloadable study material</li>
-            <li>➕ Additional premium study sets</li>
+        <div class="premium-feature">
+            🎯 Full mock tests
+        </div>
 
-        </ul>
+        <div class="premium-feature">
+            📚 Additional study sets
+        </div>
+
+        <div class="premium-feature">
+            📥 Downloadable study material
+        </div>
+
+        <br>
 
         <button
             class="primary full"
-            onclick="showPremiumMessage()">
+            onclick="openPremium()">
 
-            Explore Premium
+            👑 View Premium
 
         </button>
 
     </div>
 
 
-    <!-- COMING SOON -->
+    <!-- LIBRARY -->
 
-    <div class="card coming">
+    <div class="card">
 
-        <h2>🚀 Coming Soon</h2>
+        <div class="section-title">
 
-        <p>
-            More ADRE sections can be added after
-            the GK foundation is complete.
+            <h2>
+                📖 Study Library
+            </h2>
+
+        </div>
+
+        <p class="small">
+            Choose a subject and study the questions
+            like a digital book.
         </p>
 
-        <div class="coming-item">
-            🧠 Logical Reasoning & Mental Ability
+        <div
+            id="libraryTopicGrid"
+            class="topic-grid">
         </div>
 
-        <div class="coming-item">
-            📖 General English
+    </div>
+
+
+    <!-- PRACTICE -->
+
+    <div class="card">
+
+        <div class="section-title">
+
+            <h2>
+                🎮 Practice
+            </h2>
+
         </div>
 
-        <div class="coming-item">
-            🔢 General Mathematics
+        <p class="small">
+            Choose a topic and test yourself.
+            Every correct answer earns XP.
+        </p>
+
+        <div
+            id="practiceTopicGrid"
+            class="topic-grid">
         </div>
 
-        <div class="coming-item">
-            📝 Comprehension & English Language
-        </div>
+    </div>
 
-        <div class="coming-item">
-            📚 More ADRE practice material
-        </div>
+
+    <!-- MISSED -->
+
+    <div class="card">
+
+        <h2>
+            🔁 Missed Questions
+        </h2>
+
+        <p
+            id="missedReaction"
+            class="small">
+
+            Questions you get wrong are automatically
+            saved here for revision.
+
+        </p>
+
+        <button
+            class="secondary full"
+            onclick="practiceMissedQuestions()">
+
+            Practice What I Missed →
+
+        </button>
 
     </div>
 
@@ -889,63 +1111,76 @@ label{
 
 <div
     id="authScreen"
-    class="card hidden">
+    class="card auth-card hidden">
 
     <button
         class="secondary back"
-        onclick="goHome()">
+        onclick="goBack()">
 
         ← Back
 
     </button>
 
-    <div class="auth-form">
+    <h2 id="authTitle">
+        🔐 Sign In
+    </h2>
 
-        <h2 id="authTitle">
-            🔐 Sign In
-        </h2>
+    <p
+        id="authDescription"
+        class="small">
+    </p>
 
-        <p id="authDescription">
-            Sign in to save your progress.
-        </p>
+    <div
+        id="authError">
+    </div>
 
-        <label>Email</label>
+    <div class="form-group">
+
+        <label>
+            Email
+        </label>
 
         <input
             id="authEmail"
             type="email"
-            placeholder="Your email">
+            autocomplete="email"
+            placeholder="you@example.com">
 
-        <label>Password</label>
+    </div>
+
+    <div class="form-group">
+
+        <label>
+            Password
+        </label>
 
         <input
             id="authPassword"
             type="password"
+            autocomplete="current-password"
             placeholder="Your password">
 
-        <button
-            id="authButton"
-            class="primary full"
-            onclick="submitAuth()">
+    </div>
 
-            Sign In
+    <button
+        id="authButton"
+        class="primary full"
+        onclick="submitAuth()">
+
+        Sign In
+
+    </button>
+
+    <div class="auth-switch">
+
+        <button
+            id="authToggleButton"
+            class="secondary"
+            onclick="toggleAuthMode()">
+
+            Create a new account
 
         </button>
-
-        <div id="authError"></div>
-
-        <div class="auth-toggle">
-
-            <button
-                class="secondary"
-                onclick="toggleAuthMode()"
-                id="authToggleButton">
-
-                Create a new account
-
-            </button>
-
-        </div>
 
     </div>
 
@@ -953,7 +1188,7 @@ label{
 
 
 <!-- =====================================================
-     ACCOUNT SCREEN
+     ACCOUNT
 ===================================================== -->
 
 <div
@@ -968,219 +1203,11 @@ label{
 
     </button>
 
-    <h2>👤 Your Account</h2>
+    <h2>
+        👤 Your Account
+    </h2>
 
     <div id="accountDetails"></div>
-
-    <br>
-
-    <button
-        class="secondary"
-        onclick="signOutUser()">
-
-        Sign Out
-
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     ADMIN
-===================================================== -->
-
-<div
-    id="adminScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-
-        ← Back
-
-    </button>
-
-    <h2>🔐 Admin Dashboard</h2>
-
-    <p>
-        Manage your ADRE question bank here.
-    </p>
-
-    <div id="adminMessage"></div>
-
-
-    <div class="admin-stat-grid">
-
-        <div class="admin-stat">
-
-            <strong id="adminTotal">
-                0
-            </strong>
-
-            <span>Total Questions</span>
-
-        </div>
-
-        <div class="admin-stat">
-
-            <strong id="adminFree">
-                0
-            </strong>
-
-            <span>Free</span>
-
-        </div>
-
-        <div class="admin-stat">
-
-            <strong id="adminPremium">
-                0
-            </strong>
-
-            <span>Premium</span>
-
-        </div>
-
-    </div>
-
-
-    <!-- ADD QUESTION -->
-
-    <div class="card admin-card">
-
-        <h3>➕ Add Question</h3>
-
-        <label>Topic</label>
-
-        <select id="adminTopic"></select>
-
-
-        <label>Study Set</label>
-
-        <select id="adminStudySet"></select>
-
-
-        <label>Question</label>
-
-        <textarea
-            id="adminQuestion"
-            placeholder="Enter the question">
-        </textarea>
-
-
-        <label>Option A</label>
-
-        <input id="adminA">
-
-
-        <label>Option B</label>
-
-        <input id="adminB">
-
-
-        <label>Option C</label>
-
-        <input id="adminC">
-
-
-        <label>Option D</label>
-
-        <input id="adminD">
-
-
-        <label>Correct Answer</label>
-
-        <select id="adminAnswer">
-
-            <option value="">
-                Choose correct answer
-            </option>
-
-        </select>
-
-
-        <label>Explanation</label>
-
-        <textarea
-            id="adminExplanation"
-            placeholder="Optional explanation">
-        </textarea>
-
-
-        <label>Question Type</label>
-
-        <select id="adminPremium">
-
-            <option value="false">
-                🆓 Free
-            </option>
-
-            <option value="true">
-                👑 Premium
-            </option>
-
-        </select>
-
-
-        <button
-            class="primary full"
-            onclick="addQuestion()">
-
-            Add Question
-
-        </button>
-
-        <div id="addQuestionMessage"></div>
-
-    </div>
-
-
-    <!-- MANAGE -->
-
-    <div class="card admin-card">
-
-        <h3>🔎 Manage Questions</h3>
-
-        <input
-            id="adminSearch"
-            placeholder="Search questions..."
-            oninput="renderAdminQuestions()">
-
-
-        <select
-            id="adminFilterTopic"
-            onchange="renderAdminQuestions()">
-
-            <option value="">
-                All Topics
-            </option>
-
-        </select>
-
-
-        <div id="adminQuestionsList">
-
-            <div class="loading">
-                Loading questions...
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="notice">
-
-        👥 Registered users can be viewed from
-        Supabase → Authentication → Users.
-
-        <br><br>
-
-        Your secret/service-role key is never placed
-        inside this website.
-
-    </div>
 
 </div>
 
@@ -1201,15 +1228,11 @@ label{
 
     </button>
 
-    <div class="library-header">
+    <h2 id="libraryTopicTitle"></h2>
 
-        <h2 id="libraryTopicTitle"></h2>
-
-        <p>
-            Choose a study section.
-        </p>
-
-    </div>
+    <p class="small">
+        Choose a section to study.
+    </p>
 
     <div id="librarySets"></div>
 
@@ -1329,6 +1352,453 @@ label{
 </div>
 
 
+<!-- =====================================================
+     PREMIUM
+===================================================== -->
+
+<div
+    id="premiumScreen"
+    class="card hidden">
+
+    <button
+        class="secondary back"
+        onclick="goBack()">
+
+        ← Back
+
+    </button>
+
+    <h2>
+        👑 Premium Preparation
+    </h2>
+
+    <p class="small">
+        Premium content can be unlocked through your
+        account after successful payment verification.
+    </p>
+
+    <div class="premium-feature">
+        📄 Premium PDFs
+    </div>
+
+    <div class="premium-feature">
+        📝 Previous-year questions
+    </div>
+
+    <div class="premium-feature">
+        🎯 Full mock tests
+    </div>
+
+    <div class="premium-feature">
+        📚 Premium study sets
+    </div>
+
+    <div class="premium-feature">
+        📥 Downloadable material
+    </div>
+
+    <br>
+
+    <div id="premiumStatus"></div>
+
+    <button
+        class="primary full"
+        onclick="startPayment()">
+
+        👑 Continue to Premium Payment
+
+    </button>
+
+    <p class="small center">
+        Secure payment verification will be handled
+        separately from the public browser code.
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN
+===================================================== -->
+
+<div
+    id="adminScreen"
+    class="hidden">
+
+    <div class="card">
+
+        <button
+            class="secondary back"
+            onclick="goHome()">
+
+            ← Home
+
+        </button>
+
+        <h2>
+            🔐 Admin Dashboard
+        </h2>
+
+        <p class="small">
+            Only the designated administrator can access
+            these controls.
+        </p>
+
+        <div class="admin-stats">
+
+            <div class="admin-stat">
+
+                <strong id="adminTotal">
+                    0
+                </strong>
+
+                <span>
+                    Total Questions
+                </span>
+
+            </div>
+
+            <div class="admin-stat">
+
+                <strong id="adminFree">
+                    0
+                </strong>
+
+                <span>
+                    Free
+                </span>
+
+            </div>
+
+            <div class="admin-stat">
+
+                <strong id="adminPremium">
+                    0
+                </strong>
+
+                <span>
+                    Premium
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN NAV -->
+
+    <div class="card">
+
+        <div class="bottom-nav">
+
+            <button
+                class="primary"
+                onclick="showAdminTab('questions')">
+
+                📝 Questions
+
+            </button>
+
+            <button
+                class="secondary"
+                onclick="showAdminTab('users')">
+
+                👥 Users
+
+            </button>
+
+            <button
+                class="secondary"
+                onclick="showAdminTab('payments')">
+
+                💳 Payments
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         QUESTIONS TAB
+    ================================================= -->
+
+    <div
+        id="adminQuestionsTab"
+        class="card">
+
+        <h2>
+            📝 Question Management
+        </h2>
+
+        <div
+            id="adminMessage">
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Topic
+            </label>
+
+            <select
+                id="adminTopic">
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Study Section
+            </label>
+
+            <select
+                id="adminStudySet">
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Question
+            </label>
+
+            <textarea
+                id="adminQuestion"
+                placeholder="Enter the question">
+            </textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option A
+            </label>
+
+            <input
+                id="adminA"
+                placeholder="Option A">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option B
+            </label>
+
+            <input
+                id="adminB"
+                placeholder="Option B">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option C
+            </label>
+
+            <input
+                id="adminC"
+                placeholder="Option C">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option D
+            </label>
+
+            <input
+                id="adminD"
+                placeholder="Option D">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Correct Answer
+            </label>
+
+            <select id="adminAnswer">
+
+                <option value="">
+                    Choose correct answer
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Explanation
+            </label>
+
+            <textarea
+                id="adminExplanation"
+                placeholder="Optional explanation">
+            </textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Access
+            </label>
+
+            <select id="adminPremium">
+
+                <option value="false">
+                    🆓 Free
+                </option>
+
+                <option value="true">
+                    👑 Premium
+                </option>
+
+            </select>
+
+        </div>
+
+        <button
+            class="primary full"
+            onclick="addQuestion()">
+
+            ➕ Add Question
+
+        </button>
+
+        <div
+            id="addQuestionMessage">
+        </div>
+
+    </div>
+
+
+    <div
+        id="adminQuestionListCard"
+        class="card">
+
+        <h2>
+            📚 Existing Questions
+        </h2>
+
+        <div class="form-group">
+
+            <input
+                id="adminSearch"
+                class="search-input"
+                placeholder="Search questions..."
+                oninput="renderAdminQuestions()">
+
+        </div>
+
+        <div class="form-group">
+
+            <select
+                id="adminFilterTopic"
+                onchange="renderAdminQuestions()">
+            </select>
+
+        </div>
+
+        <div id="adminQuestionsList"></div>
+
+    </div>
+
+
+    <!-- =================================================
+         USERS TAB
+    ================================================= -->
+
+    <div
+        id="adminUsersTab"
+        class="card hidden">
+
+        <h2>
+            👥 Users
+        </h2>
+
+        <p class="small">
+            User management area. Account records are
+            intentionally separated from authentication
+            credentials.
+        </p>
+
+        <input
+            id="adminUserSearch"
+            class="search-input"
+            placeholder="Search users by email..."
+            oninput="renderUsers()">
+
+        <div id="adminUsersList">
+
+            <div class="loading">
+                Loading users...
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         PAYMENTS TAB
+    ================================================= -->
+
+    <div
+        id="adminPaymentsTab"
+        class="card hidden">
+
+        <h2>
+            💳 Payments
+        </h2>
+
+        <div class="info-box">
+
+            Payment records are designed to be handled
+            automatically by the payment provider and
+            secure verification endpoint.
+
+            <br><br>
+
+            The browser must never be trusted to declare
+            that a payment succeeded.
+
+        </div>
+
+        <div id="adminPaymentsList">
+
+            <p class="small">
+                Payment records will appear here once the
+                secure payment backend is connected.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    © 2026 ADRE GK Quiz · Assam Exam Preparation
+
+</footer>
+
 </div>
 
 
@@ -1360,7 +1830,7 @@ const ADMIN_UID =
 
 
 /* =====================================================
-   LIBRARY STRUCTURE
+   LIBRARY
 ===================================================== */
 
 const LIBRARY_STRUCTURE = {
@@ -1461,22 +1931,34 @@ let lastStreakDate =
 localStorage.getItem("adre_last_streak_date") || "";
 
 let todayQuestions =
-Number(localStorage.getItem("adre_today_questions")) || 0;
+Number(
+    localStorage.getItem(
+        "adre_today_questions"
+    )
+) || 0;
 
 let todayStudySeconds =
-Number(localStorage.getItem("adre_today_seconds")) || 0;
+Number(
+    localStorage.getItem(
+        "adre_today_seconds"
+    )
+) || 0;
 
 let savedProgressDate =
-localStorage.getItem("adre_progress_date") || "";
+localStorage.getItem(
+    "adre_progress_date"
+) || "";
 
 
 /* =====================================================
-   MISSED QUESTIONS
+   MISSED
 ===================================================== */
 
 let missedSavedIds =
 JSON.parse(
-    localStorage.getItem("adre_missed_ids") || "[]"
+    localStorage.getItem(
+        "adre_missed_ids"
+    ) || "[]"
 );
 
 
@@ -1484,46 +1966,48 @@ JSON.parse(
    QUIZ
 ===================================================== */
 
-let quizQuestions = [];
+let quizQuestions=[];
 
-let quizIndex = 0;
+let quizIndex=0;
 
-let quizCorrect = 0;
+let quizCorrect=0;
 
-let quizWrong = 0;
+let quizWrong=0;
 
-let quizMode = "";
+let quizMode="";
 
-let quizTopic = "";
+let quizTopic="";
 
-let missedQuestionIds = [];
+let missedQuestionIds=[];
 
 
 /* =====================================================
    TIMER
 ===================================================== */
 
-let timerRunning = false;
+let timerRunning=false;
 
-let timerInterval = null;
+let timerInterval=null;
 
-let timerSeconds = 0;
+let timerSeconds=0;
 
 
 /* =====================================================
    AUTH
 ===================================================== */
 
-let authMode = "signin";
+let authMode="signin";
 
-let currentUser = null;
+let currentUser=null;
 
 
 /* =====================================================
    ADMIN DATA
 ===================================================== */
 
-let adminQuestions = [];
+let adminQuestions=[];
+
+let adminUsers=[];
 
 
 /* =====================================================
@@ -1537,7 +2021,7 @@ function navigateTo(
 
     hideAllScreens();
 
-    const screen =
+    const screen=
         document.getElementById(
             screenId
         );
@@ -1553,7 +2037,7 @@ function navigateTo(
         history.pushState(
             {screen:screenId},
             "",
-            "#" + screenId
+            "#"+screenId
         );
 
     }
@@ -1597,7 +2081,7 @@ window.addEventListener(
     "popstate",
     function(event){
 
-        const screenId =
+        const screenId=
             event.state &&
             event.state.screen
             ?event.state.screen
@@ -1605,7 +2089,7 @@ window.addEventListener(
 
         hideAllScreens();
 
-        const screen =
+        const screen=
             document.getElementById(
                 screenId
             );
@@ -1626,19 +2110,11 @@ window.addEventListener(
 
         }
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
     }
 );
 
 
-if(
-    !location.hash ||
-    location.hash==="#homeScreen"
-){
+if(!location.hash){
 
     history.replaceState(
         {screen:"homeScreen"},
@@ -1656,23 +2132,20 @@ if(
 function hideAllScreens(){
 
     [
-
         "homeScreen",
         "authScreen",
         "accountScreen",
-        "adminScreen",
         "librarySetScreen",
         "studyScreen",
         "quizScreen",
-        "completeScreen"
-
+        "completeScreen",
+        "premiumScreen",
+        "adminScreen"
     ].forEach(
         function(id){
 
-            const element =
-                document.getElementById(
-                    id
-                );
+            const element=
+                document.getElementById(id);
 
             if(element){
 
@@ -1694,7 +2167,7 @@ function hideAllScreens(){
 
 function checkDailyReset(){
 
-    const today =
+    const today=
         new Date().toDateString();
 
     if(savedProgressDate!==today){
@@ -1731,22 +2204,28 @@ function checkDailyReset(){
 
 function updateStats(){
 
-    document.getElementById(
-        "xp"
-    ).textContent =
-        xp+" XP";
+    const xpEl=
+        document.getElementById("xp");
 
-    document.getElementById(
-        "streak"
-    ).textContent =
-        streak+" Day Streak";
+    const streakEl=
+        document.getElementById("streak");
 
-    document.getElementById(
-        "todayTime"
-    ).textContent =
-        Math.floor(
-            todayStudySeconds/60
-        )+" min";
+    const timeEl=
+        document.getElementById("todayTime");
+
+    if(xpEl)
+        xpEl.textContent=
+            xp+" XP";
+
+    if(streakEl)
+        streakEl.textContent=
+            streak+" Day Streak";
+
+    if(timeEl)
+        timeEl.textContent=
+            Math.floor(
+                todayStudySeconds/60
+            )+" min";
 
 }
 
@@ -1775,7 +2254,7 @@ function addXP(amount){
 
 function saveStreakForToday(){
 
-    const today =
+    const today=
         new Date().toDateString();
 
     if(lastStreakDate===today){
@@ -1891,37 +2370,45 @@ function stopTimer(){
 
     timerInterval=null;
 
-    document.getElementById(
-        "timerButton"
-    ).textContent=
-        "▶ Start Study Timer";
+    const button=
+        document.getElementById(
+            "timerButton"
+        );
+
+    if(button){
+
+        button.textContent=
+            "▶ Start Study Timer";
+
+    }
 
 }
 
 
 function updateTimerDisplay(){
 
-    const minutes =
+    const minutes=
         Math.floor(
             timerSeconds/60
         );
 
-    const seconds =
+    const seconds=
         timerSeconds%60;
 
-    document.getElementById(
-        "timer"
-    ).textContent=
-        String(minutes).padStart(
-            2,
-            "0"
-        )
-        +":"
-        +
-        String(seconds).padStart(
-            2,
-            "0"
+    const timer=
+        document.getElementById(
+            "timer"
         );
+
+    if(timer){
+
+        timer.textContent=
+            String(minutes).padStart(2,"0")
+            +":"
+            +
+            String(seconds).padStart(2,"0");
+
+    }
 
 }
 
@@ -1972,16 +2459,23 @@ function showTimerReaction(){
 
     ];
 
-    document.getElementById(
-        "timerMessage"
-    ).textContent=
-        randomItem(lines);
+    const el=
+        document.getElementById(
+            "timerMessage"
+        );
+
+    if(el){
+
+        el.textContent=
+            randomItem(lines);
+
+    }
 
 }
 
 
 /* =====================================================
-   DAILY REACTIONS
+   DAILY REACTION
 ===================================================== */
 
 function setDailyReaction(){
@@ -2014,16 +2508,23 @@ function setDailyReaction(){
 
     ];
 
-    document.getElementById(
-        "dailyReaction"
-    ).textContent=
-        randomItem(lines);
+    const el=
+        document.getElementById(
+            "dailyReaction"
+        );
+
+    if(el){
+
+        el.textContent=
+            randomItem(lines);
+
+    }
 
 }
 
 
 /* =====================================================
-   DAILY ACCOUNT MESSAGES
+   DAILY ACCOUNT MESSAGE
 ===================================================== */
 
 function getDailyMessage(
@@ -2059,6 +2560,8 @@ function updateAccountArea(){
             "signInMessage"
         );
 
+    if(!area||!message)return;
+
     if(!currentUser){
 
         const lines=[
@@ -2071,17 +2574,7 @@ function updateAccountArea(){
 
             "Keep your XP, streak and weak-question progress connected to your account.",
 
-            "You don't have to sign in to practice, but signing in means your progress can follow you.",
-
-            "Imagine getting a new phone and losing all those hard-earned study records. Save them now.",
-
-            "Your future study sessions deserve to remember your previous ones.",
-
-            "Don't make every device a fresh start. Create your account and keep your progress together.",
-
-            "Your weak topics are useful information. An account helps you keep working on them.",
-
-            "You've put time into studying. Give that progress somewhere to stay."
+            "You don't have to sign in to practice, but signing in means your progress can follow you."
 
         ];
 
@@ -2181,9 +2674,16 @@ function updateAuthUI(){
             "authToggleButton"
         );
 
-    document.getElementById(
-        "authError"
-    ).innerHTML="";
+    const error=
+        document.getElementById(
+            "authError"
+        );
+
+    if(error){
+
+        error.innerHTML="";
+
+    }
 
     if(authMode==="signin"){
 
@@ -2238,7 +2738,20 @@ async function submitAuth(){
     if(!email||!password){
 
         errorBox.innerHTML=
-            "<div class='error-box'>Please enter your email and password.</div>";
+            "<div class='error-box'>"+
+            "Please enter your email and password."+
+            "</div>";
+
+        return;
+
+    }
+
+    if(password.length<6){
+
+        errorBox.innerHTML=
+            "<div class='error-box'>"+
+            "Password must contain at least 6 characters."+
+            "</div>";
 
         return;
 
@@ -2259,10 +2772,10 @@ async function submitAuth(){
     if(authMode==="signin"){
 
         result=
-            await supabaseClient.auth.signInWithPassword({
+            await supabaseClient.auth
+            .signInWithPassword({
 
                 email:email,
-
                 password:password
 
             });
@@ -2270,10 +2783,10 @@ async function submitAuth(){
     }else{
 
         result=
-            await supabaseClient.auth.signUp({
+            await supabaseClient.auth
+            .signUp({
 
                 email:email,
-
                 password:password
 
             });
@@ -2313,8 +2826,11 @@ async function submitAuth(){
 
             errorBox.innerHTML=
                 "<div class='success-box'>"+
-                "Account created. Check your email if Supabase asks you to confirm it, then sign in."+
+                "Account created. Check your email if confirmation is required, then sign in."+
                 "</div>";
+
+            button.textContent=
+                "Create Account";
 
         }
 
@@ -2323,7 +2839,7 @@ async function submitAuth(){
         currentUser=
             result.data.user;
 
-        afterLogin();
+        await afterLogin();
 
     }
 
@@ -2340,6 +2856,10 @@ async function afterLogin(){
 
 }
 
+
+/* =====================================================
+   ADMIN CHECK
+===================================================== */
 
 async function checkAdmin(){
 
@@ -2426,6 +2946,10 @@ function removeAdminButton(){
 }
 
 
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
 function openAccount(){
 
     if(!currentUser){
@@ -2450,18 +2974,36 @@ function openAccount(){
 
         "<br><br>"+
 
-        "⭐ XP: "+
-        xp+
+        "<div class='account-grid'>"+
+
+        "<div class='account-stat'>"+
+        "<strong>"+xp+"</strong>"+
+        "<span>XP</span>"+
+        "</div>"+
+
+        "<div class='account-stat'>"+
+        "<strong>"+streak+"</strong>"+
+        "<span>Day Streak</span>"+
+        "</div>"+
+
+        "<div class='account-stat'>"+
+        "<strong>"+todayQuestions+"</strong>"+
+        "<span>Today's Questions</span>"+
+        "</div>"+
+
+        "</div>"+
 
         "<br>"+
 
-        "🔥 Streak: "+
-        streak+
-        " days"+
+        "<button class='primary full' onclick='openPremium()'>"+
+        "👑 Premium"+
+        "</button>"+
 
         "<br><br>"+
 
-        "Keep studying and building your streak."+
+        "<button class='danger full' onclick='signOutUser()'>"+
+        "Sign Out"+
+        "</button>"+
 
         "</div>";
 
@@ -2473,6 +3015,8 @@ function openAccount(){
 
 
 async function signOutUser(){
+
+    stopTimer();
 
     await supabaseClient.auth.signOut();
 
@@ -2488,7 +3032,7 @@ async function signOutUser(){
 
 
 /* =====================================================
-   TOPIC UI
+   TOPICS
 ===================================================== */
 
 function buildTopicButtons(){
@@ -2618,7 +3162,6 @@ function buildAdminTopicOptions(){
                 option
             );
 
-
             const filterOption=
                 option.cloneNode(
                     true
@@ -2635,42 +3178,8 @@ function buildAdminTopicOptions(){
 
 
 /* =====================================================
-   ADMIN
+   STUDY SET OPTIONS
 ===================================================== */
-
-async function openAdmin(){
-
-    if(!currentUser){
-
-        openAuth();
-
-        return;
-
-    }
-
-    if(
-        currentUser.id!==
-        ADMIN_UID
-    ){
-
-        alert(
-            "You do not have permission to open the admin dashboard."
-        );
-
-        return;
-
-    }
-
-    navigateTo(
-        "adminScreen"
-    );
-
-    fillStudySetOptions();
-
-    await loadAdminQuestions();
-
-}
-
 
 function fillStudySetOptions(){
 
@@ -2708,14 +3217,6 @@ function fillStudySetOptions(){
     );
 
 }
-
-
-document.getElementById(
-    "adminTopic"
-).addEventListener(
-    "change",
-    fillStudySetOptions
-);
 
 
 /* =====================================================
@@ -2791,22 +3292,99 @@ function updateAnswerOptions(){
 }
 
 
-[
-    "adminA",
-    "adminB",
-    "adminC",
-    "adminD"
-].forEach(
-    function(id){
+/* =====================================================
+   ADMIN OPEN
+===================================================== */
 
-        document.getElementById(id)
-        .addEventListener(
-            "input",
-            updateAnswerOptions
-        );
+async function openAdmin(){
+
+    if(!currentUser){
+
+        openAuth();
+
+        return;
 
     }
-);
+
+    if(
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        alert(
+            "You do not have permission to open the admin dashboard."
+        );
+
+        return;
+
+    }
+
+    navigateTo(
+        "adminScreen"
+    );
+
+    fillStudySetOptions();
+
+    await loadAdminQuestions();
+
+}
+
+
+/* =====================================================
+   ADMIN TABS
+===================================================== */
+
+function showAdminTab(tab){
+
+    const questions=
+        document.getElementById(
+            "adminQuestionsTab"
+        );
+
+    const questionList=
+        document.getElementById(
+            "adminQuestionListCard"
+        );
+
+    const users=
+        document.getElementById(
+            "adminUsersTab"
+        );
+
+    const payments=
+        document.getElementById(
+            "adminPaymentsTab"
+        );
+
+    questions.classList.add("hidden");
+    questionList.classList.add("hidden");
+    users.classList.add("hidden");
+    payments.classList.add("hidden");
+
+    if(tab==="questions"){
+
+        questions.classList.remove("hidden");
+        questionList.classList.remove("hidden");
+
+    }
+
+    if(tab==="users"){
+
+        users.classList.remove("hidden");
+
+        loadAdminUsers();
+
+    }
+
+    if(tab==="payments"){
+
+        payments.classList.remove("hidden");
+
+        loadAdminPayments();
+
+    }
+
+}
 
 
 /* =====================================================
@@ -2816,7 +3394,7 @@ function updateAnswerOptions(){
 async function addQuestion(){
 
     if(
-        !currentUser ||
+        !currentUser||
         currentUser.id!==
         ADMIN_UID
     ){
@@ -2962,7 +3540,7 @@ async function addQuestion(){
 
 
 /* =====================================================
-   CLEAR ADMIN
+   CLEAR ADMIN FORM
 ===================================================== */
 
 function clearAdminForm(){
@@ -3012,9 +3590,7 @@ function showAdminMessage(
             ?"error-box"
             :"success-box"
         )+"'>"+
-        escapeHTML(
-            message
-        )+
+        escapeHTML(message)+
         "</div>";
 
 }
@@ -3064,33 +3640,24 @@ async function loadAdminQuestions(){
     adminQuestions=
         data||[];
 
-    const total=
-        adminQuestions.length;
-
-    const free=
-        adminQuestions.filter(
-            q=>!q.is_premium
-        ).length;
-
-    const premium=
-        adminQuestions.filter(
-            q=>q.is_premium
-        ).length;
-
     document.getElementById(
         "adminTotal"
     ).textContent=
-        total;
+        adminQuestions.length;
 
     document.getElementById(
         "adminFree"
     ).textContent=
-        free;
+        adminQuestions.filter(
+            q=>!q.is_premium
+        ).length;
 
     document.getElementById(
         "adminPremium"
     ).textContent=
-        premium;
+        adminQuestions.filter(
+            q=>q.is_premium
+        ).length;
 
     renderAdminQuestions();
 
@@ -3098,7 +3665,7 @@ async function loadAdminQuestions(){
 
 
 /* =====================================================
-   RENDER ADMIN
+   RENDER ADMIN QUESTIONS
 ===================================================== */
 
 function renderAdminQuestions(){
@@ -3109,9 +3676,12 @@ function renderAdminQuestions(){
         );
 
     const search=
-        document.getElementById(
-            "adminSearch"
-        ).value
+        (
+            document.getElementById(
+                "adminSearch"
+            ).value||
+            ""
+        )
         .trim()
         .toLowerCase();
 
@@ -3130,9 +3700,7 @@ function renderAdminQuestions(){
                         q.question||""
                     )
                     .toLowerCase()
-                    .includes(
-                        search
-                    );
+                    .includes(search);
 
                 const matchesTopic=
                     !topic||
@@ -3172,25 +3740,17 @@ function renderAdminQuestions(){
 
                 "<h4>"+
                 "Question #"+
-                escapeHTML(
-                    q.id
-                )+
+                escapeHTML(q.id)+
                 "</h4>"+
 
                 "<p><strong>"+
-                escapeHTML(
-                    q.topic
-                )+
+                escapeHTML(q.topic)+
                 "</strong> • "+
-                escapeHTML(
-                    q.study_set||""
-                )+
+                escapeHTML(q.study_set||"")+
                 "</p>"+
 
                 "<p>"+
-                escapeHTML(
-                    q.question
-                )+
+                escapeHTML(q.question)+
                 "</p>"+
 
                 "<span class='badge "+
@@ -3210,15 +3770,15 @@ function renderAdminQuestions(){
                 "<div class='admin-actions'>"+
 
                 "<button class='danger' onclick='deleteQuestion("+
-                q.id+
+                Number(q.id)+
                 ")'>"+
                 "🗑️ Delete"+
                 "</button>"+
 
                 "<button class='secondary' onclick='togglePremium("+
-                q.id+
+                Number(q.id)+
                 ","+
-                q.is_premium+
+                Boolean(q.is_premium)+
                 ")'>"+
                 (
                     q.is_premium
@@ -3229,9 +3789,7 @@ function renderAdminQuestions(){
 
                 "</div>";
 
-            list.appendChild(
-                div
-            );
+            list.appendChild(div);
 
         }
     );
@@ -3240,7 +3798,7 @@ function renderAdminQuestions(){
 
 
 /* =====================================================
-   DELETE
+   DELETE QUESTION
 ===================================================== */
 
 async function deleteQuestion(id){
@@ -3268,13 +3826,16 @@ async function deleteQuestion(id){
 
     if(!question)return;
 
-    const confirmed=
-        confirm(
+    if(
+        !confirm(
             "Delete this question?\n\n"+
             question.question
-        );
+        )
+    ){
 
-    if(!confirmed)return;
+        return;
+
+    }
 
     const {
         error
@@ -3390,9 +3951,7 @@ async function openLibraryTopic(
         "<div class='loading'>Loading study sections...</div>";
 
     const sets=
-        LIBRARY_STRUCTURE[
-            topic
-        ]||[];
+        LIBRARY_STRUCTURE[topic]||[];
 
     container.innerHTML="";
 
@@ -3401,7 +3960,8 @@ async function openLibraryTopic(
     ){
 
         const {
-            count
+            count,
+            error
         }=
             await supabaseClient
             .from("questions")
@@ -3435,11 +3995,13 @@ async function openLibraryTopic(
 
         button.innerHTML=
             "📚 "+
-            escapeHTML(
-                setName
-            )+
+            escapeHTML(setName)+
             "<span class='topic-description'>"+
-            (count||0)+
+            (
+                error
+                ?""
+                :(count||0)
+            )+
             " free study questions"+
             "</span>";
 
@@ -3521,29 +4083,19 @@ async function openStudySet(
 
         container.innerHTML=
             "<div class='error-box'>"+
-            escapeHTML(
-                error.message
-            )+
+            escapeHTML(error.message)+
             "</div>";
 
         return;
 
     }
 
-    if(
-        !data||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         container.innerHTML=
             "<div class='center'>"+
-
             "<p>No free study questions have been added yet.</p>"+
-
-            "<p class='small'>"+
-            "The admin can add questions from the Admin Dashboard."+
-            "</p>"+
-
+            "<p class='small'>The admin can add questions from the Admin Dashboard.</p>"+
             "</div>";
 
         return;
@@ -3571,61 +4123,33 @@ async function openStudySet(
                 "</div>"+
 
                 "<h3>"+
-                escapeHTML(
-                    q.question
-                )+
+                escapeHTML(q.question)+
                 "</h3>"+
 
                 "<div class='study-options'>"+
-
-                "A) "+
-                escapeHTML(
-                    q.option_a
-                )+
+                "A) "+escapeHTML(q.option_a)+
                 "<br>"+
-
-                "B) "+
-                escapeHTML(
-                    q.option_b
-                )+
+                "B) "+escapeHTML(q.option_b)+
                 "<br>"+
-
-                "C) "+
-                escapeHTML(
-                    q.option_c
-                )+
+                "C) "+escapeHTML(q.option_c)+
                 "<br>"+
-
-                "D) "+
-                escapeHTML(
-                    q.option_d
-                )+
-
+                "D) "+escapeHTML(q.option_d)+
                 "</div>"+
 
                 "<div class='answer-box'>"+
-
-                "Answer: "+
-                escapeHTML(
-                    q.answer
-                )+
-
+                "<strong>Answer:</strong> "+
+                escapeHTML(q.answer)+
                 (
                     q.explanation
                     ?
                     "<br><span class='small'>"+
-                    escapeHTML(
-                        q.explanation
-                    )+
+                    escapeHTML(q.explanation)+
                     "</span>"
                     :""
                 )+
-
                 "</div>";
 
-            container.appendChild(
-                item
-            );
+            container.appendChild(item);
 
         }
     );
@@ -3641,11 +4165,9 @@ async function startPractice(
     topic
 ){
 
-    quizMode=
-        "practice";
+    quizMode="practice";
 
-    quizTopic=
-        topic;
+    quizTopic=topic;
 
     quizQuestions=[];
 
@@ -3657,9 +4179,7 @@ async function startPractice(
 
     missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
@@ -3699,10 +4219,7 @@ async function startPractice(
 
     }
 
-    if(
-        !data||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         showQuizError(
             "No free questions are available for this topic yet."
@@ -3713,9 +4230,7 @@ async function startPractice(
     }
 
     quizQuestions=
-        shuffle(
-            data
-        );
+        shuffle(data);
 
     showQuizQuestion();
 
@@ -3723,18 +4238,16 @@ async function startPractice(
 
 
 /* =====================================================
-   DAILY CHALLENGE
+   DAILY
 ===================================================== */
 
 async function startDailyChallenge(){
 
     setDailyReaction();
 
-    quizMode=
-        "daily";
+    quizMode="daily";
 
-    quizTopic=
-        "Daily Challenge";
+    quizTopic="Daily Challenge";
 
     quizIndex=0;
 
@@ -3744,9 +4257,7 @@ async function startDailyChallenge(){
 
     missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
@@ -3780,10 +4291,7 @@ async function startDailyChallenge(){
 
     }
 
-    if(
-        !data||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         showQuizError(
             "No free GK questions are available yet."
@@ -3794,9 +4302,7 @@ async function startDailyChallenge(){
     }
 
     quizQuestions=
-        shuffle(
-            data
-        )
+        shuffle(data)
         .slice(
             0,
             Math.min(
@@ -3811,7 +4317,7 @@ async function startDailyChallenge(){
 
 
 /* =====================================================
-   MISSED QUESTION MODE
+   MISSED
 ===================================================== */
 
 async function startMissedQuiz(){
@@ -3819,9 +4325,7 @@ async function startMissedQuiz(){
     const ids=
         missedSavedIds;
 
-    if(
-        !ids.length
-    ){
+    if(!ids.length){
 
         alert(
             "You don't have any saved missed questions yet."
@@ -3849,18 +4353,13 @@ async function startMissedQuiz(){
 
     if(error){
 
-        alert(
-            error.message
-        );
+        alert(error.message);
 
         return;
 
     }
 
-    if(
-        !data||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         alert(
             "Your saved missed questions are no longer available."
@@ -3870,11 +4369,9 @@ async function startMissedQuiz(){
 
     }
 
-    quizMode=
-        "missed";
+    quizMode="missed";
 
-    quizTopic=
-        "Missed Questions";
+    quizTopic="Missed Questions";
 
     quizQuestions=
         shuffle(data);
@@ -3887,9 +4384,7 @@ async function startMissedQuiz(){
 
     missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
@@ -3903,9 +4398,7 @@ async function startMissedQuiz(){
 
 function practiceMissedQuestions(){
 
-    if(
-        !missedSavedIds.length
-    ){
+    if(!missedSavedIds.length){
 
         document.getElementById(
             "missedReaction"
@@ -3922,15 +4415,13 @@ function practiceMissedQuestions(){
 
 
 /* =====================================================
-   SHOW QUIZ QUESTION
+   SHOW QUIZ
 ===================================================== */
 
 function showQuizQuestion(){
 
     const q=
-        quizQuestions[
-            quizIndex
-        ];
+        quizQuestions[quizIndex];
 
     if(!q){
 
@@ -4001,9 +4492,8 @@ function showQuizQuestion(){
 
     document.getElementById(
         "quizFeedback"
-    ).classList.add(
-        "hidden"
-    );
+    ).className=
+        "feedback hidden";
 
     document.getElementById(
         "nextQuestionButton"
@@ -4047,12 +4537,8 @@ function checkQuizAnswer(
     checkStreakProgress();
 
     const correct=
-        normalize(
-            selectedAnswer
-        )===
-        normalize(
-            question.answer
-        );
+        normalize(selectedAnswer)===
+        normalize(question.answer);
 
     const feedback=
         document.getElementById(
@@ -4066,10 +4552,7 @@ function checkQuizAnswer(
         addXP(10);
 
         selectedButton.classList.add(
-            "correct"
-        );
-
-        selectedButton.classList.add(
+            "correct",
             "pop"
         );
 
@@ -4080,8 +4563,14 @@ function checkQuizAnswer(
             randomCorrectReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
-            escapeHTML(
-                question.answer
+            escapeHTML(question.answer)+
+            (
+                question.explanation
+                ?
+                "<br><span class='small'>"+
+                escapeHTML(question.explanation)+
+                "</span>"
+                :""
             )+
             "</div>";
 
@@ -4090,9 +4579,7 @@ function checkQuizAnswer(
         quizWrong++;
 
         missedQuestionIds.push(
-            String(
-                question.id
-            )
+            String(question.id)
         );
 
         saveMissedQuestion(
@@ -4100,10 +4587,7 @@ function checkQuizAnswer(
         );
 
         selectedButton.classList.add(
-            "wrong"
-        );
-
-        selectedButton.classList.add(
+            "wrong",
             "shake"
         );
 
@@ -4111,12 +4595,8 @@ function checkQuizAnswer(
             function(button){
 
                 if(
-                    normalize(
-                        button.textContent
-                    )===
-                    normalize(
-                        question.answer
-                    )
+                    normalize(button.textContent)===
+                    normalize(question.answer)
                 ){
 
                     button.classList.add(
@@ -4135,8 +4615,14 @@ function checkQuizAnswer(
             randomWrongReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
-            escapeHTML(
-                question.answer
+            escapeHTML(question.answer)+
+            (
+                question.explanation
+                ?
+                "<br><span class='small'>"+
+                escapeHTML(question.explanation)+
+                "</span>"
+                :""
             )+
             "</div>";
 
@@ -4221,9 +4707,7 @@ function finishQuiz(){
 
     let reaction;
 
-    if(
-        percentage>=90
-    ){
+    if(percentage>=90){
 
         reaction=
             "🔥 Absolutely smashed it!";
@@ -4233,9 +4717,7 @@ function finishQuiz(){
         ).className=
             "result-good";
 
-    }else if(
-        percentage>=70
-    ){
+    }else if(percentage>=70){
 
         reaction=
             "👏 Nice work! Keep pushing.";
@@ -4245,9 +4727,7 @@ function finishQuiz(){
         ).className=
             "result-good";
 
-    }else if(
-        percentage>=50
-    ){
+    }else if(percentage>=50){
 
         reaction=
             "💪 You're getting there. Practice makes progress.";
@@ -4274,19 +4754,15 @@ function finishQuiz(){
     ).textContent=
         reaction;
 
-
     const missed=
         document.getElementById(
             "missedQuestions"
         );
 
-    if(
-        missedQuestionIds.length
-    ){
+    if(missedQuestionIds.length){
 
         missed.innerHTML=
             "<h3>🔁 Questions to revisit</h3>"+
-
             "<p class='small'>"+
             "These questions were missed in this session and saved for revision."+
             "</p>";
@@ -4296,9 +4772,7 @@ function finishQuiz(){
 
                 if(
                     missedQuestionIds.includes(
-                        String(
-                            q.id
-                        )
+                        String(q.id)
                     )
                 ){
 
@@ -4313,9 +4787,7 @@ function finishQuiz(){
                     div.textContent=
                         q.question;
 
-                    missed.appendChild(
-                        div
-                    );
+                    missed.appendChild(div);
 
                 }
 
@@ -4333,25 +4805,19 @@ function finishQuiz(){
 
 
 /* =====================================================
-   SAVE MISSED QUESTIONS
+   SAVE MISSED
 ===================================================== */
 
-function saveMissedQuestion(
-    id
-){
+function saveMissedQuestion(id){
 
     const value=
         String(id);
 
     if(
-        !missedSavedIds.includes(
-            value
-        )
+        !missedSavedIds.includes(value)
     ){
 
-        missedSavedIds.push(
-            value
-        );
+        missedSavedIds.push(value);
 
         localStorage.setItem(
             "adre_missed_ids",
@@ -4366,7 +4832,7 @@ function saveMissedQuestion(
 
 
 /* =====================================================
-   CORRECT REACTIONS
+   REACTIONS
 ===================================================== */
 
 function randomCorrectReaction(){
@@ -4427,10 +4893,6 @@ function randomCorrectReaction(){
 
 }
 
-
-/* =====================================================
-   WRONG REACTIONS
-===================================================== */
 
 function randomWrongReaction(){
 
@@ -4495,21 +4957,507 @@ function randomWrongReaction(){
    PREMIUM
 ===================================================== */
 
-function showPremiumMessage(){
+function openPremium(){
+
+    navigateTo(
+        "premiumScreen"
+    );
+
+    updatePremiumStatus();
+
+}
+
+
+function updatePremiumStatus(){
+
+    const box=
+        document.getElementById(
+            "premiumStatus"
+        );
+
+    if(!currentUser){
+
+        box.innerHTML=
+            "<div class='info-box'>"+
+            "Please sign in before purchasing Premium."+
+            "</div>";
+
+        return;
+
+    }
+
+    box.innerHTML=
+        "<div class='info-box'>"+
+        "Signed in as <strong>"+
+        escapeHTML(currentUser.email)+
+        "</strong>"+
+        "<br><br>"+
+        "Premium access will be activated only after secure payment verification."+
+        "</div>";
+
+}
+
+
+/* =====================================================
+   PAYMENT ARCHITECTURE
+===================================================== */
+
+function startPayment(){
+
+    if(!currentUser){
+
+        openAuth();
+
+        return;
+
+    }
+
+    /*
+       IMPORTANT:
+
+       Do NOT mark a user premium from JavaScript
+       simply because they clicked a payment button.
+
+       The secure flow should be:
+
+       1. User clicks payment.
+       2. Secure payment provider creates payment/order.
+       3. User completes payment.
+       4. Payment provider sends server-side webhook.
+       5. Server verifies payment signature/status.
+       6. Server updates the user's premium record.
+       7. Website reads the verified premium status.
+
+       This prevents the dangerous situation where a
+       browser says "paid" without an actual payment.
+    */
 
     alert(
+        "💳 Secure Premium payment will be connected here.\n\n"+
+        "Your account will only receive Premium access after "+
+        "the payment provider confirms the transaction."
+    );
 
-        "👑 Premium preparation is coming.\n\n"+
+}
 
-        "Premium can include:\n"+
-        "• Premium PDFs\n"+
-        "• Previous-year questions\n"+
-        "• Mock tests\n"+
-        "• Downloadable study material\n"+
-        "• Additional study sets\n\n"+
 
-        "The premium system can be connected later."
+/* =====================================================
+   ADMIN USERS
+===================================================== */
 
+async function loadAdminUsers(){
+
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        return;
+
+    }
+
+    const list=
+        document.getElementById(
+            "adminUsersList"
+        );
+
+    list.innerHTML=
+        "<div class='loading'>Loading users...</div>";
+
+    /*
+       The public website should not directly expose
+       Supabase auth.users.
+
+       A safe implementation uses a separate profiles
+       table / secure admin endpoint.
+
+       We attempt to read profiles here if that table
+       exists. If it does not yet exist, the admin UI
+       stays visible instead of breaking the website.
+    */
+
+    const {
+        data,
+        error
+    }=
+        await supabaseClient
+        .from("profiles")
+        .select("*")
+        .order(
+            "created_at",
+            {
+                ascending:false
+            }
+        );
+
+    if(error){
+
+        list.innerHTML=
+            "<div class='info-box'>"+
+            "<strong>Users area is ready.</strong><br><br>"+
+            "User profile records are not available to the "+
+            "browser yet. The authentication system itself "+
+            "continues to work normally."+
+            "</div>";
+
+        adminUsers=[];
+
+        return;
+
+    }
+
+    adminUsers=
+        data||[];
+
+    renderUsers();
+
+}
+
+
+/* =====================================================
+   RENDER USERS
+===================================================== */
+
+function renderUsers(){
+
+    const list=
+        document.getElementById(
+            "adminUsersList"
+        );
+
+    if(!list)return;
+
+    const search=
+        (
+            document.getElementById(
+                "adminUserSearch"
+            ).value||
+            ""
+        )
+        .trim()
+        .toLowerCase();
+
+    const filtered=
+        adminUsers.filter(
+            function(user){
+
+                const email=
+                    String(
+                        user.email||
+                        ""
+                    )
+                    .toLowerCase();
+
+                return(
+                    !search||
+                    email.includes(search)
+                );
+
+            }
+        );
+
+    if(!filtered.length){
+
+        list.innerHTML=
+            "<p class='center'>No users found.</p>";
+
+        return;
+
+    }
+
+    list.innerHTML="";
+
+    filtered.forEach(
+        function(user){
+
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "user-card";
+
+            const premium=
+                Boolean(
+                    user.is_premium
+                );
+
+            div.innerHTML=
+
+                "<div class='user-email'>"+
+                escapeHTML(
+                    user.email||
+                    user.user_id||
+                    "User"
+                )+
+                "</div>"+
+
+                "<div class='user-meta'>"+
+
+                "⭐ XP: "+
+                escapeHTML(
+                    user.xp??0
+                )+
+
+                "<br>"+
+
+                "🔥 Streak: "+
+                escapeHTML(
+                    user.streak??0
+                )+
+
+                "<br>"+
+
+                "👑 Status: "+
+                (
+                    premium
+                    ?"Premium"
+                    :"Free"
+                )+
+
+                (
+                    user.created_at
+                    ?
+                    "<br>📅 Joined: "+
+                    escapeHTML(
+                        new Date(
+                            user.created_at
+                        ).toLocaleDateString()
+                    )
+                    :""
+                )+
+
+                "</div>"+
+
+                "<span class='badge "+
+                (
+                    premium
+                    ?"premium-badge"
+                    :"free-badge"
+                )+
+                "'>"+
+                (
+                    premium
+                    ?"👑 Premium"
+                    :"🆓 Free"
+                )+
+                "</span>"+
+
+                "<div class='user-actions'>"+
+
+                (
+                    premium
+                    ?
+                    "<button class='secondary' "+
+                    "onclick='setUserPremium(\""+
+                    escapeJS(
+                        user.user_id||
+                        user.id
+                    )+
+                    "\",false)'>"+
+                    "Remove Premium"+
+                    "</button>"
+                    :
+                    "<button class='secondary' "+
+                    "onclick='setUserPremium(\""+
+                    escapeJS(
+                        user.user_id||
+                        user.id
+                    )+
+                    "\",true)'>"+
+                    "Grant Premium"+
+                    "</button>"
+                )+
+
+                "</div>";
+
+            list.appendChild(div);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PREMIUM USER ADMIN ACTION
+===================================================== */
+
+async function setUserPremium(
+    userId,
+    value
+){
+
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        alert(
+            "Only the admin can change Premium access."
+        );
+
+        return;
+
+    }
+
+    /*
+       This intentionally updates the profiles record,
+       not auth.users.
+
+       Server-side policies must ensure only the admin
+       can perform this operation.
+    */
+
+    const {
+        error
+    }=
+        await supabaseClient
+        .from("profiles")
+        .update({
+            is_premium:value
+        })
+        .eq(
+            "user_id",
+            userId
+        );
+
+    if(error){
+
+        alert(
+            "Could not update Premium status: "+
+            error.message
+        );
+
+        return;
+
+    }
+
+    await loadAdminUsers();
+
+}
+
+
+/* =====================================================
+   ADMIN PAYMENTS
+===================================================== */
+
+async function loadAdminPayments(){
+
+    const list=
+        document.getElementById(
+            "adminPaymentsList"
+        );
+
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        return;
+
+    }
+
+    list.innerHTML=
+        "<div class='loading'>Loading payment records...</div>";
+
+    /*
+       Payment records should come from a secure payments
+       table populated by verified payment webhooks.
+
+       We do not pretend a browser-side button click
+       proves that money was received.
+    */
+
+    const {
+        data,
+        error
+    }=
+        await supabaseClient
+        .from("payments")
+        .select("*")
+        .order(
+            "created_at",
+            {
+                ascending:false
+            }
+        );
+
+    if(error){
+
+        list.innerHTML=
+            "<div class='info-box'>"+
+            "<strong>Payment area is ready.</strong><br><br>"+
+            "No verified payment records are available yet."+
+            "</div>";
+
+        return;
+
+    }
+
+    if(!data||!data.length){
+
+        list.innerHTML=
+            "<p class='center'>No payment records yet.</p>";
+
+        return;
+
+    }
+
+    list.innerHTML="";
+
+    data.forEach(
+        function(payment){
+
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "user-card";
+
+            div.innerHTML=
+
+                "<strong>"+
+                escapeHTML(
+                    payment.user_id||
+                    "Unknown user"
+                )+
+                "</strong>"+
+
+                "<div class='user-meta'>"+
+                "Amount: "+
+                escapeHTML(
+                    payment.amount||
+                    "—"
+                )+
+                "<br>"+
+                "Status: "+
+                escapeHTML(
+                    payment.status||
+                    "—"
+                )+
+                (
+                    payment.created_at
+                    ?
+                    "<br>Created: "+
+                    escapeHTML(
+                        new Date(
+                            payment.created_at
+                        ).toLocaleString()
+                    )
+                    :""
+                )+
+                "</div>";
+
+            list.appendChild(div);
+
+        }
     );
 
 }
@@ -4534,8 +5482,7 @@ function shuffle(array){
 
         const j=
             Math.floor(
-                Math.random()*
-                (i+1)
+                Math.random()*(i+1)
             );
 
         [
@@ -4553,23 +5500,18 @@ function shuffle(array){
 }
 
 
-function randomItem(
-    array
-){
+function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random()*
-            array.length
+            Math.random()*array.length
         )
     ];
 
 }
 
 
-function normalize(
-    value
-){
+function normalize(value){
 
     return String(
         value||""
@@ -4580,9 +5522,7 @@ function normalize(
 }
 
 
-function escapeHTML(
-    value
-){
+function escapeHTML(value){
 
     if(
         value===null||
@@ -4595,46 +5535,39 @@ function escapeHTML(
 
     return String(value)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
-function showQuizError(
-    message
-){
+function escapeJS(value){
+
+    return String(
+        value||""
+    )
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+    .replace(
+        /"/g,
+        '\\"'
+    );
+
+}
+
+
+function showQuizError(message){
 
     document.getElementById(
         "quizQuestion"
     ).innerHTML=
-
         "<div class='error-box'>"+
-        escapeHTML(
-            message
-        )+
+        escapeHTML(message)+
         "</div>";
 
     document.getElementById(
