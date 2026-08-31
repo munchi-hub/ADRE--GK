@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
+<meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+<meta name="description"
+content="ADRE GK Quiz - Assam exam preparation with quizzes, study material, XP, streaks, revision and premium preparation.">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="description"
-    content="ADRE GK Quiz - Assam exam preparation with quizzes, study material, XP, streaks and revision."
->
-
-<meta
-    name="theme-color"
-    content="#2563eb"
->
-
-<title>ADRE GK Quiz · Assam Exam Preparation</title>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
+<meta name="theme-color" content="#111827"><title>ADRE GK Quiz · Assam Exam Preparation</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
 
 /* =====================================================
-   RESET
+   GLOBAL
 ===================================================== */
 
 *{
@@ -48,10 +31,10 @@ body{
         sans-serif;
     background:
         linear-gradient(
-            180deg,
-            #eff6ff 0%,
+            135deg,
+            #eef2ff,
             #f8fafc 45%,
-            #eef2ff 100%
+            #ecfeff
         );
     color:#172033;
     min-height:100vh;
@@ -77,117 +60,141 @@ button:disabled{
     display:none !important;
 }
 
-/* =====================================================
-   LAYOUT
-===================================================== */
-
-.app{
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:16px;
-}
-
-.card{
-    background:#ffffff;
-    border-radius:22px;
-    padding:22px;
-    margin-bottom:18px;
-    box-shadow:
-        0 10px 35px rgba(15,23,42,.08);
-    border:1px solid rgba(148,163,184,.18);
-}
-
 .center{
     text-align:center;
 }
 
 .small{
-    font-size:.9rem;
+    font-size:.88rem;
     color:#64748b;
-    line-height:1.6;
+    line-height:1.55;
 }
+
+.full{
+    width:100%;
+}
+
+.loading{
+    text-align:center;
+    padding:25px;
+    color:#64748b;
+}
+
+.error-box,
+.success-box,
+.info-box,
+.warning-box{
+    border-radius:14px;
+    padding:13px 15px;
+    margin:12px 0;
+    line-height:1.5;
+}
+
+.error-box{
+    background:#fee2e2;
+    color:#991b1b;
+    border:1px solid #fecaca;
+}
+
+.success-box{
+    background:#dcfce7;
+    color:#166534;
+    border:1px solid #bbf7d0;
+}
+
+.info-box{
+    background:#e0f2fe;
+    color:#075985;
+    border:1px solid #bae6fd;
+}
+
+.warning-box{
+    background:#fef3c7;
+    color:#92400e;
+    border:1px solid #fde68a;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+    padding:18px;
+}
+
 
 /* =====================================================
    HEADER
 ===================================================== */
 
-.header{
+header{
+    background:#111827;
+    color:white;
+    border-radius:24px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 12px 35px rgba(15,23,42,.18);
+}
+
+.header-top{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:12px;
-    margin-bottom:16px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#2563eb;
-    color:white;
-    font-size:25px;
-    box-shadow:0 8px 20px rgba(37,99,235,.25);
-}
-
-.logo h1{
-    margin:0;
-    font-size:1.2rem;
-}
-
-.logo span{
-    display:block;
-    font-size:.75rem;
-    color:#64748b;
-    margin-top:2px;
-}
-
-.header-account{
-    min-width:120px;
-}
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-    padding:28px 22px;
-    background:
-        linear-gradient(
-            135deg,
-            #1d4ed8,
-            #4f46e5
-        );
-    color:white;
-    border:none;
-}
-
-.hero h2{
-    font-size:2rem;
-    margin:0 0 10px;
-}
-
-.hero p{
-    margin:0;
-    opacity:.9;
-    line-height:1.6;
-}
-
-.hero-buttons{
-    display:flex;
+    gap:15px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:20px;
 }
+
+.brand{
+    font-size:1.45rem;
+    font-weight:800;
+}
+
+.brand-subtitle{
+    color:#cbd5e1;
+    font-size:.86rem;
+    margin-top:4px;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.header-actions button{
+    width:auto;
+    margin:0;
+}
+
+.stats-bar{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:18px;
+}
+
+.stat-pill{
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    padding:11px;
+    text-align:center;
+}
+
+.stat-pill strong{
+    display:block;
+    font-size:1rem;
+}
+
+.stat-pill span{
+    color:#cbd5e1;
+    font-size:.76rem;
+}
+
 
 /* =====================================================
    BUTTONS
@@ -199,16 +206,18 @@ button:disabled{
     border:0;
     border-radius:13px;
     padding:12px 16px;
-    transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        opacity .15s ease;
+    font-weight:700;
+    transition:.18s ease;
 }
 
 .primary{
-    background:#2563eb;
-    color:#fff;
-    box-shadow:0 5px 15px rgba(37,99,235,.18);
+    background:#4f46e5;
+    color:white;
+}
+
+.primary:hover{
+    transform:translateY(-1px);
+    background:#4338ca;
 }
 
 .secondary{
@@ -216,172 +225,323 @@ button:disabled{
     color:#1e293b;
 }
 
+.secondary:hover{
+    background:#cbd5e1;
+}
+
 .danger{
     background:#fee2e2;
-    color:#b91c1c;
+    color:#991b1b;
 }
 
-.primary:hover,
-.secondary:hover,
 .danger:hover{
-    transform:translateY(-1px);
-}
-
-.full{
-    width:100%;
+    background:#fecaca;
 }
 
 .back{
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
+
 
 /* =====================================================
-   STATS
+   CARDS
 ===================================================== */
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:10px;
-    margin-top:15px;
-}
-
-.stat{
-    background:#f8fafc;
-    border-radius:16px;
-    padding:14px 8px;
-    text-align:center;
+.card{
+    background:white;
+    border-radius:22px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 8px 28px rgba(15,23,42,.08);
     border:1px solid #e2e8f0;
 }
 
-.stat strong{
-    display:block;
-    font-size:1.15rem;
+.card h2{
+    margin-top:0;
 }
 
-.stat span{
-    display:block;
-    font-size:.72rem;
-    color:#64748b;
-    margin-top:3px;
-}
 
 /* =====================================================
-   DAILY CHALLENGE
+   HERO
 ===================================================== */
 
-.daily-card{
-    border:2px solid #fde68a;
+.hero{
     background:
         linear-gradient(
             135deg,
-            #fffbeb,
-            #fff7ed
+            #312e81,
+            #4f46e5,
+            #0891b2
         );
+    color:white;
+    border-radius:24px;
+    padding:28px 22px;
+    margin-bottom:18px;
+    box-shadow:0 14px 35px rgba(49,46,129,.22);
 }
 
-.daily-title{
+.hero h1{
+    margin:0 0 10px;
+    font-size:clamp(1.7rem,5vw,2.5rem);
+}
+
+.hero p{
+    margin:0;
+    color:#e0e7ff;
+    line-height:1.6;
+}
+
+.hero-buttons{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
     gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
-.daily-title h2{
+.hero-buttons button{
+    width:auto;
+}
+
+
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.section-title h2{
     margin:0;
 }
 
-.daily-badge{
-    background:#f59e0b;
-    color:white;
-    padding:6px 9px;
-    border-radius:20px;
-    font-size:.72rem;
-    font-weight:700;
-}
-
-.reaction{
-    margin:12px 0;
-    font-weight:600;
-    color:#92400e;
-}
-
-/* =====================================================
-   TIMER
-===================================================== */
-
-.timer-card{
-    text-align:center;
-}
-
-.timer{
-    font-size:3rem;
-    font-weight:800;
-    letter-spacing:2px;
-    margin:10px 0;
-}
-
-.timer-message{
-    min-height:28px;
-    color:#475569;
-    font-size:.9rem;
-}
 
 /* =====================================================
    TOPICS
 ===================================================== */
 
-.section-title{
-    margin-top:0;
-}
-
 .topic-grid{
     display:grid;
-    grid-template-columns:
-        repeat(2,1fr);
-    gap:12px;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
 }
 
 .topic-button{
+    width:100%;
     border:1px solid #dbeafe;
-    background:#f8fbff;
+    background:#f8fafc;
     color:#172033;
-    border-radius:17px;
+    border-radius:16px;
     padding:16px;
     text-align:left;
-    font-weight:700;
-    min-height:74px;
-    transition:.15s ease;
+    font-weight:800;
+    transition:.18s ease;
 }
 
 .topic-button:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(37,99,235,.08);
+    background:#eef2ff;
+    border-color:#a5b4fc;
 }
 
 .topic-description{
     display:block;
     color:#64748b;
-    font-size:.76rem;
-    font-weight:400;
+    font-size:.78rem;
+    font-weight:500;
     margin-top:5px;
 }
+
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+}
+
+.quick-action{
+    padding:17px;
+    border-radius:16px;
+    border:1px solid #e2e8f0;
+    background:#fff;
+    text-align:left;
+}
+
+.quick-action strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+
+/* =====================================================
+   DAILY
+===================================================== */
+
+.daily-card{
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #fffbeb
+        );
+    border:1px solid #fed7aa;
+}
+
+.daily-reaction{
+    font-weight:700;
+    color:#9a3412;
+    margin:12px 0;
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+.timer-box{
+    text-align:center;
+    background:#0f172a;
+    color:white;
+    border-radius:20px;
+    padding:22px;
+}
+
+.timer-display{
+    font-size:2.7rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.timer-message{
+    min-height:25px;
+    color:#cbd5e1;
+    margin:10px 0 16px;
+}
+
+.timer-actions{
+    display:flex;
+    gap:9px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.timer-actions button{
+    width:auto;
+}
+
+
+/* =====================================================
+   COMING SOON
+===================================================== */
+
+.coming-soon-card{
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+    border:1px dashed #818cf8;
+}
+
+.coming-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.coming-item{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:15px;
+}
+
+.coming-item strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+.premium-home{
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #581c87
+        );
+    color:white;
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 12px 32px rgba(88,28,135,.2);
+}
+
+.premium-home p{
+    color:#e9d5ff;
+}
+
+.premium-features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin:15px 0;
+}
+
+.premium-feature{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:13px;
+    padding:12px;
+}
+
+.locked{
+    opacity:.9;
+}
+
+.premium-badge,
+.free-badge{
+    display:inline-block;
+    border-radius:999px;
+    padding:5px 9px;
+    font-size:.73rem;
+    font-weight:800;
+}
+
+.premium-badge{
+    background:#f3e8ff;
+    color:#7e22ce;
+}
+
+.free-badge{
+    background:#dcfce7;
+    color:#166534;
+}
+
 
 /* =====================================================
    FORMS
 ===================================================== */
 
 .form-group{
-    margin-bottom:15px;
+    margin:14px 0;
 }
 
 .form-group label{
     display:block;
-    margin-bottom:7px;
-    font-size:.86rem;
+    margin-bottom:6px;
     font-weight:700;
-    color:#334155;
 }
 
 input,
@@ -389,115 +549,59 @@ textarea,
 select{
     width:100%;
     border:1px solid #cbd5e1;
-    background:#fff;
     border-radius:12px;
-    padding:12px 13px;
+    padding:12px;
+    background:white;
     color:#172033;
     outline:none;
-}
-
-textarea{
-    min-height:110px;
-    resize:vertical;
 }
 
 input:focus,
 textarea:focus,
 select:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+    border-color:#6366f1;
+    box-shadow:0 0 0 3px rgba(99,102,241,.1);
 }
 
-.search-input{
-    margin-bottom:10px;
+textarea{
+    min-height:100px;
+    resize:vertical;
 }
+
 
 /* =====================================================
    AUTH
 ===================================================== */
 
 .auth-card{
-    max-width:520px;
-    margin:20px auto;
+    max-width:550px;
+    margin:25px auto;
 }
 
 .auth-switch{
     margin-top:12px;
 }
 
-.auth-links{
-    display:flex;
-    justify-content:space-between;
-    gap:8px;
-    margin-top:10px;
-}
-
-.link-button{
-    border:0;
-    background:none;
-    color:#2563eb;
-    padding:5px;
-    cursor:pointer;
-}
-
-/* =====================================================
-   PASSWORD
-===================================================== */
-
 .password-wrap{
     position:relative;
 }
 
 .password-wrap input{
-    padding-right:60px;
+    padding-right:105px;
 }
 
 .password-toggle{
     position:absolute;
-    right:6px;
-    top:50%;
-    transform:translateY(-50%);
+    right:8px;
+    top:7px;
+    padding:8px 10px;
     border:0;
-    background:#f1f5f9;
     border-radius:9px;
-    padding:7px 9px;
+    background:#e2e8f0;
     font-size:.78rem;
+    font-weight:700;
 }
 
-/* =====================================================
-   MESSAGES
-===================================================== */
-
-.error-box,
-.success-box,
-.info-box,
-.warning-box{
-    padding:13px;
-    border-radius:13px;
-    margin:10px 0;
-    line-height:1.5;
-    font-size:.9rem;
-}
-
-.error-box{
-    background:#fee2e2;
-    color:#991b1b;
-}
-
-.success-box{
-    background:#dcfce7;
-    color:#166534;
-}
-
-.info-box{
-    background:#eff6ff;
-    color:#1e40af;
-}
-
-.warning-box{
-    background:#fef3c7;
-    color:#92400e;
-}
 
 /* =====================================================
    ACCOUNT
@@ -505,58 +609,71 @@ select:focus{
 
 .account-grid{
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
 }
 
 .account-stat{
     background:#f8fafc;
-    padding:14px;
-    border-radius:14px;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:15px;
     text-align:center;
 }
 
 .account-stat strong{
     display:block;
-    font-size:1.3rem;
+    font-size:1.35rem;
 }
 
 .account-stat span{
-    font-size:.75rem;
+    font-size:.78rem;
     color:#64748b;
 }
+
 
 /* =====================================================
    LIBRARY
 ===================================================== */
 
 .library-header{
-    margin-bottom:15px;
+    margin-bottom:16px;
 }
 
+.library-locked{
+    background:#faf5ff;
+    border:1px solid #e9d5ff;
+    color:#6b21a8;
+}
+
+
+/* =====================================================
+   STUDY
+===================================================== */
+
 .study-question{
-    background:#f8fafc;
     border:1px solid #e2e8f0;
-    border-radius:18px;
+    border-radius:17px;
     padding:18px;
-    margin-bottom:15px;
+    margin-bottom:14px;
+    background:#fff;
 }
 
 .study-question-number{
-    font-size:.78rem;
-    color:#2563eb;
+    color:#4f46e5;
+    font-size:.8rem;
     font-weight:800;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .study-question h3{
     margin:0 0 12px;
+    font-size:1.03rem;
     line-height:1.5;
 }
 
 .study-options{
-    line-height:1.9;
+    line-height:1.8;
     color:#475569;
 }
 
@@ -564,66 +681,61 @@ select:focus{
     margin-top:14px;
     padding:13px;
     border-radius:12px;
-    background:#ecfdf5;
+    background:#f0fdf4;
+    border:1px solid #bbf7d0;
     color:#166534;
 }
+
 
 /* =====================================================
    QUIZ
 ===================================================== */
 
 .quiz-score{
-    background:#eff6ff;
-    color:#1d4ed8;
-    padding:10px;
-    border-radius:12px;
-    text-align:center;
     font-weight:800;
-    margin:15px 0;
+    color:#4f46e5;
+    margin-bottom:15px;
 }
 
 .quiz-question{
     font-size:1.2rem;
-    font-weight:750;
     line-height:1.55;
-    margin:20px 0;
+    font-weight:800;
+    margin-bottom:18px;
 }
 
 .option{
-    display:block;
     width:100%;
     text-align:left;
-    padding:15px;
-    margin:9px 0;
-    border-radius:14px;
+    background:#f8fafc;
     border:2px solid #e2e8f0;
-    background:#fff;
-    color:#172033;
-    transition:.15s ease;
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:10px;
+    transition:.16s ease;
 }
 
 .option:hover:not(:disabled){
-    border-color:#93c5fd;
-    transform:translateX(2px);
+    border-color:#818cf8;
+    background:#eef2ff;
 }
 
 .option.correct{
-    border-color:#22c55e;
     background:#dcfce7;
+    border-color:#22c55e;
     color:#166534;
 }
 
 .option.wrong{
-    border-color:#ef4444;
     background:#fee2e2;
+    border-color:#ef4444;
     color:#991b1b;
 }
 
 .feedback{
     padding:15px;
     border-radius:15px;
-    margin-top:14px;
-    line-height:1.5;
+    margin:12px 0;
     font-weight:700;
 }
 
@@ -643,7 +755,7 @@ select:focus{
 }
 
 .pop{
-    animation:pop .3s ease;
+    animation:pop .35s ease;
 }
 
 .shake{
@@ -662,60 +774,49 @@ select:focus{
     75%{transform:translateX(6px)}
 }
 
+
 /* =====================================================
    COMPLETE
 ===================================================== */
 
 .score-big{
-    font-size:3.2rem;
+    font-size:3rem;
     font-weight:900;
-    margin:15px 0;
-}
-
-.result-good,
-.result-average,
-.result-low{
-    padding:15px;
-    border-radius:15px;
-    font-weight:800;
-    margin:15px 0;
+    color:#4f46e5;
 }
 
 .result-good{
+    padding:15px;
+    border-radius:14px;
     background:#dcfce7;
     color:#166534;
+    font-weight:800;
 }
 
 .result-average{
+    padding:15px;
+    border-radius:14px;
     background:#fef3c7;
     color:#92400e;
+    font-weight:800;
 }
 
 .result-low{
-    background:#fee2e2;
-    color:#991b1b;
+    padding:15px;
+    border-radius:14px;
+    background:#e0f2fe;
+    color:#075985;
+    font-weight:800;
 }
 
 .missed-item{
-    padding:12px;
-    background:#fff7ed;
-    border-left:4px solid #f97316;
-    border-radius:10px;
-    margin:8px 0;
-}
-
-/* =====================================================
-   PREMIUM
-===================================================== */
-
-.premium-feature{
     background:#fff7ed;
     border:1px solid #fed7aa;
-    padding:14px;
-    border-radius:14px;
+    border-radius:12px;
+    padding:12px;
     margin:8px 0;
-    font-weight:700;
 }
+
 
 /* =====================================================
    ADMIN
@@ -723,48 +824,50 @@ select:focus{
 
 .admin-stats{
     display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
-    margin-top:15px;
 }
 
 .admin-stat{
+    text-align:center;
     background:#f8fafc;
     border-radius:15px;
-    padding:15px 8px;
-    text-align:center;
+    padding:14px;
+    border:1px solid #e2e8f0;
 }
 
 .admin-stat strong{
     display:block;
-    font-size:1.5rem;
+    font-size:1.4rem;
 }
 
 .admin-stat span{
-    display:block;
-    font-size:.72rem;
+    font-size:.75rem;
     color:#64748b;
 }
 
 .bottom-nav{
-    display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:8px;
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+}
+
+.bottom-nav button{
+    flex:1;
+    min-width:120px;
 }
 
 .admin-question,
 .user-card{
     border:1px solid #e2e8f0;
-    border-radius:16px;
+    border-radius:15px;
     padding:15px;
-    margin-bottom:10px;
+    margin-bottom:11px;
     background:#fff;
 }
 
 .admin-question h4{
-    margin:0 0 6px;
+    margin:0 0 7px;
 }
 
 .admin-question p{
@@ -779,6 +882,11 @@ select:focus{
     margin-top:12px;
 }
 
+.admin-actions button,
+.user-actions button{
+    width:auto;
+}
+
 .user-email{
     font-weight:800;
     word-break:break-word;
@@ -788,33 +896,55 @@ select:focus{
     color:#64748b;
     font-size:.82rem;
     line-height:1.7;
-    margin-top:7px;
+    margin:8px 0;
 }
 
-.badge{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:.72rem;
-    font-weight:800;
-    margin-top:9px;
+
+/* =====================================================
+   BULK IMPORT
+===================================================== */
+
+.import-help{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:15px;
+    line-height:1.6;
 }
 
-.premium-badge{
-    background:#fef3c7;
-    color:#92400e;
+.import-help code{
+    background:#e2e8f0;
+    padding:2px 5px;
+    border-radius:5px;
 }
 
-.free-badge{
-    background:#dcfce7;
-    color:#166534;
+.import-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-.loading{
-    text-align:center;
-    padding:25px;
-    color:#64748b;
+.import-actions button{
+    width:auto;
 }
+
+
+/* =====================================================
+   PDF LIBRARY
+===================================================== */
+
+.pdf-card{
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:10px;
+}
+
+.pdf-card strong{
+    display:block;
+    margin-bottom:6px;
+}
+
 
 /* =====================================================
    FOOTER
@@ -822,10 +952,11 @@ select:focus{
 
 footer{
     text-align:center;
-    padding:25px 10px;
     color:#64748b;
     font-size:.8rem;
+    padding:25px 10px;
 }
+
 
 /* =====================================================
    MOBILE
@@ -837,822 +968,968 @@ footer{
         padding:10px;
     }
 
-    .card{
-        padding:17px;
+    header{
         border-radius:18px;
+        padding:17px;
     }
 
-    .hero h2{
-        font-size:1.55rem;
+    .card{
+        border-radius:18px;
+        padding:17px;
     }
 
-    .topic-grid{
+    .topic-grid,
+    .quick-grid,
+    .coming-grid,
+    .premium-features{
         grid-template-columns:1fr;
     }
 
-    .stats-grid,
+    .stats-bar{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
     .account-grid,
     .admin-stats{
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
-    .bottom-nav{
         grid-template-columns:1fr;
     }
 
-    .header{
-        align-items:flex-start;
+    .hero-buttons,
+    .timer-actions,
+    .bottom-nav{
+        flex-direction:column;
     }
 
-    .header-account{
-        min-width:auto;
+    .hero-buttons button,
+    .timer-actions button{
+        width:100%;
     }
 
-    .timer{
-        font-size:2.5rem;
+    .brand{
+        font-size:1.2rem;
+    }
+
+    .quiz-question{
+        font-size:1.05rem;
     }
 
 }
 
-</style>
-
-</head>
-
-<body>
-
-<div class="app">
-
-<!-- =====================================================
+</style></head><body><div class="app"><!-- =====================================================
      HEADER
-===================================================== -->
+===================================================== --><header><div class="header-top">
 
-<header class="header">
+    <div>
 
-    <div class="logo">
-
-        <div class="logo-icon">
-            📚
+        <div class="brand">
+            📚 ADRE GK Quiz
         </div>
 
-        <div>
-            <h1>ADRE GK Quiz</h1>
-            <span>Assam Exam Preparation</span>
+        <div class="brand-subtitle">
+            Assam Exam Preparation
         </div>
 
     </div>
 
     <div
-        id="headerAccountButton"
-        class="header-account">
+        id="headerActions"
+        class="header-actions">
     </div>
 
-</header>
+</div>
 
+<div class="stats-bar">
 
-<!-- =====================================================
+    <div class="stat-pill">
+
+        <strong id="xp">
+            0 XP
+        </strong>
+
+        <span>
+            XP
+        </span>
+
+    </div>
+
+    <div class="stat-pill">
+
+        <strong id="streak">
+            0 Day Streak
+        </strong>
+
+        <span>
+            Streak
+        </span>
+
+    </div>
+
+    <div class="stat-pill">
+
+        <strong id="todayTime">
+            0 min
+        </strong>
+
+        <span>
+            Today
+        </span>
+
+    </div>
+
+</div>
+
+</header><!-- =====================================================
      HOME
-===================================================== -->
+===================================================== --><div id="homeScreen"><!-- HERO -->
 
-<div id="homeScreen">
+<section class="hero">
 
-    <section class="card hero">
+    <h1>
+        Prepare for ADRE smarter. 🎯
+    </h1>
 
-        <h2>
-            Prepare smarter. 🎯
-        </h2>
+    <p>
+        Practice Assam GK, Indian history, geography,
+        polity, economics, culture and current affairs
+        with a fun quiz-style preparation system.
+    </p>
 
-        <p>
-            Practice Assam and India GK with quizzes,
-            study material, XP, streaks and revision.
-        </p>
-
-        <div class="hero-buttons">
-
-            <button
-                class="primary"
-                onclick="scrollToPractice()">
-                🎮 Start Practicing
-            </button>
-
-            <button
-                class="secondary"
-                onclick="openLibrary()">
-                📚 Study Library
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         STATS
-    ================================================= -->
-
-    <section class="card">
-
-        <h2 class="section-title">
-            📊 Your Progress
-        </h2>
-
-        <div class="stats-grid">
-
-            <div class="stat">
-                <strong id="xp">0 XP</strong>
-                <span>XP</span>
-            </div>
-
-            <div class="stat">
-                <strong id="streak">0 Day Streak</strong>
-                <span>Streak</span>
-            </div>
-
-            <div class="stat">
-                <strong id="todayTime">0 min</strong>
-                <span>Study Today</span>
-            </div>
-
-        </div>
-
-        <div
-            id="accountArea"
-            style="margin-top:15px">
-        </div>
-
-        <div
-            id="signInMessage"
-            class="small">
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         DAILY
-    ================================================= -->
-
-    <section class="card daily-card">
-
-        <div class="daily-title">
-
-            <h2>
-                🔥 Daily Challenge
-            </h2>
-
-            <span class="daily-badge">
-                25 QUESTIONS
-            </span>
-
-        </div>
-
-        <p>
-            Complete today's mixed GK challenge
-            to build your streak.
-        </p>
-
-        <div
-            id="dailyReaction"
-            class="reaction">
-        </div>
+    <div class="hero-buttons">
 
         <button
-            class="primary full"
+            class="primary"
             onclick="startDailyChallenge()">
-            🚀 Start Today's Challenge
+
+            🔥 Today's 25 Questions
+
         </button>
 
-    </section>
+        <button
+            class="secondary"
+            onclick="scrollToTopics()">
+
+            📚 Choose a Topic
+
+        </button>
+
+    </div>
+
+</section>
 
 
-    <!-- =================================================
-         TIMER
-    ================================================= -->
+<!-- DAILY -->
 
-    <section class="card timer-card">
+<section class="card daily-card">
+
+    <div class="section-title">
+
+        <h2>
+            🔥 Daily Challenge
+        </h2>
+
+        <strong>
+            25 Questions
+        </strong>
+
+    </div>
+
+    <p
+        id="dailyReaction"
+        class="daily-reaction">
+    </p>
+
+    <p class="small">
+        Complete today's challenge or study for
+        10 minutes to help build your daily streak.
+    </p>
+
+    <button
+        class="primary full"
+        onclick="startDailyChallenge()">
+
+        Start Today's Challenge →
+
+    </button>
+
+</section>
+
+
+<!-- TIMER -->
+
+<section class="card">
+
+    <div class="section-title">
 
         <h2>
             ⏱️ Study Timer
         </h2>
 
+    </div>
+
+    <div class="timer-box">
+
         <div
             id="timer"
-            class="timer">
-            00:00
-        </div>
+            class="timer-display">
 
-        <button
-            id="timerButton"
-            class="primary"
-            onclick="toggleTimer()">
-            ▶ Start Study Timer
-        </button>
+            00:00
+
+        </div>
 
         <div
             id="timerMessage"
             class="timer-message">
-            Start a focused session.
+
+            Your focused study session starts here.
+
         </div>
 
-    </section>
-
-
-    <!-- =================================================
-         REVISION
-    ================================================= -->
-
-    <section class="card">
-
-        <h2>
-            🔁 Revision
-        </h2>
-
-        <p class="small">
-            Questions you get wrong are saved here
-            automatically for later revision.
-        </p>
-
-        <div
-            id="missedReaction"
-            class="reaction">
-        </div>
-
-        <button
-            class="secondary full"
-            onclick="practiceMissedQuestions()">
-            🔁 Practice Missed Questions
-        </button>
-
-    </section>
-
-
-    <!-- =================================================
-         PRACTICE
-    ================================================= -->
-
-    <section
-        id="practiceSection"
-        class="card">
-
-        <h2>
-            🎮 Practice by Topic
-        </h2>
-
-        <p class="small">
-            Choose a topic and start practicing.
-        </p>
-
-        <div
-            id="practiceTopicGrid"
-            class="topic-grid">
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         LIBRARY
-    ================================================= -->
-
-    <section class="card">
-
-        <h2>
-            📚 Study Library
-        </h2>
-
-        <p class="small">
-            Study questions like a digital book,
-            organized into sections.
-        </p>
-
-        <div
-            id="libraryTopicGrid"
-            class="topic-grid">
-        </div>
-
-    </section>
-
-</div>
-
-
-<!-- =====================================================
-     AUTH
-===================================================== -->
-
-<div
-    id="authScreen"
-    class="card auth-card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-        ← Back
-    </button>
-
-    <h2 id="authTitle">
-        🔐 Sign In
-    </h2>
-
-    <p
-        id="authDescription"
-        class="small">
-    </p>
-
-    <div id="authError"></div>
-
-    <div class="form-group">
-
-        <label>Email</label>
-
-        <input
-            id="authEmail"
-            type="email"
-            autocomplete="email"
-            placeholder="you@example.com">
-
-    </div>
-
-    <div class="form-group">
-
-        <label>Password</label>
-
-        <div class="password-wrap">
-
-            <input
-                id="authPassword"
-                type="password"
-                autocomplete="current-password"
-                placeholder="Your password">
+        <div class="timer-actions">
 
             <button
-                type="button"
-                class="password-toggle"
-                onclick="togglePassword('authPassword',this)">
-                Show
-            </button>
-
-        </div>
-
-    </div>
-
-    <button
-        id="authButton"
-        class="primary full"
-        onclick="submitAuth()">
-        Sign In
-    </button>
-
-    <div class="auth-links">
-
-        <button
-            id="forgotPasswordButton"
-            class="link-button"
-            onclick="openForgotPassword()">
-            Forgot password?
-        </button>
-
-    </div>
-
-    <div class="auth-switch">
-
-        <button
-            id="authToggleButton"
-            class="secondary full"
-            onclick="toggleAuthMode()">
-            Create a new account
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FORGOT PASSWORD
-===================================================== -->
-
-<div
-    id="forgotPasswordScreen"
-    class="card auth-card hidden">
-
-    <button
-        class="secondary back"
-        onclick="openAuth()">
-        ← Back
-    </button>
-
-    <h2>
-        🔑 Reset Password
-    </h2>
-
-    <p class="small">
-        Enter your email and we'll send you a password
-        reset link.
-    </p>
-
-    <div id="forgotPasswordMessage"></div>
-
-    <div class="form-group">
-
-        <label>Email</label>
-
-        <input
-            id="resetEmail"
-            type="email"
-            autocomplete="email"
-            placeholder="you@example.com">
-
-    </div>
-
-    <button
-        class="primary full"
-        onclick="sendPasswordReset()">
-        📧 Send Reset Link
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     RESET PASSWORD
-===================================================== -->
-
-<div
-    id="resetPasswordScreen"
-    class="card auth-card hidden">
-
-    <h2>
-        🔐 Choose New Password
-    </h2>
-
-    <div id="resetPasswordMessage"></div>
-
-    <div class="form-group">
-
-        <label>New Password</label>
-
-        <div class="password-wrap">
-
-            <input
-                id="newPassword"
-                type="password"
-                placeholder="At least 6 characters">
-
-            <button
-                type="button"
-                class="password-toggle"
-                onclick="togglePassword('newPassword',this)">
-                Show
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="form-group">
-
-        <label>Confirm Password</label>
-
-        <div class="password-wrap">
-
-            <input
-                id="confirmPassword"
-                type="password"
-                placeholder="Repeat your password">
-
-            <button
-                type="button"
-                class="password-toggle"
-                onclick="togglePassword('confirmPassword',this)">
-                Show
-            </button>
-
-        </div>
-
-    </div>
-
-    <button
-        class="primary full"
-        onclick="updatePassword()">
-        Update Password
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     ACCOUNT
-===================================================== -->
-
-<div
-    id="accountScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-        ← Back
-    </button>
-
-    <h2>
-        👤 Your Account
-    </h2>
-
-    <div id="accountDetails"></div>
-
-</div>
-
-
-<!-- =====================================================
-     LIBRARY SETS
-===================================================== -->
-
-<div
-    id="librarySetScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-        ← Back
-    </button>
-
-    <h2 id="libraryTopicTitle"></h2>
-
-    <p class="small">
-        Choose a section to study.
-    </p>
-
-    <div id="librarySets"></div>
-
-</div>
-
-
-<!-- =====================================================
-     STUDY
-===================================================== -->
-
-<div
-    id="studyScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-        ← Back
-    </button>
-
-    <div class="library-header">
-
-        <h2 id="studyTitle"></h2>
-
-        <p class="small">
-            Study like a digital book.
-            Questions are automatically numbered.
-        </p>
-
-    </div>
-
-    <div id="studyQuestions"></div>
-
-</div>
-
-
-<!-- =====================================================
-     QUIZ
-===================================================== -->
-
-<div
-    id="quizScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="exitQuiz()">
-        ← Exit
-    </button>
-
-    <h2 id="quizTitle"></h2>
-
-    <div
-        id="quizScore"
-        class="quiz-score">
-        Score: 0 / 0
-    </div>
-
-    <div
-        id="quizQuestion"
-        class="quiz-question">
-    </div>
-
-    <div id="quizOptions"></div>
-
-    <div
-        id="quizFeedback"
-        class="feedback hidden">
-    </div>
-
-    <button
-        id="nextQuestionButton"
-        class="primary full hidden"
-        onclick="nextQuizQuestion()">
-        Next Question →
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     COMPLETE
-===================================================== -->
-
-<div
-    id="completeScreen"
-    class="card hidden center">
-
-    <h2 id="completeTitle">
-        🎉 Session Complete!
-    </h2>
-
-    <div id="finalScore"></div>
-
-    <div id="completeReaction"></div>
-
-    <div id="missedQuestions"></div>
-
-    <br>
-
-    <button
-        class="primary"
-        onclick="goHome()">
-        Back to Home
-    </button>
-
-</div>
-
-
-<!-- =====================================================
-     PREMIUM
-===================================================== -->
-
-<div
-    id="premiumScreen"
-    class="card hidden">
-
-    <button
-        class="secondary back"
-        onclick="goBack()">
-        ← Back
-    </button>
-
-    <h2>
-        👑 Premium Preparation
-    </h2>
-
-    <p class="small">
-        Premium content can be unlocked through your
-        account after successful payment verification.
-    </p>
-
-    <div class="premium-feature">
-        📄 Premium PDFs
-    </div>
-
-    <div class="premium-feature">
-        📝 Previous-year questions
-    </div>
-
-    <div class="premium-feature">
-        🎯 Full mock tests
-    </div>
-
-    <div class="premium-feature">
-        📚 Premium study sets
-    </div>
-
-    <div class="premium-feature">
-        📥 Downloadable material
-    </div>
-
-    <br>
-
-    <div id="premiumStatus"></div>
-
-    <button
-        class="primary full"
-        onclick="startPayment()">
-        👑 Continue to Premium Payment
-    </button>
-
-    <p class="small center">
-        Secure payment verification will be handled
-        separately from the public browser code.
-    </p>
-
-</div>
-
-
-<!-- =====================================================
-     ADMIN
-===================================================== -->
-
-<div
-    id="adminScreen"
-    class="hidden">
-
-    <div class="card">
-
-        <button
-            class="secondary back"
-            onclick="goHome()">
-            ← Home
-        </button>
-
-        <h2>
-            🔐 Admin Dashboard
-        </h2>
-
-        <p class="small">
-            Only the designated administrator can access
-            these controls.
-        </p>
-
-        <div class="admin-stats">
-
-            <div class="admin-stat">
-
-                <strong id="adminTotal">
-                    0
-                </strong>
-
-                <span>
-                    Total Questions
-                </span>
-
-            </div>
-
-            <div class="admin-stat">
-
-                <strong id="adminFree">
-                    0
-                </strong>
-
-                <span>
-                    Free
-                </span>
-
-            </div>
-
-            <div class="admin-stat">
-
-                <strong id="adminPremium">
-                    0
-                </strong>
-
-                <span>
-                    Premium
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ADMIN NAV -->
-
-    <div class="card">
-
-        <div class="bottom-nav">
-
-            <button
-                id="adminQuestionsNav"
+                id="timerButton"
                 class="primary"
-                onclick="showAdminTab('questions')">
-                📝 Questions
+                onclick="toggleTimer()">
+
+                ▶ Start Study Timer
+
             </button>
 
             <button
-                id="adminUsersNav"
                 class="secondary"
-                onclick="showAdminTab('users')">
-                👥 Users
-            </button>
+                onclick="resetTimer()">
 
-            <button
-                id="adminPaymentsNav"
-                class="secondary"
-                onclick="showAdminTab('payments')">
-                💳 Payments
+                ↻ Reset
+
             </button>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- QUESTIONS -->
+
+<!-- TOPICS -->
+
+<section
+    id="topicsSection"
+    class="card">
+
+    <div class="section-title">
+
+        <h2>
+            📖 Study Library
+        </h2>
+
+        <span class="small">
+            Free material
+        </span>
+
+    </div>
+
+    <p class="small">
+        Choose a topic and then choose a study section.
+    </p>
+
+    <div
+        id="libraryTopicGrid"
+        class="topic-grid">
+    </div>
+
+</section>
+
+
+<!-- PRACTICE -->
+
+<section class="card">
+
+    <div class="section-title">
+
+        <h2>
+            🎮 Practice Quiz
+        </h2>
+
+        <span class="small">
+            Free
+        </span>
+
+    </div>
+
+    <p class="small">
+        Choose a topic and test yourself.
+    </p>
+
+    <div
+        id="practiceTopicGrid"
+        class="topic-grid">
+    </div>
+
+</section>
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="card">
+
+    <h2>
+        ⚡ Quick Revision
+    </h2>
+
+    <div class="quick-grid">
+
+        <button
+            class="quick-action"
+            onclick="practiceMissedQuestions()">
+
+            <strong>
+                🔁 Missed Questions
+            </strong>
+
+            <span class="small">
+                Practice questions you got wrong.
+            </span>
+
+        </button>
+
+        <button
+            class="quick-action"
+            onclick="openAccount()">
+
+            <strong>
+                👤 Account
+            </strong>
+
+            <span class="small">
+                Manage your account and progress.
+            </span>
+
+        </button>
+
+    </div>
+
+    <div
+        id="missedReaction"
+        class="small"
+        style="margin-top:12px;">
+    </div>
+
+</section>
+
+
+<!-- PREMIUM -->
+
+<section class="card">
+
+    <div class="premium-home">
+
+        <h2>
+            👑 Premium Preparation
+        </h2>
+
+        <p>
+            Premium preparation is part of ADRE GK Quiz.
+            Payment activation is coming later.
+        </p>
+
+        <div class="premium-features">
+
+            <div class="premium-feature locked">
+                📄 Premium PDFs
+            </div>
+
+            <div class="premium-feature locked">
+                📝 Previous-year questions
+            </div>
+
+            <div class="premium-feature locked">
+                🎯 Full mock tests
+            </div>
+
+            <div class="premium-feature locked">
+                📚 Premium study sets
+            </div>
+
+            <div class="premium-feature locked">
+                📥 Downloadable material
+            </div>
+
+            <div class="premium-feature locked">
+                🔒 Premium-only content
+            </div>
+
+        </div>
+
+        <button
+            class="primary full"
+            onclick="openPremium()">
+
+            👑 View Premium
+
+        </button>
+
+        <p class="small">
+            Premium access and payment will only activate
+            after secure payment verification is connected.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- COMING SOON -->
+
+<section class="card coming-soon-card">
+
+    <div class="section-title">
+
+        <h2>
+            🔜 Coming Soon
+        </h2>
+
+    </div>
+
+    <p class="small">
+        More preparation features are being built.
+    </p>
+
+    <div class="coming-grid">
+
+        <div class="coming-item">
+
+            <strong>
+                💳 Secure Premium Payments
+            </strong>
+
+            <span class="small">
+                Payment verification before Premium activation.
+            </span>
+
+        </div>
+
+        <div class="coming-item">
+
+            <strong>
+                📄 Premium PDF Library
+            </strong>
+
+            <span class="small">
+                Organised downloadable preparation material.
+            </span>
+
+        </div>
+
+        <div class="coming-item">
+
+            <strong>
+                🎯 Full Mock Tests
+            </strong>
+
+            <span class="small">
+                Larger exam-style practice sessions.
+            </span>
+
+        </div>
+
+        <div class="coming-item">
+
+            <strong>
+                📊 Better Progress Tracking
+            </strong>
+
+            <span class="small">
+                More detailed preparation statistics.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div><!-- =====================================================
+     AUTH
+===================================================== --><div
+    id="authScreen"
+    class="card auth-card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Back
+
+</button>
+
+<h2 id="authTitle">
+    🔐 Sign In
+</h2>
+
+<p
+    id="authDescription"
+    class="small">
+</p>
+
+<div id="authError"></div>
+
+<div class="form-group">
+
+    <label>
+        Email
+    </label>
+
+    <input
+        id="authEmail"
+        type="email"
+        autocomplete="email"
+        placeholder="you@example.com">
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Password
+    </label>
+
+    <div class="password-wrap">
+
+        <input
+            id="authPassword"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Your password">
+
+        <button
+            type="button"
+            class="password-toggle"
+            onclick="togglePasswordVisibility(
+                'authPassword',
+                this
+            )">
+
+            Show
+
+        </button>
+
+    </div>
+
+</div>
+
+<button
+    id="authButton"
+    class="primary full"
+    onclick="submitAuth()">
+
+    Sign In
+
+</button>
+
+<button
+    id="forgotPasswordButton"
+    class="secondary full"
+    style="margin-top:9px;"
+    onclick="forgotPassword()">
+
+    Forgot Password?
+
+</button>
+
+<div class="auth-switch">
+
+    <button
+        id="authToggleButton"
+        class="secondary full"
+        onclick="toggleAuthMode()">
+
+        Create a new account
+
+    </button>
+
+</div>
+
+</div><!-- =====================================================
+     EMAIL VERIFICATION
+===================================================== --><div
+    id="verificationScreen"
+    class="card auth-card hidden"><h2>
+    📧 Verify Your Email
+</h2>
+
+<p class="small">
+    Enter the verification code sent to your email.
+    If your Supabase email template uses a confirmation
+    link instead, simply open that link and return here.
+</p>
+
+<div id="verificationMessage"></div>
+
+<div class="form-group">
+
+    <label>
+        Email
+    </label>
+
+    <input
+        id="verificationEmail"
+        type="email"
+        readonly>
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Verification Code
+    </label>
+
+    <input
+        id="verificationToken"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        placeholder="Enter verification code">
+
+</div>
+
+<button
+    class="primary full"
+    onclick="verifyEmailCode()">
+
+    Verify Email
+
+</button>
+
+<button
+    class="secondary full"
+    style="margin-top:9px;"
+    onclick="resendVerification()">
+
+    Resend Verification Email
+
+</button>
+
+<button
+    class="secondary full"
+    style="margin-top:9px;"
+    onclick="openAuth()">
+
+    ← Back to Sign In
+
+</button>
+
+</div><!-- =====================================================
+     ACCOUNT
+===================================================== --><div
+    id="accountScreen"
+    class="card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Back
+
+</button>
+
+<h2>
+    👤 Your Account
+</h2>
+
+<div id="accountDetails"></div>
+
+</div><!-- =====================================================
+     LIBRARY SETS
+===================================================== --><div
+    id="librarySetScreen"
+    class="card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Back
+
+</button>
+
+<h2 id="libraryTopicTitle"></h2>
+
+<p class="small">
+    Choose a section to study.
+</p>
+
+<div id="librarySets"></div>
+
+</div><!-- =====================================================
+     STUDY
+===================================================== --><div
+    id="studyScreen"
+    class="card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Back
+
+</button>
+
+<div class="library-header">
+
+    <h2 id="studyTitle"></h2>
+
+    <p class="small">
+        Study like a digital book.
+        Questions are automatically numbered.
+    </p>
+
+</div>
+
+<div id="studyQuestions"></div>
+
+</div><!-- =====================================================
+     QUIZ
+===================================================== --><div
+    id="quizScreen"
+    class="card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Exit
+
+</button>
+
+<h2 id="quizTitle"></h2>
+
+<div
+    id="quizScore"
+    class="quiz-score">
+
+    Score: 0 / 0
+
+</div>
+
+<div
+    id="quizQuestion"
+    class="quiz-question">
+</div>
+
+<div id="quizOptions"></div>
+
+<div
+    id="quizFeedback"
+    class="feedback hidden">
+</div>
+
+<button
+    id="nextQuestionButton"
+    class="primary full hidden"
+    onclick="nextQuizQuestion()">
+
+    Next Question →
+
+</button>
+
+</div><!-- =====================================================
+     COMPLETE
+===================================================== --><div
+    id="completeScreen"
+    class="card hidden center"><h2 id="completeTitle">
+    🎉 Session Complete!
+</h2>
+
+<div id="finalScore"></div>
+
+<div id="completeReaction"></div>
+
+<div id="missedQuestions"></div>
+
+<br>
+
+<button
+    class="primary"
+    onclick="goHome()">
+
+    Back to Home
+
+</button>
+
+</div><!-- =====================================================
+     PREMIUM
+===================================================== --><div
+    id="premiumScreen"
+    class="card hidden"><button
+    class="secondary back"
+    onclick="goBack()">
+
+    ← Back
+
+</button>
+
+<h2>
+    👑 Premium Preparation
+</h2>
+
+<p class="small">
+    Premium content exists, but payment activation is
+    not connected yet. Nobody can receive Premium simply
+    by clicking a browser button.
+</p>
+
+<div class="premium-feature">
+    📄 Premium PDFs
+</div>
+
+<div class="premium-feature">
+    📝 Previous-year questions
+</div>
+
+<div class="premium-feature">
+    🎯 Full mock tests
+</div>
+
+<div class="premium-feature">
+    📚 Premium study sets
+</div>
+
+<div class="premium-feature">
+    📥 Downloadable material
+</div>
+
+<br>
+
+<div id="premiumStatus"></div>
+
+<button
+    id="premiumPaymentButton"
+    class="primary full"
+    onclick="startPayment()">
+
+    👑 Continue to Premium Payment
+
+</button>
+
+<p class="small center">
+    Secure payment verification will be connected later.
+    Until then, this button does not grant Premium access.
+</p>
+
+</div><!-- =====================================================
+     ADMIN
+===================================================== --><div
+    id="adminScreen"
+    class="hidden"><div class="card">
+
+    <button
+        class="secondary back"
+        onclick="goHome()">
+
+        ← Home
+
+    </button>
+
+    <h2>
+        🔐 Admin Dashboard
+    </h2>
+
+    <p class="small">
+        Only the designated administrator can access
+        these controls.
+    </p>
+
+    <div class="admin-stats">
+
+        <div class="admin-stat">
+
+            <strong id="adminTotal">
+                0
+            </strong>
+
+            <span>
+                Total Questions
+            </span>
+
+        </div>
+
+        <div class="admin-stat">
+
+            <strong id="adminFree">
+                0
+            </strong>
+
+            <span>
+                Free
+            </span>
+
+        </div>
+
+        <div class="admin-stat">
+
+            <strong id="adminPremium">
+                0
+            </strong>
+
+            <span>
+                Premium
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN NAV -->
+
+<div class="card">
+
+    <div class="bottom-nav">
+
+        <button
+            id="adminQuestionsNav"
+            class="primary"
+            onclick="showAdminTab('questions')">
+
+            📝 Questions
+
+        </button>
+
+        <button
+            class="secondary"
+            onclick="showAdminTab('users')">
+
+            👥 Users
+
+        </button>
+
+        <button
+            class="secondary"
+            onclick="showAdminTab('payments')">
+
+            💳 Payments
+
+        </button>
+
+        <button
+            class="secondary"
+            onclick="showAdminTab('pdfs')">
+
+            📄 PDFs
+
+        </button>
+
+        <button
+            class="secondary"
+            onclick="showAdminTab('import')">
+
+            📥 Bulk Import
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     QUESTIONS TAB
+================================================= -->
+
+<div
+    id="adminQuestionsArea">
 
     <div
         id="adminQuestionsTab"
@@ -1666,7 +1943,9 @@ footer{
 
         <div class="form-group">
 
-            <label>Topic</label>
+            <label>
+                Topic
+            </label>
 
             <select id="adminTopic"></select>
 
@@ -1674,7 +1953,9 @@ footer{
 
         <div class="form-group">
 
-            <label>Study Section</label>
+            <label>
+                Study Section
+            </label>
 
             <select id="adminStudySet"></select>
 
@@ -1682,7 +1963,9 @@ footer{
 
         <div class="form-group">
 
-            <label>Question</label>
+            <label>
+                Question
+            </label>
 
             <textarea
                 id="adminQuestion"
@@ -1692,28 +1975,58 @@ footer{
         </div>
 
         <div class="form-group">
-            <label>Option A</label>
-            <input id="adminA" placeholder="Option A">
-        </div>
 
-        <div class="form-group">
-            <label>Option B</label>
-            <input id="adminB" placeholder="Option B">
-        </div>
+            <label>
+                Option A
+            </label>
 
-        <div class="form-group">
-            <label>Option C</label>
-            <input id="adminC" placeholder="Option C">
-        </div>
+            <input
+                id="adminA"
+                placeholder="Option A">
 
-        <div class="form-group">
-            <label>Option D</label>
-            <input id="adminD" placeholder="Option D">
         </div>
 
         <div class="form-group">
 
-            <label>Correct Answer</label>
+            <label>
+                Option B
+            </label>
+
+            <input
+                id="adminB"
+                placeholder="Option B">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option C
+            </label>
+
+            <input
+                id="adminC"
+                placeholder="Option C">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Option D
+            </label>
+
+            <input
+                id="adminD"
+                placeholder="Option D">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Correct Answer
+            </label>
 
             <select id="adminAnswer">
 
@@ -1727,7 +2040,9 @@ footer{
 
         <div class="form-group">
 
-            <label>Explanation</label>
+            <label>
+                Explanation
+            </label>
 
             <textarea
                 id="adminExplanation"
@@ -1738,7 +2053,9 @@ footer{
 
         <div class="form-group">
 
-            <label>Access</label>
+            <label>
+                Access
+            </label>
 
             <select id="adminPremium">
 
@@ -1757,15 +2074,15 @@ footer{
         <button
             class="primary full"
             onclick="addQuestion()">
+
             ➕ Add Question
+
         </button>
 
         <div id="addQuestionMessage"></div>
 
     </div>
 
-
-    <!-- QUESTION LIST -->
 
     <div
         id="adminQuestionListCard"
@@ -1798,69 +2115,168 @@ footer{
 
     </div>
 
+</div>
 
-    <!-- USERS -->
 
-    <div
-        id="adminUsersTab"
-        class="card hidden">
+<!-- =================================================
+     BULK IMPORT TAB
+================================================= -->
 
-        <h2>
-            👥 Users
-        </h2>
+<div
+    id="adminImportTab"
+    class="card hidden">
+
+    <h2>
+        📥 Bulk Question Import
+    </h2>
+
+    <p class="small">
+        Add many questions at once instead of entering
+        them one by one.
+    </p>
+
+    <div class="import-help">
+
+        <strong>
+            JSON format
+        </strong>
 
         <p class="small">
-            User management area. Authentication credentials
-            are not exposed to the browser.
-        </p>
-
-        <input
-            id="adminUserSearch"
-            class="search-input"
-            placeholder="Search users by email..."
-            oninput="renderUsers()">
-
-        <div id="adminUsersList">
-
-            <div class="loading">
-                Loading users...
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PAYMENTS -->
-
-    <div
-        id="adminPaymentsTab"
-        class="card hidden">
-
-        <h2>
-            💳 Payments
-        </h2>
-
-        <div class="info-box">
-
-            Payment records are designed to be handled
-            automatically by the payment provider and
-            secure verification endpoint.
-
+            Paste an array of questions. Each question can
+            contain:
             <br><br>
 
-            The browser must never be trusted to declare
-            that a payment succeeded.
+            <code>topic</code>,
+            <code>study_set</code>,
+            <code>question</code>,
+            <code>option_a</code>,
+            <code>option_b</code>,
+            <code>option_c</code>,
+            <code>option_d</code>,
+            <code>answer</code>,
+            <code>explanation</code>,
+            <code>is_premium</code>
+        </p>
 
-        </div>
+        <p class="small">
+            Example:
+        </p>
 
-        <div id="adminPaymentsList">
+<pre style="white-space:pre-wrap;background:#e2e8f0;padding:10px;border-radius:10px;font-size:.75rem;">[
+  {
+    "topic":"History",
+    "study_set":"Assam History",
+    "question":"Example question?",
+    "option_a":"Answer A",
+    "option_b":"Answer B",
+    "option_c":"Answer C",
+    "option_d":"Answer D",
+    "answer":"Answer A",
+    "explanation":"Explanation here.",
+    "is_premium":false
+  }
+]</pre>        <strong>
+            CSV format
+        </strong>
 
-            <p class="small">
-                Payment records will appear here once the
-                secure payment backend is connected.
-            </p>
+        <p class="small">
+            You can also upload a CSV file with these
+            column names:
+            topic, study_set, question, option_a,
+            option_b, option_c, option_d, answer,
+            explanation, is_premium
+        </p>
 
+    </div>
+
+    <div class="form-group">
+
+        <label>
+            Upload CSV
+        </label>
+
+        <input
+            id="bulkCsvFile"
+            type="file"
+            accept=".csv,text/csv">
+
+    </div>
+
+    <button
+        class="primary full"
+        onclick="importCsvFile()">
+
+        📥 Import CSV Questions
+
+    </button>
+
+    <div class="form-group">
+
+        <label>
+            Or paste JSON
+        </label>
+
+        <textarea
+            id="bulkJson"
+            style="min-height:280px;"
+            placeholder='[
+
+{
+"topic":"History",
+"study_set":"Assam History",
+"question":"...",
+"option_a":"...",
+"option_b":"...",
+"option_c":"...",
+"option_d":"...",
+"answer":"...",
+"explanation":"",
+"is_premium":false
+}
+]'></textarea>
+
+    </div>
+
+    <button
+        class="primary full"
+        onclick="importJsonQuestions()">
+
+        🚀 Import JSON Questions
+
+    </button>
+
+    <div id="bulkImportMessage"></div>
+
+</div>
+
+
+<!-- =================================================
+     USERS TAB
+================================================= -->
+
+<div
+    id="adminUsersTab"
+    class="card hidden">
+
+    <h2>
+        👥 Users
+    </h2>
+
+    <p class="small">
+        User records are kept separate from Supabase's
+        authentication credentials.
+    </p>
+
+    <input
+        id="adminUserSearch"
+        class="search-input"
+        placeholder="Search users by email..."
+        oninput="renderUsers()">
+
+    <div id="adminUsersList">
+
+        <div class="loading">
+            Loading users...
         </div>
 
     </div>
@@ -1868,14 +2284,85 @@ footer{
 </div>
 
 
-<footer>
-    © 2026 ADRE GK Quiz · Assam Exam Preparation
-</footer>
+<!-- =================================================
+     PAYMENTS TAB
+================================================= -->
+
+<div
+    id="adminPaymentsTab"
+    class="card hidden">
+
+    <h2>
+        💳 Payments
+    </h2>
+
+    <div class="info-box">
+
+        Payment records are designed to be created by a
+        secure payment backend after provider verification.
+
+        <br><br>
+
+        The browser must never be trusted to declare that
+        a payment succeeded.
+
+    </div>
+
+    <div id="adminPaymentsList">
+
+        <p class="small">
+            Payment records will appear here once the
+            secure payment backend is connected.
+        </p>
+
+    </div>
 
 </div>
 
 
-<script>
+<!-- =================================================
+     PDF TAB
+================================================= -->
+
+<div
+    id="adminPdfTab"
+    class="card hidden">
+
+    <h2>
+        📄 PDF Library
+    </h2>
+
+    <p class="small">
+        The PDF library foundation is ready. Actual
+        files can be connected through Supabase Storage
+        and a secure database table later.
+    </p>
+
+    <div class="info-box">
+
+        Recommended PDF record fields:
+
+        <br><br>
+
+        title · description · topic · file_url ·
+        is_premium · created_at
+
+    </div>
+
+    <div id="adminPdfList">
+
+        <p class="small">
+            PDF records will appear here when the
+            library table/storage is connected.
+        </p>
+
+    </div>
+
+</div>
+
+</div><footer>© 2026 ADRE GK Quiz · Assam Exam Preparation
+
+</footer></div><script>
 
 /* =====================================================
    SUPABASE
@@ -2005,16 +2492,22 @@ localStorage.getItem("adre_last_streak_date") || "";
 
 let todayQuestions =
 Number(
-    localStorage.getItem("adre_today_questions")
+    localStorage.getItem(
+        "adre_today_questions"
+    )
 ) || 0;
 
 let todayStudySeconds =
 Number(
-    localStorage.getItem("adre_today_seconds")
+    localStorage.getItem(
+        "adre_today_seconds"
+    )
 ) || 0;
 
 let savedProgressDate =
-localStorage.getItem("adre_progress_date") || "";
+localStorage.getItem(
+    "adre_progress_date"
+) || "";
 
 
 /* =====================================================
@@ -2023,7 +2516,9 @@ localStorage.getItem("adre_progress_date") || "";
 
 let missedSavedIds =
 JSON.parse(
-    localStorage.getItem("adre_missed_ids") || "[]"
+    localStorage.getItem(
+        "adre_missed_ids"
+    ) || "[]"
 );
 
 
@@ -2031,50 +2526,55 @@ JSON.parse(
    QUIZ
 ===================================================== */
 
-let quizQuestions = [];
+let quizQuestions=[];
 
-let quizIndex = 0;
+let quizIndex=0;
 
-let quizCorrect = 0;
+let quizCorrect=0;
 
-let quizWrong = 0;
+let quizWrong=0;
 
-let quizMode = "";
+let quizMode="";
 
-let quizTopic = "";
+let quizTopic="";
 
-let missedQuestionIds = [];
+let missedQuestionIds=[];
 
 
 /* =====================================================
    TIMER
 ===================================================== */
 
-let timerRunning = false;
+let timerRunning=false;
 
-let timerInterval = null;
+let timerInterval=null;
 
-let timerSeconds = 0;
+let timerSeconds=
+Number(
+    localStorage.getItem(
+        "adre_timer_seconds"
+    )
+) || 0;
 
 
 /* =====================================================
    AUTH
 ===================================================== */
 
-let authMode = "signin";
+let authMode="signin";
 
-let currentUser = null;
+let currentUser=null;
 
-let passwordRecoveryMode = false;
+let verificationEmail="";
 
 
 /* =====================================================
-   ADMIN
+   ADMIN DATA
 ===================================================== */
 
-let adminQuestions = [];
+let adminQuestions=[];
 
-let adminUsers = [];
+let adminUsers=[];
 
 
 /* =====================================================
@@ -2083,17 +2583,21 @@ let adminUsers = [];
 
 function navigateTo(
     screenId,
-    pushHistory = true
+    pushHistory=true
 ){
 
     hideAllScreens();
 
-    const screen =
-        document.getElementById(screenId);
+    const screen=
+        document.getElementById(
+            screenId
+        );
 
     if(!screen)return;
 
-    screen.classList.remove("hidden");
+    screen.classList.remove(
+        "hidden"
+    );
 
     if(pushHistory){
 
@@ -2115,7 +2619,7 @@ function navigateTo(
 
 function goBack(){
 
-    if(history.length > 1){
+    if(history.length>1){
 
         history.back();
 
@@ -2129,29 +2633,13 @@ function goBack(){
 
 
 function goHome(
-    pushHistory = true
+    pushHistory=true
 ){
 
-    hideAllScreens();
-
-    document
-        .getElementById("homeScreen")
-        .classList.remove("hidden");
-
-    if(pushHistory){
-
-        history.pushState(
-            {screen:"homeScreen"},
-            "",
-            "#homeScreen"
-        );
-
-    }
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    navigateTo(
+        "homeScreen",
+        pushHistory
+    );
 
 }
 
@@ -2160,26 +2648,32 @@ window.addEventListener(
     "popstate",
     function(event){
 
-        const screenId =
+        const screenId=
             event.state &&
             event.state.screen
-            ? event.state.screen
-            : "homeScreen";
+            ?event.state.screen
+            :"homeScreen";
 
         hideAllScreens();
 
-        const screen =
-            document.getElementById(screenId);
+        const screen=
+            document.getElementById(
+                screenId
+            );
 
         if(screen){
 
-            screen.classList.remove("hidden");
+            screen.classList.remove(
+                "hidden"
+            );
 
         }else{
 
-            document
-                .getElementById("homeScreen")
-                .classList.remove("hidden");
+            document.getElementById(
+                "homeScreen"
+            ).classList.remove(
+                "hidden"
+            );
 
         }
 
@@ -2207,8 +2701,7 @@ function hideAllScreens(){
     [
         "homeScreen",
         "authScreen",
-        "forgotPasswordScreen",
-        "resetPasswordScreen",
+        "verificationScreen",
         "accountScreen",
         "librarySetScreen",
         "studyScreen",
@@ -2219,12 +2712,14 @@ function hideAllScreens(){
     ].forEach(
         function(id){
 
-            const element =
+            const element=
                 document.getElementById(id);
 
             if(element){
 
-                element.classList.add("hidden");
+                element.classList.add(
+                    "hidden"
+                );
 
             }
 
@@ -2235,61 +2730,21 @@ function hideAllScreens(){
 
 
 /* =====================================================
-   HOME NAVIGATION
+   SCROLL
 ===================================================== */
 
-function scrollToPractice(){
+function scrollToTopics(){
 
-    hideAllScreens();
-
-    document
-        .getElementById("homeScreen")
-        .classList.remove("hidden");
-
-    const section =
-        document.getElementById("practiceSection");
-
-    if(section){
-
-        setTimeout(
-            function(){
-
-                section.scrollIntoView({
-                    behavior:"smooth"
-                });
-
-            },
-            50
+    const el=
+        document.getElementById(
+            "topicsSection"
         );
 
-    }
+    if(el){
 
-}
-
-
-function openLibrary(){
-
-    hideAllScreens();
-
-    document
-        .getElementById("homeScreen")
-        .classList.remove("hidden");
-
-    const grid =
-        document.getElementById("libraryTopicGrid");
-
-    if(grid){
-
-        setTimeout(
-            function(){
-
-                grid.scrollIntoView({
-                    behavior:"smooth"
-                });
-
-            },
-            50
-        );
+        el.scrollIntoView({
+            behavior:"smooth"
+        });
 
     }
 
@@ -2302,14 +2757,14 @@ function openLibrary(){
 
 function checkDailyReset(){
 
-    const today =
+    const today=
         new Date().toDateString();
 
-    if(savedProgressDate !== today){
+    if(savedProgressDate!==today){
 
-        todayQuestions = 0;
+        todayQuestions=0;
 
-        todayStudySeconds = 0;
+        todayStudySeconds=0;
 
         localStorage.setItem(
             "adre_today_questions",
@@ -2326,7 +2781,7 @@ function checkDailyReset(){
             today
         );
 
-        savedProgressDate = today;
+        savedProgressDate=today;
 
     }
 
@@ -2339,30 +2794,28 @@ function checkDailyReset(){
 
 function updateStats(){
 
-    const xpEl =
+    const xpEl=
         document.getElementById("xp");
 
-    const streakEl =
+    const streakEl=
         document.getElementById("streak");
 
-    const timeEl =
+    const timeEl=
         document.getElementById("todayTime");
 
     if(xpEl)
-        xpEl.textContent =
+        xpEl.textContent=
             xp+" XP";
 
     if(streakEl)
-        streakEl.textContent =
+        streakEl.textContent=
             streak+" Day Streak";
 
     if(timeEl)
-        timeEl.textContent =
+        timeEl.textContent=
             Math.floor(
-                todayStudySeconds / 60
+                todayStudySeconds/60
             )+" min";
-
-    updateMissedReaction();
 
 }
 
@@ -2373,7 +2826,7 @@ function updateStats(){
 
 function addXP(amount){
 
-    xp += amount;
+    xp+=amount;
 
     localStorage.setItem(
         "adre_xp",
@@ -2391,10 +2844,10 @@ function addXP(amount){
 
 function saveStreakForToday(){
 
-    const today =
+    const today=
         new Date().toDateString();
 
-    if(lastStreakDate === today){
+    if(lastStreakDate===today){
 
         return;
 
@@ -2402,7 +2855,7 @@ function saveStreakForToday(){
 
     streak++;
 
-    lastStreakDate = today;
+    lastStreakDate=today;
 
     localStorage.setItem(
         "adre_streak",
@@ -2422,8 +2875,8 @@ function saveStreakForToday(){
 function checkStreakProgress(){
 
     if(
-        todayQuestions >= 25 ||
-        todayStudySeconds >= 600
+        todayQuestions>=25 ||
+        todayStudySeconds>=600
     ){
 
         saveStreakForToday();
@@ -2456,27 +2909,32 @@ function startTimer(){
 
     if(timerRunning)return;
 
-    timerRunning = true;
+    timerRunning=true;
 
-    const button =
+    const button=
         document.getElementById(
             "timerButton"
         );
 
     if(button){
 
-        button.textContent =
+        button.textContent=
             "⏸ Pause Study Timer";
 
     }
 
-    timerInterval =
+    timerInterval=
         setInterval(
             function(){
 
                 timerSeconds++;
 
                 todayStudySeconds++;
+
+                localStorage.setItem(
+                    "adre_timer_seconds",
+                    timerSeconds
+                );
 
                 localStorage.setItem(
                     "adre_today_seconds",
@@ -2490,7 +2948,7 @@ function startTimer(){
                 checkStreakProgress();
 
                 if(
-                    timerSeconds % 60 === 0
+                    timerSeconds%60===0
                 ){
 
                     showTimerReaction();
@@ -2506,21 +2964,51 @@ function startTimer(){
 
 function stopTimer(){
 
-    timerRunning = false;
+    timerRunning=false;
 
-    clearInterval(timerInterval);
+    clearInterval(
+        timerInterval
+    );
 
-    timerInterval = null;
+    timerInterval=null;
 
-    const button =
+    const button=
         document.getElementById(
             "timerButton"
         );
 
     if(button){
 
-        button.textContent =
+        button.textContent=
             "▶ Start Study Timer";
+
+    }
+
+}
+
+
+function resetTimer(){
+
+    stopTimer();
+
+    timerSeconds=0;
+
+    localStorage.setItem(
+        "adre_timer_seconds",
+        "0"
+    );
+
+    updateTimerDisplay();
+
+    const message=
+        document.getElementById(
+            "timerMessage"
+        );
+
+    if(message){
+
+        message.textContent=
+            "Fresh session. Let's go. 🚀";
 
     }
 
@@ -2529,22 +3017,22 @@ function stopTimer(){
 
 function updateTimerDisplay(){
 
-    const minutes =
+    const minutes=
         Math.floor(
-            timerSeconds / 60
+            timerSeconds/60
         );
 
-    const seconds =
-        timerSeconds % 60;
+    const seconds=
+        timerSeconds%60;
 
-    const timer =
+    const timer=
         document.getElementById(
             "timer"
         );
 
     if(timer){
 
-        timer.textContent =
+        timer.textContent=
             String(minutes).padStart(2,"0")
             +":"
             +
@@ -2557,7 +3045,7 @@ function updateTimerDisplay(){
 
 function showTimerReaction(){
 
-    const lines = [
+    const lines=[
 
         "⏱️ Future-you is going to be glad you started today.",
 
@@ -2601,14 +3089,14 @@ function showTimerReaction(){
 
     ];
 
-    const el =
+    const el=
         document.getElementById(
             "timerMessage"
         );
 
     if(el){
 
-        el.textContent =
+        el.textContent=
             randomItem(lines);
 
     }
@@ -2622,7 +3110,7 @@ function showTimerReaction(){
 
 function setDailyReaction(){
 
-    const lines = [
+    const lines=[
 
         "🔥 Today's 25 questions are waiting. Don't leave your streak hanging.",
 
@@ -2650,14 +3138,14 @@ function setDailyReaction(){
 
     ];
 
-    const el =
+    const el=
         document.getElementById(
             "dailyReaction"
         );
 
     if(el){
 
-        el.textContent =
+        el.textContent=
             randomItem(lines);
 
     }
@@ -2674,14 +3162,99 @@ function getDailyMessage(
     lines
 ){
 
-    const day =
+    const day=
         Math.floor(
             Date.now()/86400000
         );
 
     return lines[
-        day % lines.length
+        day%lines.length
     ];
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+function updateHeader(){
+
+    const area=
+        document.getElementById(
+            "headerActions"
+        );
+
+    if(!area)return;
+
+    area.innerHTML="";
+
+    if(currentUser){
+
+        const accountButton=
+            document.createElement(
+                "button"
+            );
+
+        accountButton.className=
+            "secondary";
+
+        accountButton.textContent=
+            "👤 Account";
+
+        accountButton.onclick=
+            openAccount;
+
+        area.appendChild(
+            accountButton
+        );
+
+        if(
+            currentUser.id===
+            ADMIN_UID
+        ){
+
+            const adminButton=
+                document.createElement(
+                    "button"
+                );
+
+            adminButton.className=
+                "primary";
+
+            adminButton.textContent=
+                "🔐 Admin";
+
+            adminButton.onclick=
+                openAdmin;
+
+            area.appendChild(
+                adminButton
+            );
+
+        }
+
+    }else{
+
+        const button=
+            document.createElement(
+                "button"
+            );
+
+        button.className=
+            "primary";
+
+        button.textContent=
+            "🔐 Sign In";
+
+        button.onclick=
+            openAuth;
+
+        area.appendChild(
+            button
+        );
+
+    }
 
 }
 
@@ -2692,129 +3265,7 @@ function getDailyMessage(
 
 function updateAccountArea(){
 
-    const area =
-        document.getElementById(
-            "accountArea"
-        );
-
-    const message =
-        document.getElementById(
-            "signInMessage"
-        );
-
-    const header =
-        document.getElementById(
-            "headerAccountButton"
-        );
-
-    if(!area || !message)return;
-
-    if(!currentUser){
-
-        const lines = [
-
-            "Your progress is currently living only on this device. Sign in so you don't have to start from zero on another device.",
-
-            "You've already started building your progress. Don't let it stay trapped on one device.",
-
-            "A streak feels more valuable when you know it won't disappear when you change devices.",
-
-            "Keep your XP, streak and weak-question progress connected to your account.",
-
-            "You don't have to sign in to practice, but signing in means your progress can follow you."
-
-        ];
-
-        message.textContent =
-            getDailyMessage(
-                "signin",
-                lines
-            );
-
-        area.innerHTML =
-            "<button class='primary full' onclick='openAuth()'>"+
-            "🔐 Sign In / Create Account"+
-            "</button>";
-
-        if(header){
-
-            header.innerHTML =
-                "<button class='secondary' onclick='openAuth()'>"+
-                "Sign In"+
-                "</button>";
-
-        }
-
-    }else{
-
-        const lines = [
-
-            "You're signed in. Your progress has a home now.",
-
-            "Good. Your study journey isn't tied to one device anymore.",
-
-            "Your account is ready. Now keep building that streak.",
-
-            "Your weak questions are waiting for another round.",
-
-            "You're back. Let's make today's session count.",
-
-            "Progress saved. Now go earn some more XP."
-
-        ];
-
-        message.textContent =
-            getDailyMessage(
-                "signed",
-                lines
-            );
-
-        area.innerHTML =
-            "<button class='primary full' onclick='openAccount()'>"+
-            "👤 Your Account"+
-            "</button>";
-
-        if(header){
-
-            header.innerHTML =
-                "<button class='secondary' onclick='openAccount()'>"+
-                "👤 Account"+
-                "</button>";
-
-        }
-
-    }
-
-}
-
-
-/* =====================================================
-   PASSWORD SHOW / HIDE
-===================================================== */
-
-function togglePassword(
-    inputId,
-    button
-){
-
-    const input =
-        document.getElementById(inputId);
-
-    if(!input)return;
-
-    if(input.type === "password"){
-
-        input.type = "text";
-
-        button.textContent = "Hide";
-
-    }else{
-
-        input.type = "password";
-
-        button.textContent = "Show";
-
-    }
+    updateHeader();
 
 }
 
@@ -2825,7 +3276,7 @@ function togglePassword(
 
 function openAuth(){
 
-    authMode = "signin";
+    authMode="signin";
 
     updateAuthUI();
 
@@ -2838,8 +3289,8 @@ function openAuth(){
 
 function toggleAuthMode(){
 
-    authMode =
-        authMode === "signin"
+    authMode=
+        authMode==="signin"
         ?"signup"
         :"signin";
 
@@ -2850,54 +3301,54 @@ function toggleAuthMode(){
 
 function updateAuthUI(){
 
-    const title =
+    const title=
         document.getElementById(
             "authTitle"
         );
 
-    const description =
+    const description=
         document.getElementById(
             "authDescription"
         );
 
-    const button =
+    const button=
         document.getElementById(
             "authButton"
         );
 
-    const toggle =
+    const toggle=
         document.getElementById(
             "authToggleButton"
         );
 
-    const error =
-        document.getElementById(
-            "authError"
-        );
-
-    const forgot =
+    const forgot=
         document.getElementById(
             "forgotPasswordButton"
         );
 
+    const error=
+        document.getElementById(
+            "authError"
+        );
+
     if(error){
 
-        error.innerHTML = "";
+        error.innerHTML="";
 
     }
 
-    if(authMode === "signin"){
+    if(authMode==="signin"){
 
-        title.textContent =
+        title.textContent=
             "🔐 Sign In";
 
-        description.textContent =
+        description.textContent=
             "Sign in to keep your progress connected to your account.";
 
-        button.textContent =
+        button.textContent=
             "Sign In";
 
-        toggle.textContent =
+        toggle.textContent=
             "Create a new account";
 
         forgot.classList.remove(
@@ -2906,16 +3357,16 @@ function updateAuthUI(){
 
     }else{
 
-        title.textContent =
+        title.textContent=
             "✨ Create Account";
 
-        description.textContent =
+        description.textContent=
             "Create an account so your study progress can stay connected.";
 
-        button.textContent =
+        button.textContent=
             "Create Account";
 
-        toggle.textContent =
+        toggle.textContent=
             "I already have an account";
 
         forgot.classList.add(
@@ -2927,26 +3378,57 @@ function updateAuthUI(){
 }
 
 
+function togglePasswordVisibility(
+    inputId,
+    button
+){
+
+    const input=
+        document.getElementById(
+            inputId
+        );
+
+    if(!input)return;
+
+    if(input.type==="password"){
+
+        input.type="text";
+
+        button.textContent=
+            "Hide";
+
+    }else{
+
+        input.type="password";
+
+        button.textContent=
+            "Show";
+
+    }
+
+}
+
+
 async function submitAuth(){
 
-    const email =
+    const email=
         document.getElementById(
             "authEmail"
         ).value.trim();
 
-    const password =
+    const password=
         document.getElementById(
             "authPassword"
         ).value;
 
-    const errorBox =
+    const errorBox=
         document.getElementById(
             "authError"
         );
 
-    if(!email || !password){
+    if(!email||!password){
 
-        errorBox.innerHTML =
+        errorBox.innerHTML=
             "<div class='error-box'>"+
             "Please enter your email and password."+
             "</div>";
@@ -2955,9 +3437,9 @@ async function submitAuth(){
 
     }
 
-    if(password.length < 6){
+    if(password.length<6){
 
-        errorBox.innerHTML =
+        errorBox.innerHTML=
             "<div class='error-box'>"+
             "Password must contain at least 6 characters."+
             "</div>";
@@ -2966,21 +3448,21 @@ async function submitAuth(){
 
     }
 
-    const button =
+    const button=
         document.getElementById(
             "authButton"
         );
 
-    button.disabled = true;
+    button.disabled=true;
 
-    button.textContent =
+    button.textContent=
         "Please wait...";
 
     let result;
 
-    if(authMode === "signin"){
+    if(authMode==="signin"){
 
-        result =
+        result=
             await supabaseClient.auth
             .signInWithPassword({
 
@@ -2991,7 +3473,7 @@ async function submitAuth(){
 
     }else{
 
-        result =
+        result=
             await supabaseClient.auth
             .signUp({
 
@@ -3002,19 +3484,19 @@ async function submitAuth(){
 
     }
 
-    button.disabled = false;
+    button.disabled=false;
 
     if(result.error){
 
-        errorBox.innerHTML =
+        errorBox.innerHTML=
             "<div class='error-box'>"+
             escapeHTML(
                 result.error.message
             )+
             "</div>";
 
-        button.textContent =
-            authMode === "signin"
+        button.textContent=
+            authMode==="signin"
             ?"Sign In"
             :"Create Account";
 
@@ -3022,32 +3504,52 @@ async function submitAuth(){
 
     }
 
-    if(authMode === "signup"){
+    if(authMode==="signup"){
+
+        verificationEmail=email;
 
         if(result.data.session){
 
-            currentUser =
+            currentUser=
                 result.data.user;
 
-            await afterLogin();
+            await ensureProfile();
+
+            afterLogin();
 
         }else{
 
-            errorBox.innerHTML =
+            document.getElementById(
+                "verificationEmail"
+            ).value=email;
+
+            document.getElementById(
+                "verificationMessage"
+            ).innerHTML=
                 "<div class='success-box'>"+
-                "Account created successfully. "+
-                "If email confirmation is enabled in Supabase, "+
-                "check your email and verify your account before signing in."+
+                "Account created. Check your email for verification."+
                 "</div>";
 
-            button.textContent =
-                "Create Account";
+            navigateTo(
+                "verificationScreen"
+            );
 
         }
 
     }else{
 
-        currentUser =
+        if(!result.data.user){
+
+            errorBox.innerHTML=
+                "<div class='error-box'>"+
+                "Sign in was not completed."+
+                "</div>";
+
+            return;
+
+        }
+
+        currentUser=
             result.data.user;
 
         await afterLogin();
@@ -3058,175 +3560,182 @@ async function submitAuth(){
 
 
 /* =====================================================
-   FORGOT PASSWORD
+   EMAIL OTP
 ===================================================== */
 
-function openForgotPassword(){
+async function verifyEmailCode(){
 
-    navigateTo(
-        "forgotPasswordScreen"
-    );
-
-}
-
-
-async function sendPasswordReset(){
-
-    const email =
+    const token=
         document.getElementById(
-            "resetEmail"
+            "verificationToken"
         ).value.trim();
 
-    const box =
+    if(!verificationEmail||!token){
+
         document.getElementById(
-            "forgotPasswordMessage"
-        );
-
-    if(!email){
-
-        box.innerHTML =
+            "verificationMessage"
+        ).innerHTML=
             "<div class='error-box'>"+
-            "Please enter your email address."+
+            "Enter the verification code."+
             "</div>";
 
         return;
 
     }
 
-    box.innerHTML =
-        "<div class='info-box'>"+
-        "Sending reset email..."+
-        "</div>";
+    const {
+        data,
+        error
+    }=
+        await supabaseClient.auth
+        .verifyOtp({
 
-    const redirectUrl =
-        window.location.origin +
-        window.location.pathname +
-        "#resetPasswordScreen";
+            email:verificationEmail,
+
+            token:token,
+
+            type:"signup"
+
+        });
+
+    if(error){
+
+        document.getElementById(
+            "verificationMessage"
+        ).innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(error.message)+
+            "</div>";
+
+        return;
+
+    }
+
+    currentUser=
+        data.user;
+
+    await ensureProfile();
+
+    await afterLogin();
+
+}
+
+
+async function resendVerification(){
+
+    if(!verificationEmail){
+
+        return;
+
+    }
 
     const {
         error
-    } =
+    }=
+        await supabaseClient.auth
+        .resend({
+
+            type:"signup",
+
+            email:verificationEmail
+
+        });
+
+    const box=
+        document.getElementById(
+            "verificationMessage"
+        );
+
+    if(error){
+
+        box.innerHTML=
+            "<div class='error-box'>"+
+            escapeHTML(error.message)+
+            "</div>";
+
+        return;
+
+    }
+
+    box.innerHTML=
+        "<div class='success-box'>"+
+        "A new verification email has been requested."+
+        "</div>";
+
+}
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+async function forgotPassword(){
+
+    const email=
+        document.getElementById(
+            "authEmail"
+        ).value.trim();
+
+    const box=
+        document.getElementById(
+            "authError"
+        );
+
+    if(!email){
+
+        box.innerHTML=
+            "<div class='error-box'>"+
+            "Enter your email address first."+
+            "</div>";
+
+        return;
+
+    }
+
+    const {
+        error
+    }=
         await supabaseClient.auth
         .resetPasswordForEmail(
             email,
             {
-                redirectTo:redirectUrl
+                redirectTo:
+                    window.location.origin+
+                    window.location.pathname+
+                    "#authScreen"
             }
         );
 
     if(error){
 
-        box.innerHTML =
+        box.innerHTML=
             "<div class='error-box'>"+
-            escapeHTML(
-                error.message
-            )+
+            escapeHTML(error.message)+
             "</div>";
 
         return;
 
     }
 
-    box.innerHTML =
+    box.innerHTML=
         "<div class='success-box'>"+
-        "📧 Password reset email sent. Check your inbox and follow the link."+
+        "If the account exists, a password-reset email has been sent."+
         "</div>";
 
 }
 
 
 /* =====================================================
-   UPDATE PASSWORD
-===================================================== */
-
-async function updatePassword(){
-
-    const password =
-        document.getElementById(
-            "newPassword"
-        ).value;
-
-    const confirm =
-        document.getElementById(
-            "confirmPassword"
-        ).value;
-
-    const box =
-        document.getElementById(
-            "resetPasswordMessage"
-        );
-
-    if(password.length < 6){
-
-        box.innerHTML =
-            "<div class='error-box'>"+
-            "Password must contain at least 6 characters."+
-            "</div>";
-
-        return;
-
-    }
-
-    if(password !== confirm){
-
-        box.innerHTML =
-            "<div class='error-box'>"+
-            "Passwords do not match."+
-            "</div>";
-
-        return;
-
-    }
-
-    const {
-        error
-    } =
-        await supabaseClient.auth
-        .updateUser({
-            password:password
-        });
-
-    if(error){
-
-        box.innerHTML =
-            "<div class='error-box'>"+
-            escapeHTML(
-                error.message
-            )+
-            "</div>";
-
-        return;
-
-    }
-
-    box.innerHTML =
-        "<div class='success-box'>"+
-        "✅ Password updated successfully."+
-        "</div>";
-
-    setTimeout(
-        function(){
-
-            openAuth();
-
-        },
-        1500
-    );
-
-}
-
-
-/* =====================================================
-   LOGIN COMPLETE
+   AFTER LOGIN
 ===================================================== */
 
 async function afterLogin(){
 
+    await ensureProfile();
+
     updateAccountArea();
 
     await checkAdmin();
-
-    await ensureProfile();
 
     goHome();
 
@@ -3234,24 +3743,16 @@ async function afterLogin(){
 
 
 /* =====================================================
-   PROFILE CREATION
+   PROFILE
 ===================================================== */
 
 async function ensureProfile(){
 
     if(!currentUser)return;
 
-    /*
-       This creates the profile if the profiles table
-       and its policies are configured.
-
-       It does not touch auth credentials.
-    */
-
     const {
-        data,
-        error
-    } =
+        data
+    }=
         await supabaseClient
         .from("profiles")
         .select("user_id")
@@ -3261,21 +3762,17 @@ async function ensureProfile(){
         )
         .maybeSingle();
 
-    if(error){
+    if(data)return;
 
-        return;
-
-    }
-
-    if(!data){
-
-        await supabaseClient
+    await supabaseClient
         .from("profiles")
         .insert({
 
-            user_id:currentUser.id,
+            user_id:
+                currentUser.id,
 
-            email:currentUser.email,
+            email:
+                currentUser.email,
 
             xp:xp,
 
@@ -3284,8 +3781,6 @@ async function ensureProfile(){
             is_premium:false
 
         });
-
-    }
 
 }
 
@@ -3296,86 +3791,18 @@ async function ensureProfile(){
 
 async function checkAdmin(){
 
-    if(!currentUser){
+    updateHeader();
 
-        removeAdminButton();
+    if(!currentUser){
 
         return false;
 
     }
 
-    const isAdmin =
-        currentUser.id === ADMIN_UID;
-
-    if(isAdmin){
-
-        addAdminButton();
-
-    }else{
-
-        removeAdminButton();
-
-    }
-
-    return isAdmin;
-
-}
-
-
-function addAdminButton(){
-
-    if(
-        document.getElementById(
-            "adminButton"
-        )
-    )return;
-
-    const accountArea =
-        document.getElementById(
-            "accountArea"
-        );
-
-    if(!accountArea)return;
-
-    const button =
-        document.createElement(
-            "button"
-        );
-
-    button.id =
-        "adminButton";
-
-    button.className =
-        "primary full";
-
-    button.style.marginTop =
-        "10px";
-
-    button.textContent =
-        "🔐 Admin Dashboard";
-
-    button.onclick =
-        openAdmin;
-
-    accountArea.appendChild(
-        button
+    return(
+        currentUser.id===
+        ADMIN_UID
     );
-
-}
-
-
-function removeAdminButton(){
-
-    const button =
-        document.getElementById(
-            "adminButton"
-        );
-
-    if(button){
-
-        button.remove();
-
-    }
 
 }
 
@@ -3394,9 +3821,11 @@ function openAccount(){
 
     }
 
+    updateProfileFromCloud();
+
     document.getElementById(
         "accountDetails"
-    ).innerHTML =
+    ).innerHTML=
 
         "<div class='success-box'>"+
 
@@ -3406,7 +3835,7 @@ function openAccount(){
             currentUser.email
         )+
 
-        "</div>"+
+        "<br><br>"+
 
         "<div class='account-grid'>"+
 
@@ -3435,9 +3864,20 @@ function openAccount(){
 
         "<br><br>"+
 
+        (
+            currentUser.id===ADMIN_UID
+            ?
+            "<button class='primary full' onclick='openAdmin()'>"+
+            "🔐 Admin Dashboard"+
+            "</button><br><br>"
+            :""
+        )+
+
         "<button class='danger full' onclick='signOutUser()'>"+
         "Sign Out"+
-        "</button>";
+        "</button>"+
+
+        "</div>";
 
     navigateTo(
         "accountScreen"
@@ -3446,15 +3886,98 @@ function openAccount(){
 }
 
 
+async function updateProfileFromCloud(){
+
+    if(!currentUser)return;
+
+    const {
+        data
+    }=
+        await supabaseClient
+        .from("profiles")
+        .select("xp,streak")
+        .eq(
+            "user_id",
+            currentUser.id
+        )
+        .maybeSingle();
+
+    if(data){
+
+        if(Number.isFinite(
+            Number(data.xp)
+        )){
+
+            xp=
+                Math.max(
+                    xp,
+                    Number(data.xp)
+                );
+
+        }
+
+        if(Number.isFinite(
+            Number(data.streak)
+        )){
+
+            streak=
+                Math.max(
+                    streak,
+                    Number(data.streak)
+                );
+
+        }
+
+        localStorage.setItem(
+            "adre_xp",
+            xp
+        );
+
+        localStorage.setItem(
+            "adre_streak",
+            streak
+        );
+
+        updateStats();
+
+    }
+
+}
+
+
+async function syncProfile(){
+
+    if(!currentUser)return;
+
+    await supabaseClient
+        .from("profiles")
+        .update({
+
+            xp:xp,
+
+            streak:streak,
+
+            email:
+                currentUser.email
+
+        })
+        .eq(
+            "user_id",
+            currentUser.id
+        );
+
+}
+
+
 async function signOutUser(){
 
     stopTimer();
 
+    await syncProfile();
+
     await supabaseClient.auth.signOut();
 
-    currentUser = null;
-
-    removeAdminButton();
+    currentUser=null;
 
     updateAccountArea();
 
@@ -3469,35 +3992,35 @@ async function signOutUser(){
 
 function buildTopicButtons(){
 
-    const libraryGrid =
+    const libraryGrid=
         document.getElementById(
             "libraryTopicGrid"
         );
 
-    const practiceGrid =
+    const practiceGrid=
         document.getElementById(
             "practiceTopicGrid"
         );
 
-    libraryGrid.innerHTML = "";
+    libraryGrid.innerHTML="";
 
-    practiceGrid.innerHTML = "";
+    practiceGrid.innerHTML="";
 
     Object.keys(TOPICS).forEach(
         function(topic){
 
-            const info =
+            const info=
                 TOPICS[topic];
 
-            const libraryButton =
+            const libraryButton=
                 document.createElement(
                     "button"
                 );
 
-            libraryButton.className =
+            libraryButton.className=
                 "topic-button";
 
-            libraryButton.innerHTML =
+            libraryButton.innerHTML=
                 info.icon+
                 " "+
                 escapeHTML(topic)+
@@ -3507,7 +4030,7 @@ function buildTopicButtons(){
                 )+
                 "</span>";
 
-            libraryButton.onclick =
+            libraryButton.onclick=
                 function(){
 
                     openLibraryTopic(
@@ -3521,20 +4044,20 @@ function buildTopicButtons(){
             );
 
 
-            const practiceButton =
+            const practiceButton=
                 document.createElement(
                     "button"
                 );
 
-            practiceButton.className =
+            practiceButton.className=
                 "topic-button";
 
-            practiceButton.innerHTML =
+            practiceButton.innerHTML=
                 info.icon+
                 " "+
                 escapeHTML(topic);
 
-            practiceButton.onclick =
+            practiceButton.onclick=
                 function(){
 
                     startPractice(
@@ -3559,19 +4082,19 @@ function buildTopicButtons(){
 
 function buildAdminTopicOptions(){
 
-    const topicSelect =
+    const topicSelect=
         document.getElementById(
             "adminTopic"
         );
 
-    const filter =
+    const filter=
         document.getElementById(
             "adminFilterTopic"
         );
 
-    topicSelect.innerHTML = "";
+    topicSelect.innerHTML="";
 
-    filter.innerHTML =
+    filter.innerHTML=
         "<option value=''>All Topics</option>";
 
     Object.keys(
@@ -3579,23 +4102,25 @@ function buildAdminTopicOptions(){
     ).forEach(
         function(topic){
 
-            const option =
+            const option=
                 document.createElement(
                     "option"
                 );
 
-            option.value =
+            option.value=
                 topic;
 
-            option.textContent =
+            option.textContent=
                 topic;
 
             topicSelect.appendChild(
                 option
             );
 
-            const filterOption =
-                option.cloneNode(true);
+            const filterOption=
+                option.cloneNode(
+                    true
+                );
 
             filter.appendChild(
                 filterOption
@@ -3613,33 +4138,31 @@ function buildAdminTopicOptions(){
 
 function fillStudySetOptions(){
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminTopic"
         ).value;
 
-    const select =
+    const select=
         document.getElementById(
             "adminStudySet"
         );
 
-    select.innerHTML = "";
+    select.innerHTML="";
 
     (
-        LIBRARY_STRUCTURE[topic] || []
+        LIBRARY_STRUCTURE[topic]||[]
     ).forEach(
         function(set){
 
-            const option =
+            const option=
                 document.createElement(
                     "option"
                 );
 
-            option.value =
-                set;
+            option.value=set;
 
-            option.textContent =
-                set;
+            option.textContent=set;
 
             select.appendChild(
                 option
@@ -3657,7 +4180,7 @@ function fillStudySetOptions(){
 
 function updateAnswerOptions(){
 
-    const values = [
+    const values=[
 
         document.getElementById(
             "adminA"
@@ -3677,15 +4200,15 @@ function updateAnswerOptions(){
 
     ];
 
-    const select =
+    const select=
         document.getElementById(
             "adminAnswer"
         );
 
-    const current =
+    const current=
         select.value;
 
-    select.innerHTML =
+    select.innerHTML=
         "<option value=''>Choose correct answer</option>";
 
     values.forEach(
@@ -3693,15 +4216,15 @@ function updateAnswerOptions(){
 
             if(value.trim()){
 
-                const option =
+                const option=
                     document.createElement(
                         "option"
                     );
 
-                option.value =
+                option.value=
                     value;
 
-                option.textContent =
+                option.textContent=
                     value;
 
                 select.appendChild(
@@ -3713,10 +4236,11 @@ function updateAnswerOptions(){
         }
     );
 
-    if(values.includes(current)){
+    if(
+        values.includes(current)
+    ){
 
-        select.value =
-            current;
+        select.value=current;
 
     }
 
@@ -3738,7 +4262,7 @@ async function openAdmin(){
     }
 
     if(
-        currentUser.id !==
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -3767,88 +4291,70 @@ async function openAdmin(){
 
 function showAdminTab(tab){
 
-    const questions =
+    const questionsArea=
         document.getElementById(
-            "adminQuestionsTab"
+            "adminQuestionsArea"
         );
 
-    const questionList =
+    const importTab=
         document.getElementById(
-            "adminQuestionListCard"
+            "adminImportTab"
         );
 
-    const users =
+    const users=
         document.getElementById(
             "adminUsersTab"
         );
 
-    const payments =
+    const payments=
         document.getElementById(
             "adminPaymentsTab"
         );
 
-    const navQuestions =
+    const pdf=
         document.getElementById(
-            "adminQuestionsNav"
+            "adminPdfTab"
         );
 
-    const navUsers =
-        document.getElementById(
-            "adminUsersNav"
-        );
-
-    const navPayments =
-        document.getElementById(
-            "adminPaymentsNav"
-        );
-
-    questions.classList.add("hidden");
-
-    questionList.classList.add("hidden");
-
+    questionsArea.classList.add("hidden");
+    importTab.classList.add("hidden");
     users.classList.add("hidden");
-
     payments.classList.add("hidden");
+    pdf.classList.add("hidden");
 
-    navQuestions.className =
-        "secondary";
+    if(tab==="questions"){
 
-    navUsers.className =
-        "secondary";
-
-    navPayments.className =
-        "secondary";
-
-    if(tab === "questions"){
-
-        questions.classList.remove("hidden");
-
-        questionList.classList.remove("hidden");
-
-        navQuestions.className =
-            "primary";
+        questionsArea.classList.remove("hidden");
 
     }
 
-    if(tab === "users"){
+    if(tab==="import"){
+
+        importTab.classList.remove("hidden");
+
+    }
+
+    if(tab==="users"){
 
         users.classList.remove("hidden");
-
-        navUsers.className =
-            "primary";
 
         loadAdminUsers();
 
     }
 
-    if(tab === "payments"){
+    if(tab==="payments"){
 
         payments.classList.remove("hidden");
 
-        navPayments.className =
-            "primary";
-
         loadAdminPayments();
+
+    }
+
+    if(tab==="pdfs"){
+
+        pdf.classList.remove("hidden");
+
+        loadAdminPDFs();
 
     }
 
@@ -3862,8 +4368,8 @@ function showAdminTab(tab){
 async function addQuestion(){
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -3876,70 +4382,70 @@ async function addQuestion(){
 
     }
 
-    const question =
+    const question=
         document.getElementById(
             "adminQuestion"
         ).value.trim();
 
-    const a =
+    const a=
         document.getElementById(
             "adminA"
         ).value.trim();
 
-    const b =
+    const b=
         document.getElementById(
             "adminB"
         ).value.trim();
 
-    const c =
+    const c=
         document.getElementById(
             "adminC"
         ).value.trim();
 
-    const d =
+    const d=
         document.getElementById(
             "adminD"
         ).value.trim();
 
-    const answer =
+    const answer=
         document.getElementById(
             "adminAnswer"
         ).value;
 
-    const explanation =
+    const explanation=
         document.getElementById(
             "adminExplanation"
         ).value.trim();
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminTopic"
         ).value;
 
-    const studySet =
+    const studySet=
         document.getElementById(
             "adminStudySet"
         ).value;
 
-    const isPremium =
+    const isPremium=
         document.getElementById(
             "adminPremium"
-        ).value === "true";
+        ).value==="true";
 
     if(
-        !question ||
-        !a ||
-        !b ||
-        !c ||
-        !d ||
-        !answer ||
-        !topic ||
+        !question||
+        !a||
+        !b||
+        !c||
+        !d||
+        !answer||
+        !topic||
         !studySet
     ){
 
         document.getElementById(
             "addQuestionMessage"
-        ).innerHTML =
+        ).innerHTML=
             "<div class='error-box'>"+
             "Please fill in all required fields."+
             "</div>";
@@ -3950,7 +4456,7 @@ async function addQuestion(){
 
     const {
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .insert({
@@ -3970,7 +4476,7 @@ async function addQuestion(){
             answer:answer,
 
             explanation:
-                explanation || null,
+                explanation||null,
 
             study_set:studySet,
 
@@ -3982,7 +4488,7 @@ async function addQuestion(){
 
         document.getElementById(
             "addQuestionMessage"
-        ).innerHTML =
+        ).innerHTML=
             "<div class='error-box'>"+
             escapeHTML(
                 error.message
@@ -3995,7 +4501,7 @@ async function addQuestion(){
 
     document.getElementById(
         "addQuestionMessage"
-    ).innerHTML =
+    ).innerHTML=
         "<div class='success-box'>"+
         "✅ Question added successfully."+
         "</div>";
@@ -4027,14 +4533,14 @@ function clearAdminForm(){
 
             document.getElementById(
                 id
-            ).value = "";
+            ).value="";
 
         }
     );
 
     document.getElementById(
         "adminAnswer"
-    ).innerHTML =
+    ).innerHTML=
         "<option value=''>Choose correct answer</option>";
 
 }
@@ -4046,12 +4552,12 @@ function clearAdminForm(){
 
 function showAdminMessage(
     message,
-    error = false
+    error=false
 ){
 
     document.getElementById(
         "adminMessage"
-    ).innerHTML =
+    ).innerHTML=
         "<div class='"+
         (
             error
@@ -4070,18 +4576,18 @@ function showAdminMessage(
 
 async function loadAdminQuestions(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminQuestionsList"
         );
 
-    list.innerHTML =
+    list.innerHTML=
         "<div class='loading'>Loading questions...</div>";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
@@ -4094,7 +4600,7 @@ async function loadAdminQuestions(){
 
     if(error){
 
-        list.innerHTML =
+        list.innerHTML=
             "<div class='error-box'>"+
             escapeHTML(
                 error.message
@@ -4105,26 +4611,26 @@ async function loadAdminQuestions(){
 
     }
 
-    adminQuestions =
-        data || [];
+    adminQuestions=
+        data||[];
 
     document.getElementById(
         "adminTotal"
-    ).textContent =
+    ).textContent=
         adminQuestions.length;
 
     document.getElementById(
         "adminFree"
-    ).textContent =
+    ).textContent=
         adminQuestions.filter(
-            q => !q.is_premium
+            q=>!q.is_premium
         ).length;
 
     document.getElementById(
         "adminPremium"
-    ).textContent =
+    ).textContent=
         adminQuestions.filter(
-            q => q.is_premium
+            q=>q.is_premium
         ).length;
 
     renderAdminQuestions();
@@ -4138,45 +4644,46 @@ async function loadAdminQuestions(){
 
 function renderAdminQuestions(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminQuestionsList"
         );
 
     if(!list)return;
 
-    const search =
+    const search=
         (
             document.getElementById(
                 "adminSearch"
-            ).value || ""
+            ).value||
+            ""
         )
         .trim()
         .toLowerCase();
 
-    const topic =
+    const topic=
         document.getElementById(
             "adminFilterTopic"
         ).value;
 
-    const filtered =
+    const filtered=
         adminQuestions.filter(
             function(q){
 
-                const matchesSearch =
-                    !search ||
+                const matchesSearch=
+                    !search||
                     String(
-                        q.question || ""
+                        q.question||""
                     )
                     .toLowerCase()
                     .includes(search);
 
-                const matchesTopic =
-                    !topic ||
-                    q.topic === topic;
+                const matchesTopic=
+                    !topic||
+                    q.topic===topic;
 
                 return(
-                    matchesSearch &&
+                    matchesSearch&&
                     matchesTopic
                 );
 
@@ -4185,27 +4692,27 @@ function renderAdminQuestions(){
 
     if(!filtered.length){
 
-        list.innerHTML =
+        list.innerHTML=
             "<p class='center'>No matching questions.</p>";
 
         return;
 
     }
 
-    list.innerHTML = "";
+    list.innerHTML="";
 
     filtered.forEach(
         function(q){
 
-            const div =
+            const div=
                 document.createElement(
                     "div"
                 );
 
-            div.className =
+            div.className=
                 "admin-question";
 
-            div.innerHTML =
+            div.innerHTML=
 
                 "<h4>"+
                 "Question #"+
@@ -4215,7 +4722,7 @@ function renderAdminQuestions(){
                 "<p><strong>"+
                 escapeHTML(q.topic)+
                 "</strong> • "+
-                escapeHTML(q.study_set || "")+
+                escapeHTML(q.study_set||"")+
                 "</p>"+
 
                 "<p>"+
@@ -4273,8 +4780,8 @@ function renderAdminQuestions(){
 async function deleteQuestion(id){
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -4286,10 +4793,10 @@ async function deleteQuestion(id){
 
     }
 
-    const question =
+    const question=
         adminQuestions.find(
-            q =>
-            String(q.id) ===
+            q=>
+            String(q.id)===
             String(id)
         );
 
@@ -4308,7 +4815,7 @@ async function deleteQuestion(id){
 
     const {
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .delete()
@@ -4343,8 +4850,8 @@ async function togglePremium(
 ){
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -4358,7 +4865,7 @@ async function togglePremium(
 
     const {
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .update({
@@ -4389,6 +4896,556 @@ async function togglePremium(
 
 
 /* =====================================================
+   BULK IMPORT
+===================================================== */
+
+function validateImportedQuestion(q){
+
+    return(
+        q &&
+        q.topic &&
+        q.study_set &&
+        q.question &&
+        q.option_a &&
+        q.option_b &&
+        q.option_c &&
+        q.option_d &&
+        q.answer
+    );
+
+}
+
+
+function cleanImportedQuestion(q){
+
+    return{
+
+        topic:String(
+            q.topic||""
+        ).trim(),
+
+        study_set:String(
+            q.study_set||""
+        ).trim(),
+
+        question:String(
+            q.question||""
+        ).trim(),
+
+        option_a:String(
+            q.option_a||""
+        ).trim(),
+
+        option_b:String(
+            q.option_b||""
+        ).trim(),
+
+        option_c:String(
+            q.option_c||""
+        ).trim(),
+
+        option_d:String(
+            q.option_d||""
+        ).trim(),
+
+        answer:String(
+            q.answer||""
+        ).trim(),
+
+        explanation:
+            q.explanation
+            ?String(q.explanation).trim()
+            :null,
+
+        is_premium:
+            q.is_premium===true ||
+            String(q.is_premium).toLowerCase()==="true"
+
+    };
+
+}
+
+
+async function insertQuestionsInBatches(
+    questions
+){
+
+    const batchSize=100;
+
+    let inserted=0;
+
+    for(
+        let i=0;
+        i<questions.length;
+        i+=batchSize
+    ){
+
+        const batch=
+            questions.slice(
+                i,
+                i+batchSize
+            );
+
+        const {
+            error
+        }=
+            await supabaseClient
+            .from("questions")
+            .insert(batch);
+
+        if(error){
+
+            throw error;
+
+        }
+
+        inserted+=batch.length;
+
+    }
+
+    return inserted;
+
+}
+
+
+async function importJsonQuestions(){
+
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        showBulkMessage(
+            "Only the admin can import questions.",
+            true
+        );
+
+        return;
+
+    }
+
+    const raw=
+        document.getElementById(
+            "bulkJson"
+        ).value.trim();
+
+    if(!raw){
+
+        showBulkMessage(
+            "Paste your JSON questions first.",
+            true
+        );
+
+        return;
+
+    }
+
+    let parsed;
+
+    try{
+
+        parsed=
+            JSON.parse(raw);
+
+    }catch(error){
+
+        showBulkMessage(
+            "Invalid JSON. Please check the format.",
+            true
+        );
+
+        return;
+
+    }
+
+    if(!Array.isArray(parsed)){
+
+        showBulkMessage(
+            "JSON must contain an array of questions.",
+            true
+        );
+
+        return;
+
+    }
+
+    const invalid=
+        parsed.findIndex(
+            q=>
+            !validateImportedQuestion(q)
+        );
+
+    if(invalid!==-1){
+
+        showBulkMessage(
+            "Question #"+
+            (invalid+1)+
+            " is missing a required field.",
+            true
+        );
+
+        return;
+
+    }
+
+    const cleaned=
+        parsed.map(
+            cleanImportedQuestion
+        );
+
+    showBulkMessage(
+        "Importing "+
+        cleaned.length+
+        " questions...",
+        false
+    );
+
+    try{
+
+        const inserted=
+            await insertQuestionsInBatches(
+                cleaned
+            );
+
+        showBulkMessage(
+            "✅ Successfully imported "+
+            inserted+
+            " questions.",
+            false
+        );
+
+        document.getElementById(
+            "bulkJson"
+        ).value="";
+
+        await loadAdminQuestions();
+
+    }catch(error){
+
+        showBulkMessage(
+            "Import failed: "+
+            error.message,
+            true
+        );
+
+    }
+
+}
+
+
+async function importCsvFile(){
+
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
+
+        showBulkMessage(
+            "Only the admin can import questions.",
+            true
+        );
+
+        return;
+
+    }
+
+    const input=
+        document.getElementById(
+            "bulkCsvFile"
+        );
+
+    if(
+        !input.files||
+        !input.files.length
+    ){
+
+        showBulkMessage(
+            "Choose a CSV file first.",
+            true
+        );
+
+        return;
+
+    }
+
+    const file=
+        input.files[0];
+
+    const text=
+        await file.text();
+
+    const rows=
+        parseCSV(text);
+
+    if(rows.length<2){
+
+        showBulkMessage(
+            "The CSV does not contain enough data.",
+            true
+        );
+
+        return;
+
+    }
+
+    const headers=
+        rows[0].map(
+            h=>
+            h.trim().toLowerCase()
+        );
+
+    const required=[
+
+        "topic",
+        "study_set",
+        "question",
+        "option_a",
+        "option_b",
+        "option_c",
+        "option_d",
+        "answer"
+
+    ];
+
+    const missing=
+        required.filter(
+            field=>
+            !headers.includes(field)
+        );
+
+    if(missing.length){
+
+        showBulkMessage(
+            "CSV is missing columns: "+
+            missing.join(", "),
+            true
+        );
+
+        return;
+
+    }
+
+    const questions=[];
+
+    for(
+        let i=1;
+        i<rows.length;
+        i++
+    ){
+
+        if(
+            rows[i].every(
+                cell=>
+                !String(cell).trim()
+            )
+        ){
+
+            continue;
+
+        }
+
+        const obj={};
+
+        headers.forEach(
+            function(header,index){
+
+                obj[header]=
+                    rows[i][index]||
+                    "";
+
+            }
+        );
+
+        if(
+            !validateImportedQuestion(obj)
+        ){
+
+            showBulkMessage(
+                "Invalid data on CSV row "+
+                (i+1)+".",
+                true
+            );
+
+            return;
+
+        }
+
+        questions.push(
+            cleanImportedQuestion(obj)
+        );
+
+    }
+
+    if(!questions.length){
+
+        showBulkMessage(
+            "No valid questions were found.",
+            true
+        );
+
+        return;
+
+    }
+
+    showBulkMessage(
+        "Importing "+
+        questions.length+
+        " questions...",
+        false
+    );
+
+    try{
+
+        const inserted=
+            await insertQuestionsInBatches(
+                questions
+            );
+
+        showBulkMessage(
+            "✅ Successfully imported "+
+            inserted+
+            " questions.",
+            false
+        );
+
+        input.value="";
+
+        await loadAdminQuestions();
+
+    }catch(error){
+
+        showBulkMessage(
+            "Import failed: "+
+            error.message,
+            true
+        );
+
+    }
+
+}
+
+
+function parseCSV(text){
+
+    const rows=[];
+
+    let row=[];
+
+    let cell="";
+
+    let insideQuotes=false;
+
+    for(
+        let i=0;
+        i<text.length;
+        i++
+    ){
+
+        const char=
+            text[i];
+
+        const next=
+            text[i+1];
+
+        if(char==='"'){
+
+            if(
+                insideQuotes&&
+                next==='"'
+            ){
+
+                cell+='"';
+
+                i++;
+
+            }else{
+
+                insideQuotes=
+                    !insideQuotes;
+
+            }
+
+        }else if(
+            char==="," &&
+            !insideQuotes
+        ){
+
+            row.push(cell);
+
+            cell="";
+
+        }else if(
+            (
+                char==="\n" ||
+                char==="\r"
+            ) &&
+            !insideQuotes
+        ){
+
+            if(
+                char==="\r" &&
+                next==="\n"
+            ){
+
+                i++;
+
+            }
+
+            row.push(cell);
+
+            rows.push(row);
+
+            row=[];
+
+            cell="";
+
+        }else{
+
+            cell+=char;
+
+        }
+
+    }
+
+    if(
+        cell!==""||
+        row.length
+    ){
+
+        row.push(cell);
+
+        rows.push(row);
+
+    }
+
+    return rows;
+
+}
+
+
+function showBulkMessage(
+    message,
+    error=false
+){
+
+    document.getElementById(
+        "bulkImportMessage"
+    ).innerHTML=
+        "<div class='"+
+        (
+            error
+            ?"error-box"
+            :"success-box"
+        )+"'>"+
+        escapeHTML(message)+
+        "</div>";
+
+}
+
+
+/* =====================================================
    LIBRARY
 ===================================================== */
 
@@ -4402,7 +5459,7 @@ async function openLibraryTopic(
 
     document.getElementById(
         "libraryTopicTitle"
-    ).textContent =
+    ).textContent=
         (
             TOPICS[topic]
             ?TOPICS[topic].icon
@@ -4411,18 +5468,18 @@ async function openLibraryTopic(
         " "+
         topic;
 
-    const container =
+    const container=
         document.getElementById(
             "librarySets"
         );
 
-    container.innerHTML =
+    container.innerHTML=
         "<div class='loading'>Loading study sections...</div>";
 
-    const sets =
-        LIBRARY_STRUCTURE[topic] || [];
+    const sets=
+        LIBRARY_STRUCTURE[topic]||[];
 
-    container.innerHTML = "";
+    container.innerHTML="";
 
     for(
         const setName of sets
@@ -4431,7 +5488,7 @@ async function openLibraryTopic(
         const {
             count,
             error
-        } =
+        }=
             await supabaseClient
             .from("questions")
             .select(
@@ -4454,27 +5511,27 @@ async function openLibraryTopic(
                 false
             );
 
-        const button =
+        const button=
             document.createElement(
                 "button"
             );
 
-        button.className =
+        button.className=
             "topic-button full";
 
-        button.innerHTML =
+        button.innerHTML=
             "📚 "+
             escapeHTML(setName)+
             "<span class='topic-description'>"+
             (
                 error
                 ?""
-                :(count || 0)
+                :(count||0)
             )+
             " free study questions"+
             "</span>";
 
-        button.onclick =
+        button.onclick=
             function(){
 
                 openStudySet(
@@ -4508,22 +5565,22 @@ async function openStudySet(
 
     document.getElementById(
         "studyTitle"
-    ).textContent =
+    ).textContent=
         "📖 "+
         studySet;
 
-    const container =
+    const container=
         document.getElementById(
             "studyQuestions"
         );
 
-    container.innerHTML =
+    container.innerHTML=
         "<div class='loading'>Loading study material...</div>";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .select(
@@ -4550,7 +5607,7 @@ async function openStudySet(
 
     if(error){
 
-        container.innerHTML =
+        container.innerHTML=
             "<div class='error-box'>"+
             escapeHTML(error.message)+
             "</div>";
@@ -4559,12 +5616,9 @@ async function openStudySet(
 
     }
 
-    if(
-        !data ||
-        !data.length
-    ){
+    if(!data||!data.length){
 
-        container.innerHTML =
+        container.innerHTML=
             "<div class='center'>"+
             "<p>No free study questions have been added yet.</p>"+
             "<p class='small'>The admin can add questions from the Admin Dashboard.</p>"+
@@ -4574,20 +5628,20 @@ async function openStudySet(
 
     }
 
-    container.innerHTML = "";
+    container.innerHTML="";
 
     data.forEach(
         function(q,index){
 
-            const item =
+            const item=
                 document.createElement(
                     "div"
                 );
 
-            item.className =
+            item.className=
                 "study-question";
 
-            item.innerHTML =
+            item.innerHTML=
 
                 "<div class='study-question-number'>"+
                 "Question "+
@@ -4637,40 +5691,38 @@ async function startPractice(
     topic
 ){
 
-    quizMode = "practice";
+    quizMode="practice";
 
-    quizTopic = topic;
+    quizTopic=topic;
 
-    quizQuestions = [];
+    quizQuestions=[];
 
-    quizIndex = 0;
+    quizIndex=0;
 
-    quizCorrect = 0;
+    quizCorrect=0;
 
-    quizWrong = 0;
+    quizWrong=0;
 
-    missedQuestionIds = [];
+    missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
-    ).textContent =
+    ).textContent=
         "🎮 "+
         topic+
         " Practice";
 
     document.getElementById(
         "quizQuestion"
-    ).textContent =
+    ).textContent=
         "Loading questions...";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
@@ -4693,10 +5745,7 @@ async function startPractice(
 
     }
 
-    if(
-        !data ||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         showQuizError(
             "No free questions are available for this topic yet."
@@ -4706,7 +5755,7 @@ async function startPractice(
 
     }
 
-    quizQuestions =
+    quizQuestions=
         shuffle(data);
 
     showQuizQuestion();
@@ -4722,36 +5771,34 @@ async function startDailyChallenge(){
 
     setDailyReaction();
 
-    quizMode = "daily";
+    quizMode="daily";
 
-    quizTopic = "Daily Challenge";
+    quizTopic="Daily Challenge";
 
-    quizIndex = 0;
+    quizIndex=0;
 
-    quizCorrect = 0;
+    quizCorrect=0;
 
-    quizWrong = 0;
+    quizWrong=0;
 
-    missedQuestionIds = [];
+    missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
-    ).textContent =
+    ).textContent=
         "🔥 Today's 25-question Challenge";
 
     document.getElementById(
         "quizQuestion"
-    ).textContent =
+    ).textContent=
         "Loading today's mixed GK questions...";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
@@ -4770,10 +5817,7 @@ async function startDailyChallenge(){
 
     }
 
-    if(
-        !data ||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         showQuizError(
             "No free GK questions are available yet."
@@ -4783,7 +5827,7 @@ async function startDailyChallenge(){
 
     }
 
-    quizQuestions =
+    quizQuestions=
         shuffle(data)
         .slice(
             0,
@@ -4804,7 +5848,7 @@ async function startDailyChallenge(){
 
 async function startMissedQuiz(){
 
-    const ids =
+    const ids=
         missedSavedIds;
 
     if(!ids.length){
@@ -4820,7 +5864,7 @@ async function startMissedQuiz(){
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("questions")
         .select("*")
@@ -4841,10 +5885,7 @@ async function startMissedQuiz(){
 
     }
 
-    if(
-        !data ||
-        !data.length
-    ){
+    if(!data||!data.length){
 
         alert(
             "Your saved missed questions are no longer available."
@@ -4854,28 +5895,26 @@ async function startMissedQuiz(){
 
     }
 
-    quizMode = "missed";
+    quizMode="missed";
 
-    quizTopic = "Missed Questions";
+    quizTopic="Missed Questions";
 
-    quizQuestions =
+    quizQuestions=
         shuffle(data);
 
-    quizIndex = 0;
+    quizIndex=0;
 
-    quizCorrect = 0;
+    quizCorrect=0;
 
-    quizWrong = 0;
+    quizWrong=0;
 
-    missedQuestionIds = [];
+    missedQuestionIds=[];
 
-    navigateTo(
-        "quizScreen"
-    );
+    navigateTo("quizScreen");
 
     document.getElementById(
         "quizTitle"
-    ).textContent =
+    ).textContent=
         "🔁 Practice What You Missed";
 
     showQuizQuestion();
@@ -4885,13 +5924,11 @@ async function startMissedQuiz(){
 
 function practiceMissedQuestions(){
 
-    if(
-        !missedSavedIds.length
-    ){
+    if(!missedSavedIds.length){
 
         document.getElementById(
             "missedReaction"
-        ).textContent =
+        ).textContent=
             "🎉 No saved missed questions yet. Keep practicing!";
 
         return;
@@ -4904,48 +5941,12 @@ function practiceMissedQuestions(){
 
 
 /* =====================================================
-   MISSED REACTION
-===================================================== */
-
-function updateMissedReaction(){
-
-    const el =
-        document.getElementById(
-            "missedReaction"
-        );
-
-    if(!el)return;
-
-    if(missedSavedIds.length){
-
-        el.textContent =
-            "📌 "+
-            missedSavedIds.length+
-            " question"+
-            (
-                missedSavedIds.length === 1
-                ?""
-                :"s"
-            )+
-            " saved for revision.";
-
-    }else{
-
-        el.textContent =
-            "🎉 No saved missed questions yet.";
-
-    }
-
-}
-
-
-/* =====================================================
    SHOW QUIZ
 ===================================================== */
 
 function showQuizQuestion(){
 
-    const q =
+    const q=
         quizQuestions[quizIndex];
 
     if(!q){
@@ -4958,7 +5959,7 @@ function showQuizQuestion(){
 
     document.getElementById(
         "quizScore"
-    ).textContent =
+    ).textContent=
         "Score: "+
         quizCorrect+
         " / "+
@@ -4966,15 +5967,15 @@ function showQuizQuestion(){
 
     document.getElementById(
         "quizQuestion"
-    ).textContent =
+    ).textContent=
         q.question;
 
-    const options =
+    const options=
         document.getElementById(
             "quizOptions"
         );
 
-    options.innerHTML = "";
+    options.innerHTML="";
 
     shuffle([
 
@@ -4986,18 +5987,18 @@ function showQuizQuestion(){
     ]).forEach(
         function(answer){
 
-            const button =
+            const button=
                 document.createElement(
                     "button"
                 );
 
-            button.className =
+            button.className=
                 "option";
 
-            button.textContent =
+            button.textContent=
                 answer;
 
-            button.onclick =
+            button.onclick=
                 function(){
 
                     checkQuizAnswer(
@@ -5017,7 +6018,7 @@ function showQuizQuestion(){
 
     document.getElementById(
         "quizFeedback"
-    ).className =
+    ).className=
         "feedback hidden";
 
     document.getElementById(
@@ -5039,7 +6040,7 @@ function checkQuizAnswer(
     question
 ){
 
-    const buttons =
+    const buttons=
         document.querySelectorAll(
             "#quizOptions .option"
         );
@@ -5047,7 +6048,7 @@ function checkQuizAnswer(
     buttons.forEach(
         function(button){
 
-            button.disabled = true;
+            button.disabled=true;
 
         }
     );
@@ -5061,11 +6062,11 @@ function checkQuizAnswer(
 
     checkStreakProgress();
 
-    const correct =
-        normalize(selectedAnswer) ===
+    const correct=
+        normalize(selectedAnswer)===
         normalize(question.answer);
 
-    const feedback =
+    const feedback=
         document.getElementById(
             "quizFeedback"
         );
@@ -5081,10 +6082,10 @@ function checkQuizAnswer(
             "pop"
         );
 
-        feedback.className =
+        feedback.className=
             "feedback correct";
 
-        feedback.innerHTML =
+        feedback.innerHTML=
             randomCorrectReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
@@ -5120,12 +6121,8 @@ function checkQuizAnswer(
             function(button){
 
                 if(
-                    normalize(
-                        button.textContent
-                    ) ===
-                    normalize(
-                        question.answer
-                    )
+                    normalize(button.textContent)===
+                    normalize(question.answer)
                 ){
 
                     button.classList.add(
@@ -5137,10 +6134,10 @@ function checkQuizAnswer(
             }
         );
 
-        feedback.className =
+        feedback.className=
             "feedback wrong";
 
-        feedback.innerHTML =
+        feedback.innerHTML=
             randomWrongReaction()+
             "<div class='correct-answer'>"+
             "Correct answer: "+
@@ -5159,7 +6156,7 @@ function checkQuizAnswer(
 
     document.getElementById(
         "quizScore"
-    ).textContent =
+    ).textContent=
         "Score: "+
         quizCorrect+
         " / "+
@@ -5192,34 +6189,6 @@ function nextQuizQuestion(){
 
 
 /* =====================================================
-   EXIT QUIZ
-===================================================== */
-
-function exitQuiz(){
-
-    if(
-        quizIndex > 0 &&
-        quizIndex < quizQuestions.length
-    ){
-
-        if(
-            !confirm(
-                "Exit this quiz? Your completed answers will still be saved, but this session will end."
-            )
-        ){
-
-            return;
-
-        }
-
-    }
-
-    goHome();
-
-}
-
-
-/* =====================================================
    FINISH
 ===================================================== */
 
@@ -5229,26 +6198,26 @@ function finishQuiz(){
         "completeScreen"
     );
 
-    const total =
+    const total=
         quizQuestions.length;
 
     document.getElementById(
         "completeTitle"
-    ).textContent =
-        quizMode === "daily"
+    ).textContent=
+        quizMode==="daily"
         ?"🔥 Daily Challenge Complete!"
-        :quizMode === "missed"
+        :quizMode==="missed"
         ?"🔁 Revision Complete!"
         :"🎉 Practice Complete!";
 
-    const percentage =
+    const percentage=
         total
         ?(quizCorrect/total)*100
         :0;
 
     document.getElementById(
         "finalScore"
-    ).innerHTML =
+    ).innerHTML=
 
         "<div class='score-big'>"+
         quizCorrect+
@@ -5265,68 +6234,66 @@ function finishQuiz(){
         "<p class='small'>"+
         "⭐ +"+
         (quizCorrect*10)+
-        " XP earned this session"+
+        " XP earned"+
         "</p>";
 
     let reaction;
 
-    if(percentage >= 90){
+    if(percentage>=90){
 
-        reaction =
+        reaction=
             "🔥 Absolutely smashed it!";
 
         document.getElementById(
             "completeReaction"
-        ).className =
+        ).className=
             "result-good";
 
-    }else if(percentage >= 70){
+    }else if(percentage>=70){
 
-        reaction =
+        reaction=
             "👏 Nice work! Keep pushing.";
 
         document.getElementById(
             "completeReaction"
-        ).className =
+        ).className=
             "result-good";
 
-    }else if(percentage >= 50){
+    }else if(percentage>=50){
 
-        reaction =
+        reaction=
             "💪 You're getting there. Practice makes progress.";
 
         document.getElementById(
             "completeReaction"
-        ).className =
+        ).className=
             "result-average";
 
     }else{
 
-        reaction =
+        reaction=
             "🌱 Don't worry. Now you know what to work on.";
 
         document.getElementById(
             "completeReaction"
-        ).className =
+        ).className=
             "result-low";
 
     }
 
     document.getElementById(
         "completeReaction"
-    ).textContent =
+    ).textContent=
         reaction;
 
-    const missed =
+    const missed=
         document.getElementById(
             "missedQuestions"
         );
 
-    if(
-        missedQuestionIds.length
-    ){
+    if(missedQuestionIds.length){
 
-        missed.innerHTML =
+        missed.innerHTML=
             "<h3>🔁 Questions to revisit</h3>"+
             "<p class='small'>"+
             "These questions were missed in this session and saved for revision."+
@@ -5341,20 +6308,18 @@ function finishQuiz(){
                     )
                 ){
 
-                    const div =
+                    const div=
                         document.createElement(
                             "div"
                         );
 
-                    div.className =
+                    div.className=
                         "missed-item";
 
-                    div.textContent =
+                    div.textContent=
                         q.question;
 
-                    missed.appendChild(
-                        div
-                    );
+                    missed.appendChild(div);
 
                 }
 
@@ -5363,12 +6328,12 @@ function finishQuiz(){
 
     }else{
 
-        missed.innerHTML =
+        missed.innerHTML=
             "<p>🎉 No missed questions this round!</p>";
 
     }
 
-    updateMissedReaction();
+    syncProfile();
 
 }
 
@@ -5379,7 +6344,7 @@ function finishQuiz(){
 
 function saveMissedQuestion(id){
 
-    const value =
+    const value=
         String(id);
 
     if(
@@ -5396,8 +6361,6 @@ function saveMissedQuestion(id){
         );
 
     }
-
-    updateMissedReaction();
 
 }
 
@@ -5528,27 +6491,27 @@ function randomWrongReaction(){
    PREMIUM
 ===================================================== */
 
-function openPremium(){
+async function openPremium(){
 
     navigateTo(
         "premiumScreen"
     );
 
-    updatePremiumStatus();
+    await updatePremiumStatus();
 
 }
 
 
-function updatePremiumStatus(){
+async function updatePremiumStatus(){
 
-    const box =
+    const box=
         document.getElementById(
             "premiumStatus"
         );
 
     if(!currentUser){
 
-        box.innerHTML =
+        box.innerHTML=
             "<div class='info-box'>"+
             "Please sign in before purchasing Premium."+
             "</div>";
@@ -5557,23 +6520,61 @@ function updatePremiumStatus(){
 
     }
 
-    box.innerHTML =
+    let premium=false;
+
+    const {
+        data
+    }=
+        await supabaseClient
+        .from("profiles")
+        .select("is_premium")
+        .eq(
+            "user_id",
+            currentUser.id
+        )
+        .maybeSingle();
+
+    if(data){
+
+        premium=
+            Boolean(
+                data.is_premium
+            );
+
+    }
+
+    if(premium){
+
+        box.innerHTML=
+            "<div class='success-box'>"+
+            "<strong>👑 Premium Active</strong><br><br>"+
+            "Your account has verified Premium access."+
+            "</div>";
+
+        document.getElementById(
+            "premiumPaymentButton"
+        ).textContent=
+            "👑 Premium Active";
+
+        document.getElementById(
+            "premiumPaymentButton"
+        ).disabled=true;
+
+        return;
+
+    }
+
+    box.innerHTML=
         "<div class='info-box'>"+
         "Signed in as <strong>"+
-        escapeHTML(
-            currentUser.email
-        )+
+        escapeHTML(currentUser.email)+
         "</strong>"+
         "<br><br>"+
-        "Premium access will be activated only after secure payment verification."+
+        "Premium access will activate only after secure payment verification."+
         "</div>";
 
 }
 
-
-/* =====================================================
-   PAYMENT ARCHITECTURE
-===================================================== */
 
 function startPayment(){
 
@@ -5586,28 +6587,27 @@ function startPayment(){
     }
 
     /*
-       PAYMENT IS INTENTIONALLY NOT CONNECTED YET.
+       IMPORTANT:
 
-       When payment is added later, the correct flow is:
+       Do NOT mark a user premium from JavaScript.
+
+       Secure future flow:
 
        1. User clicks payment.
        2. Secure backend creates an order.
-       3. Payment provider opens checkout.
-       4. User completes payment.
-       5. Provider webhook reaches secure backend.
-       6. Backend verifies signature/payment status.
-       7. Backend updates the user's Premium record.
-       8. Website reads the verified Premium status.
+       3. User completes payment.
+       4. Provider sends server-side webhook.
+       5. Server verifies the payment.
+       6. Server updates profiles.is_premium.
+       7. Website reads the verified status.
 
-       Never grant Premium merely because this button
-       was clicked or because JavaScript says "paid".
+       This placeholder intentionally does not grant Premium.
     */
 
     alert(
-        "👑 Premium payment is not connected yet.\n\n"+
-        "The Premium system is prepared, but payment integration "+
-        "will be added later. Your account will only receive "+
-        "Premium access after secure payment verification."
+        "👑 Premium payment is coming soon.\n\n"+
+        "The payment system is not active yet, so no money "+
+        "will be requested and no Premium access will be granted."
     );
 
 }
@@ -5620,8 +6620,8 @@ function startPayment(){
 async function loadAdminUsers(){
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -5629,18 +6629,18 @@ async function loadAdminUsers(){
 
     }
 
-    const list =
+    const list=
         document.getElementById(
             "adminUsersList"
         );
 
-    list.innerHTML =
+    list.innerHTML=
         "<div class='loading'>Loading users...</div>";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("profiles")
         .select("*")
@@ -5653,21 +6653,21 @@ async function loadAdminUsers(){
 
     if(error){
 
-        list.innerHTML =
+        list.innerHTML=
             "<div class='info-box'>"+
             "<strong>Users area is ready.</strong><br><br>"+
-            "User profile records are not available to the browser yet. "+
-            "The authentication system itself continues to work normally."+
+            "Profiles are not available to the browser yet. "+
+            "The authentication system continues to work."+
             "</div>";
 
-        adminUsers = [];
+        adminUsers=[];
 
         return;
 
     }
 
-    adminUsers =
-        data || [];
+    adminUsers=
+        data||[];
 
     renderUsers();
 
@@ -5680,35 +6680,36 @@ async function loadAdminUsers(){
 
 function renderUsers(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminUsersList"
         );
 
     if(!list)return;
 
-    const search =
+    const search=
         (
             document.getElementById(
                 "adminUserSearch"
-            ).value || ""
+            ).value||
+            ""
         )
         .trim()
         .toLowerCase();
 
-    const filtered =
+    const filtered=
         adminUsers.filter(
             function(user){
 
-                const email =
+                const email=
                     String(
-                        user.email ||
+                        user.email||
                         ""
                     )
                     .toLowerCase();
 
                 return(
-                    !search ||
+                    !search||
                     email.includes(search)
                 );
 
@@ -5717,42 +6718,41 @@ function renderUsers(){
 
     if(!filtered.length){
 
-        list.innerHTML =
+        list.innerHTML=
             "<p class='center'>No users found.</p>";
 
         return;
 
     }
 
-    list.innerHTML = "";
+    list.innerHTML="";
 
     filtered.forEach(
         function(user){
 
-            const div =
+            const div=
                 document.createElement(
                     "div"
                 );
 
-            div.className =
+            div.className=
                 "user-card";
 
-            const premium =
+            const premium=
                 Boolean(
                     user.is_premium
                 );
 
-            const userId =
-                user.user_id ||
-                user.id ||
-                "";
+            const userId=
+                user.user_id||
+                user.id;
 
-            div.innerHTML =
+            div.innerHTML=
 
                 "<div class='user-email'>"+
                 escapeHTML(
-                    user.email ||
-                    userId ||
+                    user.email||
+                    userId||
                     "User"
                 )+
                 "</div>"+
@@ -5761,14 +6761,14 @@ function renderUsers(){
 
                 "⭐ XP: "+
                 escapeHTML(
-                    user.xp ?? 0
+                    user.xp??0
                 )+
 
                 "<br>"+
 
                 "🔥 Streak: "+
                 escapeHTML(
-                    user.streak ?? 0
+                    user.streak??0
                 )+
 
                 "<br>"+
@@ -5811,33 +6811,26 @@ function renderUsers(){
                 "<div class='user-actions'>"+
 
                 (
-                    userId
+                    premium
                     ?
-                    (
-                        premium
-                        ?
-                        "<button class='secondary' "+
-                        "onclick='setUserPremium(\""+
-                        escapeJS(userId)+
-                        "\",false)'>"+
-                        "Remove Premium"+
-                        "</button>"
-                        :
-                        "<button class='secondary' "+
-                        "onclick='setUserPremium(\""+
-                        escapeJS(userId)+
-                        "\",true)'>"+
-                        "Grant Premium"+
-                        "</button>"
-                    )
-                    :""
+                    "<button class='secondary' "+
+                    "onclick='setUserPremium(\""+
+                    escapeJS(userId)+
+                    "\",false)'>"+
+                    "Remove Premium"+
+                    "</button>"
+                    :
+                    "<button class='secondary' "+
+                    "onclick='setUserPremium(\""+
+                    escapeJS(userId)+
+                    "\",true)'>"+
+                    "Grant Premium"+
+                    "</button>"
                 )+
 
                 "</div>";
 
-            list.appendChild(
-                div
-            );
+            list.appendChild(div);
 
         }
     );
@@ -5855,8 +6848,8 @@ async function setUserPremium(
 ){
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -5870,13 +6863,11 @@ async function setUserPremium(
 
     const {
         error
-    } =
+    }=
         await supabaseClient
         .from("profiles")
         .update({
-
             is_premium:value
-
         })
         .eq(
             "user_id",
@@ -5905,14 +6896,14 @@ async function setUserPremium(
 
 async function loadAdminPayments(){
 
-    const list =
+    const list=
         document.getElementById(
             "adminPaymentsList"
         );
 
     if(
-        !currentUser ||
-        currentUser.id !==
+        !currentUser||
+        currentUser.id!==
         ADMIN_UID
     ){
 
@@ -5920,13 +6911,13 @@ async function loadAdminPayments(){
 
     }
 
-    list.innerHTML =
+    list.innerHTML=
         "<div class='loading'>Loading payment records...</div>";
 
     const {
         data,
         error
-    } =
+    }=
         await supabaseClient
         .from("payments")
         .select("*")
@@ -5939,46 +6930,44 @@ async function loadAdminPayments(){
 
     if(error){
 
-        list.innerHTML =
+        list.innerHTML=
             "<div class='info-box'>"+
             "<strong>Payment area is ready.</strong><br><br>"+
-            "No verified payment records are available yet."+
+            "Verified payment records are not available yet. "+
+            "This will be populated by the secure payment backend."+
             "</div>";
 
         return;
 
     }
 
-    if(
-        !data ||
-        !data.length
-    ){
+    if(!data||!data.length){
 
-        list.innerHTML =
+        list.innerHTML=
             "<p class='center'>No payment records yet.</p>";
 
         return;
 
     }
 
-    list.innerHTML = "";
+    list.innerHTML="";
 
     data.forEach(
         function(payment){
 
-            const div =
+            const div=
                 document.createElement(
                     "div"
                 );
 
-            div.className =
+            div.className=
                 "user-card";
 
-            div.innerHTML =
+            div.innerHTML=
 
                 "<strong>"+
                 escapeHTML(
-                    payment.user_id ||
+                    payment.user_id||
                     "Unknown user"
                 )+
                 "</strong>"+
@@ -5986,13 +6975,13 @@ async function loadAdminPayments(){
                 "<div class='user-meta'>"+
                 "Amount: "+
                 escapeHTML(
-                    payment.amount ||
+                    payment.amount||
                     "—"
                 )+
                 "<br>"+
                 "Status: "+
                 escapeHTML(
-                    payment.status ||
+                    payment.status||
                     "—"
                 )+
                 (
@@ -6008,9 +6997,7 @@ async function loadAdminPayments(){
                 )+
                 "</div>";
 
-            list.appendChild(
-                div
-            );
+            list.appendChild(div);
 
         }
     );
@@ -6019,160 +7006,99 @@ async function loadAdminPayments(){
 
 
 /* =====================================================
-   SUPABASE AUTH STATE
+   ADMIN PDF
 ===================================================== */
 
-supabaseClient.auth.onAuthStateChange(
-    async function(
-        event,
-        session
-    ){
+async function loadAdminPDFs(){
 
-        currentUser =
-            session
-            ?session.user
-            :null;
-
-        if(
-            event ===
-            "PASSWORD_RECOVERY"
-        ){
-
-            passwordRecoveryMode = true;
-
-            setTimeout(
-                function(){
-
-                    navigateTo(
-                        "resetPasswordScreen"
-                    );
-
-                },
-                0
-            );
-
-            return;
-
-        }
-
-        updateAccountArea();
-
-        if(currentUser){
-
-            await checkAdmin();
-
-        }else{
-
-            removeAdminButton();
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   START APP
-===================================================== */
-
-async function startApp(){
-
-    checkDailyReset();
-
-    updateStats();
-
-    buildTopicButtons();
-
-    buildAdminTopicOptions();
-
-    setDailyReaction();
-
-    updateAccountArea();
-
-    fillStudySetOptions();
-
-    const {
-        data
-    } =
-        await supabaseClient
-        .auth
-        .getSession();
-
-    currentUser =
-        data.session
-        ?data.session.user
-        :null;
-
-    updateAccountArea();
-
-    if(currentUser){
-
-        await checkAdmin();
-
-    }
-
-    /*
-       If Supabase redirected the user back after a
-       password recovery flow, show the new-password screen.
-    */
-
-    if(
-        location.hash ===
-        "#resetPasswordScreen"
-    ){
-
-        navigateTo(
-            "resetPasswordScreen",
-            false
+    const list=
+        document.getElementById(
+            "adminPdfList"
         );
 
-    }else{
+    if(
+        !currentUser||
+        currentUser.id!==
+        ADMIN_UID
+    ){
 
-        hideAllScreens();
-
-        document
-            .getElementById("homeScreen")
-            .classList.remove("hidden");
+        return;
 
     }
 
-}
+    list.innerHTML=
+        "<div class='loading'>Loading PDF records...</div>";
 
+    const {
+        data,
+        error
+    }=
+        await supabaseClient
+        .from("pdf_library")
+        .select("*")
+        .order(
+            "created_at",
+            {
+                ascending:false
+            }
+        );
 
-/* =====================================================
-   INPUT LISTENERS
-===================================================== */
+    if(error){
 
-[
-    "adminA",
-    "adminB",
-    "adminC",
-    "adminD"
-].forEach(
-    function(id){
+        list.innerHTML=
+            "<div class='info-box'>"+
+            "<strong>PDF library foundation is ready.</strong><br><br>"+
+            "The PDF table/storage is not connected yet."+
+            "</div>";
 
-        const input =
-            document.getElementById(id);
+        return;
 
-        if(input){
+    }
 
-            input.addEventListener(
-                "input",
-                updateAnswerOptions
-            );
+    if(!data||!data.length){
+
+        list.innerHTML=
+            "<p class='center'>No PDF records yet.</p>";
+
+        return;
+
+    }
+
+    list.innerHTML="";
+
+    data.forEach(
+        function(pdf){
+
+            const div=
+                document.createElement(
+                    "div"
+                );
+
+            div.className=
+                "pdf-card";
+
+            div.innerHTML=
+
+                "<strong>"+
+                escapeHTML(
+                    pdf.title||
+                    "Untitled PDF"
+                )+
+                "</strong>"+
+
+                "<span class='small'>"+
+                escapeHTML(
+                    pdf.topic||
+                    ""
+                )+
+                "</span>";
+
+            list.appendChild(div);
 
         }
-
-    }
-);
-
-
-document
-    .getElementById("adminTopic")
-    .addEventListener(
-        "change",
-        fillStudySetOptions
     );
+
+}
 
 
 /* =====================================================
@@ -6181,28 +7107,26 @@ document
 
 function shuffle(array){
 
-    const copy = [
+    const copy=[
         ...array
     ];
 
     for(
-        let i =
-            copy.length - 1;
-        i > 0;
+        let i=
+            copy.length-1;
+        i>0;
         i--
     ){
 
-        const j =
+        const j=
             Math.floor(
-                Math.random() *
-                (i + 1)
+                Math.random()*(i+1)
             );
 
         [
             copy[i],
             copy[j]
-        ] =
-        [
+        ]=[
             copy[j],
             copy[i]
         ];
@@ -6218,8 +7142,7 @@ function randomItem(array){
 
     return array[
         Math.floor(
-            Math.random() *
-            array.length
+            Math.random()*array.length
         )
     ];
 
@@ -6229,7 +7152,7 @@ function randomItem(array){
 function normalize(value){
 
     return String(
-        value || ""
+        value||""
     )
     .trim()
     .toLowerCase();
@@ -6240,8 +7163,8 @@ function normalize(value){
 function escapeHTML(value){
 
     if(
-        value === null ||
-        value === undefined
+        value===null||
+        value===undefined
     ){
 
         return "";
@@ -6250,30 +7173,11 @@ function escapeHTML(value){
 
     return String(value)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
@@ -6281,7 +7185,7 @@ function escapeHTML(value){
 function escapeJS(value){
 
     return String(
-        value || ""
+        value||""
     )
     .replace(
         /\\/g,
@@ -6299,16 +7203,141 @@ function showQuizError(message){
 
     document.getElementById(
         "quizQuestion"
-    ).innerHTML =
+    ).innerHTML=
         "<div class='error-box'>"+
         escapeHTML(message)+
         "</div>";
 
     document.getElementById(
         "quizOptions"
-    ).innerHTML = "";
+    ).innerHTML="";
 
 }
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+supabaseClient.auth.onAuthStateChange(
+    async function(
+        event,
+        session
+    ){
+
+        currentUser=
+            session
+            ?session.user
+            :null;
+
+        updateAccountArea();
+
+        if(currentUser){
+
+            ensureProfile();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START APP
+===================================================== */
+
+async function startApp(){
+
+    checkDailyReset();
+
+    updateStats();
+
+    updateTimerDisplay();
+
+    buildTopicButtons();
+
+    buildAdminTopicOptions();
+
+    setDailyReaction();
+
+    updateAccountArea();
+
+    fillStudySetOptions();
+
+    const {
+        data
+    }=
+        await supabaseClient
+        .auth
+        .getSession();
+
+    currentUser=
+        data.session
+        ?data.session.user
+        :null;
+
+    updateAccountArea();
+
+    if(currentUser){
+
+        await ensureProfile();
+
+        await checkAdmin();
+
+    }
+
+}
+
+
+/* =====================================================
+   EVENT LISTENERS
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const topic=
+            document.getElementById(
+                "adminTopic"
+            );
+
+        if(topic){
+
+            topic.addEventListener(
+                "change",
+                fillStudySetOptions
+            );
+
+        }
+
+        [
+            "adminA",
+            "adminB",
+            "adminC",
+            "adminD"
+        ].forEach(
+            function(id){
+
+                const input=
+                    document.getElementById(
+                        id
+                    );
+
+                if(input){
+
+                    input.addEventListener(
+                        "input",
+                        updateAnswerOptions
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
 
 
 /* =====================================================
@@ -6317,7 +7346,5 @@ function showQuizError(message){
 
 startApp();
 
-</script>
-
-</body>
+</script></body>
 </html>
